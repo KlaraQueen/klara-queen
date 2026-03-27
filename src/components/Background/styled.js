@@ -1,10 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
+import { theme } from "../../theme";
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   }
+
   body {
     margin: 0;
     padding: 0;
@@ -12,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const MainWrapper = styled.div`
+export const BackgroundWrapper = styled.div`
   height: 100vh;
   width: 100vw;
   position: relative;

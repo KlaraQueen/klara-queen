@@ -1,14 +1,8 @@
 import React from "react";
-import * as S from "./styled";
-import Navbar from "./components/Navbar";
+import Background from "./components/Background";
 
 function App() {
-  return (
-    <S.MainWrapper>
-      <S.GlobalStyle />
-      <Navbar />
-    </S.MainWrapper>
-  );
+  return <Background />;
 }
 
 export default App;
