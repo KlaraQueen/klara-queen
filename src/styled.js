@@ -2,6 +2,8 @@ import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
+  @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
   * {
     margin: 0;
     padding: 0;
@@ -11,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${theme.colors.outerSpace || "#1a0005"};
     color: ${theme.colors.white || "#ffffff"};
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;

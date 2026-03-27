@@ -14,10 +14,13 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const BackgroundWrapper = styled.div`
+  position: fixed;
+  inset: 0;
   height: 100vh;
   width: 100vw;
-  position: relative;
   overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
   background:
     radial-gradient(
       ellipse at 80% 10%,
