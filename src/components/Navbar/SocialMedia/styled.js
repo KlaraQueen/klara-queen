@@ -18,7 +18,10 @@ export const SocialWrapper = styled.div`
 export const SocialIcon = styled.a`
   color: ${theme.colors.goldHover};
   font-size: 1.3rem;
-  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    filter 0.3s ease;
   display: flex;
   align-items: center;
   text-decoration: none;

@@ -30,9 +30,13 @@ export const NavLink = styled.li`
   letter-spacing: 2px;
   cursor: pointer;
   font-size: 0.9rem;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.22),
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.22),
     0 0 8px rgba(212, 175, 55, 0.2);
-  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease,
+    transform 0.3s ease;
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     letter-spacing: 1.4px;
@@ -48,7 +52,8 @@ export const NavLink = styled.li`
   &:hover {
     color: ${theme.colors.white};
     transform: translateY(-1px);
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.42),
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.42),
       0 0 10px ${theme.colors.goldMain},
       0 0 18px ${theme.colors.goldHover};
   }
