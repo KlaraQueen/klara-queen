@@ -41,17 +41,17 @@ export const MainWrapper = styled.div`
     background:
       radial-gradient(
         ellipse at 70% 0%,
-        rgba(212, 175, 55, 0.18) 0%,
+        ${theme.colors.goldSoft18} 0%,
         transparent 45%
       ),
       radial-gradient(
         ellipse at 100% 50%,
-        rgba(180, 140, 30, 0.1) 0%,
+        ${theme.colors.goldSoft10} 0%,
         transparent 40%
       ),
       radial-gradient(
         ellipse at 30% 100%,
-        rgba(212, 175, 55, 0.08) 0%,
+        ${theme.colors.goldSoft08} 0%,
         transparent 45%
       );
     pointer-events: none;
@@ -65,8 +65,8 @@ export const MainWrapper = styled.div`
       45deg,
       transparent,
       transparent 80px,
-      rgba(212, 175, 55, 0.025) 80px,
-      rgba(212, 175, 55, 0.025) 81px
+      ${theme.colors.goldSoft025} 80px,
+      ${theme.colors.goldSoft025} 81px
     );
     pointer-events: none;
   }
