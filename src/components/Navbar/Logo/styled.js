@@ -8,11 +8,16 @@ export const LogoWrapper = styled.div`
 `;
 
 export const LogoImage = styled.img.attrs({ src: logoImg, alt: "Logo" })`
-  height: 50px;
+  height: 90px;
   width: auto;
   cursor: pointer;
-  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
-  transition: transform 0.3s ease;
+  filter: brightness(3) contrast(1.2) saturate(1.1)
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.34))
+    drop-shadow(0 0 8px ${theme.colors.goldMain})
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
