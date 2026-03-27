@@ -54,8 +54,7 @@ export const theme = {
         phone: "5px 8px 8px",
         desktopHd:
           "clamp(16px, 1.4vw, 22px) clamp(40px, 2.8vw, 60px) clamp(20px, 1.8vw, 28px)",
-        tv4k:
-          "clamp(22px, 1.2vw, 34px) clamp(66px, 3.2vw, 116px) clamp(28px, 1.7vw, 44px)",
+        tv4k: "clamp(22px, 1.2vw, 34px) clamp(66px, 3.2vw, 116px) clamp(28px, 1.7vw, 44px)",
       },
       logoHeight: {
         base: "clamp(62px, 7vw, 112px)",
