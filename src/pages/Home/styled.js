@@ -53,12 +53,16 @@ export const MainContent = styled.div`
     justify-content: center;
     gap: 0px;
     padding: 2px 14px 0;
-    margin: 0 auto;
+    margin: calc(10px - 2cm) auto 0;
   }
 
   @media (max-width: 640px) {
     gap: 0px;
     padding: 2px 10px 0;
+  }
+
+  @media (max-width: 600px) {
+    margin: calc(10px - 1cm) auto 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
@@ -95,6 +99,10 @@ export const LeftColumn = styled.div`
 
   @media (max-width: 640px) {
     margin-top: -36px;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
