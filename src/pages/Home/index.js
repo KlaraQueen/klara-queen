@@ -1,13 +1,20 @@
 import React from "react";
 import * as S from "./styled";
 import Hero from "./Hero/index";
+import Showcase from "./Showcase/index";
 
 function Home() {
   return (
     <S.PageWrapper>
-      <S.ContentOverlay>
-        <Hero />
-      </S.ContentOverlay>
+      <S.MainContent>
+        <S.LeftColumn>
+          <Hero />
+        </S.LeftColumn>
+
+        <S.RightColumn>
+          <Showcase />
+        </S.RightColumn>
+      </S.MainContent>
     </S.PageWrapper>
   );
 }

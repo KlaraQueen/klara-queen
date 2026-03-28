@@ -22,21 +22,21 @@ export const NavbarWrapper = styled.nav`
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     height: auto;
-    min-height: 82px;
+    min-height: 74px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
       "left spacer right"
       "center center center";
     align-items: center;
-    row-gap: 10px;
-    padding: 10px 22px 12px;
+    row-gap: 8px;
+    padding: 8px 18px 10px;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    min-height: 74px;
-    row-gap: 8px;
-    padding: 8px 14px 10px;
+    min-height: 68px;
+    row-gap: 6px;
+    padding: 6px 12px 8px;
   }
 `;
 

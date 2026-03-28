@@ -2,25 +2,37 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 
 export const HeroWrapper = styled.div`
-  position: absolute;
-  top: 18%;
-  left: clamp(24px, 7vw, 96px);
+  position: relative;
+  top: auto;
+  left: auto;
   transform: none;
   text-align: left;
   z-index: 10;
-  width: min(680px, calc(100vw - 48px));
-  padding: 20px 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: clamp(10px, 1.3vw, 16px);
+
+  @media (max-width: 1050px) {
+    padding: clamp(9px, 1.2vw, 14px);
+  }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    top: 20%;
-    left: 24px;
-    width: min(620px, calc(100vw - 48px));
+    max-width: 760px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1px;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    top: 22%;
-    left: 16px;
-    width: calc(100vw - 32px);
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    padding: 8px;
   }
 `;
 
@@ -28,15 +40,20 @@ export const HeroOverline = styled.div`
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: rgba(255, 242, 214, 0.92);
   text-transform: uppercase;
-  letter-spacing: 3.6px;
-  font-size: 0.82rem;
+  letter-spacing: clamp(1.2px, 0.2vw, 2.2px);
+  font-size: clamp(0.62rem, 0.9vw, 0.82rem);
   font-weight: 500;
   margin-bottom: 18px;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
 
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    text-align: center;
+    width: 100%;
+  }
+
   @media (max-width: ${theme.breakpoints.phone}px) {
     font-size: 0.72rem;
-    letter-spacing: 2.4px;
+    letter-spacing: 1.8px;
     margin-bottom: 12px;
   }
 `;
@@ -46,23 +63,34 @@ export const HeroTitle = styled.h1`
   font-family: "Cormorant Garamond", "Bodoni MT", "Didot", serif;
   color: ${theme.colors.goldHover};
   font-weight: 600;
-  letter-spacing: -0.3px;
-  font-size: clamp(1.9rem, 4.1vw, 3.5rem);
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-size: clamp(1.05rem, 3.1vw, 2.7rem);
   line-height: 0.94;
   text-shadow:
     0 0 2px rgba(255, 246, 220, 0.35),
     0 0 14px rgba(212, 175, 55, 0.22),
     0 10px 24px rgba(0, 0, 0, 0.24);
 
+  @media (max-width: 1050px) {
+    font-size: clamp(1rem, 2.7vw, 2.2rem);
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    letter-spacing: -1px;
+    font-size: clamp(0.95rem, 3.2vw, 1.95rem);
+    letter-spacing: 0;
+    text-align: center;
+    width: 100%;
     line-height: 1;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
     margin-bottom: 14px;
-    font-size: clamp(1.9rem, 10vw, 3rem);
-    line-height: 1.04;
+    font-size: clamp(0.9rem, 5.2vw, 1.6rem);
+    line-height: 1.1;
   }
 `;
 
@@ -71,21 +99,29 @@ export const HeroDescription = styled.p`
   max-width: 640px;
   color: rgba(255, 255, 255, 0.9);
   font-family: "Manrope", "Segoe UI", sans-serif;
-  font-size: 0.98rem;
+  font-size: clamp(0.78rem, 1vw, 0.92rem);
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 1.5;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
 
+  @media (max-width: 1050px) {
+    font-size: clamp(0.75rem, 0.95vw, 0.86rem);
+  }
+
   @media (max-width: ${theme.breakpoints.tablet}px) {
     max-width: 560px;
-    font-size: 1rem;
+    font-size: clamp(0.74rem, 1.8vw, 0.84rem);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
     max-width: 100%;
-    font-size: 0.95rem;
+    font-size: clamp(0.72rem, 3.4vw, 0.8rem);
     line-height: 1.45;
+    text-align: center;
   }
 `;
 
@@ -94,11 +130,20 @@ export const Actions = styled.div`
   align-items: center;
   gap: 16px;
   margin-top: 24px;
+  flex-wrap: nowrap;
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    gap: 12px;
+    gap: 8px;
     margin-top: 22px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 `;
 
@@ -111,16 +156,26 @@ const buttonBase = `
   border-radius: 14px;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 1.1px;
-  font-size: 0.88rem;
+  letter-spacing: 0.9px;
+  font-size: clamp(0.68rem, 0.8vw, 0.82rem);
   font-weight: 700;
+  white-space: nowrap;
+  flex: 0 0 auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease,
     color 0.3s ease, border-color 0.3s ease;
 
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.74rem;
+    letter-spacing: 0.8px;
+  }
+
   @media (max-width: ${theme.breakpoints.phone}px) {
-    min-height: 46px;
-    padding: 0 18px;
-    font-size: 0.82rem;
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.7rem;
+    letter-spacing: 0.7px;
   }
 `;
 
