@@ -20,23 +20,28 @@ export const NavbarWrapper = styled.nav`
     padding: 0 42px;
   }
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
+  @media (max-width: 821px) {
     height: auto;
-    min-height: 74px;
+    min-height: 56px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
       "left spacer right"
       "center center center";
     align-items: center;
-    row-gap: 8px;
-    padding: 8px 18px 10px;
+    row-gap: 2px;
+    padding: 5px 18px 6px;
+  }
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    row-gap: 2px;
+    padding: 4px 14px 5px;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    min-height: 68px;
-    row-gap: 6px;
-    padding: 6px 12px 8px;
+    min-height: 52px;
+    row-gap: 2px;
+    padding: 4px 12px 5px;
   }
 `;
 
@@ -45,7 +50,7 @@ export const NavLeft = styled.div`
   display: flex;
   justify-content: flex-start;
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
+  @media (max-width: 821px) {
     grid-area: left;
     flex: none;
     min-width: 0;
@@ -57,16 +62,13 @@ export const NavCenter = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
+  @media (max-width: 821px) {
     grid-area: center;
     flex: none;
     width: 100%;
     justify-content: center;
     overflow-x: auto;
     scrollbar-width: none;
-  }
-
-  @media (max-width: ${theme.breakpoints.tablet}px) {
     &::-webkit-scrollbar {
       display: none;
     }
@@ -78,7 +80,7 @@ export const NavRight = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
+  @media (max-width: 821px) {
     grid-area: right;
     flex: none;
     min-width: 0;

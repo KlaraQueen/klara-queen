@@ -13,6 +13,10 @@ export const PageWrapper = styled.section`
   background: transparent;
   padding: clamp(88px, 10vh, 122px) 0 0;
 
+  @media (max-width: 821px) {
+    padding: 76px 0 0;
+  }
+
   @media (max-width: ${theme.breakpoints.tablet}px) {
     padding: 76px 0 0;
   }

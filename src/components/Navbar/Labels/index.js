@@ -6,8 +6,9 @@ function Labels() {
     <S.NavLinks>
       <S.NavLink>Oferta</S.NavLink>
       <S.NavLink>Aktualności</S.NavLink>
+      <S.NavLink>Współpraca</S.NavLink>
       <S.NavLink>Opinie</S.NavLink>
-      <S.NavLink>Kontakt</S.NavLink>
+      <S.NavLink>O Nas</S.NavLink>
     </S.NavLinks>
   );
 }

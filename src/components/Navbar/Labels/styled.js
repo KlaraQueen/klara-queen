@@ -4,16 +4,17 @@ import { theme } from "../../../theme";
 export const NavLinks = styled.ul`
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: clamp(10px, 2vw, 40px);
   flex-wrap: nowrap;
   justify-content: center;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 8px;
   white-space: nowrap;
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
+  @media (max-width: 821px) {
     gap: 18px;
+    padding: 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
@@ -22,14 +23,14 @@ export const NavLinks = styled.ul`
 `;
 
 export const NavLink = styled.li`
-  flex-shrink: 0;
+  flex-shrink: 1;
   color: ${theme.colors.goldHover};
   font-family: ${theme.fonts.main};
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: clamp(0.8px, 0.12vw, 2px);
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: clamp(0.68rem, 0.8vw, 0.9rem);
   text-shadow:
     0 0 1px rgba(255, 255, 255, 0.22),
     0 0 8px rgba(212, 175, 55, 0.2);
@@ -38,7 +39,7 @@ export const NavLink = styled.li`
     text-shadow 0.3s ease,
     transform 0.3s ease;
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
+  @media (max-width: 821px) {
     letter-spacing: 1.4px;
     font-size: 0.82rem;
     white-space: nowrap;
