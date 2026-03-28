@@ -10,15 +10,18 @@ export const NavLinks = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0 8px;
-  white-space: nowrap;
+  white-space: normal;
 
   @media (max-width: 821px) {
-    gap: 18px;
+    gap: 6px 12px;
+    flex-wrap: wrap;
     padding: 0;
+    justify-content: center;
+    max-width: 100%;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    gap: 12px;
+    gap: 4px 8px;
   }
 `;
 
@@ -40,8 +43,8 @@ export const NavLink = styled.li`
     transform 0.3s ease;
 
   @media (max-width: 821px) {
-    letter-spacing: 1.4px;
-    font-size: 0.82rem;
+    letter-spacing: 1px;
+    font-size: 0.72rem;
     white-space: nowrap;
   }
 

@@ -14,19 +14,19 @@ export const PageWrapper = styled.section`
   padding: clamp(88px, 10vh, 122px) 0 0;
 
   @media (max-width: 821px) {
-    padding: 76px 0 0;
+    padding: 94px 0 0;
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    padding: 76px 0 0;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
-    padding: 72px 0 0;
+    padding: 94px 0 0;
   }
 
   @media (max-width: 640px) {
-    padding: 76px 0 0;
+    padding: 88px 0 0;
+  }
+
+  @media (max-width: ${theme.breakpoints.phone}px) {
+    padding: 84px 0 0;
   }
 `;
 

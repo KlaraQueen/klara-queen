@@ -22,26 +22,24 @@ export const NavbarWrapper = styled.nav`
 
   @media (max-width: 821px) {
     height: auto;
-    min-height: 56px;
+    min-height: 64px;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    grid-template-areas:
-      "left spacer right"
-      "center center center";
+    grid-template-areas: "left center right";
     align-items: center;
-    row-gap: 2px;
-    padding: 5px 18px 6px;
+    column-gap: 10px;
+    row-gap: 0;
+    padding: 6px 14px;
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    row-gap: 2px;
-    padding: 4px 14px 5px;
+    padding: 6px 12px;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    min-height: 52px;
-    row-gap: 2px;
-    padding: 4px 12px 5px;
+    min-height: 60px;
+    column-gap: 8px;
+    padding: 6px 10px;
   }
 `;
 
@@ -64,14 +62,9 @@ export const NavCenter = styled.div`
 
   @media (max-width: 821px) {
     grid-area: center;
-    flex: none;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     justify-content: center;
-    overflow-x: auto;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 `;
 
