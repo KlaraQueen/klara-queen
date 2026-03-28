@@ -66,16 +66,96 @@ export const NavCenter = styled.div`
     min-width: 0;
     justify-content: center;
   }
+
+  @media (max-width: 629px) {
+    display: none;
+  }
 `;
 
 export const NavRight = styled.div`
   flex: 1;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  gap: 8px;
 
   @media (max-width: 821px) {
     grid-area: right;
     flex: none;
     min-width: 0;
+  }
+`;
+
+export const DesktopSocial = styled.div`
+  display: flex;
+
+  @media (max-width: 629px) {
+    display: none;
+  }
+`;
+
+export const MenuToggle = styled.button`
+  display: none;
+  border: 1px solid rgba(241, 213, 146, 0.28);
+  background: rgba(28, 8, 14, 0.55);
+  color: ${theme.colors.goldHover};
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+
+  @media (max-width: 629px) {
+    display: inline-flex;
+  }
+`;
+
+export const DrawerBackdrop = styled.button`
+  position: fixed;
+  inset: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: ${(props) => (props.$open ? 1 : 0)};
+  pointer-events: ${(props) => (props.$open ? "auto" : "none")};
+  transition: opacity 0.25s ease;
+  z-index: 999;
+  display: none;
+
+  @media (max-width: 629px) {
+    display: block;
+  }
+`;
+
+export const MobileDrawer = styled.aside`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: max-content;
+  min-width: 146px;
+  max-width: min(58vw, 178px);
+  height: 100vh;
+  padding: 76px 6px 10px;
+  background: linear-gradient(180deg, rgba(45, 12, 20, 0.96) 0%, rgba(22, 5, 10, 0.97) 100%);
+  border-left: 1px solid rgba(241, 213, 146, 0.2);
+  transform: translateX(${(props) => (props.$open ? "0" : "100%")});
+  transition: transform 0.28s ease;
+  z-index: 1001;
+  display: none;
+  overflow-y: auto;
+
+  @media (max-width: 629px) {
+    display: block;
+  }
+`;
+
+export const MobileSocial = styled.div`
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-start;
+
+  & > div {
+    justify-content: flex-start;
   }
 `;
