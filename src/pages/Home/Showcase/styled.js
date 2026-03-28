@@ -80,8 +80,12 @@ export const SlideCard = styled.img`
     props.$active
       ? `0 28px 50px rgba(0, 0, 0, 0.45), 0 0 20px ${theme.colors.goldSoft18}`
       : "0 16px 26px rgba(0, 0, 0, 0.3)"};
-  transition: transform 0.75s ease, opacity 0.75s ease, filter 0.75s ease,
-    box-shadow 0.75s ease, border-color 0.75s ease;
+  transition:
+    transform 0.75s ease,
+    opacity 0.75s ease,
+    filter 0.75s ease,
+    box-shadow 0.75s ease,
+    border-color 0.75s ease;
 
   @media (max-width: 1050px) {
     width: clamp(180px, 23vw, 300px);
