@@ -45,7 +45,8 @@ export const NavLink = styled.li`
   line-height: 1;
   padding: ${(props) => (props.$vertical ? "2px 0" : "5px 9px")};
   border-radius: 10px;
-  border: ${(props) => (props.$vertical ? "none" : "1px solid rgba(241, 213, 146, 0.26)")};
+  border: ${(props) =>
+    props.$vertical ? "none" : "1px solid rgba(241, 213, 146, 0.26)"};
   background: ${(props) =>
     props.$vertical
       ? "transparent"
@@ -67,7 +68,11 @@ export const NavLink = styled.li`
     height: 7px;
     transform: rotate(45deg);
     border: 1px solid rgba(241, 213, 146, 0.72);
-    background: linear-gradient(145deg, rgba(255, 247, 220, 0.95) 0%, rgba(212, 175, 55, 0.9) 100%);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 247, 220, 0.95) 0%,
+      rgba(212, 175, 55, 0.9) 100%
+    );
     box-shadow:
       0 0 8px rgba(241, 213, 146, 0.32),
       inset 0 0 1px rgba(255, 255, 255, 0.85);
@@ -90,7 +95,8 @@ export const NavLink = styled.li`
   &:hover {
     color: ${theme.colors.white};
     transform: translateY(-1px);
-    border-color: ${(props) => (props.$vertical ? "transparent" : "rgba(241, 213, 146, 0.48)")};
+    border-color: ${(props) =>
+      props.$vertical ? "transparent" : "rgba(241, 213, 146, 0.48)"};
     background: ${(props) =>
       props.$vertical
         ? "transparent"

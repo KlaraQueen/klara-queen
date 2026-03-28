@@ -137,7 +137,11 @@ export const MobileDrawer = styled.aside`
   max-width: min(58vw, 178px);
   height: 100vh;
   padding: 76px 6px 10px;
-  background: linear-gradient(180deg, rgba(45, 12, 20, 0.96) 0%, rgba(22, 5, 10, 0.97) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(45, 12, 20, 0.96) 0%,
+    rgba(22, 5, 10, 0.97) 100%
+  );
   border-left: 1px solid rgba(241, 213, 146, 0.2);
   transform: translateX(${(props) => (props.$open ? "0" : "100%")});
   transition: transform 0.28s ease;
