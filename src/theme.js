@@ -8,11 +8,11 @@ export const theme = {
   },
 
   colors: {
-    bordoAccent: "#7a1428",
-    bordoAccentDark: "#4a0d1a",
-    bordoCore: "#2e0810",
-    deepBlack: "#1a0005",
-    outerSpace: "#1a0005",
+    bordoAccent: "#9e1e36",
+    bordoAccentDark: "#6a1426",
+    bordoCore: "#4a1020",
+    deepBlack: "#2e0810",
+    outerSpace: "#2e0810",
     white: "#ffffff",
     goldMain: "#d4af37",
     goldHover: "#f1d592",
