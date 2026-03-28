@@ -11,13 +11,12 @@ export const CardContainer = styled.div`
   padding: 0 0 clamp(14px, 3vw, 30px);
   border-radius: 18px;
   border: 1px solid rgba(212, 175, 55, 0.24);
-  background:
-    linear-gradient(
-      160deg,
-      rgba(132, 22, 44, 0.36) 0%,
-      rgba(46, 8, 16, 0.82) 40%,
-      rgba(13, 0, 3, 0.98) 100%
-    );
+  background: linear-gradient(
+    160deg,
+    rgba(132, 22, 44, 0.36) 0%,
+    rgba(46, 8, 16, 0.82) 40%,
+    rgba(13, 0, 3, 0.98) 100%
+  );
   box-shadow:
     inset 0 1px 0 rgba(255, 245, 220, 0.09),
     inset 0 -1px 0 rgba(0, 0, 0, 0.4),
@@ -50,13 +49,12 @@ export const CardContainer = styled.div`
   &:hover {
     border-color: rgba(241, 213, 146, 0.62);
     transform: ${(props) => (props.isLink ? "translateY(-8px)" : "none")};
-    background:
-      linear-gradient(
-        160deg,
-        rgba(155, 30, 58, 0.44) 0%,
-        rgba(56, 12, 22, 0.88) 40%,
-        rgba(13, 0, 3, 1) 100%
-      );
+    background: linear-gradient(
+      160deg,
+      rgba(155, 30, 58, 0.44) 0%,
+      rgba(56, 12, 22, 0.88) 40%,
+      rgba(13, 0, 3, 1) 100%
+    );
     box-shadow:
       0 4px 8px rgba(0, 0, 0, 0.32),
       0 12px 28px rgba(0, 0, 0, 0.46),
@@ -91,7 +89,9 @@ export const ProjectImage = styled.img`
   object-position: center;
   border-radius: 0;
   filter: brightness(0.88) saturate(0.9);
-  transition: filter 0.45s ease, transform 0.45s ease;
+  transition:
+    filter 0.45s ease,
+    transform 0.45s ease;
 
   ${CardContainer}:hover & {
     filter: brightness(1) saturate(1);
@@ -145,7 +145,12 @@ export const ProjectDescription = styled.p`
 export const GoldLine = styled.div`
   width: 44px;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, ${theme.colors.goldMain} 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    ${theme.colors.goldMain} 50%,
+    transparent 100%
+  );
   margin-top: 14px;
   opacity: 0.65;
 `;

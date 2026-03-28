@@ -7,8 +7,16 @@ export const PortfolioSection = styled.section`
   padding: clamp(0px, 1.4vw, 20px) clamp(16px, 4vw, 60px)
     clamp(68px, 7vw, 104px);
   background:
-    radial-gradient(ellipse at 80% 0%, rgba(122, 20, 40, 0.38) 0%, transparent 55%),
-    radial-gradient(ellipse at 20% 80%, rgba(74, 13, 26, 0.32) 0%, transparent 55%),
+    radial-gradient(
+      ellipse at 80% 0%,
+      rgba(122, 20, 40, 0.38) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 20% 80%,
+      rgba(74, 13, 26, 0.32) 0%,
+      transparent 55%
+    ),
     linear-gradient(180deg, rgba(46, 8, 16, 0.9) 0%, #0d0003 30%);
   display: flex;
   flex-direction: column;

@@ -25,7 +25,9 @@ function Portfolio() {
     } else {
       el.scrollBy({ left: dir * step, behavior: "smooth" });
     }
-    setTimeout(() => { busy.current = false; }, 580);
+    setTimeout(() => {
+      busy.current = false;
+    }, 580);
   };
 
   return (
@@ -36,7 +38,10 @@ function Portfolio() {
       </S.TitleWrapper>
 
       <S.SliderOuter>
-        <S.ArrowButton onClick={() => scroll(-1)} aria-label="Poprzedni projekt">
+        <S.ArrowButton
+          onClick={() => scroll(-1)}
+          aria-label="Poprzedni projekt"
+        >
           <FaChevronLeft />
         </S.ArrowButton>
 

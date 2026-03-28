@@ -78,7 +78,8 @@ export const SlideCard = styled.img`
   transform: ${(props) => {
     const abs = Math.abs(props.$offset);
     const scale = abs === 0 ? 1 : abs === 1 ? 0.8 : 0.64;
-    const distance = abs === 2 ? "var(--edge-offset-distance)" : "var(--offset-distance)";
+    const distance =
+      abs === 2 ? "var(--edge-offset-distance)" : "var(--offset-distance)";
     return `translate(-50%, -50%) translateX(calc(${props.$offset} * ${distance})) scale(${scale})`;
   }};
   box-shadow: ${(props) =>
