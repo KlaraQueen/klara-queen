@@ -1,17 +1,5 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { theme } from "../../theme";
-
-export const GlobalStyle = createGlobalStyle`
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-`;
 
 export const BackgroundWrapper = styled.div`
   position: fixed;

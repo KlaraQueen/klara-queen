@@ -19,32 +19,36 @@ export const ShowcaseWrapper = styled.div`
   @media (max-width: ${theme.breakpoints.tablet}px) {
     width: min(100%, 760px);
     height: clamp(240px, 46vw, 380px);
-    padding: 10px;
+    padding: 2px;
     margin: 0 auto;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    padding: 8px;
+    padding: 0 2px;
   }
 `;
 
 export const CardsViewport = styled.div`
-  --offset-distance: clamp(90px, 11vw, 150px);
+  --offset-distance: clamp(90px, 11vw, 140px);
+  --edge-offset-distance: clamp(150px, 18vw, 240px);
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 
   @media (max-width: 1050px) {
-    --offset-distance: clamp(70px, 9vw, 110px);
+    --offset-distance: clamp(72px, 9vw, 110px);
+    --edge-offset-distance: clamp(116px, 14vw, 170px);
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    --offset-distance: 72px;
+    --offset-distance: 68px;
+    --edge-offset-distance: 112px;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    --offset-distance: 58px;
+    --offset-distance: 56px;
+    --edge-offset-distance: 98px;
   }
 `;
 
@@ -74,7 +78,8 @@ export const SlideCard = styled.img`
   transform: ${(props) => {
     const abs = Math.abs(props.$offset);
     const scale = abs === 0 ? 1 : abs === 1 ? 0.8 : 0.64;
-    return `translate(-50%, -50%) translateX(calc(${props.$offset} * var(--offset-distance))) scale(${scale})`;
+    const distance = abs === 2 ? "var(--edge-offset-distance)" : "var(--offset-distance)";
+    return `translate(-50%, -50%) translateX(calc(${props.$offset} * ${distance})) scale(${scale})`;
   }};
   box-shadow: ${(props) =>
     props.$active

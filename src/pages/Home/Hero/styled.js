@@ -24,7 +24,7 @@ export const HeroWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1px;
+    padding: 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
@@ -32,7 +32,7 @@ export const HeroWrapper = styled.div`
     text-align: center;
     margin: 0 auto;
     align-items: center;
-    padding: 8px;
+    padding: 0 2px;
   }
 `;
 
