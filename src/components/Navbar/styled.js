@@ -96,16 +96,30 @@ export const DesktopSocial = styled.div`
 
 export const MenuToggle = styled.button`
   display: none;
-  border: 1px solid rgba(241, 213, 146, 0.28);
-  background: rgba(28, 8, 14, 0.55);
+  border: 1px solid rgba(241, 213, 146, 0.38);
+  background: rgba(34, 10, 16, 0.72);
   color: ${theme.colors.goldHover};
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.12rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    border-color: rgba(255, 239, 194, 0.75);
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.34),
+      0 0 10px rgba(241, 213, 146, 0.22);
+  }
 
   @media (max-width: 629px) {
     display: inline-flex;
@@ -124,27 +138,39 @@ export const DrawerBackdrop = styled.button`
   display: none;
 
   @media (max-width: 629px) {
+    top: 72px;
     display: block;
   }
 `;
 
 export const MobileDrawer = styled.aside`
   position: fixed;
-  top: 0;
-  right: 0;
-  width: max-content;
-  min-width: 146px;
-  max-width: min(58vw, 178px);
-  height: 100vh;
-  padding: 76px 6px 10px;
+  top: 78px;
+  left: 50%;
+  right: auto;
+  width: min(92vw, 360px);
+  max-width: 360px;
+  max-height: calc(100vh - 72px);
+  height: auto;
+  padding: 14px 18px 16px;
   background: linear-gradient(
     180deg,
-    rgba(45, 12, 20, 0.96) 0%,
-    rgba(22, 5, 10, 0.97) 100%
+    rgba(120, 40, 64, 0.72) 0%,
+    rgba(82, 24, 42, 0.68) 100%
   );
-  border-left: 1px solid rgba(241, 213, 146, 0.2);
-  transform: translateX(${(props) => (props.$open ? "0" : "100%")});
-  transition: transform 0.28s ease;
+  backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgba(241, 213, 146, 0.18);
+  border-radius: 16px;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 247, 220, 0.12);
+  transform: ${(props) =>
+    props.$open ? "translate(-50%, 0)" : "translate(-50%, -14px)"};
+  opacity: ${(props) => (props.$open ? 1 : 0)};
+  pointer-events: ${(props) => (props.$open ? "auto" : "none")};
+  transition:
+    transform 0.24s ease,
+    opacity 0.24s ease;
   z-index: 1001;
   display: none;
   overflow-y: auto;
@@ -155,11 +181,14 @@ export const MobileDrawer = styled.aside`
 `;
 
 export const MobileSocial = styled.div`
-  margin-top: 18px;
+  margin-top: 14px;
+  padding-top: 12px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  padding-left: 0;
+  border-top: 1px solid rgba(241, 213, 146, 0.18);
 
   & > div {
-    justify-content: flex-start;
+    justify-content: center;
   }
 `;

@@ -3,11 +3,11 @@ import { theme } from "../../../theme";
 
 export const NavLinks = styled.ul`
   display: flex;
-  align-items: ${(props) => (props.$vertical ? "flex-start" : "center")};
+  align-items: ${(props) => (props.$vertical ? "center" : "center")};
   gap: clamp(10px, 2vw, 40px);
   flex-wrap: nowrap;
   flex-direction: ${(props) => (props.$vertical ? "column" : "row")};
-  justify-content: ${(props) => (props.$vertical ? "flex-start" : "center")};
+  justify-content: ${(props) => (props.$vertical ? "center" : "center")};
   list-style: none;
   margin: 0;
   padding: ${(props) => (props.$vertical ? "0" : "0 8px")};
@@ -15,10 +15,10 @@ export const NavLinks = styled.ul`
   width: auto;
 
   @media (max-width: 821px) {
-    gap: ${(props) => (props.$vertical ? "6px" : "6px 12px")};
+    gap: ${(props) => (props.$vertical ? "10px" : "6px 12px")};
     flex-wrap: ${(props) => (props.$vertical ? "nowrap" : "wrap")};
     padding: 0;
-    justify-content: ${(props) => (props.$vertical ? "flex-start" : "center")};
+    justify-content: ${(props) => (props.$vertical ? "center" : "center")};
     max-width: 100%;
   }
 
@@ -29,19 +29,23 @@ export const NavLinks = styled.ul`
 
 export const NavLink = styled.li`
   flex-shrink: 1;
+  position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: ${(props) => (props.$vertical ? "flex-start" : "center")};
-  gap: ${(props) => (props.$vertical ? "8px" : "0")};
+  justify-content: ${(props) => (props.$vertical ? "center" : "center")};
+  gap: 0;
   width: auto;
   color: ${theme.colors.goldHover};
   font-family: ${theme.fonts.main};
-  font-weight: 600;
+  font-weight: ${(props) => (props.$vertical ? 500 : 600)};
   text-transform: uppercase;
-  letter-spacing: clamp(0.7px, 0.1vw, 1.5px);
+  letter-spacing: ${(props) =>
+    props.$vertical ? "1.1px" : "clamp(0.7px, 0.1vw, 1.5px)"};
   cursor: pointer;
-  font-size: clamp(0.64rem, 0.72vw, 0.82rem);
+  font-size: ${(props) =>
+    props.$vertical ? "0.9rem" : "clamp(0.64rem, 0.72vw, 0.82rem)"};
   white-space: nowrap;
+  text-align: center;
   line-height: 1;
   padding: ${(props) => (props.$vertical ? "2px 0" : "5px 9px")};
   border-radius: 10px;
@@ -63,32 +67,36 @@ export const NavLink = styled.li`
 
   &::before {
     content: "";
-    display: ${(props) => (props.$vertical ? "inline-block" : "none")};
-    width: 7px;
-    height: 7px;
-    transform: rotate(45deg);
-    border: 1px solid rgba(241, 213, 146, 0.72);
+    display: none;
+  }
+
+  &:not(:last-child)::after {
+    content: "";
+    display: ${(props) => (props.$vertical ? "block" : "none")};
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 18px;
+    height: 1px;
+    transform: translateX(-50%);
     background: linear-gradient(
-      145deg,
-      rgba(255, 247, 220, 0.95) 0%,
-      rgba(212, 175, 55, 0.9) 100%
+      90deg,
+      transparent 0%,
+      rgba(241, 213, 146, 0.5) 50%,
+      transparent 100%
     );
-    box-shadow:
-      0 0 8px rgba(241, 213, 146, 0.32),
-      inset 0 0 1px rgba(255, 255, 255, 0.85);
-    flex: 0 0 7px;
   }
 
   @media (max-width: 821px) {
-    letter-spacing: 0.8px;
-    font-size: 0.66rem;
+    letter-spacing: ${(props) => (props.$vertical ? "1.1px" : "0.8px")};
+    font-size: ${(props) => (props.$vertical ? "0.9rem" : "0.66rem")};
     padding: ${(props) => (props.$vertical ? "1px 0" : "4px 7px")};
     white-space: nowrap;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    letter-spacing: 0.7px;
-    font-size: 0.64rem;
+    letter-spacing: ${(props) => (props.$vertical ? "0.9px" : "0.7px")};
+    font-size: ${(props) => (props.$vertical ? "0.84rem" : "0.64rem")};
     padding: ${(props) => (props.$vertical ? "1px 0" : "4px 6px")};
   }
 
