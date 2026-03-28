@@ -99,13 +99,13 @@ export const MenuToggle = styled.button`
   border: 1px solid rgba(241, 213, 146, 0.38);
   background: rgba(34, 10, 16, 0.72);
   color: ${theme.colors.goldHover};
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.12rem;
+  font-size: 1.24rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition:
     background 0.2s ease,

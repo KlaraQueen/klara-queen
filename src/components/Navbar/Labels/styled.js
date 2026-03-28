@@ -15,7 +15,7 @@ export const NavLinks = styled.ul`
   width: auto;
 
   @media (max-width: 821px) {
-    gap: ${(props) => (props.$vertical ? "10px" : "6px 12px")};
+    gap: ${(props) => (props.$vertical ? "16px" : "6px 12px")};
     flex-wrap: ${(props) => (props.$vertical ? "nowrap" : "wrap")};
     padding: 0;
     justify-content: ${(props) => (props.$vertical ? "center" : "center")};
@@ -75,7 +75,7 @@ export const NavLink = styled.li`
     display: ${(props) => (props.$vertical ? "block" : "none")};
     position: absolute;
     left: 50%;
-    bottom: -7px;
+    bottom: -9px;
     width: 18px;
     height: 1px;
     transform: translateX(-50%);
