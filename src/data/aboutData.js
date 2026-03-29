@@ -7,7 +7,7 @@ export const aboutHero = {
 export const aboutManifesto = {
   title: "Twoja Kolekcja",
   paragraphs: [
-    "Zamiast \"projektowania\", wierzymy w kuratorstwo. Stworzyliśmy ekosystem wzorców, które wyznaczają standardy - sprawdzone, doskonale zaprojektowane i gotowe do Twojej marki.",
+    ". Stworzyliśmy ekosystem wzorców, które wyznaczają standardy - sprawdzone, doskonale zaprojektowane i gotowe do Twojej marki.",
     "Ty wybierasz fundament z naszej autorskiej kolekcji, my dostosowujemy go do Twojej tożsamości. Rezultat? Estetyka bez kompromisów i natychmiastowy autorytet w Twojej branży.",
     "Każdy szablon to efekt setki godzin testowania, niezliczonych iteracji i wiedzy zdobytej pracując z luksusowymi markami na całym świecie.",
   ],

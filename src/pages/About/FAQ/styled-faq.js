@@ -8,7 +8,11 @@ export const FAQWrapper = styled.div`
 export const FAQButton = styled.button`
   margin-top: clamp(40px, 6vw, 60px);
   padding: clamp(12px, 2vw, 16px) clamp(30px, 4vw, 50px);
-  background: linear-gradient(135deg, ${theme.colors.goldMain} 0%, #f1d592 100%);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.goldMain} 0%,
+    #f1d592 100%
+  );
   color: ${theme.colors.deepBlack};
   border: none;
   border-radius: 50px;

@@ -28,7 +28,11 @@ export const CTAText = styled.p`
 
 export const CTAButton = styled.button`
   padding: clamp(14px, 2.5vw, 18px) clamp(35px, 5vw, 60px);
-  background: linear-gradient(135deg, ${theme.colors.goldMain} 0%, #f1d592 100%);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.goldMain} 0%,
+    #f1d592 100%
+  );
   color: ${theme.colors.deepBlack};
   border: none;
   border-radius: 50px;
