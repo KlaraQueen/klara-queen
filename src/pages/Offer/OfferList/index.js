@@ -3,12 +3,14 @@ import * as S from "./styled";
 import { offerData } from "../../../data/offerData";
 
 const OfferList = () => {
+  const baseUrl = process.env.PUBLIC_URL || "";
+
   return (
     <S.OffersGrid>
       {offerData.map((offer) => (
         <S.OfferCardLink
           key={offer.id}
-          href={`/offer/${offer.id}`}
+          href={`${baseUrl}/offer/${offer.id}`}
           target="_blank"
           rel="noopener noreferrer"
         >
