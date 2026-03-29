@@ -207,3 +207,21 @@ export const BackButton = styled.button`
     transform: translateY(-1px);
   }
 `;
+
+export const CooperationLink = styled.button`
+  background: transparent;
+  border: none;
+  color: ${theme.colors.goldMain};
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: inherit;
+  padding: 0;
+  margin: 0;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${theme.colors.goldHover};
+  }
+`;
