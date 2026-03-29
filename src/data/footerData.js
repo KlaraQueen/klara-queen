@@ -9,7 +9,7 @@ export const footerData = {
       "Tworzymy luksusowe doświadczenia cyfrowe, które definiują nową jakość Twojej marki w sieci.",
   },
   links: [
-    { name: "Start", url: "#home" },
+    { name: "Start", to: "/" },
     { name: "Oferta", url: "#offer" },
     { name: "Aktualności", url: "#news" },
     { name: "Współpraca", url: "#collaboration" },

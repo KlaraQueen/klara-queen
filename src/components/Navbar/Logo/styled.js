@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { theme } from "../../../theme";
 import logoImg from "../../../image/znak-wodny.png";
 
-export const LogoWrapper = styled.div`
+export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const LogoImage = styled.img.attrs({ src: logoImg, alt: "Logo" })`

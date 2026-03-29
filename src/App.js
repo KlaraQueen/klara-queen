@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Background from "./components/Background";
 import Navbar from "./components/Navbar/index";
 import { GlobalStyle } from "./styled";
@@ -10,7 +11,9 @@ function App() {
       <GlobalStyle />
       <Background />
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
   );
 }

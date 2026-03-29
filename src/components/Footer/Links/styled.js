@@ -1,5 +1,56 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 import { theme } from "../../../theme";
+
+const footerNavLinkStyles = css`
+  color: rgba(255, 245, 220, 0.78);
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 1;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  position: relative;
+  padding-left: 0;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.8px;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(212, 175, 55, 0.25);
+  display: inline-block;
+  max-width: 100%;
+  width: fit-content;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background: ${theme.colors.goldMain};
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    color: ${theme.colors.white};
+    opacity: 1;
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 16px rgba(212, 175, 55, 0.45);
+
+    &::before {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    font-size: 0.76rem;
+  }
+
+  @media (max-width: ${theme.breakpoints.smallPhone}px) {
+    font-size: 0.7rem;
+  }
+`;
 
 export const LinksColumn = styled.div`
   display: flex;
@@ -65,51 +116,9 @@ export const LinksList = styled.div`
 `;
 
 export const NavLink = styled.a`
-  color: rgba(255, 245, 220, 0.78);
-  text-decoration: none;
-  font-size: 0.9rem;
-  opacity: 1;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  font-weight: 500;
-  position: relative;
-  padding-left: 0;
-  font-family: "Cormorant Garamond", serif;
-  letter-spacing: 0.8px;
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.3),
-    0 0 12px rgba(212, 175, 55, 0.25);
-  display: inline-block;
-  max-width: 100%;
-  width: fit-content;
+  ${footerNavLinkStyles}
+`;
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 1px;
-    background: ${theme.colors.goldMain};
-    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  &:hover {
-    color: ${theme.colors.white};
-    opacity: 1;
-    text-shadow:
-      0 2px 4px rgba(0, 0, 0, 0.3),
-      0 0 16px rgba(212, 175, 55, 0.45);
-
-    &::before {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: ${theme.breakpoints.tablet}px) {
-    font-size: 0.76rem;
-  }
-
-  @media (max-width: ${theme.breakpoints.smallPhone}px) {
-    font-size: 0.7rem;
-  }
+export const RouterLink = styled(Link)`
+  ${footerNavLinkStyles}
 `;
