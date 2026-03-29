@@ -7,7 +7,7 @@ export const PageContainer = styled.div`
 `;
 
 export const SectionContainer = styled.section`
-  padding: clamp(50px, 8vw, 100px) clamp(20px, 8vw, 50px);
+  padding: clamp(30px, 4vw, 50px) clamp(20px, 8vw, 50px);
   max-width: 1200px;
   margin: 0 auto;
   animation: fadeInUp 0.8s ease-out;
@@ -43,14 +43,14 @@ export const SectionDivider = styled.div`
     transparent 100%
   );
   opacity: 0.25;
-  margin: clamp(25px, 3vw, 40px) auto;
+  margin: clamp(15px, 2vw, 25px) auto;
   max-width: 200px;
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: 700;
-  margin-bottom: clamp(50px, 8vw, 80px);
+  margin-bottom: clamp(30px, 4vw, 50px);
   color: ${theme.colors.goldMain};
   font-family: "Cormorant Garamond", serif;
   letter-spacing: clamp(2px, 0.5vw, 4px);

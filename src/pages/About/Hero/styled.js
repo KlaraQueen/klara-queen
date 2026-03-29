@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 
 export const HeroSection = styled.section`
-  padding: clamp(40px, 6vw, 100px) clamp(20px, 8vw, 50px);
+  padding: clamp(25px, 4vw, 60px) clamp(20px, 8vw, 50px);
   text-align: center;
   position: relative;
   animation: fadeInDown 0.8s ease-out;
@@ -36,12 +36,12 @@ export const HeroSection = styled.section`
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 700;
   color: ${theme.colors.goldMain};
   font-family: "Cormorant Garamond", serif;
   letter-spacing: clamp(1px, 0.5vw, 3px);
-  margin: clamp(40px, 5vw, 60px) 0 clamp(20px, 3vw, 30px);
+  margin: clamp(35px, 5vw, 50px) 0 clamp(25px, 4vw, 35px);
   text-transform: uppercase;
 `;
 

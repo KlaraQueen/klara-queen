@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 
 export const CTASection = styled.section`
-  padding: clamp(80px, 12vw, 140px) clamp(20px, 8vw, 50px);
+  padding: clamp(50px, 8vw, 80px) clamp(20px, 8vw, 50px);
   text-align: center;
   position: relative;
   animation: fadeInUp 0.8s ease-out;

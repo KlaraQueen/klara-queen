@@ -91,7 +91,7 @@ export const StatBox = styled.div`
 `;
 
 export const Value = styled.span`
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: bold;
   color: ${theme.colors.goldMain};
   opacity: 0.95;

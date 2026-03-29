@@ -1,5 +1,5 @@
 export const aboutHero = {
-  title: "Kraina Luksusowego Dyzajnu",
+  title: "Wymiar Luksusowej Doskonałości",
   subtitle:
     "Gdzie wizja spotyka precyzję. Tworzymy cyfrowe eksperyencje, które wyznaczają standardy branży.",
 };

@@ -6,7 +6,7 @@ export const List = styled.div`
   padding-left: clamp(25px, 4vw, 40px);
   display: flex;
   flex-direction: column;
-  gap: clamp(40px, 6vw, 50px);
+  gap: clamp(25px, 4vw, 35px);
   position: relative;
   width: 100%;
 
@@ -68,7 +68,7 @@ export const Item = styled.div`
 export const Question = styled.h4`
   color: ${theme.colors.goldMain};
   margin-bottom: clamp(12px, 2vw, 15px);
-  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-weight: 700;
   letter-spacing: clamp(0.3px, 0.3vw, 0.6px);
   font-family: "Cormorant Garamond", serif;
