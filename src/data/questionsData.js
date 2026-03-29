@@ -66,4 +66,11 @@ export const questionsData = [
       "Masz dwie proste drogi. Możesz dokonać zakupu bezpośrednio przez nasz profil na Allegro lub napisać do nas wiadomość e-mail. W odpowiedzi otrzymasz od nas krótką instrukcję i ankietę, która pomoże nam doprecyzować wygląd Twojej nowej strony. Więcej szczegółów na temat całego procesu znajdziesz na naszej podstronie",
     cooperationLink: true,
   },
+  {
+    id: 12,
+    question: "Co jeśli nie mam gotowych treści i nie wiem, co napisać?",
+    answer:
+      "To najczęstsza obawa, dlatego maksymalnie uprościliśmy ten proces. Nie musisz być pisarzem ani fotografem. Po zakupie otrzymasz od nas prostą, interaktywną ankietę, która 'wyciągnie' od Ciebie najważniejsze informacje o Twoim biznesie. Na ich podstawie przygotujemy profesjonalne teksty, a jeśli brakuje Ci zdjęć – wygenerujemy dla Twojej marki unikalne grafiki AI. Nasza strona jest elastyczna: jeśli nie masz jeszcze cennika czy zespołu, po prostu ukryjemy te sekcje, a całość nadal będzie wyglądać luksusowo i spójnie. Więcej informacji znajdziesz w sekcji",
+    cooperationLink: true,
+  },
 ];
