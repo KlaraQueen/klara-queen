@@ -14,7 +14,7 @@ export const footerData = {
     { name: "Aktualności", url: "#news" },
     { name: "Współpraca", url: "#collaboration" },
     { name: "Opinie", url: "#opinions" },
-    { name: "O Nas", url: "#about" },
+    { name: "O Nas", to: "/about"  },
     { name: "Najczęstsze pytania", url: "#faq" },
   ],
   socials: [

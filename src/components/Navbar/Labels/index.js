@@ -1,5 +1,7 @@
 import React from "react";
 import * as S from "./styled";
+import { navbarData } from "../../../data/navbarData";
+import { Link } from "react-router-dom";
 
 function Labels({ vertical = false, onItemClick }) {
   const handleClick = () => {
@@ -10,21 +12,23 @@ function Labels({ vertical = false, onItemClick }) {
 
   return (
     <S.NavLinks $vertical={vertical}>
-      <S.NavLink $vertical={vertical} onClick={handleClick}>
-        Oferta
-      </S.NavLink>
-      <S.NavLink $vertical={vertical} onClick={handleClick}>
-        Aktualności
-      </S.NavLink>
-      <S.NavLink $vertical={vertical} onClick={handleClick}>
-        Współpraca
-      </S.NavLink>
-      <S.NavLink $vertical={vertical} onClick={handleClick}>
-        Opinie
-      </S.NavLink>
-      <S.NavLink $vertical={vertical} onClick={handleClick}>
-        O Nas
-      </S.NavLink>
+      {navbarData.labels.map((item, idx) => (
+        <S.NavLink
+          key={`${item.name}-${idx}`}
+          $vertical={vertical}
+          onClick={handleClick}
+        >
+          {item.to ? (
+            // Jeśli ma 'to', używamy Linka z routera
+            <S.StyledLink as={Link} to={item.to}>
+              {item.name}
+            </S.StyledLink>
+          ) : (
+            // Jeśli ma 'url', używamy zwykłego a
+            <S.StyledLink href={item.url}>{item.name}</S.StyledLink>
+          )}
+        </S.NavLink>
+      ))}
     </S.NavLinks>
   );
 }

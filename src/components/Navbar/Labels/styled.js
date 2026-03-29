@@ -115,3 +115,14 @@ export const NavLink = styled.li`
       0 0 18px ${theme.colors.goldHover};
   }
 `;
+
+export const StyledLink = styled.a`
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: inherit;
+`;
