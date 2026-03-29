@@ -24,13 +24,14 @@ const OfferDetails = ({ offerId, onClose, isFullPage = false }) => {
           <FeaturesSection features={offer.features} />
 
           <S.ButtonGroup>
-            <S.PrimaryButton href="mailto:kontakt@studioklara.pl" target="_blank">
+            <S.PrimaryButton
+              href="mailto:kontakt@studioklara.pl"
+              target="_blank"
+            >
               Zainteresowana
             </S.PrimaryButton>
             {!isFullPage && (
-              <S.SecondaryButton onClick={onClose}>
-                Zamknij
-              </S.SecondaryButton>
+              <S.SecondaryButton onClick={onClose}>Zamknij</S.SecondaryButton>
             )}
           </S.ButtonGroup>
         </S.DetailsContent>

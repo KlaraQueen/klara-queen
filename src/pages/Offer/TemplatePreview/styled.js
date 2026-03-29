@@ -95,7 +95,11 @@ export const Subtitle = styled.p`
 
 export const PriceTag = styled.div`
   display: inline-block;
-  background: linear-gradient(135deg, ${theme.colors.goldMain} 0%, #f1d592 100%);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.goldMain} 0%,
+    #f1d592 100%
+  );
   color: ${theme.colors.deepBlack};
   padding: clamp(12px, 2vw, 20px) clamp(25px, 4vw, 40px);
   border-radius: 50px;
@@ -263,7 +267,11 @@ export const FeatureCheckmark = styled.span`
 `;
 
 export const CTASection = styled.section`
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(46, 8, 16, 0.5) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.1) 0%,
+    rgba(46, 8, 16, 0.5) 100%
+  );
   border: 2px solid rgba(212, 175, 55, 0.2);
   border-radius: 20px;
   padding: clamp(40px, 8vw, 60px);
@@ -307,7 +315,11 @@ export const PrimaryButton = styled.a`
   align-items: center;
   justify-content: center;
   padding: clamp(12px, 2.5vw, 16px) clamp(30px, 5vw, 50px);
-  background: linear-gradient(135deg, ${theme.colors.goldMain} 0%, #f1d592 100%);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.goldMain} 0%,
+    #f1d592 100%
+  );
   color: ${theme.colors.deepBlack};
   text-decoration: none;
   border-radius: 50px;

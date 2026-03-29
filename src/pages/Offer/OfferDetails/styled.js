@@ -66,7 +66,11 @@ export const CloseButton = styled.button`
   position: absolute;
   top: clamp(20px, 3vw, 40px);
   right: clamp(20px, 3vw, 40px);
-  background: linear-gradient(135deg, ${theme.colors.goldMain} 0%, #f1d592 100%);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.goldMain} 0%,
+    #f1d592 100%
+  );
   color: ${theme.colors.deepBlack};
   border: none;
   width: clamp(40px, 6vw, 50px);
@@ -139,7 +143,11 @@ export const PrimaryButton = styled.a`
   align-items: center;
   justify-content: center;
   padding: clamp(12px, 2.5vw, 16px) clamp(25px, 4vw, 40px);
-  background: linear-gradient(135deg, ${theme.colors.goldMain} 0%, #f1d592 100%);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.goldMain} 0%,
+    #f1d592 100%
+  );
   color: ${theme.colors.deepBlack};
   text-decoration: none;
   border-radius: 50px;
