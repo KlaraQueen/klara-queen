@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     background-color: ${theme.colors.outerSpace || "#1a0005"};
     color: ${theme.colors.white || "#ffffff"};
@@ -17,6 +21,11 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
   }
 
   a {

@@ -6,6 +6,11 @@ import Footer from "./components/Footer";
 import { GlobalStyle } from "./styled";
 import Home from "./pages/Home/index";
 import About from "./pages/About/index";
+import styled from "styled-components";
+
+const MainContent = styled.div`
+  flex: 1;
+`;
 
 function App() {
   return (
@@ -13,10 +18,12 @@ function App() {
       <GlobalStyle />
       <Background />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <MainContent>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </MainContent>
       <Footer />
     </>
   );

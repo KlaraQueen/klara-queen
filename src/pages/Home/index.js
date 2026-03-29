@@ -3,7 +3,6 @@ import * as S from "./styled";
 import Hero from "./Hero/index";
 import Showcase from "./Showcase/index";
 import Portfolio from "./Portfolio/index";
-import Footer from "../../components/Footer/index";
 
 function Home() {
   return (
@@ -21,7 +20,6 @@ function Home() {
       </S.PageWrapper>
 
       <Portfolio />
-      <Footer />
     </>
   );
 }
