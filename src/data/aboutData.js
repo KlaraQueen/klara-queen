@@ -11,26 +11,27 @@ export const aboutManifesto = {
     "Ty wybierasz fundament z naszej autorskiej kolekcji, my dostosowujemy go do Twojej tożsamości. Rezultat? Estetyka bez kompromisów i natychmiastowy autorytet w Twojej branży.",
     "Każdy szablon to efekt setki godzin testowania, niezliczonych iteracji i wiedzy zdobytej pracując z luksusowymi markami na całym świecie.",
   ],
-  signature: "Autorska Kolekcja · Sprawdzone Struktury · Estetyka Bez Kompromisów",
+  signature:
+    "Autorska Kolekcja · Sprawdzone Struktury · Estetyka Bez Kompromisów",
 };
 
 export const aboutStats = [
   {
     id: 1,
     label: "Selekcja",
-    value: "01",
+    value: "1",
     description: "Autorskie szablony zaprojektowane pod luksusowe marki.",
   },
   {
     id: 2,
     label: "Szybkość",
-    value: "02",
+    value: "2",
     description: "Twoja obecność online w 2-4 dni robocze.",
   },
   {
     id: 3,
     label: "Spójność",
-    value: "03",
+    value: "3",
     description: "Gwarancja doskonałego wyglądu na każdym urządzeniu.",
   },
 ];
@@ -58,7 +59,8 @@ export const aboutFaq = [
 
 export const aboutSocial = {
   title: "Gdzie nas znajdziesz?",
-  description: "Nasze projekty dostępne na najpopularniejszych platformach. Allegro oferuje nas za nieco wyższą cenę ze względu na ich prowizję.",
+  description:
+    "Nasze projekty dostępne na najpopularniejszych platformach. Allegro oferuje nas za nieco wyższą cenę ze względu na ich prowizję.",
   platforms: [
     {
       id: 1,
@@ -73,7 +75,8 @@ export const aboutSocial = {
     {
       id: 3,
       name: "Allegro",
-      description: "Kupuj nasze szablony w sklepie Allegro (ceny wyższe ze względu na prowizję).",
+      description:
+        "Kupuj nasze szablony w sklepie Allegro (ceny wyższe ze względu na prowizję).",
     },
   ],
 };

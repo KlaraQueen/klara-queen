@@ -3,10 +3,7 @@ import { theme } from "../../../theme";
 
 export const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(clamp(250px, 25vw, 300px), 1fr)
-  );
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(30px, 5vw, 50px);
   margin-top: clamp(60px, 8vw, 80px);
   width: 100%;

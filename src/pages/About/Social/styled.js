@@ -65,13 +65,14 @@ export const Description = styled.p`
 
 export const PlatformsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(clamp(200px, 25vw, 250px), 1fr)
-  );
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(25px, 4vw, 40px);
   width: 100%;
   margin-top: clamp(20px, 3vw, 30px);
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const PlatformCard = styled.a`

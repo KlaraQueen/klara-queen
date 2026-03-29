@@ -24,7 +24,7 @@ const About = () => {
       <S.SectionDivider />
 
       <S.SectionContainer>
-        <S.SectionTitle>Twoje Atuty</S.SectionTitle>
+        <S.SectionTitle>Nasze Atuty</S.SectionTitle>
         <S.ContentWrapper style={{ maxWidth: "1000px" }}>
           <Stats />
         </S.ContentWrapper>
