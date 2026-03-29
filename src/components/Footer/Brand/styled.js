@@ -78,7 +78,8 @@ export const BrandDescription = styled.p`
   font-weight: 400;
   letter-spacing: 0.6px;
   font-family: "Cormorant Garamond", serif;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25),
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.25),
     0 0 10px rgba(212, 175, 55, 0.2);
 
   @media (max-width: ${theme.breakpoints.tablet}px) {

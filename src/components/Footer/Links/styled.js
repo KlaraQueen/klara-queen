@@ -77,7 +77,8 @@ export const NavLink = styled.a`
   padding-left: 0;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 0.8px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
     0 0 12px rgba(212, 175, 55, 0.25);
   display: inline-block;
   max-width: 100%;
@@ -97,7 +98,8 @@ export const NavLink = styled.a`
   &:hover {
     color: ${theme.colors.white};
     opacity: 1;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.3),
       0 0 16px rgba(212, 175, 55, 0.45);
 
     &::before {

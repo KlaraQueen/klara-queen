@@ -42,7 +42,8 @@ export const CopyrightText = styled.span`
   transition: all 0.3s ease;
   font-family: "Cormorant Garamond", serif;
   font-weight: 500;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25),
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.25),
     0 0 10px rgba(212, 175, 55, 0.2);
 
   @media (max-width: ${theme.breakpoints.phone}px) {
@@ -65,7 +66,8 @@ export const ContactEmail = styled.a`
   position: relative;
   opacity: 1;
   font-family: "Cormorant Garamond", serif;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
     0 0 14px rgba(212, 175, 55, 0.3);
 
   &::after {
@@ -86,7 +88,8 @@ export const ContactEmail = styled.a`
   &:hover {
     color: ${theme.colors.white};
     opacity: 1;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.3),
       0 0 20px rgba(212, 175, 55, 0.6);
 
     &::after {
@@ -100,6 +103,6 @@ export const ContactEmail = styled.a`
   }
 
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
-    font-size: 0.70rem;
+    font-size: 0.7rem;
   }
 `;
