@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import { theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
@@ -48,5 +49,20 @@ export const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     background: ${theme.colors.goldHover || "#f1d592"};
+  }
+`;
+
+export const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+export const MainContent = styled.div`
+  flex: 1;
+  padding-top: 90px;
+
+  @media (max-width: 821px) {
+    padding-top: 70px;
   }
 `;

@@ -4,26 +4,16 @@ import Background from "./components/Background";
 import Navbar from "./components/Navbar/index";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import { GlobalStyle } from "./styled";
+import { GlobalStyle, AppWrapper, MainContent } from "./styled";
 import Home from "./pages/Home/index";
 import About from "./pages/About/index";
 import Questions from "./pages/Questions/index";
 import Cooperation from "./pages/Cooperation/index";
-import styled from "styled-components";
-import { theme } from "./theme";
-
-const MainContent = styled.div`
-  flex: 1;
-  padding-top: 90px;
-
-  @media (max-width: 821px) {
-    padding-top: 70px;
-  }
-`;
+import Offer from "./pages/Offer/index";
 
 function App() {
   return (
-    <>
+    <AppWrapper>
       <GlobalStyle />
       <Background />
       <Navbar />
@@ -32,12 +22,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/offer" element={<Offer />} />
+          <Route path="/offer/:id" element={<Offer />} />
           <Route path="/questions" element={<Questions />} />
           <Route path="/cooperation" element={<Cooperation />} />
         </Routes>
       </MainContent>
       <Footer />
-    </>
+    </AppWrapper>
   );
 }
 

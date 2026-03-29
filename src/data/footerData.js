@@ -9,7 +9,7 @@ export const footerData = {
   },
   links: [
     { name: "Start", to: "/" },
-    { name: "Oferta", url: "#offer" },
+    { name: "Oferta", to: "/offer" },
     { name: "Aktualności", url: "#news" },
     { name: "Współpraca", to: "/cooperation" },
     { name: "Opinie", url: "#opinions" },
