@@ -4,7 +4,7 @@ export const navbarData = {
   labels: [
     { name: "Oferta", url: "#offer" },
     { name: "Aktualności", url: "#news" },
-    { name: "Współpraca", url: "#collab" },
+    { name: "Współpraca", to: "/cooperation" },
     { name: "Najczęstsze pytania", to: "/questions" },
     { name: "O Nas", to: "/about" },
   ],

@@ -8,6 +8,7 @@ import { GlobalStyle } from "./styled";
 import Home from "./pages/Home/index";
 import About from "./pages/About/index";
 import Questions from "./pages/Questions/index";
+import Cooperation from "./pages/Cooperation/index";
 import styled from "styled-components";
 import { theme } from "./theme";
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/questions" element={<Questions />} />
+          <Route path="/cooperation" element={<Cooperation />} />
         </Routes>
       </MainContent>
       <Footer />

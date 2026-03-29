@@ -63,6 +63,7 @@ export const questionsData = [
     id: 11,
     question: "Jak nawiązać z nami współpracę?",
     answer:
-      "Masz dwie proste drogi. Możesz dokonać zakupu bezpośrednio przez nasz profil na Allegro lub napisać do nas wiadomość e-mail. W odpowiedzi otrzymasz od nas krótką instrukcję i ankietę, która pomoże nam doprecyzować wygląd Twojej nowej strony. Więcej szczegółów na temat całego procesu znajdziesz na naszej podstronie Współpraca.",
+      "Masz dwie proste drogi. Możesz dokonać zakupu bezpośrednio przez nasz profil na Allegro lub napisać do nas wiadomość e-mail. W odpowiedzi otrzymasz od nas krótką instrukcję i ankietę, która pomoże nam doprecyzować wygląd Twojej nowej strony. Więcej szczegółów na temat całego procesu znajdziesz na naszej podstronie",
+    cooperationLink: true,
   },
 ];

@@ -22,7 +22,18 @@ const Questions = () => {
           {questionsData.map((item, index) => (
             <S.QuestionItem key={item.id} style={{ "--index": index }}>
               <S.QuestionTitle>{item.question}</S.QuestionTitle>
-              <S.QuestionAnswer>{item.answer}</S.QuestionAnswer>
+              <S.QuestionAnswer>
+                {item.answer}
+                {item.cooperationLink && (
+                  <>
+                    {" "}
+                    <S.CooperationLink onClick={() => navigate("/cooperation")}>
+                      Współpraca
+                    </S.CooperationLink>
+                    .
+                  </>
+                )}
+              </S.QuestionAnswer>
             </S.QuestionItem>
           ))}
         </S.QuestionsList>
