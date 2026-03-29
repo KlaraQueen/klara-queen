@@ -20,7 +20,6 @@ function ProjectCard({ project }) {
       </S.IconCircle>
 
       <S.ProjectTitle>{title}</S.ProjectTitle>
-      <S.ProjectDescription>{description}</S.ProjectDescription>
 
       <S.GoldLine />
     </S.CardContainer>
