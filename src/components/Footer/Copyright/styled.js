@@ -12,17 +12,10 @@ export const CopyrightBar = styled.div`
   gap: 20px;
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    flex-direction: column;
-    gap: 15px;
-    margin: 35px auto 0;
-    padding: 18px 0;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
+    flex-direction: column-reverse;
+    gap: 12px;
     margin: 30px auto 0;
     padding: 15px 0;
-    gap: 12px;
-    flex-direction: column-reverse;
     text-align: center;
     align-items: center;
   }
@@ -46,7 +39,7 @@ export const CopyrightText = styled.span`
     0 1px 3px rgba(0, 0, 0, 0.25),
     0 0 10px rgba(212, 175, 55, 0.2);
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     font-size: 0.68rem;
   }
 
@@ -97,7 +90,7 @@ export const ContactEmail = styled.a`
     }
   }
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     font-size: 0.76rem;
     letter-spacing: 0.8px;
   }

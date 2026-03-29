@@ -8,9 +8,6 @@ export const LinksColumn = styled.div`
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     align-items: center;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     gap: 12px;
     text-align: center;
   }
@@ -33,7 +30,7 @@ export const SectionTitle = styled.h4`
   display: inline-block;
   opacity: 0.95;
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     font-size: 0.76rem;
     letter-spacing: 2px;
     display: block;
@@ -54,6 +51,7 @@ export const LinksList = styled.div`
   @media (max-width: ${theme.breakpoints.tablet}px) {
     grid-template-columns: 1fr;
     gap: 12px;
+    place-items: center;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
@@ -108,10 +106,6 @@ export const NavLink = styled.a`
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    font-size: 0.86rem;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     font-size: 0.76rem;
   }
 

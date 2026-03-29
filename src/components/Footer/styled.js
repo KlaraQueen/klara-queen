@@ -19,10 +19,6 @@ export const FooterContainer = styled.footer`
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    padding: 50px 25px 20px;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     padding: 45px 18px 18px;
   }
 
@@ -41,7 +37,7 @@ export const FooterContent = styled.div`
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 20px;
     text-align: center;
   }
 

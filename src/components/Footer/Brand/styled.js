@@ -21,10 +21,6 @@ export const LogoWrapper = styled.div`
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    margin-top: -44px;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     margin-top: -36px;
   }
 
@@ -56,10 +52,6 @@ export const LogoImage = styled.img`
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    height: 156px;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     height: 140px;
   }
 
@@ -83,13 +75,9 @@ export const BrandDescription = styled.p`
     0 0 10px rgba(212, 175, 55, 0.2);
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    font-size: 0.88rem;
-    max-width: 500px;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     font-size: 0.78rem;
     line-height: 1.5;
+    max-width: 500px;
   }
 
   @media (max-width: ${theme.breakpoints.smallPhone}px) {

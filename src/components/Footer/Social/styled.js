@@ -8,12 +8,8 @@ export const SocialColumn = styled.div`
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     align-items: center;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     gap: 12px;
     text-align: center;
-    align-items: center;
   }
 
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
@@ -34,7 +30,7 @@ export const SectionTitle = styled.h4`
   display: inline-block;
   opacity: 0.95;
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     font-size: 0.76rem;
     letter-spacing: 2px;
     display: block;
@@ -54,12 +50,7 @@ export const SocialIconsRow = styled.div`
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     justify-content: center;
-    gap: 28px;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
     gap: 16px;
-    justify-content: center;
   }
 
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
@@ -121,7 +112,7 @@ export const SocialItem = styled.a`
     }
   }
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     gap: 6px;
 
     svg {
@@ -149,7 +140,7 @@ export const SocialLabel = styled.span`
   font-family: "Cormorant Garamond", serif;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     font-size: 0.58rem;
     letter-spacing: 1px;
   }
