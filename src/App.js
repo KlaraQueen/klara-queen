@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { GlobalStyle } from "./styled";
 import Home from "./pages/Home/index";
 import About from "./pages/About/index";
+import Questions from "./pages/Questions/index";
 import styled from "styled-components";
 
 const MainContent = styled.div`
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/questions" element={<Questions />} />
         </Routes>
       </MainContent>
       <Footer />
