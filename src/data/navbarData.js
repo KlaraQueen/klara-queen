@@ -5,7 +5,7 @@ export const navbarData = {
     { name: "Oferta", url: "#offer" },
     { name: "Aktualności", url: "#news" },
     { name: "Współpraca", url: "#collab" },
-    { name: "Opinie", url: "#reviews" },
+    { name: "Najczęstsze pytania", to: "/questions" },
     { name: "O Nas", to: "/about" },
   ],
   socials: socialMediaData,

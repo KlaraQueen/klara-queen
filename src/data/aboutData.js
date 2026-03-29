@@ -39,28 +39,28 @@ export const aboutStats = [
 export const aboutFaq = [
   {
     id: 1,
-    question: "Jak wygląda proces?",
+    question: "Czy muszę płacić za serwer (hosting) co roku?",
     answer:
-      "Wybierasz bazę z naszej autorskiej kolekcji, która najlepiej oddaje charakter Twojej marki. Resztą – wdrożeniem i detalami – zajmujemy się my. To proste, szybkie i gwarantowane.",
+      'Nie. To nasza największa przewaga. Twoja strona korzysta z profesjonalnej infrastruktury, dzięki której serwer masz za darmo na zawsze. Nie płacisz co miesiąc ani co rok za "utrzymanie systemu". Jedyny koszt to odnowienie domeny (ok. 80 zł rocznie), przy czym pierwszy rok masz już wliczony w cenę strony. Jest to koszt, którego nie unikniesz, niezależnie od tego, z jakim dostawcą współpracujesz. My po prostu oferujemy Ci darmowy hosting, co jest ogromną oszczędnością w porównaniu do innych rozwiązań na rynku.',
   },
   {
     id: 2,
-    question: "Dlaczego warto wybrać szablon?",
+    question: "Skąd bierze się tak krótki czas realizacji (48h)?",
     answer:
-      "Otrzymujesz rozwiązanie, które przeszło setki testów estetycznych i technicznych. Zyskujesz czas, nie tracąc na prestiżu. Każdy szczegół został curated dla luksusowych marek.",
+      "To kwestia perfekcyjnej optymalizacji. Pracujemy na naszych autorskich fundamentach, które projektowaliśmy od zera przez wiele miesięcy. Zamiast tracić czas na powtarzalne ustawienia techniczne, od razu przechodzimy do personalizacji Twojej marki. Cały proces zamykamy zazwyczaj w 48 godzinach roboczych. ",
   },
   {
     id: 3,
-    question: "Jaki jest czas realizacji?",
+    question: "Co w przypadku, gdy będę potrzebować zmian w przyszłości?",
     answer:
-      "Dzięki gotowym fundamentom, Twój projekt jest gotowy do publikacji w zaledwie 2 do 4 dni roboczych. Brak czekania, brak przeciągania – tylko rezultat.",
+      "Gwarantujemy Ci pełne bezpieczeństwo. W cenie otrzymujesz trzy bezpłatne pakiety poprawek, z których możesz skorzystać w ciągu aż 3 lat od startu strony (np. przy zmianie numeru telefonu czy cennika). Każda kolejna modyfikacja to symboliczny koszt rzędu 10-50 zł – najtaniej na rynku. To rozwiązanie, które daje Ci spokój i pewność, że Twoja strona będzie zawsze aktualna i dostosowana do potrzeb Twojego biznesu, bez obaw o wysokie koszty zmian w przyszłości.",
   },
 ];
 
 export const aboutSocial = {
   title: "Gdzie nas znajdziesz?",
   description:
-    "Nasze projekty dostępne na najpopularniejszych platformach. Allegro oferuje nas za nieco wyższą cenę ze względu na ich prowizję.",
+    "Nasze projekty dostępne na najpopularniejszych platformach. Allegro oferuje nas za nieco wyższą cenę ze względu na ich prowizję. ",
   platforms: [
     {
       id: 1,
