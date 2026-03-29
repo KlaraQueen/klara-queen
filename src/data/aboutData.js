@@ -55,3 +55,25 @@ export const aboutFaq = [
       "Dzięki gotowym fundamentom, Twój projekt jest gotowy do publikacji w zaledwie 2 do 4 dni roboczych. Brak czekania, brak przeciągania – tylko rezultat.",
   },
 ];
+
+export const aboutSocial = {
+  title: "Gdzie nas znajdziesz?",
+  description: "Nasze projekty dostępne na najpopularniejszych platformach. Allegro oferuje nas za nieco wyższą cenę ze względu na ich prowizję.",
+  platforms: [
+    {
+      id: 1,
+      name: "Facebook",
+      description: "Obserwuj nas na Facebooku, aby być zawsze na bieżąco.",
+    },
+    {
+      id: 2,
+      name: "YouTube",
+      description: "Odkrywaj nasze projekty i inspiracje na YouTube.",
+    },
+    {
+      id: 3,
+      name: "Allegro",
+      description: "Kupuj nasze szablony w sklepie Allegro (ceny wyższe ze względu na prowizję).",
+    },
+  ],
+};

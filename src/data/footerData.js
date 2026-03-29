@@ -1,5 +1,4 @@
-import { FaYoutube, FaFacebookF } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
+import { socialMediaData } from "./socialMediaData";
 
 export const footerData = {
   brand: {
@@ -14,29 +13,10 @@ export const footerData = {
     { name: "Aktualności", url: "#news" },
     { name: "Współpraca", url: "#collaboration" },
     { name: "Opinie", url: "#opinions" },
-    { name: "O Nas", to: "/about"  },
+    { name: "O Nas", to: "/about" },
     { name: "Najczęstsze pytania", url: "#faq" },
   ],
-  socials: [
-    {
-      id: 1,
-      icon: FaYoutube,
-      url: "https://youtube.com",
-      label: "YouTube",
-    },
-    {
-      id: 2,
-      icon: FaFacebookF,
-      url: "https://facebook.com",
-      label: "Facebook",
-    },
-    {
-      id: 3,
-      icon: FiShoppingCart,
-      url: "https://allegro.pl",
-      label: "Allegro",
-    },
-  ],
+  socials: socialMediaData,
   contact: {
     email: "kontakt@studioklara.pl",
     copy: `© ${new Date().getFullYear()} Klara Queen. Wszystkie prawa zastrzeżone.`,

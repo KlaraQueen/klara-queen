@@ -5,6 +5,7 @@ import Manifesto from "./Manifesto";
 import FAQ from "./FAQ";
 import Stats from "./Stats";
 import CTA from "./CTA";
+import Social from "./Social";
 
 const About = () => {
   return (
@@ -37,6 +38,10 @@ const About = () => {
           <FAQ />
         </S.ContentWrapper>
       </S.SectionContainer>
+
+      <S.SectionDivider />
+
+      <Social />
 
       <S.SectionDivider />
 
