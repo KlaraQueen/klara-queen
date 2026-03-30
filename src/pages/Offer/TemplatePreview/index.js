@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./styled";
 import { offerData } from "../../../data/offerData";
+import GallerySection from "./GallerySection";
 
 const TemplatePreview = ({ offerId }) => {
   const navigate = useNavigate();
@@ -23,23 +24,19 @@ const TemplatePreview = ({ offerId }) => {
         <S.HeroContent>
           <S.Title>{offer.title}</S.Title>
           <S.Subtitle>{offer.shortDescription}</S.Subtitle>
-          <S.PriceTag>{offer.price}</S.PriceTag>
+          <S.PriceTag>
+            <span>{offer.price}</span>
+          </S.PriceTag>
         </S.HeroContent>
-        <S.HeroImage src={offer.image} alt={offer.title} />
+        <GallerySection images={offer.images} title={offer.title} />
       </S.Hero>
 
       <S.Content>
-        <S.Section>
-          <S.SectionTitle>O szablonie</S.SectionTitle>
-          <S.Description>{offer.fullDescription}</S.Description>
-        </S.Section>
-
         <S.VideoSection>
           <S.SectionTitle>Preview szablonu</S.SectionTitle>
           <S.VideoContainer>
             <iframe
               width="100%"
-              height="500"
               src={offer.youtubeUrl}
               title={offer.title}
               frameBorder="0"
@@ -49,8 +46,13 @@ const TemplatePreview = ({ offerId }) => {
           </S.VideoContainer>
         </S.VideoSection>
 
+        <S.Section>
+          <S.SectionTitle>O szablonie</S.SectionTitle>
+          <S.Description>{offer.fullDescription}</S.Description>
+        </S.Section>
+
         <S.FeaturesSection>
-          <S.SectionTitle>Co się zawiera:</S.SectionTitle>
+          <S.SectionTitle>Szablon zawiera:</S.SectionTitle>
           <S.FeaturesList>
             {offer.features.map((feature, idx) => (
               <S.FeatureItem key={idx}>
@@ -64,11 +66,15 @@ const TemplatePreview = ({ offerId }) => {
         <S.CTASection>
           <S.CTATitle>Interesuje Cię ten szablon?</S.CTATitle>
           <S.CTAButtons>
-            <S.PrimaryButton href="mailto:kontakt@studioklara.pl?subject=Zainteresowanie szablonką">
-              Zapytaj o szczegóły
+            <S.PrimaryButton href="mailto:kontakt@studioklara.pl?subject=Zainteresowanie szablonką: ${offer.title}">
+              Napisz email
             </S.PrimaryButton>
-            <S.SecondaryButton onClick={() => navigate("/offer")}>
-              Powrót do listy
+            <S.SecondaryButton
+              href="https://allegro.pl/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Zakup Allegro
             </S.SecondaryButton>
           </S.CTAButtons>
         </S.CTASection>

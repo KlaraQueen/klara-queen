@@ -22,8 +22,12 @@ export const FooterContainer = styled.footer`
     padding: 45px 18px 18px;
   }
 
+  @media (max-width: 821px) {
+    padding: 30px 12px 12px;
+  }
+
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
-    padding: 35px 14px 15px;
+    padding: 25px 10px 10px;
   }
 `;
 
@@ -41,11 +45,15 @@ export const FooterContent = styled.div`
     text-align: center;
   }
 
+  @media (max-width: 821px) {
+    gap: 12px;
+  }
+
   @media (max-width: ${theme.breakpoints.phone}px) {
-    gap: 20px;
+    gap: 12px;
   }
 
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
-    gap: 16px;
+    gap: 10px;
   }
 `;

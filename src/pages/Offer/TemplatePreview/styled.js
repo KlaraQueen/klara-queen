@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px);
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
   animation: fadeIn 0.4s ease-out;
 
@@ -36,7 +36,7 @@ export const BackButton = styled.button`
   font-family: "Cormorant Garamond", serif;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  margin-bottom: clamp(50px, 8vw, 80px);
+  margin-bottom: clamp(30px, 5vw, 50px);
   letter-spacing: 0.5px;
   position: relative;
   overflow: hidden;
@@ -98,43 +98,146 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: clamp(20px, 3vw, 30px);
+  padding: clamp(30px, 5vw, 50px);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.05) 0%,
+    transparent 100%
+  );
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      ${theme.colors.goldMain} 50%,
+      transparent 100%
+    );
+  }
+
+  @media (max-width: 821px) {
+    gap: clamp(12px, 2vw, 20px);
+    padding: clamp(15px, 3vw, 25px);
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.02) 0%,
+      transparent 100%
+    );
+  }
 `;
 
 export const Title = styled.h1`
-  font-size: clamp(2.5rem, 7vw, 4rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   color: ${theme.colors.goldMain};
-  margin: 0 0 clamp(15px, 2vw, 25px) 0;
+  margin: clamp(10px, 1.5vw, 15px) 0 clamp(12px, 2vw, 20px) 0;
   font-family: "Cormorant Garamond", serif;
-  font-weight: 700;
-  letter-spacing: clamp(1.5px, 0.5vw, 2.5px);
-  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1.25;
   text-transform: uppercase;
-  font-style: italic;
+  font-style: normal;
+  word-spacing: 4px;
+
+  @media (max-width: 821px) {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    margin: clamp(5px, 1vw, 10px) 0 clamp(8px, 1.5vw, 12px) 0;
+    letter-spacing: 0.8px;
+    word-spacing: 2px;
+  }
 `;
 
 export const Subtitle = styled.p`
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
-  line-height: 1.6;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 clamp(20px, 3vw, 35px) 0;
+  line-height: 1.65;
   font-weight: 300;
+  letter-spacing: 0.3px;
+  position: relative;
+  padding-bottom: clamp(15px, 2vw, 25px);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: clamp(20px, 3.5vw, 45px);
+    height: 1px;
+    background: ${theme.colors.goldMain};
+    opacity: 0.5;
+  }
+
+  @media (max-width: 821px) {
+    font-size: clamp(0.75rem, 1.3vw, 0.9rem);
+    margin: 0 0 clamp(12px, 2vw, 18px) 0;
+    line-height: 1.5;
+    padding-bottom: clamp(10px, 1.5vw, 15px);
+
+    &::after {
+      width: clamp(15px, 2.5vw, 30px);
+    }
+  }
 `;
 
 export const PriceTag = styled.div`
-  display: inline-block;
-  background: linear-gradient(
-    135deg,
-    ${theme.colors.goldMain} 0%,
-    #f1d592 100%
-  );
-  color: ${theme.colors.deepBlack};
-  padding: clamp(12px, 2vw, 20px) clamp(25px, 4vw, 40px);
-  border-radius: 50px;
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  font-weight: 700;
-  font-family: "Cormorant Garamond", serif;
-  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 22px);
   width: fit-content;
+  margin-top: clamp(8px, 1.5vw, 12px);
+  padding: clamp(12px, 1.5vw, 18px) clamp(18px, 2.5vw, 28px);
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 50px;
+  cursor: default;
+
+  &::before {
+    content: "";
+    width: 1px;
+    height: clamp(25px, 4vw, 35px);
+    background: linear-gradient(
+      180deg,
+      ${theme.colors.goldMain} 0%,
+      rgba(212, 175, 55, 0.2) 100%
+    );
+  }
+
+  span {
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    font-weight: 700;
+    color: ${theme.colors.goldMain};
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 821px) {
+    gap: clamp(10px, 1.5vw, 15px);
+    margin-top: clamp(6px, 1vw, 10px);
+    padding: clamp(10px, 1vw, 14px) clamp(14px, 1.5vw, 20px);
+
+    &::before {
+      height: clamp(20px, 3vw, 28px);
+    }
+
+    span {
+      font-size: clamp(0.95rem, 2vw, 1.3rem);
+      letter-spacing: 0.6px;
+    }
+  }
 `;
 
 export const HeroImage = styled.img`
@@ -176,7 +279,30 @@ export const HeroImage = styled.img`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: clamp(60px, 10vw, 100px);
+  gap: clamp(40px, 7vw, 70px);
+`;
+
+export const MediaRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 5vw, 50px);
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 5vw, 50px);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
 export const Section = styled.section`
@@ -186,7 +312,7 @@ export const Section = styled.section`
     rgba(212, 175, 55, 0.05) 0%,
     transparent 100%
   );
-  padding: clamp(40px, 6vw, 60px);
+  padding: clamp(30px, 4.5vw, 45px);
   border-radius: 20px;
   border: 1px solid rgba(212, 175, 55, 0.1);
 
@@ -205,7 +331,7 @@ export const Section = styled.section`
 export const SectionTitle = styled.h2`
   font-size: clamp(2rem, 4.5vw, 2.8rem);
   color: ${theme.colors.goldMain};
-  margin: 0 0 clamp(30px, 5vw, 50px) 0;
+  margin: 0 0 clamp(20px, 3vw, 35px) 0;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -229,15 +355,21 @@ export const VideoSection = styled.section`
     rgba(212, 175, 55, 0.05) 0%,
     transparent 100%
   );
-  padding: clamp(40px, 6vw, 60px);
-  border-radius: 20px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: 15px;
   border: 1px solid rgba(212, 175, 55, 0.1);
+
+  ${SectionTitle} {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    margin: 0 0 clamp(15px, 2vw, 20px) 0;
+  }
 `;
 
 export const VideoContainer = styled.div`
   position: relative;
   width: 100%;
-  border-radius: 20px;
+  aspect-ratio: 16 / 9;
+  border-radius: 15px;
   overflow: hidden;
   border: 2px solid rgba(212, 175, 55, 0.2);
   background: rgba(0, 0, 0, 0.3);
@@ -247,13 +379,13 @@ export const VideoContainer = styled.div`
 
   iframe {
     display: block;
-    border-radius: 18px;
+    border-radius: 13px;
+    width: 100%;
+    height: 100%;
   }
 
   @media (max-width: 821px) {
-    iframe {
-      height: 300px !important;
-    }
+    aspect-ratio: 16 / 9;
   }
 `;
 
@@ -264,7 +396,7 @@ export const FeaturesSection = styled.section`
     rgba(212, 175, 55, 0.05) 0%,
     transparent 100%
   );
-  padding: clamp(40px, 6vw, 60px);
+  padding: clamp(30px, 4.5vw, 45px);
   border-radius: 20px;
   border: 1px solid rgba(212, 175, 55, 0.1);
 `;
@@ -282,7 +414,7 @@ export const FeatureItem = styled.li`
   display: flex;
   align-items: flex-start;
   gap: clamp(15px, 3vw, 20px);
-  padding: clamp(25px, 4vw, 35px);
+  padding: clamp(20px, 3vw, 28px);
   background: linear-gradient(
     135deg,
     rgba(212, 175, 55, 0.08) 0%,
@@ -334,7 +466,7 @@ export const CTASection = styled.section`
   );
   border: 2px solid rgba(212, 175, 55, 0.25);
   border-radius: 25px;
-  padding: clamp(50px, 10vw, 80px);
+  padding: clamp(35px, 7vw, 60px);
   text-align: center;
   animation: fadeInUp 0.6s ease-out 0.5s both;
   box-shadow:
