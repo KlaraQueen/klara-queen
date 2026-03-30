@@ -10,7 +10,10 @@ export const LogoLink = styled(Link)`
   color: inherit;
 `;
 
-export const LogoImage = styled.img.attrs({ src: logoData.src, alt: logoData.alt })`
+export const LogoImage = styled.img.attrs({
+  src: logoData.src,
+  alt: logoData.alt,
+})`
   height: 90px;
   width: auto;
   cursor: pointer;

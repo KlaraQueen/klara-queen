@@ -5,7 +5,9 @@ function Title({ title, description }) {
   return (
     <>
       <S.ProjectTitle>{title}</S.ProjectTitle>
-      {description && <S.ProjectDescription>{description}</S.ProjectDescription>}
+      {description && (
+        <S.ProjectDescription>{description}</S.ProjectDescription>
+      )}
     </>
   );
 }

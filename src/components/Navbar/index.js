@@ -36,7 +36,11 @@ function Navbar() {
           <S.MenuToggle
             type="button"
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? navbarData.aria.closeLabel : navbarData.aria.openLabel}
+            aria-label={
+              isMenuOpen
+                ? navbarData.aria.closeLabel
+                : navbarData.aria.openLabel
+            }
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <FaTimes /> : <FaBars />}

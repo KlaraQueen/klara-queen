@@ -22,7 +22,9 @@ const TemplatePreview = ({ offerId }) => {
 
   return (
     <S.Container>
-      <S.BackButton onClick={() => navigate(-1)}>{templatePreviewStrings.backLabel}</S.BackButton>
+      <S.BackButton onClick={() => navigate(-1)}>
+        {templatePreviewStrings.backLabel}
+      </S.BackButton>
 
       <HeroSection
         title={offer.title}
@@ -37,9 +39,15 @@ const TemplatePreview = ({ offerId }) => {
           youtubeUrl={offer.youtubeUrl}
         />
 
-        <Section title={templatePreviewStrings.aboutTitle} description={offer.fullDescription} />
+        <Section
+          title={templatePreviewStrings.aboutTitle}
+          description={offer.fullDescription}
+        />
 
-        <FeaturesComponent title={templatePreviewStrings.featuresTitle} features={offer.features} />
+        <FeaturesComponent
+          title={templatePreviewStrings.featuresTitle}
+          features={offer.features}
+        />
 
         <CTAComponent title={offer.title} />
       </S.Content>

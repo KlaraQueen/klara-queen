@@ -18,9 +18,7 @@ const Guarantee = () => {
           <S.BenefitCard key={index}>
             <S.BenefitIcon>{benefit.icon}</S.BenefitIcon>
             <S.BenefitTitle>{benefit.title}</S.BenefitTitle>
-            <S.BenefitDescription>
-              {benefit.description}
-            </S.BenefitDescription>
+            <S.BenefitDescription>{benefit.description}</S.BenefitDescription>
           </S.BenefitCard>
         ))}
       </S.BenefitsGrid>

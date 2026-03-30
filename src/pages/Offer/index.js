@@ -17,9 +17,7 @@ const Offer = () => {
       <S.OfferContent>
         <S.OfferHeader>
           <S.OfferTitle>{offerPageHeader.title}</S.OfferTitle>
-          <S.OfferSubtitle>
-            {offerPageHeader.subtitle}
-          </S.OfferSubtitle>
+          <S.OfferSubtitle>{offerPageHeader.subtitle}</S.OfferSubtitle>
         </S.OfferHeader>
 
         <OfferList />

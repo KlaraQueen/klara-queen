@@ -11,6 +11,6 @@ export const navbarData = {
   socials: socialMediaData,
   aria: {
     closeLabel: "Zamknij menu",
-    openLabel: "Otwórz menu"
-  }
+    openLabel: "Otwórz menu",
+  },
 };

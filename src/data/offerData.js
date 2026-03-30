@@ -153,7 +153,7 @@ export const offerData = [
 
 export const offerPageHeader = {
   title: "Nasze Projekty",
-  subtitle: "Odkryj gotowe szablony stron,które mogą transformować Twoją markę"
+  subtitle: "Odkryj gotowe szablony stron,które mogą transformować Twoją markę",
 };
 
 export const templatePreviewStrings = {

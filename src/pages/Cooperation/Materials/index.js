@@ -16,9 +16,7 @@ const Materials = () => {
           <S.MaterialCategory key={index} highlight={section.highlight}>
             <S.MaterialCategoryHeader>
               <S.MaterialIcon>{section.icon}</S.MaterialIcon>
-              <S.MaterialCategoryTitle>
-                {section.title}
-              </S.MaterialCategoryTitle>
+              <S.MaterialCategoryTitle>{section.title}</S.MaterialCategoryTitle>
             </S.MaterialCategoryHeader>
 
             <S.MaterialItemsList>
