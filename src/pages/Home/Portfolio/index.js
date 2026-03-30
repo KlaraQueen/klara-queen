@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import * as S from "./styled";
 import ProjectCard from "./ProjectCard/index";
 import { portfolioData } from "../../../data/portfolioData";
+import { portfolioPageData } from "../../../data/portfolioPageData";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function Portfolio() {
@@ -33,8 +34,8 @@ function Portfolio() {
   return (
     <S.PortfolioSection>
       <S.TitleWrapper>
-        <S.SectionTitle>Przykładowe Prace</S.SectionTitle>
-        <S.Subtitle>Ekskluzywne projekty cyfrowe tworzone z pasją</S.Subtitle>
+        <S.SectionTitle>{portfolioPageData.header.title}</S.SectionTitle>
+        <S.Subtitle>{portfolioPageData.header.subtitle}</S.Subtitle>
       </S.TitleWrapper>
 
       <S.SliderOuter>
@@ -59,7 +60,7 @@ function Portfolio() {
       </S.SliderOuter>
 
       <S.ViewAllContainer>
-        <S.ViewAllText>Zobacz Pełne Portfolio</S.ViewAllText>
+        <S.ViewAllText>{portfolioPageData.viewAllText}</S.ViewAllText>
         <S.ViewAllLine />
       </S.ViewAllContainer>
     </S.PortfolioSection>

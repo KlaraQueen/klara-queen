@@ -10,7 +10,7 @@ const FeaturesComponent = ({ title, features }) => {
         {features.map((feature, idx) => (
           <S.FeatureItem key={idx}>
             <S.FeatureCheckmark>✓</S.FeatureCheckmark>
-            <span>{feature}</span>
+            <S.FeatureText>{feature}</S.FeatureText>
           </S.FeatureItem>
         ))}
       </S.FeaturesList>

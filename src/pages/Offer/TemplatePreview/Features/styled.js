@@ -69,3 +69,7 @@ export const FeatureCheckmark = styled.span`
   font-size: 1.2em;
   flex-shrink: 0;
 `;
+
+export const FeatureText = styled.span`
+  flex: 1;
+`;

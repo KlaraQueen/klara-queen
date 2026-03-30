@@ -31,14 +31,15 @@ export const VideoContainer = styled.div`
     0 20px 50px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(212, 175, 55, 0.1);
 
-  iframe {
-    display: block;
-    border-radius: 13px;
-    width: 100%;
-    height: 100%;
-  }
-
   @media (max-width: 821px) {
     aspect-ratio: 16 / 9;
   }
+`;
+
+export const StyledIframe = styled.iframe`
+  display: block;
+  border-radius: 13px;
+  width: 100%;
+  height: 100%;
+  border: none;
 `;

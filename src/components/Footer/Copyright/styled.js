@@ -48,6 +48,33 @@ export const CopyrightText = styled.span`
   }
 `;
 
+export const VisitCounter = styled.span`
+  color: ${theme.colors.goldMain};
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  font-family: "Cormorant Garamond", serif;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 0 8px rgba(212, 175, 55, 0.25);
+
+  strong {
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.4),
+      0 0 12px rgba(212, 175, 55, 0.4);
+  }
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: ${theme.breakpoints.smallPhone}px) {
+    font-size: 0.7rem;
+  }
+`;
+
 export const ContactEmail = styled.a`
   color: rgba(255, 245, 220, 0.78);
   font-size: 0.85rem;

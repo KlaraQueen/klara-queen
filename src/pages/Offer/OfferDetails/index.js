@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./styled";
 import { offerData } from "../../../data/offerData";
+import { contactData } from "../../../data/contactData";
 import VideoSection from "./VideoSection";
 import PriceSection from "./PriceSection";
 import FeaturesSection from "./FeaturesSection";
@@ -25,7 +26,7 @@ const OfferDetails = ({ offerId, onClose, isFullPage = false }) => {
 
           <S.ButtonGroup>
             <S.PrimaryButton
-              href="mailto:kontakt@studioklara.pl"
+              href={`mailto:${contactData.email}`}
               target="_blank"
             >
               Zainteresowana

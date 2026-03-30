@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./styled";
-import * as FaqS from "./styled-faq";
 import { aboutFaq } from "../../../data/aboutData";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +7,7 @@ const FAQ = () => {
   const navigate = useNavigate();
 
   return (
-    <FaqS.FAQWrapper>
+    <S.FAQWrapper>
       <S.List>
         {aboutFaq.map((item) => (
           <S.Item key={item.id}>
@@ -17,10 +16,10 @@ const FAQ = () => {
           </S.Item>
         ))}
       </S.List>
-      <FaqS.FAQButton onClick={() => navigate("/questions")}>
+      <S.FAQButton onClick={() => navigate("/questions")}>
         Zobacz Więcej Pytań
-      </FaqS.FAQButton>
-    </FaqS.FAQWrapper>
+      </S.FAQButton>
+    </S.FAQWrapper>
   );
 };
 

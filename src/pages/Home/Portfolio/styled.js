@@ -98,8 +98,9 @@ export const SliderOuter = styled.div`
   width: 100%;
   max-width: 1400px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: clamp(8px, 1.2vw, 14px);
+  height: clamp(280px, 38vw, 420px);
 `;
 
 export const Track = styled.div`
@@ -112,6 +113,8 @@ export const Track = styled.div`
   scrollbar-width: none;
   padding: 10px 2px 20px;
   margin: -10px -2px -20px;
+  align-items: stretch;
+  height: 100%;
 
   &::-webkit-scrollbar {
     display: none;
@@ -123,6 +126,8 @@ export const CardSlot = styled.div`
   min-width: 0;
   scroll-snap-align: start;
   display: flex;
+  align-items: stretch;
+  height: 100%;
 
   @media (max-width: 1050px) {
     flex: 0 0 calc(33.33% - 14px);

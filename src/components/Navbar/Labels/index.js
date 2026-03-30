@@ -19,12 +19,10 @@ function Labels({ vertical = false, onItemClick }) {
           onClick={handleClick}
         >
           {item.to ? (
-            // Jeśli ma 'to', używamy Linka z routera
             <S.StyledLink as={Link} to={item.to}>
               {item.name}
             </S.StyledLink>
           ) : (
-            // Jeśli ma 'url', używamy zwykłego a
             <S.StyledLink href={item.url}>{item.name}</S.StyledLink>
           )}
         </S.NavLink>

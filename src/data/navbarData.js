@@ -9,4 +9,8 @@ export const navbarData = {
     { name: "O Nas", to: "/about" },
   ],
   socials: socialMediaData,
+  aria: {
+    closeLabel: "Zamknij menu",
+    openLabel: "Otwórz menu"
+  }
 };

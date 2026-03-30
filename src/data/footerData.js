@@ -1,4 +1,5 @@
 import { socialMediaData } from "./socialMediaData";
+import { contactData } from "./contactData";
 
 export const footerData = {
   brand: {
@@ -18,7 +19,7 @@ export const footerData = {
   ],
   socials: socialMediaData,
   contact: {
-    email: "kontakt@studioklara.pl",
+    email: contactData.email,
     copy: `© ${new Date().getFullYear()} Klara Queen. Wszystkie prawa zastrzeżone.`,
   },
 };

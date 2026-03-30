@@ -1,7 +1,8 @@
 import React from "react";
 import * as S from "./styled";
+import GallerySection from "../GallerySection";
 
-const HeroSection = ({ title, subtitle, price }) => {
+const HeroSection = ({ title, subtitle, price, images }) => {
   return (
     <S.Hero>
       <S.HeroContent>
@@ -9,10 +10,11 @@ const HeroSection = ({ title, subtitle, price }) => {
         <S.Subtitle>{subtitle}</S.Subtitle>
         {price && (
           <S.PriceTag>
-            <span>{price}</span>
+            <S.PriceTagValue>{price}</S.PriceTagValue>
           </S.PriceTag>
         )}
       </S.HeroContent>
+      <GallerySection images={images} title={title} />
     </S.Hero>
   );
 };

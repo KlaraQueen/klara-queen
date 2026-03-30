@@ -155,15 +155,6 @@ export const PriceTag = styled.div`
     );
   }
 
-  span {
-    font-size: clamp(1.3rem, 2.8vw, 2rem);
-    font-weight: 700;
-    color: ${theme.colors.goldMain};
-    font-family: "Cormorant Garamond", serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
   @media (max-width: 821px) {
     gap: clamp(10px, 1.5vw, 15px);
     margin-top: clamp(6px, 1vw, 10px);
@@ -172,11 +163,20 @@ export const PriceTag = styled.div`
     &::before {
       height: clamp(20px, 3vw, 28px);
     }
+  }
+`;
 
-    span {
-      font-size: clamp(0.95rem, 2vw, 1.3rem);
-      letter-spacing: 0.6px;
-    }
+export const PriceTagValue = styled.span`
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  font-weight: 700;
+  color: ${theme.colors.goldMain};
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  @media (max-width: 821px) {
+    font-size: clamp(0.95rem, 2vw, 1.3rem);
+    letter-spacing: 0.6px;
   }
 `;
 

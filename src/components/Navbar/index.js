@@ -4,6 +4,7 @@ import Logo from "./Logo/index";
 import Labels from "./Labels/index";
 import SocialMedia from "./SocialMedia/index";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { navbarData } from "../../data/navbarData";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ function Navbar() {
           <S.MenuToggle
             type="button"
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Zamknij menu" : "Otworz menu"}
+            aria-label={isMenuOpen ? navbarData.aria.closeLabel : navbarData.aria.openLabel}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <FaTimes /> : <FaBars />}

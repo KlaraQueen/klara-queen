@@ -1,9 +1,10 @@
 import React from "react";
 import * as S from "./styled";
+import { logoData } from "../../../data/logoData";
 
 function Logo() {
   return (
-    <S.LogoLink to="/" aria-label="Strona główna Klara Queen">
+    <S.LogoLink to="/" aria-label={logoData.ariaLabel}>
       <S.LogoImage />
     </S.LogoLink>
   );

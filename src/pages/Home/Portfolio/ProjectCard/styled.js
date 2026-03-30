@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
   height: 100%;
   padding: 0 0 clamp(14px, 3vw, 30px);
@@ -123,14 +124,15 @@ export const ProjectTitle = styled.h3`
   font-family: "Cormorant Garamond", "Bodoni MT", "Didot", serif;
   text-transform: uppercase;
   letter-spacing: clamp(0.6px, 0.18vw, 2px);
-  font-size: clamp(0.88rem, 2.8vw, 1.35rem);
+  font-size: clamp(0.72rem, 2.1vw, 1.05rem);
   font-weight: 600;
   line-height: 1.05;
-  margin: clamp(10px, 2vw, 14px) clamp(8px, 2vw, 20px) clamp(4px, 1vw, 8px);
+  margin: clamp(8px, 1.5vw, 12px) clamp(8px, 2vw, 20px) clamp(4px, 1vw, 8px);
   text-align: center;
   text-shadow:
     0 0 12px rgba(212, 175, 55, 0.22),
     0 2px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 `;
 
 export const ProjectDescription = styled.p`
@@ -140,6 +142,9 @@ export const ProjectDescription = styled.p`
   line-height: 1.5;
   margin: 0 clamp(8px, 2vw, 20px);
   max-width: 240px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 `;
 
 export const GoldLine = styled.div`
@@ -153,4 +158,5 @@ export const GoldLine = styled.div`
   );
   margin-top: 14px;
   opacity: 0.65;
+  flex-shrink: 0;
 `;

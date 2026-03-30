@@ -1,28 +1,20 @@
 import React from "react";
-import * as S from "./styled";
+import Container from "./Container";
+import Image from "./Image";
+import Icon from "./Icon";
+import Title from "./Title";
+import Divider from "./Divider";
 
 function ProjectCard({ project }) {
-  const { type, url, title, description, image, icon: Icon } = project;
+  const { type, url, title, description, image, icon } = project;
 
   return (
-    <S.CardContainer
-      as={type === "link" ? "a" : "div"}
-      href={type === "link" ? url : undefined}
-      target={type === "link" ? "_blank" : undefined}
-      isLink={type === "link"}
-    >
-      <S.DeviceWrapper>
-        <S.ProjectImage src={image} alt={title} />
-      </S.DeviceWrapper>
-
-      <S.IconCircle>
-        <Icon />
-      </S.IconCircle>
-
-      <S.ProjectTitle>{title}</S.ProjectTitle>
-
-      <S.GoldLine />
-    </S.CardContainer>
+    <Container type={type} url={url} isLink={type === "link"}>
+      <Image image={image} title={title} />
+      <Icon icon={icon} />
+      <Title title={title} description={description} />
+      <Divider />
+    </Container>
   );
 }
 

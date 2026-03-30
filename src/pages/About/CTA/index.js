@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "./styled";
-import { aboutHero } from "../../../data/aboutData";
+import { aboutHero, aboutSectionTitles } from "../../../data/aboutData";
 
 const CTA = () => (
   <S.CTASection>
-    <S.CTAText>Gotów na transformację cyfrową?</S.CTAText>
+    <S.CTAText>{aboutSectionTitles.cta}</S.CTAText>
   </S.CTASection>
 );
 

@@ -44,7 +44,7 @@ const GallerySection = ({ images, title }) => {
             style={{ cursor: "pointer", userSelect: "none" }}
           />
           <S.Watermark>
-            <span>www.studioklara.pl</span>
+            <S.WatermarkText>www.studioklara.pl</S.WatermarkText>
           </S.Watermark>
           <S.ExpandIcon onClick={() => setIsModalOpen(true)}>⛶</S.ExpandIcon>
         </S.ImageContainer>
@@ -90,7 +90,7 @@ const GallerySection = ({ images, title }) => {
                 onCut={(e) => e.preventDefault()}
               />
               <S.Watermark style={{ opacity: 0.35 }}>
-                <span>www.studioklara.pl</span>
+                <S.WatermarkText>www.studioklara.pl</S.WatermarkText>
               </S.Watermark>
             </S.ImageContainer>
             <S.ModalCounter>

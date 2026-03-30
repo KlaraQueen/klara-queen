@@ -96,9 +96,9 @@ export const MediaRow = styled.div`
   }
 `;
 
-// Re-export from subfolders for convenience
-export { Hero, HeroContent, Title, Subtitle, PriceTag, HeroImage } from "./Hero/styled";
-export { Section, SectionTitle, Description } from "./shared/styled";
-export { VideoSection, VideoContainer } from "./Video/styled";
-export { FeaturesSection, FeaturesList, FeatureItem, FeatureCheckmark } from "./Features/styled";
-export { CTASection, CTATitle, CTAButtons, PrimaryButton, SecondaryButton, ErrorMessage } from "./CTA/styled";
+export const ErrorMessage = styled.div`
+  text-align: center;
+  padding: clamp(40px, 8vw, 80px);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: ${theme.colors.goldMain};
+`;

@@ -50,28 +50,26 @@ export const Watermark = styled.div`
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+`;
 
-  span {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: white;
-    text-shadow:
-      -2px -2px 0 rgba(0, 0, 0, 0.8),
-      2px -2px 0 rgba(0, 0, 0, 0.8),
-      -2px 2px 0 rgba(0, 0, 0, 0.8),
-      2px 2px 0 rgba(0, 0, 0, 0.8),
-      -2px 0 0 rgba(0, 0, 0, 0.8),
-      2px 0 0 rgba(0, 0, 0, 0.8),
-      0 -2px 0 rgba(0, 0, 0, 0.8),
-      0 2px 0 rgba(0, 0, 0, 0.8);
-    letter-spacing: 1.5px;
-  }
+export const WatermarkText = styled.span`
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow:
+    -2px -2px 0 rgba(0, 0, 0, 0.8),
+    2px -2px 0 rgba(0, 0, 0, 0.8),
+    -2px 2px 0 rgba(0, 0, 0, 0.8),
+    2px 2px 0 rgba(0, 0, 0, 0.8),
+    -2px 0 0 rgba(0, 0, 0, 0.8),
+    2px 0 0 rgba(0, 0, 0, 0.8),
+    0 -2px 0 rgba(0, 0, 0, 0.8),
+    0 2px 0 rgba(0, 0, 0, 0.8);
+  letter-spacing: 1.5px;
 
   @media (max-width: 821px) {
-    span {
-      font-size: 1rem;
-      letter-spacing: 1px;
-    }
+    font-size: 1rem;
+    letter-spacing: 1px;
   }
 `;
 

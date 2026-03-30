@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { theme } from "../../../theme";
-import logoImg from "../../../image/znak-wodny.png";
+import { logoData } from "../../../data/logoData";
 
 export const LogoLink = styled(Link)`
   display: flex;
@@ -10,7 +10,7 @@ export const LogoLink = styled(Link)`
   color: inherit;
 `;
 
-export const LogoImage = styled.img.attrs({ src: logoImg, alt: "Logo" })`
+export const LogoImage = styled.img.attrs({ src: logoData.src, alt: logoData.alt })`
   height: 90px;
   width: auto;
   cursor: pointer;

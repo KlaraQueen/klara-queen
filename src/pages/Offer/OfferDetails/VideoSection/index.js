@@ -5,8 +5,6 @@ const VideoSection = ({ youtubeUrl, title }) => {
   return (
     <S.VideoContainer>
       <iframe
-        width="560"
-        height="315"
         src={youtubeUrl}
         title={title}
         frameBorder="0"

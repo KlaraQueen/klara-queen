@@ -4,6 +4,7 @@ import { theme } from "../../../theme";
 export const OffersGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
   gap: clamp(30px, 4vw, 50px);
   animation: fadeInUp 0.8s ease-out;
 
@@ -22,7 +23,8 @@ export const OffersGrid = styled.div`
 export const OfferCardLink = styled.a`
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  height: 100%;
 `;
 
 export const OfferCard = styled.div`
@@ -38,6 +40,8 @@ export const OfferCard = styled.div`
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   animation: fadeInUp 0.8s ease-out both;
   user-select: none;
   position: relative;

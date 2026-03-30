@@ -6,6 +6,7 @@ import FAQ from "./FAQ";
 import Stats from "./Stats";
 import CTA from "./CTA";
 import Social from "./Social";
+import { aboutSectionTitles } from "../../data/aboutData";
 
 const About = () => {
   return (
@@ -15,7 +16,7 @@ const About = () => {
       <S.SectionDivider />
 
       <S.SectionContainer>
-        <S.SectionTitle>Twoja Kolekcja</S.SectionTitle>
+        <S.SectionTitle>{aboutSectionTitles.manifesto}</S.SectionTitle>
         <S.ContentWrapper>
           <Manifesto />
         </S.ContentWrapper>
@@ -24,7 +25,7 @@ const About = () => {
       <S.SectionDivider />
 
       <S.SectionContainer>
-        <S.SectionTitle>Nasze Atuty</S.SectionTitle>
+        <S.SectionTitle>{aboutSectionTitles.stats}</S.SectionTitle>
         <S.ContentWrapper style={{ maxWidth: "1000px" }}>
           <Stats />
         </S.ContentWrapper>
@@ -33,7 +34,7 @@ const About = () => {
       <S.SectionDivider />
 
       <S.SectionContainer>
-        <S.SectionTitle>Jak To Działa?</S.SectionTitle>
+        <S.SectionTitle>{aboutSectionTitles.faq}</S.SectionTitle>
         <S.ContentWrapper>
           <FAQ />
         </S.ContentWrapper>

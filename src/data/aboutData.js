@@ -4,6 +4,8 @@ export const aboutHero = {
     "Gdzie wizja spotyka precyzję. Tworzymy cyfrowe eksperyencje, które wyznaczają standardy branży.",
 };
 
+export const aboutManifestoTitle = "Twoja Kolekcja";
+
 export const aboutManifesto = {
   title: "Twoja Kolekcja",
   paragraphs: [
@@ -14,6 +16,8 @@ export const aboutManifesto = {
   signature:
     "Autorska Kolekcja · Sprawdzone Struktury · Estetyka Bez Kompromisów",
 };
+
+export const aboutStatsTitle = "Nasze Atuty";
 
 export const aboutStats = [
   {
@@ -36,6 +40,8 @@ export const aboutStats = [
   },
 ];
 
+export const aboutFaqTitle = "Jak To Działa?";
+
 export const aboutFaq = [
   {
     id: 1,
@@ -56,6 +62,8 @@ export const aboutFaq = [
       "Gwarantujemy Ci pełne bezpieczeństwo. W cenie otrzymujesz trzy bezpłatne pakiety poprawek, z których możesz skorzystać w ciągu aż 3 lat od startu strony (np. przy zmianie numeru telefonu czy cennika). Każda kolejna modyfikacja to symboliczny koszt rzędu 10-50 zł – najtaniej na rynku. To rozwiązanie, które daje Ci spokój i pewność, że Twoja strona będzie zawsze aktualna i dostosowana do potrzeb Twojego biznesu, bez obaw o wysokie koszty zmian w przyszłości.",
   },
 ];
+
+export const aboutCtaTitle = "Gotów na transformację cyfrową?";
 
 export const aboutSocial = {
   title: "Gdzie nas znajdziesz?",
@@ -79,4 +87,11 @@ export const aboutSocial = {
         "Kupuj nasze szablony w sklepie Allegro (ceny wyższe ze względu na prowizję).",
     },
   ],
+};
+
+export const aboutSectionTitles = {
+  manifesto: "Twoja Kolekcja",
+  stats: "Nasze Atuty",
+  faq: "Jak To Działa?",
+  cta: "Gotów na transformację cyfrową?",
 };

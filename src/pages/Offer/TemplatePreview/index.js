@@ -1,8 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./styled";
-import { offerData } from "../../../data/offerData";
-import GallerySection from "./GallerySection";
+import { offerData, templatePreviewStrings } from "../../../data/offerData";
+import HeroSection from "./Hero";
+import VideoSectionComponent from "./Video";
+import FeaturesComponent from "./Features";
+import CTAComponent from "./CTA";
+import { SectionTitle, Description, Section } from "./shared/styled";
 
 const TemplatePreview = ({ offerId }) => {
   const navigate = useNavigate();
@@ -18,66 +22,26 @@ const TemplatePreview = ({ offerId }) => {
 
   return (
     <S.Container>
-      <S.BackButton onClick={() => navigate(-1)}>← Wróć do ofert</S.BackButton>
+      <S.BackButton onClick={() => navigate(-1)}>{templatePreviewStrings.backLabel}</S.BackButton>
 
-      <S.Hero>
-        <S.HeroContent>
-          <S.Title>{offer.title}</S.Title>
-          <S.Subtitle>{offer.shortDescription}</S.Subtitle>
-          <S.PriceTag>
-            <span>{offer.price}</span>
-          </S.PriceTag>
-        </S.HeroContent>
-        <GallerySection images={offer.images} title={offer.title} />
-      </S.Hero>
+      <HeroSection
+        title={offer.title}
+        subtitle={offer.shortDescription}
+        price={offer.price}
+        images={offer.images}
+      />
 
       <S.Content>
-        <S.VideoSection>
-          <S.SectionTitle>Preview szablonu</S.SectionTitle>
-          <S.VideoContainer>
-            <iframe
-              width="100%"
-              src={offer.youtubeUrl}
-              title={offer.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </S.VideoContainer>
-        </S.VideoSection>
+        <VideoSectionComponent
+          title={templatePreviewStrings.videoTitle}
+          youtubeUrl={offer.youtubeUrl}
+        />
 
-        <S.Section>
-          <S.SectionTitle>O szablonie</S.SectionTitle>
-          <S.Description>{offer.fullDescription}</S.Description>
-        </S.Section>
+        <Section title={templatePreviewStrings.aboutTitle} description={offer.fullDescription} />
 
-        <S.FeaturesSection>
-          <S.SectionTitle>Szablon zawiera:</S.SectionTitle>
-          <S.FeaturesList>
-            {offer.features.map((feature, idx) => (
-              <S.FeatureItem key={idx}>
-                <S.FeatureCheckmark>✓</S.FeatureCheckmark>
-                <span>{feature}</span>
-              </S.FeatureItem>
-            ))}
-          </S.FeaturesList>
-        </S.FeaturesSection>
+        <FeaturesComponent title={templatePreviewStrings.featuresTitle} features={offer.features} />
 
-        <S.CTASection>
-          <S.CTATitle>Interesuje Cię ten szablon?</S.CTATitle>
-          <S.CTAButtons>
-            <S.PrimaryButton href="mailto:kontakt@studioklara.pl?subject=Zainteresowanie szablonką: ${offer.title}">
-              Napisz email
-            </S.PrimaryButton>
-            <S.SecondaryButton
-              href="https://allegro.pl/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Zakup Allegro
-            </S.SecondaryButton>
-          </S.CTAButtons>
-        </S.CTASection>
+        <CTAComponent title={offer.title} />
       </S.Content>
     </S.Container>
   );

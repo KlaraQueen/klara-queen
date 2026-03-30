@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./styled";
 import { questionsData } from "../../data/questionsData";
+import { questionsPageData } from "../../data/questionsPageData";
 
 const Questions = () => {
   const navigate = useNavigate();
@@ -10,11 +11,9 @@ const Questions = () => {
     <S.QuestionsContainer>
       <S.QuestionsContent>
         <S.QuestionsHeader>
-          <S.QuestionsTitle>Najczęstsze Pytania</S.QuestionsTitle>
+          <S.QuestionsTitle>{questionsPageData.header.title}</S.QuestionsTitle>
           <S.QuestionsSubtitle>
-            Znaleziono odpowiedzi na Twoje wątpliwości. Poniżej znajduje się
-            kompletny przewodnik po najczęściej zadawanych pytaniach dotyczących
-            naszych usług.
+            {questionsPageData.header.subtitle}
           </S.QuestionsSubtitle>
         </S.QuestionsHeader>
 
@@ -40,7 +39,7 @@ const Questions = () => {
 
         <S.QuestionsFooter>
           <S.BackButton onClick={() => navigate("/")}>
-            Powrót do strony głównej
+            {questionsPageData.buttons.backLabel}
           </S.BackButton>
         </S.QuestionsFooter>
       </S.QuestionsContent>

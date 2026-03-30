@@ -1,26 +1,31 @@
 import React from "react";
 import * as S from "./styled";
+import { heroData } from "../../../data/heroData";
 
 function Hero() {
   return (
     <S.HeroWrapper>
-      <S.HeroOverline>Unikalny design, który zachwyca</S.HeroOverline>
+      <S.HeroOverline>{heroData.overline}</S.HeroOverline>
 
       <S.HeroTitle>
-        Luksusowe i funkcjonalne
+        {heroData.title.line1}
         <br />
-        strony WWW dla Twojej marki
+        {heroData.title.line2}
       </S.HeroTitle>
 
       <S.HeroDescription>
-        Projektujemy spersonalizowane, unikalne rozwiązania cyfrowe,
+        {heroData.description.line1}
         <br />
-        które budują autorytet i przyciągają klientów premium.
+        {heroData.description.line2}
       </S.HeroDescription>
 
       <S.Actions>
-        <S.PrimaryButton href="#projekty">Zobacz Projekty</S.PrimaryButton>
-        <S.SecondaryButton href="#oferta">Poznaj Ofertę</S.SecondaryButton>
+        <S.PrimaryButton href={heroData.buttons.primary.href}>
+          {heroData.buttons.primary.label}
+        </S.PrimaryButton>
+        <S.SecondaryButton href={heroData.buttons.secondary.href}>
+          {heroData.buttons.secondary.label}
+        </S.SecondaryButton>
       </S.Actions>
     </S.HeroWrapper>
   );
