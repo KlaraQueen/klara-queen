@@ -11,7 +11,7 @@ export const footerData = {
   links: [
     { name: "Start", to: "/" },
     { name: "Oferta", to: "/offer" },
-    { name: "Aktualności", url: "#news" },
+    { name: "Aktualności", to: "/blog" },
     { name: "Współpraca", to: "/cooperation" },
     { name: "Opinie", url: "#opinions" },
     { name: "O Nas", to: "/about" },

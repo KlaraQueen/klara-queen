@@ -3,7 +3,7 @@ import { socialMediaData } from "./socialMediaData";
 export const navbarData = {
   labels: [
     { name: "Oferta", to: "/offer" },
-    { name: "Aktualności", url: "#news" },
+    { name: "Aktualności", to: "/blog" },
     { name: "Współpraca", to: "/cooperation" },
     { name: "Najczęstsze pytania", to: "/questions" },
     { name: "O Nas", to: "/about" },

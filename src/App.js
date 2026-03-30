@@ -10,6 +10,8 @@ import About from "./pages/About/index";
 import Questions from "./pages/Questions/index";
 import Cooperation from "./pages/Cooperation/index";
 import Offer from "./pages/Offer/index";
+import Blog from "./pages/Blog/index";
+import Article from "./pages/Blog/Article/index";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/offer" element={<Offer />} />
           <Route path="/offer/:id" element={<Offer />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<Article />} />
           <Route path="/questions" element={<Questions />} />
           <Route path="/cooperation" element={<Cooperation />} />
         </Routes>
