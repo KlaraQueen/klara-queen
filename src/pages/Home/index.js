@@ -3,6 +3,9 @@ import * as S from "./styled";
 import Hero from "./Hero/index";
 import Showcase from "./Showcase/index";
 import Portfolio from "./Portfolio/index";
+import News from "./News/index";
+import FAQ from "./FAQ/index";
+import Testimonials from "./Testimonials/index";
 
 function Home() {
   return (
@@ -20,6 +23,9 @@ function Home() {
       </S.PageWrapper>
 
       <Portfolio />
+      <News />
+      <FAQ />
+      <Testimonials />
     </>
   );
 }

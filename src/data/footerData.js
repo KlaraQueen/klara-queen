@@ -13,7 +13,7 @@ export const footerData = {
     { name: "Oferta", to: "/offer" },
     { name: "Aktualności", to: "/blog" },
     { name: "Współpraca", to: "/cooperation" },
-    { name: "Opinie", url: "#opinions" },
+    { name: "Opinie", to: "/testimonials" },
     { name: "O Nas", to: "/about" },
     { name: "Najczęstsze pytania", to: "/questions" },
   ],

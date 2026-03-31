@@ -1,23 +1,23 @@
 import styled from "styled-components";
 import { theme } from "../../../theme";
 
-export const PortfolioSection = styled.section`
+export const TestimonialsSection = styled.section`
   width: 100%;
-  margin-top: clamp(-38px, -3vw, -18px);
+  margin-top: clamp(40px, 4vw, 80px);
   padding: clamp(0px, 1.4vw, 20px) clamp(16px, 4vw, 60px)
     0px;
   background:
     radial-gradient(
       ellipse at 80% 0%,
-      rgba(122, 20, 40, 0.38) 0%,
+      rgba(30, 58, 92, 0.28) 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse at 20% 80%,
-      rgba(74, 13, 26, 0.32) 0%,
+      rgba(20, 35, 55, 0.24) 0%,
       transparent 55%
     ),
-    linear-gradient(180deg, rgba(46, 8, 16, 0.9) 0%, #0d0003 30%);
+    linear-gradient(180deg, rgba(15, 22, 32, 0.95) 0%, #0a0e14 30%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,8 +47,8 @@ export const SectionTitle = styled.h2`
   margin: 0;
 `;
 
-export const Subtitle = styled.p`
-  color: rgba(241, 213, 146, 0.72);
+export const SectionSubtitle = styled.p`
+  color: rgba(200, 210, 220, 0.65);
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 500;
   margin-top: 0;
@@ -59,6 +59,7 @@ export const Subtitle = styled.p`
   max-width: 480px;
   position: relative;
   padding: 0 18px;
+  margin: 0 auto;
 
   &::before,
   &::after {
@@ -70,7 +71,7 @@ export const Subtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.7) 100%
+      rgba(180, 190, 210, 0.4) 100%
     );
   }
 
@@ -79,7 +80,7 @@ export const Subtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.7) 100%
+      rgba(180, 190, 210, 0.4) 100%
     );
   }
 
@@ -87,7 +88,7 @@ export const Subtitle = styled.p`
     left: calc(100% - 14px);
     background: linear-gradient(
       90deg,
-      rgba(212, 175, 55, 0.7) 0%,
+      rgba(180, 190, 210, 0.4) 0%,
       transparent 100%
     );
   }
@@ -100,13 +101,13 @@ export const SliderOuter = styled.div`
   display: flex;
   align-items: center;
   gap: clamp(8px, 1.2vw, 14px);
-  height: clamp(280px, 38vw, 420px);
+  height: clamp(200px, 26vw, 280px);
 `;
 
 export const Track = styled.div`
   flex: 1;
   display: flex;
-  gap: clamp(12px, 1.6vw, 20px);
+  gap: clamp(16px, 2vw, 24px);
   overflow-x: scroll;
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
@@ -121,8 +122,8 @@ export const Track = styled.div`
   }
 `;
 
-export const CardSlot = styled.div`
-  flex: 0 0 calc(25% - 15px);
+export const TestimonialsGrid = styled.div`
+  flex: 0 0 calc(25% - 18px);
   min-width: 0;
   scroll-snap-align: start;
   display: flex;
@@ -133,17 +134,106 @@ export const CardSlot = styled.div`
     flex: 0 0 calc(33.33% - 14px);
   }
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
+  @media (max-width: 768px) {
     flex: 0 0 calc(50% - 10px);
   }
 
   @media (max-width: 540px) {
-    flex: 0 0 calc(50% - 6px);
-  }
-
-  @media (max-width: ${theme.breakpoints.smallPhone}px) {
     flex: 0 0 calc(100% - 0px);
   }
+`;
+
+export const TestimonialCard = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(46, 8, 16, 0.8) 0%,
+    rgba(75, 16, 32, 0.6) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  border-radius: 12px;
+  padding: clamp(14px, 2vw, 20px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 245, 220, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    0 6px 20px rgba(0, 0, 0, 0.2),
+    0 0 16px rgba(212, 175, 55, 0.16);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.32) 50%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(46, 8, 16, 0.95) 0%,
+      rgba(75, 16, 32, 0.8) 100%
+    );
+    border-color: rgba(212, 175, 55, 0.16);
+    box-shadow:
+      inset 0 2px 6px rgba(255, 245, 220, 0.24),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+      0 9px 28px rgba(0, 0, 0, 0.24),
+      0 0 24px rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
+  }
+`;
+
+export const Stars = styled.div`
+  display: flex;
+  gap: 3px;
+  margin-bottom: clamp(8px, 1vw, 12px);
+  font-size: clamp(12px, 1.2vw, 14px);
+`;
+
+export const Star = styled.span`
+  color: #ffd700;
+`;
+
+export const TestimonialText = styled.p`
+  font-size: clamp(12px, 1.3vw, 14px);
+  line-height: 1.5;
+  color: ${theme.colors.testimonialText};
+  margin-bottom: clamp(10px, 1.2vw, 15px);
+  font-style: normal;
+  margin: 0 0 clamp(10px, 1.2vw, 15px) 0;
+  font-weight: 500;
+`;
+
+export const TestimonialAuthor = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+`;
+
+export const AuthorName = styled.strong`
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: ${theme.colors.white};
+  font-weight: 600;
+`;
+
+export const AuthorCompany = styled.span`
+  font-size: clamp(10px, 1vw, 12px);
+  color: ${theme.colors.testimonialSubtext};
 `;
 
 export const ArrowButton = styled.button`
@@ -175,29 +265,28 @@ export const ArrowButton = styled.button`
   }
 `;
 
-export const ViewAllContainer = styled.div`
-  margin: -70px 0 0;
+export const CTAContainer = styled.div`
+  margin-top: clamp(36px, 5vw, 70px);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+`;
+
+export const ViewMoreLink = styled.a`
+  display: inline-flex;
   align-items: center;
-  cursor: pointer;
+  gap: 10px;
+  padding: 12px 30px;
+  border: 1px solid ${theme.colors.testimonialAccentBorder};
+  border-radius: 8px;
+  color: ${theme.colors.testimonialAccent};
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 
-  &:hover div {
-    width: 100px;
+  &:hover {
+    background: ${theme.colors.testimonialAccentLight};
+    border-color: ${theme.colors.testimonialAccent};
+    color: ${theme.colors.white};
   }
-`;
-
-export const ViewAllText = styled.span`
-  color: ${theme.colors.goldMain};
-  text-transform: uppercase;
-  letter-spacing: clamp(1.4px, 0.3vw, 4px);
-  font-size: clamp(0.68rem, 0.9vw, 0.75rem);
-  margin-bottom: 10px;
-`;
-
-export const ViewAllLine = styled.div`
-  width: 50px;
-  height: 1px;
-  background: ${theme.colors.goldMain};
-  transition: width 0.4s ease;
 `;
