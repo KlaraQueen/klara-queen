@@ -16,7 +16,11 @@ export const TestimonialsHeader = styled.div`
 export const TestimonialsTitle = styled.h1`
   font-size: clamp(28px, 5vw, 48px);
   font-weight: 700;
-  background: linear-gradient(135deg, ${theme.colors.testimonialAccent} 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.testimonialAccent} 0%,
+    #764ba2 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

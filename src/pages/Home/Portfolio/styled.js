@@ -4,8 +4,7 @@ import { theme } from "../../../theme";
 export const PortfolioSection = styled.section`
   width: 100%;
   margin-top: clamp(-38px, -3vw, -18px);
-  padding: clamp(0px, 1.4vw, 20px) clamp(16px, 4vw, 60px)
-    0px;
+  padding: clamp(0px, 1.4vw, 20px) clamp(16px, 4vw, 60px) 0px;
   background:
     radial-gradient(
       ellipse at 80% 0%,

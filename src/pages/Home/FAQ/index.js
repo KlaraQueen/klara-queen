@@ -13,7 +13,9 @@ function FAQ() {
     <S.FAQSection>
       <S.TitleWrapper>
         <S.SectionTitle>Najczęściej Zadawane Pytania</S.SectionTitle>
-        <S.SectionSubtitle>Szybkie odpowiedzi na Twoje najbardziej palące wątpliwości</S.SectionSubtitle>
+        <S.SectionSubtitle>
+          Szybkie odpowiedzi na Twoje najbardziej palące wątpliwości
+        </S.SectionSubtitle>
       </S.TitleWrapper>
 
       <S.GridContainer>

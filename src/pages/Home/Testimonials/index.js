@@ -33,7 +33,9 @@ function Testimonials() {
     <S.TestimonialsSection>
       <S.TitleWrapper>
         <S.SectionTitle>Opinie Naszych Klientów</S.SectionTitle>
-        <S.SectionSubtitle>To mówią o nas ci, którzy nam zaufali</S.SectionSubtitle>
+        <S.SectionSubtitle>
+          To mówią o nas ci, którzy nam zaufali
+        </S.SectionSubtitle>
       </S.TitleWrapper>
 
       <S.SliderOuter>

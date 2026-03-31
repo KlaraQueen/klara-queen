@@ -99,19 +99,19 @@ export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(12px, 1.6vw, 20px);
-  
+
   @media (max-width: 1050px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   @media (max-width: ${theme.breakpoints.tablet}px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: 540px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
     grid-template-columns: 1fr;
   }

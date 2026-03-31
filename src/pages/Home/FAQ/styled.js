@@ -222,7 +222,9 @@ export const AnswerText = styled.p`
   overflow: hidden;
   transition: max-height 0.3s ease;
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  transition: opacity 0.3s ease, max-height 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    max-height 0.3s ease;
 `;
 
 export const ToggleIcon = styled.span`
