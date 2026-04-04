@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/klara-queen/static/js/main.f7b7d1e0.js",
+    "main.js": "/klara-queen/static/js/main.6cc252e7.js",
     "static/media/pexels-magnetme-3917414-5839461.jpg": "/klara-queen/static/media/pexels-magnetme-3917414-5839461.06d3415285cbf1cc0bf1.jpg",
     "static/media/pexels-rdne-7310202.jpg": "/klara-queen/static/media/pexels-rdne-7310202.0cfb9c3eef397dd77e13.jpg",
     "static/media/pexels-dimkidama-15115560.jpg": "/klara-queen/static/media/pexels-dimkidama-15115560.04167beb6bd16a6e9fd4.jpg",
     "static/media/pexels-firmbee-com-22729701-6963740.jpg": "/klara-queen/static/media/pexels-firmbee-com-22729701-6963740.a9a8b980823767df4886.jpg",
     "static/media/znak-wodny.png": "/klara-queen/static/media/znak-wodny.5040197ae93bea0121d6.png",
     "index.html": "/klara-queen/index.html",
-    "main.f7b7d1e0.js.map": "/klara-queen/static/js/main.f7b7d1e0.js.map"
+    "main.6cc252e7.js.map": "/klara-queen/static/js/main.6cc252e7.js.map"
   },
   "entrypoints": [
-    "static/js/main.f7b7d1e0.js"
+    "static/js/main.6cc252e7.js"
   ]
 }
