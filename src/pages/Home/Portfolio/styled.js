@@ -3,8 +3,8 @@ import { theme } from "../../../theme";
 
 export const PortfolioSection = styled.section`
   width: 100%;
-  margin-top: clamp(-38px, -3vw, -18px);
-  padding: clamp(0px, 1.4vw, 20px) clamp(16px, 4vw, 60px) 0px;
+  margin-top: 28px;
+  padding: 0 clamp(16px, 4vw, 60px) 0px;
   background:
     radial-gradient(
       ellipse at 80% 0%,
@@ -24,7 +24,7 @@ export const PortfolioSection = styled.section`
 
 export const TitleWrapper = styled.div`
   text-align: center;
-  margin-bottom: clamp(8px, 1.2vw, 16px);
+  margin-bottom: clamp(16px, 1.8vw, 28px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,6 +58,7 @@ export const Subtitle = styled.p`
   max-width: 480px;
   position: relative;
   padding: 0 18px;
+  margin: 0 auto;
 
   &::before,
   &::after {

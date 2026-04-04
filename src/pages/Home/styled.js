@@ -39,12 +39,12 @@ export const MainContent = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1400px;
-  padding: clamp(12px, 2vh, 24px) clamp(22px, 4vw, 56px);
+  padding: 0 clamp(22px, 4vw, 56px);
   gap: var(--columns-gap);
 
   @media (max-width: 1050px) {
     --columns-gap: clamp(10px, 1.4vw, 18px);
-    padding: clamp(10px, 1.8vh, 18px) clamp(18px, 3.2vw, 40px);
+    padding: 0 clamp(18px, 3.2vw, 40px);
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
