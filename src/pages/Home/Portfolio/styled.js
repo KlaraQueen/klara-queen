@@ -3,8 +3,12 @@ import { theme } from "../../../theme";
 
 export const PortfolioSection = styled.section`
   width: 100%;
-  margin-top: 28px;
-  padding: 0 clamp(16px, 4vw, 60px) 0px;
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 12px;
+  padding-left: clamp(16px, 4vw, 60px);
+  padding-right: clamp(16px, 4vw, 60px);
   background:
     radial-gradient(
       ellipse at 80% 0%,
@@ -38,7 +42,7 @@ export const SectionTitle = styled.h2`
   letter-spacing: clamp(1.2px, 0.22vw, 3px);
   font-size: clamp(1.8rem, 4vw, 3.1rem);
   font-weight: 600;
-  line-height: 0.96;
+  line-height: 1.3;
   text-shadow:
     0 0 2px rgba(255, 246, 220, 0.32),
     0 0 14px rgba(212, 175, 55, 0.18),
@@ -51,6 +55,7 @@ export const Subtitle = styled.p`
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 500;
   margin-top: 0;
+  margin-bottom: 0;
   font-size: clamp(0.62rem, 0.78vw, 0.72rem);
   letter-spacing: clamp(2.8px, 0.38vw, 4.8px);
   text-transform: uppercase;
@@ -101,6 +106,7 @@ export const SliderOuter = styled.div`
   align-items: center;
   gap: clamp(8px, 1.2vw, 14px);
   height: clamp(280px, 38vw, 420px);
+  margin-top: 0;
 `;
 
 export const Track = styled.div`
@@ -111,8 +117,8 @@ export const Track = styled.div`
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  padding: 10px 2px 20px;
-  margin: -10px -2px -20px;
+  padding: 0;
+  margin: 0;
   align-items: stretch;
   height: 100%;
 
@@ -128,6 +134,8 @@ export const CardSlot = styled.div`
   display: flex;
   align-items: stretch;
   height: 100%;
+  padding: 0;
+  margin: 0;
 
   @media (max-width: 1050px) {
     flex: 0 0 calc(33.33% - 14px);
@@ -176,7 +184,7 @@ export const ArrowButton = styled.button`
 `;
 
 export const ViewAllContainer = styled.div`
-  margin: -70px 0 0;
+  margin: 16px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;

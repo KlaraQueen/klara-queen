@@ -2,7 +2,7 @@ export const portfolioPageData = {
   header: {
     title: "Przykładowe Prace",
     subtitle:
-      "Ekskluzywne projekty cyfrowe, które definiują nową jakość branży",
+      "Ekskluzywne projekty cyfrowe, które\ndefiniują nową jakość branży",
   },
   viewAllText: "Zobacz Pełne Portfolio",
 };

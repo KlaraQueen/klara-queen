@@ -12,6 +12,8 @@ export const PageWrapper = styled.section`
   overflow: visible;
   background: transparent;
   padding: 1px 0 0;
+  margin-top: 0;
+  margin-bottom: 0;
 
   @media (max-width: 821px) {
     padding: 1px 0 0;
@@ -39,12 +41,13 @@ export const MainContent = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1400px;
-  padding: 0 clamp(22px, 4vw, 56px);
+  padding: clamp(16px, 2.5vw, 32px) clamp(22px, 4vw, 56px) 0;
   gap: var(--columns-gap);
+  margin: 0;
 
   @media (max-width: 1050px) {
     --columns-gap: clamp(10px, 1.4vw, 18px);
-    padding: 0 clamp(18px, 3.2vw, 40px);
+    padding: clamp(14px, 2vw, 28px) clamp(18px, 3.2vw, 40px) 0;
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
@@ -52,27 +55,28 @@ export const MainContent = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0px;
-    padding: 2px 14px 0;
-    margin: calc(10px - 2cm) auto 0;
+    padding: clamp(20px, 3vw, 32px) 14px 0;
+    margin: 0 auto;
   }
 
   @media (max-width: 640px) {
     gap: 0px;
-    padding: 2px 10px 0;
+    padding: clamp(16px, 2.5vw, 24px) 10px 0;
+    margin: 0 auto;
   }
 
   @media (max-width: 600px) {
-    margin: calc(10px - 1cm) auto 0;
+    padding: clamp(16px, 2.5vw, 24px) 10px 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
     gap: 8px;
-    padding: 4px 10px 0;
+    padding: clamp(14px, 2vw, 18px) 10px 0;
   }
 
   @media (max-width: 420px) {
     gap: 8px;
-    padding: 4px 10px 0;
+    padding: clamp(12px, 1.5vw, 16px) 8px 0;
   }
 `;
 
@@ -83,6 +87,7 @@ export const LeftColumn = styled.div`
   width: calc((100% - var(--columns-gap)) / 2);
   max-width: calc((100% - var(--columns-gap)) / 2);
   min-width: 0;
+  margin: 0;
 
   @media (max-width: ${theme.breakpoints.desktopHd}px) {
     justify-content: center;
@@ -94,11 +99,11 @@ export const LeftColumn = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 760px;
-    margin-top: -52px;
+    margin-top: 0;
   }
 
   @media (max-width: 640px) {
-    margin-top: -36px;
+    margin-top: 0;
   }
 
   @media (max-width: 600px) {
@@ -121,6 +126,7 @@ export const RightColumn = styled.div`
   width: calc((100% - var(--columns-gap)) / 2);
   max-width: calc((100% - var(--columns-gap)) / 2);
   min-width: 0;
+  margin: 0;
 
   @media (max-width: ${theme.breakpoints.desktopHd}px) {
     justify-content: center;

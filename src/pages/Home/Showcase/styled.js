@@ -6,10 +6,10 @@ export const ShowcaseWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  height: clamp(240px, 28vw, 380px);
+  height: clamp(240px, 28vw, 340px);
   z-index: 5;
   padding: clamp(10px, 1.3vw, 16px);
-  margin: 0 auto;
+  margin: 0 auto 0;
 
   @media (max-width: 1050px) {
     height: clamp(220px, 24vw, 320px);
@@ -19,12 +19,12 @@ export const ShowcaseWrapper = styled.div`
   @media (max-width: ${theme.breakpoints.tablet}px) {
     width: min(100%, 760px);
     height: clamp(240px, 46vw, 380px);
-    padding: 2px;
-    margin: 0 auto;
+    padding: clamp(8px, 1.2vw, 12px);
+    margin: 0 auto 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    padding: 0 2px;
+    padding: clamp(6px, 1vw, 10px);
   }
 `;
 

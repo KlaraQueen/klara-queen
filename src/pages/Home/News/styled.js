@@ -3,8 +3,12 @@ import { theme } from "../../../theme";
 
 export const NewsSection = styled.section`
   width: 100%;
-  margin-top: 56px;
-  padding: 0 clamp(16px, 4vw, 60px) 0px;
+  margin-top: -28px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 12px;
+  padding-left: clamp(16px, 4vw, 60px);
+  padding-right: clamp(16px, 4vw, 60px);
   background:
     radial-gradient(
       ellipse at 80% 0%,
@@ -38,7 +42,7 @@ export const SectionTitle = styled.h2`
   letter-spacing: clamp(1.2px, 0.22vw, 3px);
   font-size: clamp(1.8rem, 4vw, 3.1rem);
   font-weight: 600;
-  line-height: 0.96;
+  line-height: 1.3;
   text-shadow:
     0 0 2px rgba(255, 246, 220, 0.32),
     0 0 14px rgba(212, 175, 55, 0.18),
@@ -51,6 +55,7 @@ export const SectionSubtitle = styled.p`
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 500;
   margin-top: 0;
+  margin-bottom: 0;
   font-size: clamp(0.62rem, 0.78vw, 0.72rem);
   letter-spacing: clamp(2.8px, 0.38vw, 4.8px);
   text-transform: uppercase;
@@ -99,6 +104,8 @@ export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(12px, 1.6vw, 20px);
+  margin-top: 0;
+  margin-bottom: 0;
 
   @media (max-width: 1050px) {
     grid-template-columns: repeat(3, 1fr);

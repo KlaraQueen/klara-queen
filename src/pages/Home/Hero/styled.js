@@ -12,6 +12,7 @@ export const HeroWrapper = styled.div`
   width: 100%;
   max-width: 100%;
   padding: clamp(10px, 1.3vw, 16px);
+  margin: 0;
 
   @media (max-width: 1050px) {
     padding: clamp(9px, 1.2vw, 14px);
@@ -67,7 +68,7 @@ export const HeroTitle = styled.h1`
   text-rendering: optimizeLegibility;
   font-kerning: normal;
   font-size: clamp(1.05rem, 3.1vw, 2.7rem);
-  line-height: 0.94;
+  line-height: 1.3;
   text-shadow:
     0 0 2px rgba(255, 246, 220, 0.35),
     0 0 14px rgba(212, 175, 55, 0.22),
