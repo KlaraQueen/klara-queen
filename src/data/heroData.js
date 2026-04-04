@@ -11,11 +11,11 @@ export const heroData = {
   buttons: {
     primary: {
       label: "Zobacz Projekty",
-      href: "#projekty",
+      href: "/offer",
     },
     secondary: {
-      label: "Poznaj Ofertę",
-      href: "#oferta",
+      label: "Współpraca",
+      href: "/cooperation",
     },
   },
 };

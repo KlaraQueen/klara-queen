@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as S from "./styled";
 import { heroData } from "../../../data/heroData";
 
@@ -20,10 +21,10 @@ function Hero() {
       </S.HeroDescription>
 
       <S.Actions>
-        <S.PrimaryButton href={heroData.buttons.primary.href}>
+        <S.PrimaryButton as={Link} to={heroData.buttons.primary.href}>
           {heroData.buttons.primary.label}
         </S.PrimaryButton>
-        <S.SecondaryButton href={heroData.buttons.secondary.href}>
+        <S.SecondaryButton as={Link} to={heroData.buttons.secondary.href}>
           {heroData.buttons.secondary.label}
         </S.SecondaryButton>
       </S.Actions>
