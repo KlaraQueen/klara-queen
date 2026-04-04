@@ -4,26 +4,26 @@ import { theme } from "../../../theme";
 export const NavLinks = styled.ul`
   display: flex;
   align-items: ${(props) => (props.$vertical ? "center" : "center")};
-  gap: clamp(10px, 2vw, 40px);
+  gap: clamp(4px, 1.5vw, 30px);
   flex-wrap: nowrap;
   flex-direction: ${(props) => (props.$vertical ? "column" : "row")};
   justify-content: ${(props) => (props.$vertical ? "center" : "center")};
   list-style: none;
   margin: 0;
   padding: ${(props) => (props.$vertical ? "0" : "0 8px")};
-  white-space: normal;
+  white-space: nowrap;
   width: auto;
+  min-width: 0;
 
-  @media (max-width: 821px) {
-    gap: ${(props) => (props.$vertical ? "16px" : "6px 12px")};
-    flex-wrap: ${(props) => (props.$vertical ? "nowrap" : "wrap")};
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    gap: ${(props) => (props.$vertical ? "16px" : "clamp(3px, 0.8vw, 8px)")};
     padding: 0;
     justify-content: ${(props) => (props.$vertical ? "center" : "center")};
     max-width: 100%;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    gap: 4px 8px;
+    gap: ${(props) => (props.$vertical ? "14px" : "clamp(2px, 0.6vw, 5px)")};
   }
 `;
 
@@ -40,14 +40,14 @@ export const NavLink = styled.li`
   font-weight: ${(props) => (props.$vertical ? 500 : 600)};
   text-transform: uppercase;
   letter-spacing: ${(props) =>
-    props.$vertical ? "1.1px" : "clamp(0.7px, 0.1vw, 1.5px)"};
+    props.$vertical ? "1.1px" : "clamp(0.5px, 0.08vw, 1px)"};
   cursor: pointer;
   font-size: ${(props) =>
-    props.$vertical ? "0.9rem" : "clamp(0.64rem, 0.72vw, 0.82rem)"};
+    props.$vertical ? "0.9rem" : "clamp(0.48rem, 1.2vw, 0.90rem)"};
   white-space: nowrap;
   text-align: center;
   line-height: 1;
-  padding: ${(props) => (props.$vertical ? "2px 0" : "5px 9px")};
+  padding: ${(props) => (props.$vertical ? "2px 0" : "clamp(2px, 0.3vw, 4px) clamp(4px, 0.7vw, 7px)")};
   border-radius: 10px;
   border: ${(props) =>
     props.$vertical ? "none" : "1px solid rgba(241, 213, 146, 0.26)"};
@@ -87,17 +87,17 @@ export const NavLink = styled.li`
     );
   }
 
-  @media (max-width: 821px) {
-    letter-spacing: ${(props) => (props.$vertical ? "1.1px" : "0.8px")};
-    font-size: ${(props) => (props.$vertical ? "0.9rem" : "0.66rem")};
-    padding: ${(props) => (props.$vertical ? "1px 0" : "4px 7px")};
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    letter-spacing: ${(props) => (props.$vertical ? "1.1px" : "0.6px")};
+    font-size: ${(props) => (props.$vertical ? "0.9rem" : "clamp(0.48rem, 0.9vw, 0.68rem)")};
+    padding: ${(props) => (props.$vertical ? "1px 0" : "clamp(2px, 0.2vw, 3px) clamp(3px, 0.5vw, 5px)")};
     white-space: nowrap;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    letter-spacing: ${(props) => (props.$vertical ? "0.9px" : "0.7px")};
-    font-size: ${(props) => (props.$vertical ? "0.84rem" : "0.64rem")};
-    padding: ${(props) => (props.$vertical ? "1px 0" : "4px 6px")};
+    letter-spacing: ${(props) => (props.$vertical ? "0.9px" : "0.5px")};
+    font-size: ${(props) => (props.$vertical ? "0.84rem" : "clamp(0.44rem, 0.75vw, 0.56rem)")};
+    padding: ${(props) => (props.$vertical ? "1px 0" : "clamp(2px, 0.1vw, 3px) clamp(3px, 0.4vw, 5px)")};
   }
 
   &:hover {

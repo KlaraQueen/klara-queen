@@ -10,17 +10,13 @@ export const NavbarWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 60px;
+  padding: 0 clamp(8px, 3vw, 50px);
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
   z-index: 1000;
 
-  @media (max-width: ${theme.breakpoints.desktopHd}px) {
-    padding: 0 42px;
-  }
-
-  @media (max-width: 821px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     height: auto;
     min-height: 64px;
     display: grid;
@@ -30,10 +26,6 @@ export const NavbarWrapper = styled.nav`
     column-gap: 10px;
     row-gap: 0;
     padding: 6px 14px;
-  }
-
-  @media (max-width: ${theme.breakpoints.tablet}px) {
-    padding: 6px 12px;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
@@ -47,8 +39,9 @@ export const NavLeft = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-start;
+  min-width: 0;
 
-  @media (max-width: 821px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     grid-area: left;
     flex: none;
     min-width: 0;
@@ -59,15 +52,16 @@ export const NavCenter = styled.div`
   flex: 2;
   display: flex;
   justify-content: center;
+  min-width: 0;
 
-  @media (max-width: 821px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     grid-area: center;
     flex: 1;
     min-width: 0;
     justify-content: center;
   }
 
-  @media (max-width: 629px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     display: none;
   }
 `;
@@ -78,8 +72,9 @@ export const NavRight = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
+  min-width: 0;
 
-  @media (max-width: 821px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     grid-area: right;
     flex: none;
     min-width: 0;
@@ -89,7 +84,7 @@ export const NavRight = styled.div`
 export const DesktopSocial = styled.div`
   display: flex;
 
-  @media (max-width: 629px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     display: none;
   }
 `;
@@ -121,7 +116,7 @@ export const MenuToggle = styled.button`
       0 0 10px rgba(241, 213, 146, 0.22);
   }
 
-  @media (max-width: 629px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     display: inline-flex;
   }
 `;
@@ -137,7 +132,7 @@ export const DrawerBackdrop = styled.button`
   z-index: 999;
   display: none;
 
-  @media (max-width: 629px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     top: 72px;
     display: block;
   }
@@ -175,7 +170,7 @@ export const MobileDrawer = styled.aside`
   display: none;
   overflow-y: auto;
 
-  @media (max-width: 629px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     display: block;
   }
 `;

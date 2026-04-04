@@ -14,7 +14,7 @@ export const LogoImage = styled.img.attrs({
   src: logoData.src,
   alt: logoData.alt,
 })`
-  height: 90px;
+  height: clamp(50px, 8vw, 85px);
   width: auto;
   cursor: pointer;
   filter: brightness(3) contrast(1.2) saturate(1.1)
@@ -24,14 +24,7 @@ export const LogoImage = styled.img.attrs({
   transition:
     transform 0.3s ease,
     filter 0.3s ease;
-
-  @media (max-width: ${theme.breakpoints.tablet}px) {
-    height: 72px;
-  }
-
-  @media (max-width: ${theme.breakpoints.phone}px) {
-    height: 58px;
-  }
+  flex-shrink: 0;
 
   &:hover {
     transform: scale(1.05);
