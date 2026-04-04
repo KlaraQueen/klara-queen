@@ -11,22 +11,22 @@ export const PageWrapper = styled.section`
   justify-content: center;
   overflow: visible;
   background: transparent;
-  padding: clamp(88px, 10vh, 122px) 0 0;
+  padding: 1px 0 0;
 
   @media (max-width: 821px) {
-    padding: 94px 0 0;
+    padding: 1px 0 0;
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    padding: 94px 0 0;
+    padding: 1px 0 0;
   }
 
   @media (max-width: 640px) {
-    padding: 88px 0 0;
+    padding: 1px 0 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    padding: 84px 0 0;
+    padding: 1px 0 0;
   }
 `;
 

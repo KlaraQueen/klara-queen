@@ -20,7 +20,6 @@ export const theme = {
     goldSoft10: "rgba(180, 140, 30, 0.1)",
     goldSoft08: "rgba(212, 175, 55, 0.08)",
     goldSoft025: "rgba(212, 175, 55, 0.025)",
-    // Testimonials colors
     testimonialBg: "rgba(255, 255, 255, 0.08)",
     testimonialBgHover: "rgba(255, 255, 255, 0.12)",
     testimonialBorder: "rgba(212, 175, 55, 0.24)",
@@ -30,7 +29,6 @@ export const theme = {
     testimonialAccent: "#667eea",
     testimonialAccentLight: "rgba(102, 126, 234, 0.1)",
     testimonialAccentBorder: "rgba(102, 126, 234, 0.5)",
-    // Card backgrounds (for Portfolio, News, FAQ) - semi-transparent like testimonials
     cardBg1: "rgba(155, 45, 68, 0.08)",
     cardBg2: "rgba(75, 25, 45, 0.12)",
     cardBg3: "rgba(35, 10, 20, 0.15)",
