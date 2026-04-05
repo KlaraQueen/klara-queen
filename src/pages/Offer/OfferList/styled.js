@@ -3,10 +3,23 @@ import { theme } from "../../../theme";
 
 export const OffersGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
-  gap: clamp(30px, 4vw, 50px);
+  gap: clamp(10px, 1.8vw, 20px);
+  width: 100%;
   animation: fadeInUp 0.8s ease-out;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 
   @keyframes fadeInUp {
     from {
@@ -120,7 +133,7 @@ export const OfferCard = styled.div`
 
 export const OfferImage = styled.img`
   width: 100%;
-  height: 280px;
+  height: 160px;
   object-fit: cover;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   filter: brightness(0.9) contrast(1.1);
@@ -132,7 +145,7 @@ export const OfferImage = styled.img`
 `;
 
 export const OfferCardContent = styled.div`
-  padding: clamp(25px, 4vw, 35px);
+  padding: clamp(12px, 2.5vw, 18px);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -140,9 +153,9 @@ export const OfferCardContent = styled.div`
 `;
 
 export const OfferCardTitle = styled.h3`
-  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
   color: ${theme.colors.goldMain};
-  margin: 0 0 clamp(12px, 2vw, 18px) 0;
+  margin: 0 0 clamp(6px, 1.2vw, 10px) 0;
   font-weight: 700;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 1px;
@@ -152,8 +165,8 @@ export const OfferCardTitle = styled.h3`
 
 export const OfferCardDescription = styled.p`
   color: rgba(255, 255, 255, 0.75);
-  font-size: clamp(0.9rem, 1.6vw, 1rem);
-  line-height: 1.7;
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+  line-height: 1.5;
   margin: 0 0 auto 0;
   flex: 1;
   font-weight: 300;
@@ -163,10 +176,10 @@ export const OfferCardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: clamp(20px, 3vw, 30px);
-  padding-top: clamp(20px, 3vw, 30px);
+  margin-top: clamp(10px, 1.5vw, 15px);
+  padding-top: clamp(10px, 1.5vw, 15px);
   border-top: 1px solid rgba(212, 175, 55, 0.25);
-  gap: clamp(15px, 2vw, 25px);
+  gap: clamp(10px, 1.5vw, 15px);
 
   @media (max-width: 480px) {
     flex-wrap: wrap;
@@ -174,7 +187,7 @@ export const OfferCardFooter = styled.div`
 `;
 
 export const OfferPrice = styled.span`
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   color: ${theme.colors.goldMain};
   font-weight: 700;
   font-family: "Cormorant Garamond", serif;
@@ -183,7 +196,7 @@ export const OfferPrice = styled.span`
 `;
 
 export const OfferButton = styled.button`
-  padding: clamp(10px, 2vw, 14px) clamp(25px, 4vw, 40px);
+  padding: clamp(6px, 1.2vw, 10px) clamp(15px, 2.5vw, 25px);
   background: linear-gradient(
     135deg,
     ${theme.colors.goldMain} 0%,
@@ -192,7 +205,7 @@ export const OfferButton = styled.button`
   color: ${theme.colors.deepBlack};
   border: none;
   border-radius: 30px;
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
   font-weight: 700;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 1px;

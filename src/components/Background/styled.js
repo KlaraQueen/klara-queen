@@ -5,7 +5,6 @@ export const BackgroundWrapper = styled.div`
   position: fixed;
   inset: 0;
   height: 100vh;
-  width: 100vw;
   overflow: hidden;
   z-index: 0;
   pointer-events: none;
