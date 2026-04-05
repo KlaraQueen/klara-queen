@@ -5,11 +5,14 @@ export const OffersGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
-  gap: clamp(10px, 1.8vw, 20px);
+  gap: clamp(15px, 2vw, 25px);
   width: 100%;
+  justify-items: stretch;
+  justify-content: center;
+  box-sizing: border-box;
   animation: fadeInUp 0.8s ease-out;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -36,7 +39,8 @@ export const OffersGrid = styled.div`
 export const OfferCardLink = styled.a`
   text-decoration: none;
   color: inherit;
-  display: flex;
+  display: block;
+  width: 100%;
   height: 100%;
 `;
 
@@ -246,7 +250,7 @@ export const OfferButton = styled.button`
 export const OfferListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: stretch;
   gap: clamp(30px, 4vw, 50px);
 `;
 
