@@ -8,7 +8,6 @@ export const OffersGrid = styled.div`
   gap: clamp(15px, 2vw, 25px);
   width: 100%;
   justify-items: stretch;
-  justify-content: center;
   box-sizing: border-box;
   animation: fadeInUp 0.8s ease-out;
 

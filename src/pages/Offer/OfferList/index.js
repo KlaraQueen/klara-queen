@@ -28,6 +28,11 @@ const OfferList = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Scroll na początek stronę "Nasze Projekty" gdy zmieni się strona
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
   const totalPages = Math.ceil(offerData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -64,8 +69,8 @@ const OfferList = () => {
             <S.OfferCardLink
               key={offer.id}
               href={`${baseUrl}/offer/${offer.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={isMobile ? undefined : "_blank"}
+              rel={isMobile ? undefined : "noopener noreferrer"}
             >
               <S.OfferCard>
                 <S.OfferImage src={offer.image} alt={offer.title} />
@@ -89,8 +94,8 @@ const OfferList = () => {
             <S.OfferListItem
               key={offer.id}
               href={`${baseUrl}/offer/${offer.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={isMobile ? undefined : "_blank"}
+              rel={isMobile ? undefined : "noopener noreferrer"}
             >
               <S.OfferListImage src={offer.image} alt={offer.title} />
               <S.OfferListContent>
