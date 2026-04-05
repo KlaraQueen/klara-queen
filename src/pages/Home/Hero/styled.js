@@ -21,7 +21,7 @@ export const HeroWrapper = styled.div`
   @media (max-width: ${theme.breakpoints.tablet}px) {
     max-width: 760px;
     text-align: center;
-    margin: 0 auto;
+    margin: -20px auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
