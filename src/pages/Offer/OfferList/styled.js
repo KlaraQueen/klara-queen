@@ -20,7 +20,7 @@ export const OffersGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${theme.breakpoints.smallPhone - 1}px) {
     grid-template-columns: 1fr;
   }
 
