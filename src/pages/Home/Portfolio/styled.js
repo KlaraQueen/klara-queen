@@ -184,7 +184,7 @@ export const ArrowButton = styled.button`
 `;
 
 export const ViewAllContainer = styled.div`
-  margin: 16px 0 0;
+  margin: 8px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
