@@ -63,6 +63,10 @@ export const MainContent = styled.div`
   padding-top: 90px;
 
   @media (max-width: 821px) {
-    padding-top: 70px;
+    padding-top: 15px;
+  }
+
+  @media (max-width: ${theme.breakpoints.phone}px) {
+    padding-top: 45px;
   }
 `;

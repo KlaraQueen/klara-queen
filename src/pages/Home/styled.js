@@ -16,19 +16,19 @@ export const PageWrapper = styled.section`
   margin-bottom: 0;
 
   @media (max-width: 821px) {
-    padding: 1px 0 0;
+    padding: 0 0 0;
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    padding: 1px 0 0;
+    padding: 0 0 0;
   }
 
   @media (max-width: 640px) {
-    padding: 1px 0 0;
+    padding: 0 0 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    padding: 1px 0 0;
+    padding: 0 0 0;
   }
 `;
 
@@ -55,28 +55,28 @@ export const MainContent = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0px;
-    padding: clamp(20px, 3vw, 32px) 14px 0;
+    padding: 0 14px 0;
     margin: 0 auto;
   }
 
   @media (max-width: 640px) {
     gap: 0px;
-    padding: clamp(16px, 2.5vw, 24px) 10px 0;
+    padding: 0 10px 0;
     margin: 0 auto;
   }
 
   @media (max-width: 600px) {
-    padding: clamp(16px, 2.5vw, 24px) 10px 0;
+    padding: 0 10px 0;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
     gap: 8px;
-    padding: clamp(14px, 2vw, 18px) 10px 0;
+    padding: 0 10px 0;
   }
 
   @media (max-width: 420px) {
     gap: 8px;
-    padding: clamp(12px, 1.5vw, 16px) 8px 0;
+    padding: 0 8px 0;
   }
 `;
 

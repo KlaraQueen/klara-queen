@@ -25,13 +25,13 @@ export const NavbarWrapper = styled.nav`
     align-items: center;
     column-gap: 10px;
     row-gap: 0;
-    padding: 6px 14px;
+    padding: 0 14px;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
     min-height: 60px;
     column-gap: 8px;
-    padding: 6px 10px;
+    padding: 0 10px;
   }
 `;
 
