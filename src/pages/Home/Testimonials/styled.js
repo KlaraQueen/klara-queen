@@ -224,23 +224,47 @@ export const TestimonialText = styled.p`
   font-style: normal;
   margin: 0 0 clamp(10px, 1.2vw, 15px) 0;
   font-weight: 500;
+
+  @media (max-width: ${theme.breakpoints.tablet - 1}px) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+  }
+
+  @media (min-width: ${theme.breakpoints.tablet}px) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    overflow: hidden;
+  }
 `;
 
 export const TestimonialAuthor = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3px;
+  margin-top: auto;
+  flex-shrink: 0;
 `;
 
 export const AuthorName = styled.strong`
   font-size: clamp(12px, 1.2vw, 14px);
   color: ${theme.colors.white};
   font-weight: 600;
+
+  @media (max-width: ${theme.breakpoints.tablet - 1}px) {
+    font-size: clamp(10px, 0.9vw, 12px);
+  }
 `;
 
 export const AuthorCompany = styled.span`
   font-size: clamp(10px, 1vw, 12px);
   color: ${theme.colors.testimonialSubtext};
+
+  @media (max-width: ${theme.breakpoints.tablet - 1}px) {
+    font-size: clamp(8px, 0.8vw, 10px);
+  }
 `;
 
 export const ArrowButton = styled.button`
