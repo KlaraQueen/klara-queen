@@ -13,12 +13,16 @@ export const OfferContent = styled.div`
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  padding: clamp(60px, 10vw, 100px) clamp(10px, 2vw, 30px);
+  padding: clamp(30px, 5vw, 60px) clamp(10px, 2vw, 30px);
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    padding-top: clamp(70px, 10vw, 90px);
+  }
 `;
 
 export const OfferHeader = styled.div`
   text-align: center;
-  margin-bottom: clamp(60px, 10vw, 100px);
+  margin-bottom: clamp(30px, 5vw, 50px);
   animation: fadeInDown 0.8s ease-out;
 
   @keyframes fadeInDown {
@@ -51,6 +55,10 @@ export const OfferSubtitle = styled.p`
   line-height: 1.8;
   max-width: 700px;
   margin: 0 auto;
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    display: none;
+  }
 `;
 
 export const OfferDetailPageContainer = styled.section`
