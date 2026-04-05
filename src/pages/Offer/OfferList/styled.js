@@ -229,3 +229,76 @@ export const OfferButton = styled.button`
     transform: translateY(-1px);
   }
 `;
+
+export const OfferListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: clamp(30px, 4vw, 50px);
+`;
+
+export const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(20px, 4vw, 40px);
+  margin-top: clamp(40px, 6vw, 60px);
+  padding: clamp(30px, 4vw, 50px);
+  background: linear-gradient(
+    135deg,
+    rgba(46, 8, 16, 0.4) 0%,
+    rgba(75, 16, 32, 0.3) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 20px;
+`;
+
+export const PaginationButton = styled.button`
+  flex-shrink: 0;
+  width: clamp(45px, 5vw, 60px);
+  height: clamp(45px, 5vw, 60px);
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.goldMain} 0%,
+    #f1d592 100%
+  );
+  color: ${theme.colors.deepBlack};
+  border: 2px solid ${theme.colors.goldMain};
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.5) 0%,
+      rgba(241, 213, 146, 0.5) 100%
+    );
+  }
+`;
+
+export const PageInfo = styled.span`
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: ${theme.colors.goldMain};
+  font-weight: 600;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+`;
