@@ -150,11 +150,11 @@ export const CardSlot = styled.div`
   }
 
   @media (max-width: 540px) {
-    flex: 0 0 calc(50% - 6px);
+    flex: 0 0 calc(100% - clamp(6px, 0.8vw, 10px));
   }
 
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
-    flex: 0 0 calc(100% - 0px);
+    flex: 0 0 calc(100% - clamp(6px, 0.8vw, 10px));
   }
 `;
 

@@ -101,33 +101,42 @@ export const SectionSubtitle = styled.p`
 export const GridContainer = styled.div`
   width: 100%;
   max-width: 1200px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: clamp(12px, 1.6vw, 20px);
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
   margin-top: 0;
   margin-bottom: 0;
+  padding: 8px 0 0 0;
+  align-items: stretch;
+  height: clamp(280px, 38vw, 420px);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (max-width: 1050px) {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 540px) {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: ${theme.breakpoints.smallPhone}px) {
-    grid-template-columns: 1fr;
   }
 `;
 
 export const ArticleCard = styled.a`
   display: flex;
   flex-direction: column;
+  flex: 0 0 calc(25% - 15px);
+  min-width: 0;
   height: 100%;
+  scroll-snap-align: start;
   text-decoration: none;
   color: inherit;
   border-radius: 18px;
@@ -150,6 +159,22 @@ export const ArticleCard = styled.a`
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   padding: 0;
+
+  @media (max-width: 1050px) {
+    flex: 0 0 calc(33.33% - 14px);
+  }
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  @media (max-width: 540px) {
+    flex: 0 0 calc(100% - clamp(6px, 0.8vw, 10px));
+  }
+
+  @media (max-width: ${theme.breakpoints.smallPhone}px) {
+    flex: 0 0 calc(100% - clamp(6px, 0.8vw, 10px));
+  }
 
   &::after {
     content: "";
@@ -204,6 +229,8 @@ export const ArticleContent = styled.div`
   padding: clamp(14px, 2vw, 20px);
   position: relative;
   z-index: 2;
+  overflow: visible;
+  min-height: 0;
 `;
 
 export const ArticleTitle = styled.h3`
@@ -217,6 +244,11 @@ export const ArticleTitle = styled.h3`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: calc(1.3 * 1.2em * 2);
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    -webkit-line-clamp: 2;
+  }
 `;
 
 export const ArticleExcerpt = styled.p`
@@ -229,6 +261,10 @@ export const ArticleExcerpt = styled.p`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    display: none;
+  }
 `;
 
 export const ArticleDate = styled.span`
@@ -238,4 +274,49 @@ export const ArticleDate = styled.span`
   margin-top: clamp(8px, 1vw, 12px);
   padding-top: clamp(8px, 1vw, 12px);
   border-top: 1px solid rgba(212, 175, 55, 0.15);
+  white-space: normal;
+  word-break: break-word;
+  overflow: visible;
+  display: block;
+  width: 100%;
+`;
+
+export const SliderOuter = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 14px);
+  height: clamp(280px, 38vw, 420px);
+  margin-top: 0;
+`;
+
+export const ArrowButton = styled.button`
+  flex-shrink: 0;
+  width: clamp(40px, 4vw, 52px);
+  height: clamp(40px, 4vw, 52px);
+  border-radius: 50%;
+  background: rgba(20, 0, 4, 0.88);
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  color: ${theme.colors.goldMain};
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 245, 220, 0.07);
+
+  &:hover {
+    background: linear-gradient(180deg, #f4d98b 0%, #c8960e 100%);
+    border-color: #f4d98b;
+    color: #1a0005;
+    box-shadow:
+      0 10px 26px rgba(0, 0, 0, 0.46),
+      0 0 18px rgba(212, 175, 55, 0.32);
+    transform: scale(1.08);
+  }
 `;
