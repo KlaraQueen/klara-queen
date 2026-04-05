@@ -49,7 +49,7 @@ export const CardContainer = styled.div`
 
   &:hover {
     border-color: rgba(212, 175, 55, 0.16);
-    transform: ${(props) => (props.isLink ? "translateY(-8px)" : "none")};
+    transform: translateY(-8px);
     background: linear-gradient(
       135deg,
       rgba(46, 8, 16, 0.95) 0%,

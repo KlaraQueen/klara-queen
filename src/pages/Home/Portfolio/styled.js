@@ -117,7 +117,7 @@ export const Track = styled.div`
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  padding: 0;
+  padding: 8px 0 0 0;
   margin: 0;
   align-items: stretch;
   height: 100%;
