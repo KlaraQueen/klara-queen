@@ -24,6 +24,10 @@ export const PortfolioSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: ${theme.breakpoints.phone}px) {
+    margin-top: -8px;
+  }
 `;
 
 export const TitleWrapper = styled.div`
