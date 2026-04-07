@@ -8,6 +8,7 @@ export const OffersGrid = styled.div`
   gap: clamp(15px, 2vw, 25px);
   width: 100%;
   justify-items: stretch;
+  padding: 0;
   box-sizing: border-box;
   animation: fadeInUp 0.8s ease-out;
 
@@ -41,6 +42,8 @@ export const OfferCardLink = styled.a`
   display: block;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
 `;
 
 export const OfferCard = styled.div`
@@ -58,6 +61,7 @@ export const OfferCard = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
   animation: fadeInUp 0.8s ease-out both;
   user-select: none;
   position: relative;
@@ -152,6 +156,7 @@ export const OfferCardContent = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  box-sizing: border-box;
   background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
 `;
 
