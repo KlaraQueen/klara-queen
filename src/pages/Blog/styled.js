@@ -60,11 +60,19 @@ export const BlogSubtitle = styled.p`
   }
 `;
 
+export const BlogListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(4px, 1vw, 8px);
+  margin-top: clamp(20px, 3vw, 40px);
+`;
+
 export const ArticlesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 3.2vw, 36px);
-  margin-top: clamp(32px, 6.4vw, 64px);
+  grid-auto-rows: 1fr;
+  gap: clamp(10px, 1vw, 16px);
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
@@ -83,6 +91,9 @@ export const ArticleCard = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -90,11 +101,20 @@ export const ArticleCard = styled.div`
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
+  box-sizing: border-box;
 
   &:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-8px);
+  }
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
   }
 
   a {
@@ -172,5 +192,166 @@ export const ReadMoreButton = styled.span`
 
   ${ArticleCard}:hover &::after {
     transform: translateX(4px);
+  }
+`;
+
+/* List View Styles */
+export const ArticlesList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vw, 12px);
+  width: 100%;
+  animation: fadeInUp 0.8s ease-out;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+export const ArticleListItem = styled.a`
+  display: flex;
+  gap: clamp(12px, 3vw, 20px);
+  padding: clamp(12px, 2.5vw, 18px);
+  background: linear-gradient(
+    135deg,
+    rgba(46, 8, 16, 0.8) 0%,
+    rgba(75, 16, 32, 0.6) 100%
+  );
+  border: 2px solid rgba(212, 175, 55, 0.15);
+  border-radius: 15px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  position: relative;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(212, 175, 55, 0.1);
+  animation: fadeInUp 0.8s ease-out both;
+
+  &:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  &:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: linear-gradient(
+      135deg,
+      rgba(46, 8, 16, 0.95) 0%,
+      rgba(75, 16, 32, 0.8) 100%
+    );
+    transform: translateY(-6px);
+    box-shadow:
+      0 30px 60px rgba(212, 175, 55, 0.3),
+      inset 0 1px 0 rgba(212, 175, 55, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-3px);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+export const ArticleListImage = styled.img`
+  width: clamp(80px, 20vw, 120px);
+  height: clamp(80px, 20vw, 120px);
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: brightness(0.9) contrast(1.1);
+
+  ${ArticleListItem}:hover & {
+    transform: scale(1.08);
+    filter: brightness(1) contrast(1.2);
+  }
+`;
+
+export const ArticleListContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: clamp(8px, 1.5vw, 12px);
+  min-width: 0;
+`;
+
+export const ArticleListDate = styled.span`
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+`;
+
+export const ArticleListTitle = styled.h3`
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 700;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-style: italic;
+`;
+
+export const ArticleListExcerpt = styled.p`
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+  line-height: 1.5;
+  margin: 0 0 auto 0;
+  flex: 1;
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
+
+export const ArticleListButton = styled.span`
+  font-size: clamp(0.65rem, 1rem, 0.8rem);
+  color: ${theme.colors.gold};
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+
+  ${ArticleListItem}:hover & {
+    gap: 10px;
+  }
+
+  &::after {
+    content: "→";
+    transition: transform 0.3s ease;
+  }
+
+  ${ArticleListItem}:hover &::after {
+    transform: translateX(3px);
   }
 `;
