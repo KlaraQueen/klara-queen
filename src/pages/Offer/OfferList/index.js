@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styled";
 import { offerData } from "../../../data/offerData";
-import { FaThLarge, FaList } from "react-icons/fa";
 import Pagination from "../../../components/Pagination";
+import ViewToggle from "../../../components/ViewToggle";
 
 const OfferList = () => {
   const baseUrl = process.env.PUBLIC_URL || "";
@@ -44,24 +44,7 @@ const OfferList = () => {
 
   return (
     <S.OfferListWrapper>
-      <S.ViewToggleContainer>
-        <S.ViewToggleButton
-          onClick={() => setViewMode("grid")}
-          active={viewMode === "grid"}
-          aria-label="Widok kafelków"
-          title="Widok kafelków"
-        >
-          <FaThLarge />
-        </S.ViewToggleButton>
-        <S.ViewToggleButton
-          onClick={() => setViewMode("list")}
-          active={viewMode === "list"}
-          aria-label="Widok listy"
-          title="Widok listy"
-        >
-          <FaList />
-        </S.ViewToggleButton>
-      </S.ViewToggleContainer>
+      <ViewToggle viewMode={viewMode} onViewModeChange={setViewMode} />
 
       {viewMode === "grid" ? (
         <S.OffersGrid>
