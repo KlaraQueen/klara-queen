@@ -8,15 +8,20 @@ export const BlogContainer = styled.section`
 `;
 
 export const BlogContent = styled.div`
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   width: 100%;
-  padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 50px);
+  box-sizing: border-box;
+  padding: clamp(30px, 5vw, 60px) clamp(10px, 2vw, 30px);
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    padding-top: clamp(70px, 10vw, 90px);
+  }
 `;
 
 export const BlogHeader = styled.div`
   text-align: center;
-  margin-bottom: clamp(60px, 10vw, 100px);
+  margin-bottom: clamp(30px, 5vw, 50px);
   animation: fadeInDown 0.8s ease-out;
 
   @keyframes fadeInDown {
@@ -49,6 +54,10 @@ export const BlogSubtitle = styled.p`
   line-height: 1.8;
   max-width: 700px;
   margin: 0 auto;
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    display: none;
+  }
 `;
 
 export const ArticlesGrid = styled.div`
