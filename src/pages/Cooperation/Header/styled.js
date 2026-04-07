@@ -3,7 +3,7 @@ import { theme } from "../../../theme";
 
 export const CooperationHeader = styled.div`
   text-align: center;
-  margin-bottom: clamp(80px, 12vw, 120px);
+  margin-bottom: clamp(30px, 5vw, 50px);
   animation: fadeInDown 0.8s ease-out;
 
   @keyframes fadeInDown {
@@ -36,4 +36,8 @@ export const CooperationSubtitle = styled.p`
   line-height: 1.8;
   max-width: 700px;
   margin: 0 auto;
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    display: none;
+  }
 `;

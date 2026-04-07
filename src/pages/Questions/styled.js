@@ -6,17 +6,22 @@ export const QuestionsContainer = styled.section`
   z-index: 5;
   width: 100%;
   min-height: 100vh;
-  padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 50px);
+  padding: clamp(30px, 5vw, 60px) clamp(10px, 2vw, 30px);
+  box-sizing: border-box;
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    padding-top: clamp(70px, 10vw, 90px);
+  }
 `;
 
 export const QuestionsContent = styled.div`
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   width: 100%;
 `;
 
 export const QuestionsHeader = styled.div`
-  margin-bottom: clamp(50px, 8vw, 80px);
+  margin-bottom: clamp(30px, 5vw, 50px);
   text-align: center;
   animation: fadeInDown 0.8s ease-out;
 
@@ -48,6 +53,10 @@ export const QuestionsSubtitle = styled.p`
   font-weight: 300;
   letter-spacing: 0.5px;
   line-height: 1.6;
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    display: none;
+  }
 `;
 
 export const QuestionsList = styled.div`
