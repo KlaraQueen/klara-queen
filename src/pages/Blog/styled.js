@@ -166,7 +166,7 @@ export const ArticleExcerpt = styled.p`
   flex: 1;
   margin-bottom: 13px;
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
+  @media (max-width: ${theme.breakpoints.tablet}px) {
     display: none;
   }
 `;
