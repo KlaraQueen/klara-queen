@@ -95,6 +95,7 @@ export const PageInput = styled.input`
   }
 
   &[type="number"] {
+    appearance: textfield;
     -moz-appearance: textfield;
   }
 `;
