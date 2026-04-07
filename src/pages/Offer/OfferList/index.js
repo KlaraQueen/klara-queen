@@ -8,10 +8,19 @@ const OfferList = () => {
   const baseUrl = process.env.PUBLIC_URL || "";
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
-  const [viewMode, setViewMode] = useState("grid"); // "grid" lub "list"
+  const [viewMode, setViewMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("offerViewMode");
+      return saved || "grid";
+    }
+    return "grid";
+  });
   const [isMobile, setIsMobile] = useState(false);
 
-  // Ustal ilość itemów na podstawie wielkości ekranu
+  useEffect(() => {
+    localStorage.setItem("offerViewMode", viewMode);
+  }, [viewMode]);
+
   useEffect(() => {
     const handleResize = () => {
       const isBelowTablet = window.innerWidth < 820;

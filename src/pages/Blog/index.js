@@ -8,7 +8,17 @@ import ViewToggle from "../../components/ViewToggle";
 function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
-  const [viewMode, setViewMode] = useState("grid");
+  const [viewMode, setViewMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("blogViewMode");
+      return saved || "grid";
+    }
+    return "grid";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("blogViewMode", viewMode);
+  }, [viewMode]);
 
   useEffect(() => {
     const handleResize = () => {
