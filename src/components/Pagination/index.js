@@ -58,8 +58,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     }
   };
 
-  if (totalPages <= 1) return null;
-
   return (
     <S.PaginationContainer>
       <S.PaginationButton

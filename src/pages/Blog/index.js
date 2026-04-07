@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./styled";
 import { blogData } from "../../data/blogData";
+import Pagination from "../../components/Pagination";
 
 function Blog() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isBelowTablet = window.innerWidth < 820;
+      setItemsPerPage(isBelowTablet ? 4 : 6);
+    };
+
+    handleResize(); // Ustaw na start
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Scroll na początek strony gdy zmieni się strona
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  const totalPages = Math.ceil(blogData.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentArticles = blogData.slice(startIndex, endIndex);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <S.BlogContainer>
       <S.BlogContent>
@@ -17,7 +46,7 @@ function Blog() {
         </S.BlogHeader>
 
         <S.ArticlesGrid>
-          {blogData.map((article) => (
+          {currentArticles.map((article) => (
             <S.ArticleCard key={article.id}>
               <Link to={`/blog/${article.id}`}>
                 <S.ArticleImage src={article.image} alt={article.title} />
@@ -31,6 +60,12 @@ function Blog() {
             </S.ArticleCard>
           ))}
         </S.ArticlesGrid>
+
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </S.BlogContent>
     </S.BlogContainer>
   );

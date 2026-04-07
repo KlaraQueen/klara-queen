@@ -62,12 +62,20 @@ export const BlogSubtitle = styled.p`
 
 export const ArticlesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: clamp(20px, 4vw, 40px);
-  margin-top: clamp(40px, 8vw, 80px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 3.2vw, 36px);
+  margin-top: clamp(32px, 6.4vw, 64px);
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @media (max-width: 821px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -100,54 +108,58 @@ export const ArticleCard = styled.div`
 
 export const ArticleImage = styled.img`
   width: 100%;
-  height: 240px;
+  height: 193px;
   object-fit: cover;
   display: block;
 `;
 
 export const ArticleBody = styled.div`
-  padding: clamp(20px, 4vw, 30px);
+  padding: clamp(16px, 3.2vw, 24px);
   display: flex;
   flex-direction: column;
   flex: 1;
 `;
 
 export const ArticleDate = styled.span`
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 9px;
 `;
 
 export const ArticleTitle = styled.h3`
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(0.89rem, 1.6vw, 1.13rem);
   color: ${theme.colors.white};
-  margin: 0 0 12px 0;
+  margin: 0 0 9px 0;
   font-weight: 600;
   line-height: 1.4;
   font-family: "Cormorant Garamond", serif;
 `;
 
 export const ArticleExcerpt = styled.p`
-  font-size: 0.95rem;
+  font-size: 0.77rem;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   line-height: 1.6;
   flex: 1;
-  margin-bottom: 16px;
+  margin-bottom: 13px;
+
+  @media (max-width: ${theme.breakpoints.phone}px) {
+    display: none;
+  }
 `;
 
 export const ReadMoreButton = styled.span`
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   color: ${theme.colors.gold};
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 
   ${ArticleCard}:hover & {
     gap: 12px;
