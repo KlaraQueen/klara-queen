@@ -2,6 +2,7 @@ import { socialMediaData } from "./socialMediaData";
 
 export const navbarData = {
   labels: [
+    { name: "Start", to: "/klara-queen" },
     { name: "Oferta", to: "/offer" },
     { name: "Aktualności", to: "/blog" },
     { name: "Współpraca", to: "/cooperation" },
