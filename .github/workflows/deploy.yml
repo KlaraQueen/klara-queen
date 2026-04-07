@@ -36,8 +36,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./build/
           server-dir: ./
+          local-dir: ./build/
         continue-on-error: true
 
       - name: Deployment status check
