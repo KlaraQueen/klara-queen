@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
 
 export const CardContainer = styled.div`
   position: relative;

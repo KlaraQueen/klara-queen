@@ -6,7 +6,7 @@ import HeroSection from "./Hero";
 import VideoSectionComponent from "./Video";
 import FeaturesComponent from "./Features";
 import CTAComponent from "./CTA";
-import { SectionTitle, Description, Section } from "./shared/styled";
+import { Section } from "./shared/styled";
 
 const TemplatePreview = ({ offerId }) => {
   const navigate = useNavigate();

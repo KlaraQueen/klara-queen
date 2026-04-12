@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./styled";
-import { aboutHero, aboutSectionTitles } from "../../../data/aboutData";
+import { aboutSectionTitles } from "../../../data/aboutData";
 
 const CTA = () => (
   <S.CTASection>

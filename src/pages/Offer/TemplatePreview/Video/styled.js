@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../../theme";
 import { SectionTitle } from "../shared/styled";
 
 export const VideoSection = styled.section`

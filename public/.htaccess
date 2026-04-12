@@ -1,0 +1,11 @@
+# React (CRA) + React Router — LiteSpeed / Apache
+# Kopiowane do katalogu build przy `npm run build`.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

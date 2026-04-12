@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
 
 export const IconCircle = styled.div`
   width: clamp(32px, 5.5vw, 42px);
