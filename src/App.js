@@ -16,6 +16,8 @@ import Testimonials from "./pages/Testimonials/index";
 import Login from "./pages/Auth/Login/index";
 import Register from "./pages/Auth/Register/index";
 import ForgotPassword from "./pages/Auth/ForgotPassword/index";
+import Account from "./pages/Account/index";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -38,6 +40,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route
+            path="/konto"
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </MainContent>
       <Footer />

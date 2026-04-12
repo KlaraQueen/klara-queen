@@ -30,7 +30,7 @@ function Login() {
     setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email.trim(), password);
-      navigate("/", { replace: true });
+      navigate("/konto", { replace: true });
     } catch (err) {
       setError(mapFirebaseAuthError(err.code));
     } finally {
@@ -47,7 +47,7 @@ function Login() {
     setLoading(true);
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate("/", { replace: true });
+      navigate("/konto", { replace: true });
     } catch (err) {
       if (err.code === "auth/popup-closed-by-user") {
         return;

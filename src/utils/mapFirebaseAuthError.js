@@ -15,6 +15,8 @@ export function mapFirebaseAuthError(code) {
       "Konto z tym e-mailem istnieje już przy innym sposobie logowania.",
     "auth/operation-not-allowed": "Ta metoda logowania nie jest włączona w Firebase Console.",
     "auth/network-request-failed": "Błąd sieci. Sprawdź połączenie z internetem.",
+    "auth/requires-recent-login":
+      "Ze względów bezpieczeństwa wyloguj się i zaloguj ponownie, potem spróbuj jeszcze raz.",
   };
   return map[code] || "Wystąpił nieoczekiwany błąd. Spróbuj ponownie.";
 }
