@@ -317,6 +317,17 @@ export const AuthFooter = styled.p`
   }
 `;
 
+export const AuthError = styled.div`
+  margin: 0 0 16px 0;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #ffc9c9;
+  background: rgba(158, 30, 54, 0.3);
+  border-radius: ${r};
+  border: 1px solid rgba(241, 120, 140, 0.5);
+`;
+
 export const AuthNote = styled.p`
   margin: 0 0 20px 0;
   padding: 12px 14px;
@@ -326,6 +337,12 @@ export const AuthNote = styled.p`
   background: rgba(0, 0, 0, 0.2);
   border-radius: ${r};
   border: 1px solid ${c.navBorderGold18};
+`;
+
+export const AuthSuccess = styled(AuthNote)`
+  color: rgba(220, 255, 220, 0.95);
+  border-color: rgba(102, 187, 106, 0.45);
+  background: rgba(46, 125, 50, 0.2);
 `;
 
 export const BackRow = styled.div`

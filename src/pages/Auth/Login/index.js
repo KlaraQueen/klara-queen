@@ -1,18 +1,61 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { auth, googleProvider } from "../../../firebase";
+import { isFirebaseConfigReady } from "../../../firebase/config";
+import { mapFirebaseAuthError } from "../../../utils/mapFirebaseAuthError";
 import * as S from "../styled";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    if (!isFirebaseConfigReady() || !auth) {
+      setError("Brak konfiguracji Firebase — uzupełnij plik .env.local (patrz .env.example).");
+      return;
+    }
+    if (!email.trim() || !password) {
+      setError("Podaj adres e-mail i hasło.");
+      return;
+    }
+    setLoading(true);
+    try {
+      await signInWithEmailAndPassword(auth, email.trim(), password);
+      navigate("/", { replace: true });
+    } catch (err) {
+      setError(mapFirebaseAuthError(err.code));
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleGoogle = () => {
+  const handleGoogle = async () => {
+    setError("");
+    if (!isFirebaseConfigReady() || !auth) {
+      setError("Brak konfiguracji Firebase — uzupełnij plik .env.local (patrz .env.example).");
+      return;
+    }
+    setLoading(true);
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate("/", { replace: true });
+    } catch (err) {
+      if (err.code === "auth/popup-closed-by-user") {
+        return;
+      }
+      setError(mapFirebaseAuthError(err.code));
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -21,9 +64,11 @@ function Login() {
         <S.AuthHeader>
           <S.AuthTitle>Zaloguj się</S.AuthTitle>
           <S.AuthSubtitle>
-            Wpisz e-mail i hasło — wkrótce połączymy to z Firebase.
+            Zaloguj się e-mailem i hasłem albo kontem Google.
           </S.AuthSubtitle>
         </S.AuthHeader>
+
+        {error ? <S.AuthError role="alert">{error}</S.AuthError> : null}
 
         <S.AuthForm onSubmit={handleSubmit} noValidate>
           <S.Field>
@@ -36,6 +81,7 @@ function Login() {
               placeholder="twoj@email.pl"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
             />
           </S.Field>
 
@@ -50,11 +96,13 @@ function Login() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                disabled={loading}
               />
               <S.TogglePassword
                 type="button"
                 aria-label={showPassword ? "Ukryj hasło" : "Pokaż hasło"}
                 onClick={() => setShowPassword((v) => !v)}
+                disabled={loading}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </S.TogglePassword>
@@ -65,12 +113,14 @@ function Login() {
             <S.RouterLink to="/forgot-password">Nie pamiętasz hasła?</S.RouterLink>
           </S.RowBetween>
 
-          <S.PrimaryButton type="submit">Zaloguj się</S.PrimaryButton>
+          <S.PrimaryButton type="submit" disabled={loading}>
+            {loading ? "Logowanie…" : "Zaloguj się"}
+          </S.PrimaryButton>
         </S.AuthForm>
 
         <S.Divider>lub</S.Divider>
 
-        <S.GoogleButton type="button" onClick={handleGoogle}>
+        <S.GoogleButton type="button" onClick={handleGoogle} disabled={loading}>
           <FcGoogle aria-hidden />
           Kontynuuj z Google
         </S.GoogleButton>
