@@ -1,60 +1,81 @@
 import styled from "styled-components";
 import { theme } from "../../../theme";
 
-export const NavLinks = styled.ul`
+const t = theme.navbar;
+const c = theme.colors;
+
+export const NavLinksBar = styled.ul`
   display: flex;
-  align-items: ${(props) => (props.$vertical ? "center" : "center")};
-  gap: clamp(4px, 1.5vw, 30px);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: ${t.linksBarGap};
   flex-wrap: nowrap;
-  flex-direction: ${(props) => (props.$vertical ? "column" : "row")};
-  justify-content: ${(props) => (props.$vertical ? "center" : "center")};
   list-style: none;
   margin: 0;
-  padding: ${(props) => (props.$vertical ? "0" : "0 8px")};
+  padding: 0 ${t.linksBarPaddingX};
   white-space: nowrap;
   width: auto;
   min-width: 0;
+  max-width: 100%;
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    gap: ${(props) => (props.$vertical ? "16px" : "clamp(3px, 0.8vw, 8px)")};
+    gap: ${t.linksBarGapTablet};
     padding: 0;
-    justify-content: ${(props) => (props.$vertical ? "center" : "center")};
     max-width: 100%;
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    gap: ${(props) => (props.$vertical ? "14px" : "clamp(2px, 0.6vw, 5px)")};
+    gap: ${t.linksBarGapPhone};
   }
 `;
 
-export const NavLink = styled.li`
+export const NavLinksDrawer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: ${t.linksDrawerGapTablet};
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0 0 ${t.linksDrawerMarginBottom} 0;
+  padding: 0;
+  white-space: nowrap;
+  width: auto;
+  min-width: 0;
+
+  @media (max-width: ${theme.breakpoints.phone}px) {
+    gap: ${t.linksDrawerGapPhone};
+  }
+`;
+
+export const NavLinkBar = styled.li`
   flex-shrink: 1;
+  min-width: 0;
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: ${(props) => (props.$vertical ? "center" : "center")};
+  justify-content: center;
   gap: 0;
   width: auto;
-  color: ${theme.colors.goldHover};
+  color: ${c.goldHover};
   font-family: ${theme.fonts.main};
-  font-weight: ${(props) => (props.$vertical ? 500 : 600)};
+  font-weight: ${t.linkBarFontWeight};
   text-transform: uppercase;
-  letter-spacing: ${(props) =>
-    props.$vertical ? "1.1px" : "clamp(0.5px, 0.08vw, 1px)"};
+  letter-spacing: ${t.linkBarLetterSpacing};
   cursor: pointer;
-  font-size: ${(props) =>
-    props.$vertical ? "0.9rem" : "clamp(0.48rem, 1.2vw, 0.90rem)"};
+  font-size: ${t.linkBarFontSize};
   white-space: nowrap;
   text-align: center;
   line-height: 1;
-  padding: ${(props) => (props.$vertical ? "2px 0" : "clamp(2px, 0.3vw, 4px) clamp(4px, 0.7vw, 7px)")};
-  border-radius: 10px;
-  border: ${(props) =>
-    props.$vertical ? "none" : "1px solid rgba(241, 213, 146, 0.26)"};
-  background: ${(props) =>
-    props.$vertical
-      ? "transparent"
-      : "linear-gradient(180deg, rgba(255, 245, 214, 0.04) 0%, rgba(30, 8, 14, 0.2) 100%)"};
+  padding: ${t.linkBarPadding};
+  border-radius: ${t.linkBarRadius};
+  border: 1px solid ${c.navBorderGold26};
+  background: linear-gradient(
+    180deg,
+    ${c.navLinkBarBgTop} 0%,
+    ${c.navLinkBarBgBottom} 100%
+  );
   text-shadow:
     0 0 1px rgba(255, 255, 255, 0.22),
     0 0 8px rgba(212, 175, 55, 0.2);
@@ -72,47 +93,112 @@ export const NavLink = styled.li`
 
   &:not(:last-child)::after {
     content: "";
-    display: ${(props) => (props.$vertical ? "block" : "none")};
+    display: none;
+  }
+
+  @media (max-width: ${theme.breakpoints.tablet}px) {
+    letter-spacing: ${t.linkBarLetterSpacingTablet};
+    font-size: ${t.linkBarFontSizeTablet};
+    padding: ${t.linkBarPaddingTablet};
+    white-space: nowrap;
+  }
+
+  @media (max-width: ${theme.breakpoints.phone}px) {
+    letter-spacing: ${t.linkBarLetterSpacingPhone};
+    font-size: ${t.linkBarFontSizePhone};
+    padding: ${t.linkBarPaddingPhone};
+  }
+
+  &:hover {
+    color: ${c.white};
+    transform: translateY(-1px);
+    border-color: ${c.navBorderGold48};
+    background: linear-gradient(
+      180deg,
+      ${c.navLinkBarBgHoverTop} 0%,
+      ${c.navLinkBarBgHoverBottom} 100%
+    );
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.42),
+      0 0 10px ${c.goldMain},
+      0 0 18px ${c.goldHover};
+  }
+`;
+
+export const NavLinkDrawer = styled.li`
+  flex-shrink: 0;
+  min-width: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: auto;
+  color: ${c.goldHover};
+  font-family: ${theme.fonts.main};
+  font-weight: ${t.linkDrawerFontWeight};
+  text-transform: uppercase;
+  letter-spacing: ${t.linkDrawerLetterSpacing};
+  cursor: pointer;
+  font-size: ${t.linkDrawerFontSize};
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1;
+  padding: ${t.linkDrawerPadding};
+  border-radius: ${t.linkBarRadius};
+  border: none;
+  background: transparent;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.22),
+    0 0 8px rgba(212, 175, 55, 0.2);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    text-shadow 0.3s ease,
+    transform 0.3s ease;
+
+  &::before {
+    content: "";
+    display: none;
+  }
+
+  &:not(:last-child)::after {
+    content: "";
+    display: block;
     position: absolute;
     left: 50%;
-    bottom: -9px;
-    width: 18px;
+    bottom: ${t.linkSeparatorOffsetY};
+    width: ${t.linkSeparatorWidth};
     height: 1px;
     transform: translateX(-50%);
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(241, 213, 146, 0.5) 50%,
+      ${c.navDividerGold50} 50%,
       transparent 100%
     );
   }
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
-    letter-spacing: ${(props) => (props.$vertical ? "1.1px" : "0.6px")};
-    font-size: ${(props) => (props.$vertical ? "0.9rem" : "clamp(0.48rem, 0.9vw, 0.68rem)")};
-    padding: ${(props) => (props.$vertical ? "1px 0" : "clamp(2px, 0.2vw, 3px) clamp(3px, 0.5vw, 5px)")};
-    white-space: nowrap;
+    padding: ${t.linkDrawerPaddingTablet};
   }
 
   @media (max-width: ${theme.breakpoints.phone}px) {
-    letter-spacing: ${(props) => (props.$vertical ? "0.9px" : "0.5px")};
-    font-size: ${(props) => (props.$vertical ? "0.84rem" : "clamp(0.44rem, 0.75vw, 0.56rem)")};
-    padding: ${(props) => (props.$vertical ? "1px 0" : "clamp(2px, 0.1vw, 3px) clamp(3px, 0.4vw, 5px)")};
+    letter-spacing: ${t.linkDrawerLetterSpacingPhone};
+    font-size: ${t.linkDrawerFontSizePhone};
+    padding: ${t.linkDrawerPaddingPhone};
   }
 
   &:hover {
-    color: ${theme.colors.white};
+    color: ${c.white};
     transform: translateY(-1px);
-    border-color: ${(props) =>
-      props.$vertical ? "transparent" : "rgba(241, 213, 146, 0.48)"};
-    background: ${(props) =>
-      props.$vertical
-        ? "transparent"
-        : "linear-gradient(180deg, rgba(255, 245, 214, 0.08) 0%, rgba(44, 12, 22, 0.28) 100%)"};
+    border-color: transparent;
+    background: transparent;
     text-shadow:
       0 0 2px rgba(255, 255, 255, 0.42),
-      0 0 10px ${theme.colors.goldMain},
-      0 0 18px ${theme.colors.goldHover};
+      0 0 10px ${c.goldMain},
+      0 0 18px ${c.goldHover};
   }
 `;
 

@@ -1,23 +1,27 @@
 import styled from "styled-components";
 import { theme } from "../../../theme";
 
+const t = theme.navbar;
+const c = theme.colors;
+const bp = theme.breakpoints;
+
 export const SocialWrapper = styled.div`
   display: flex;
-  gap: 20px;
+  gap: ${t.socialGap};
   align-items: center;
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
-    gap: 14px;
+  @media (max-width: ${bp.tablet}px) {
+    gap: ${t.socialGapTablet};
   }
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
-    gap: 12px;
+  @media (max-width: ${bp.phone}px) {
+    gap: ${t.socialGapPhone};
   }
 `;
 
 export const SocialIcon = styled.a`
-  color: ${theme.colors.goldHover};
-  font-size: 1.3rem;
+  color: ${c.goldHover};
+  font-size: ${t.socialIconSize};
   transition:
     color 0.3s ease,
     transform 0.3s ease,
@@ -28,19 +32,19 @@ export const SocialIcon = styled.a`
   filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.22))
     drop-shadow(0 0 8px rgba(212, 175, 55, 0.22));
 
-  @media (max-width: ${theme.breakpoints.tablet}px) {
-    font-size: 1.18rem;
+  @media (max-width: ${bp.tablet}px) {
+    font-size: ${t.socialIconSizeTablet};
   }
 
-  @media (max-width: ${theme.breakpoints.phone}px) {
-    font-size: 1.08rem;
+  @media (max-width: ${bp.phone}px) {
+    font-size: ${t.socialIconSizePhone};
   }
 
   &:hover {
-    color: ${theme.colors.white};
+    color: ${c.white};
     transform: translateY(-2px) scale(1.04);
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.45))
-      drop-shadow(0 0 10px ${theme.colors.goldMain})
-      drop-shadow(0 0 16px ${theme.colors.goldHover});
+      drop-shadow(0 0 10px ${c.goldMain})
+      drop-shadow(0 0 16px ${c.goldHover});
   }
 `;

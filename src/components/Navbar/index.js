@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./styled";
 import Logo from "./Logo/index";
 import Labels from "./Labels/index";
+import Login from "./Login/index";
 import SocialMedia from "./SocialMedia/index";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { navbarData } from "../../data/navbarData";
@@ -29,9 +30,9 @@ function Navbar() {
         </S.NavCenter>
 
         <S.NavRight>
-          <S.DesktopSocial>
-            <SocialMedia />
-          </S.DesktopSocial>
+          <S.DesktopLogin>
+            <Login />
+          </S.DesktopLogin>
 
           <S.MenuToggle
             type="button"
@@ -48,12 +49,19 @@ function Navbar() {
         </S.NavRight>
       </S.NavbarWrapper>
 
-      <S.DrawerBackdrop $open={isMenuOpen} onClick={closeMenu} />
-      <S.MobileDrawer $open={isMenuOpen}>
-        <Labels vertical onItemClick={closeMenu} />
-        <S.MobileSocial>
-          <SocialMedia />
-        </S.MobileSocial>
+      <S.DrawerBackdrop
+        type="button"
+        data-open={isMenuOpen ? "" : undefined}
+        onClick={closeMenu}
+      />
+      <S.MobileDrawer data-open={isMenuOpen ? "" : undefined}>
+        <Labels variant="drawer" onItemClick={closeMenu} />
+        <S.MobileLoginContainer>
+          <Login />
+          <S.MobileSocial>
+            <SocialMedia />
+          </S.MobileSocial>
+        </S.MobileLoginContainer>
       </S.MobileDrawer>
     </>
   );
