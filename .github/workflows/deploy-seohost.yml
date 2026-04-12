@@ -28,7 +28,9 @@ jobs:
           REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
           REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
         run: |
-          npm ci
+          # npm ci wymaga package-lock.json na GitHubie i pełnej zgodności z package.json.
+          # npm install działa też przy lekko rozjechanym locku (typowy problem przy pierwszym CI).
+          npm install --no-audit --no-fund
           npm run build
 
       - name: Upload to hosting (FTP)
