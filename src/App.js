@@ -13,6 +13,9 @@ import Offer from "./pages/Offer/index";
 import Blog from "./pages/Blog/index";
 import Article from "./pages/Blog/Article/index";
 import Testimonials from "./pages/Testimonials/index";
+import Login from "./pages/Auth/Login/index";
+import Register from "./pages/Auth/Register/index";
+import ForgotPassword from "./pages/Auth/ForgotPassword/index";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />{" "}
           <Route path="/questions" element={<Questions />} />
           <Route path="/cooperation" element={<Cooperation />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </MainContent>
       <Footer />
