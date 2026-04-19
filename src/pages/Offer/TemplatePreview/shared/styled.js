@@ -11,6 +11,9 @@ export const Section = styled.section`
   padding: clamp(30px, 4.5vw, 45px);
   border-radius: 20px;
   border: 1px solid rgba(212, 175, 55, 0.1);
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
 
   @keyframes fadeInUp {
     from {
@@ -42,4 +45,7 @@ export const Description = styled.p`
   margin: 0;
   font-weight: 300;
   letter-spacing: 0.3px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 `;

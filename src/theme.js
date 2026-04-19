@@ -51,6 +51,70 @@ export const theme = {
     navToggleBg: "rgba(34, 10, 16, 0.72)",
     navBackdrop: "rgba(0, 0, 0, 0.4)",
     navShellBg: "rgba(0, 0, 0, 0.4)",
+
+    // ─── Akcenty ───
+    pinkAccent: "#e74c6f",
+    pinkSoft40: "rgba(231, 76, 111, 0.4)",
+
+    // ─── Tekst – warianty przezroczystości ───
+    textMuted: "rgba(255, 255, 255, 0.65)",
+    textSubtle: "rgba(255, 255, 255, 0.6)",
+    textFaded: "rgba(255, 255, 255, 0.45)",
+    textDim: "rgba(255, 255, 255, 0.5)",
+    textPlaceholder: "rgba(255, 255, 255, 0.3)",
+
+    // ─── Overlay & tła ───
+    overlayBg: "rgba(0, 0, 0, 0.6)",
+    overlayDense: "rgba(0, 0, 0, 0.7)",
+    inputBg: "rgba(0, 0, 0, 0.3)",
+    inputBgLight: "rgba(0, 0, 0, 0.2)",
+    headBg: "rgba(0, 0, 0, 0.25)",
+
+    // ─── Cienie ───
+    shadowLight: "rgba(0, 0, 0, 0.3)",
+    shadowMedium: "rgba(0, 0, 0, 0.4)",
+    shadowHeavy: "rgba(0, 0, 0, 0.5)",
+
+    // ─── Gradienty paneli ───
+    panelTableStart: "rgba(120, 40, 64, 0.35)",
+    panelTableMid: "rgba(46, 14, 22, 0.65)",
+    panelTableEnd: "rgba(30, 8, 16, 0.85)",
+    panelFormStart: "rgba(120, 40, 64, 0.4)",
+    panelFormMid: "rgba(46, 14, 22, 0.7)",
+    panelFormEnd: "rgba(30, 8, 16, 0.88)",
+    panelDialogStart: "rgba(120, 40, 64, 0.85)",
+    panelDialogEnd: "rgba(30, 8, 16, 0.95)",
+
+    // ─── Złoto – warianty alfa (rozszerzenie goldSoft) ───
+    goldSoft04: "rgba(212, 175, 55, 0.04)",
+    goldSoft05: "rgba(212, 175, 55, 0.05)",
+    goldSoft06: "rgba(212, 175, 55, 0.06)",
+    goldSoft12: "rgba(212, 175, 55, 0.12)",
+    goldSoft15: "rgba(212, 175, 55, 0.15)",
+    goldSoft20: "rgba(212, 175, 55, 0.2)",
+    goldSoft25: "rgba(212, 175, 55, 0.25)",
+    goldSoft30: "rgba(212, 175, 55, 0.3)",
+    goldSoft40: "rgba(212, 175, 55, 0.4)",
+
+    // ─── Bordo – warianty alfa ───
+    bordoSoft10: "rgba(158, 30, 54, 0.1)",
+    bordoSoft20: "rgba(158, 30, 54, 0.2)",
+    bordoSoft25: "rgba(158, 30, 54, 0.25)",
+    bordoSoft30: "rgba(158, 30, 54, 0.3)",
+    bordoSoft35: "rgba(158, 30, 54, 0.35)",
+    bordoSoft50: "rgba(158, 30, 54, 0.5)",
+    bordoSoft90: "rgba(158, 30, 54, 0.9)",
+
+    // ─── Przyciski neutralne ───
+    btnNeutralBg: "rgba(255, 255, 255, 0.04)",
+    btnNeutralBgHover: "rgba(255, 255, 255, 0.08)",
+    btnNeutralBorder: "rgba(255, 255, 255, 0.15)",
+
+    // ─── Toast ───
+    toastSuccessBg: "rgba(30, 100, 50, 0.9)",
+    toastSuccessBorder: "rgba(80, 200, 100, 0.4)",
+    toastSuccessText: "#dfd",
+    toastErrorText: "#fdd",
   },
 
   fonts: {

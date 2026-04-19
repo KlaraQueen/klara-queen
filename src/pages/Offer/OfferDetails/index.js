@@ -1,14 +1,15 @@
 import React from "react";
 import * as S from "./styled";
-import { offerData } from "../../../data/offerData";
+import { useOffer } from "../../../hooks/useOffers";
 import { contactData } from "../../../data/contactData";
 import VideoSection from "./VideoSection";
 import PriceSection from "./PriceSection";
 import FeaturesSection from "./FeaturesSection";
 
 const OfferDetails = ({ offerId, onClose, isFullPage = false }) => {
-  const offer = offerData.find((o) => o.id === offerId);
+  const { offer, loading } = useOffer(offerId);
 
+  if (loading) return null;
   if (!offer) return null;
 
   const contentJSX = (

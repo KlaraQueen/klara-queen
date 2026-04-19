@@ -9,7 +9,7 @@ const Offer = () => {
   const { id } = useParams();
 
   if (id) {
-    return <TemplatePreview offerId={parseInt(id)} />;
+    return <TemplatePreview offerId={id} />;
   }
 
   return (

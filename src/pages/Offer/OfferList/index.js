@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styled";
-import { offerData } from "../../../data/offerData";
+import { useOffers } from "../../../hooks/useOffers";
 import Pagination from "../../../components/Pagination";
 import ViewToggle from "../../../components/ViewToggle";
 
 const OfferList = () => {
   const baseUrl = process.env.PUBLIC_URL || "";
+  const { offers, loading } = useOffers();
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const [viewMode, setViewMode] = useState(() => {
@@ -42,10 +43,10 @@ const OfferList = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
-  const totalPages = Math.ceil(offerData.length / itemsPerPage);
+  const totalPages = Math.ceil(offers.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentOffers = offerData.slice(startIndex, endIndex);
+  const currentOffers = offers.slice(startIndex, endIndex);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -55,7 +56,17 @@ const OfferList = () => {
     <S.OfferListWrapper>
       <ViewToggle viewMode={viewMode} onViewModeChange={setViewMode} />
 
-      {viewMode === "grid" ? (
+      {loading ? (
+        <div
+          style={{
+            padding: "48px 0",
+            textAlign: "center",
+            color: "rgba(255,255,255,0.5)",
+          }}
+        >
+          Ładowanie ofert…
+        </div>
+      ) : viewMode === "grid" ? (
         <S.OffersGrid>
           {currentOffers.map((offer) => (
             <S.OfferCardLink
