@@ -50,9 +50,7 @@ export const Status = styled.span`
       ? c.toastSuccessBg || "rgba(34,197,94,0.15)"
       : "rgba(251,191,36,0.15)"};
   color: ${(p) =>
-    p.$status === "wystawiona"
-      ? c.toastSuccessText || "#22c55e"
-      : "#fbbf24"};
+    p.$status === "wystawiona" ? c.toastSuccessText || "#22c55e" : "#fbbf24"};
 `;
 
 export const Actions = styled.div`

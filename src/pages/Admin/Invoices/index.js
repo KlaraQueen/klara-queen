@@ -45,9 +45,7 @@ export default function Invoices() {
   const filtered =
     filter === "wszystkie"
       ? invoices
-      : invoices.filter(
-          (inv) => (inv.status || "do wystawienia") === filter,
-        );
+      : invoices.filter((inv) => (inv.status || "do wystawienia") === filter);
 
   if (viewing) {
     return (
@@ -73,9 +71,10 @@ export default function Invoices() {
           >
             {s}
             {s !== "wszystkie" &&
-              ` (${invoices.filter(
-                (inv) => (inv.status || "do wystawienia") === s,
-              ).length})`}
+              ` (${
+                invoices.filter((inv) => (inv.status || "do wystawienia") === s)
+                  .length
+              })`}
           </S.FilterBtn>
         ))}
       </S.Filters>

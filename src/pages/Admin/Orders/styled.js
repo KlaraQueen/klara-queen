@@ -19,7 +19,8 @@ export const FilterBtn = styled.button`
   font-weight: 500;
   border: 1px solid ${(p) => (p.$active ? c.goldMain : c.goldSoft18)};
   background: ${(p) => (p.$active ? c.goldSoft08 : "transparent")};
-  color: ${(p) => (p.$active ? c.goldMain : c.textSubtle || "rgba(255,255,255,0.5)")};
+  color: ${(p) =>
+    p.$active ? c.goldMain : c.textSubtle || "rgba(255,255,255,0.5)"};
   cursor: pointer;
   transition: all 0.2s ease;
 
