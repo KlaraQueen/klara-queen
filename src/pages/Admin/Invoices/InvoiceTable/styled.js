@@ -45,40 +45,14 @@ export const Status = styled.span`
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 600;
-  background: ${(p) => {
-    switch (p.$status) {
-      case "opłacone":
-      case "zrealizowane":
-        return c.toastSuccessBg || "rgba(34,197,94,0.15)";
-      case "anulowane":
-        return c.toastErrorBg || "rgba(239,68,68,0.15)";
-      case "czeka na zwrot":
-        return "rgba(251,191,36,0.15)";
-      case "w realizacji":
-        return "rgba(59,130,246,0.15)";
-      case "nieopłacone":
-        return "rgba(251,146,60,0.15)";
-      default:
-        return c.goldSoft08;
-    }
-  }};
-  color: ${(p) => {
-    switch (p.$status) {
-      case "opłacone":
-      case "zrealizowane":
-        return c.toastSuccessText || "#22c55e";
-      case "anulowane":
-        return c.toastErrorText || "#ef4444";
-      case "czeka na zwrot":
-        return "#fbbf24";
-      case "w realizacji":
-        return "#3b82f6";
-      case "nieopłacone":
-        return "#fb923c";
-      default:
-        return c.goldMain;
-    }
-  }};
+  background: ${(p) =>
+    p.$status === "wystawiona"
+      ? c.toastSuccessBg || "rgba(34,197,94,0.15)"
+      : "rgba(251,191,36,0.15)"};
+  color: ${(p) =>
+    p.$status === "wystawiona"
+      ? c.toastSuccessText || "#22c55e"
+      : "#fbbf24"};
 `;
 
 export const Actions = styled.div`
@@ -87,8 +61,8 @@ export const Actions = styled.div`
 `;
 
 export const ViewBtn = styled.button`
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 5px 14px;
+  border-radius: 8px;
   border: 1px solid ${c.goldSoft18};
   background: transparent;
   color: ${c.goldMain};
@@ -98,6 +72,7 @@ export const ViewBtn = styled.button`
 
   &:hover {
     background: ${c.goldSoft08};
+    color: ${c.goldHover};
   }
 `;
 

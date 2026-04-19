@@ -1,23 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import * as S from "./styled";
-import OrderTable from "./OrderTable";
-import OrderDetails from "./OrderDetails";
+import InvoiceTable from "./InvoiceTable";
+import InvoiceDetails from "./InvoiceDetails";
 import Toast from "../Toast";
-import { fetchOrders } from "../../../services/orderService";
+import { fetchInvoices } from "../../../services/invoiceService";
 
-const STATUS_FILTERS = [
-  "wszystkie",
-  "nowe",
-  "nieopłacone",
-  "opłacone",
-  "w realizacji",
-  "zrealizowane",
-  "czeka na zwrot",
-  "anulowane",
-];
+const STATUS_FILTERS = ["wszystkie", "do wystawienia", "wystawiona"];
 
-export default function Orders() {
-  const [orders, setOrders] = useState([]);
+export default function Invoices() {
+  const [invoices, setInvoices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [viewing, setViewing] = useState(null);
   const [filter, setFilter] = useState("wszystkie");
@@ -31,10 +22,10 @@ export default function Orders() {
   const load = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await fetchOrders();
-      setOrders(data);
+      const data = await fetchInvoices();
+      setInvoices(data);
     } catch (err) {
-      showToast("Błąd ładowania zamówień: " + err.message, true);
+      showToast("Błąd ładowania faktur: " + err.message, true);
     }
     setLoading(false);
   }, []);
@@ -46,21 +37,23 @@ export default function Orders() {
   const handleBack = () => setViewing(null);
 
   const handleUpdate = () => {
-    showToast("Status zaktualizowany");
+    showToast("Faktura zaktualizowana");
     load();
     setViewing(null);
   };
 
   const filtered =
     filter === "wszystkie"
-      ? orders
-      : orders.filter((o) => (o.status || "nowe") === filter);
+      ? invoices
+      : invoices.filter(
+          (inv) => (inv.status || "do wystawienia") === filter,
+        );
 
   if (viewing) {
     return (
       <S.Section>
-        <OrderDetails
-          order={viewing}
+        <InvoiceDetails
+          invoice={viewing}
           onBack={handleBack}
           onUpdate={handleUpdate}
         />
@@ -80,16 +73,18 @@ export default function Orders() {
           >
             {s}
             {s !== "wszystkie" &&
-              ` (${orders.filter((o) => (o.status || "nowe") === s).length})`}
+              ` (${invoices.filter(
+                (inv) => (inv.status || "do wystawienia") === s,
+              ).length})`}
           </S.FilterBtn>
         ))}
       </S.Filters>
 
       {loading ? (
-        <S.Spinner>Ładowanie zamówień…</S.Spinner>
+        <S.Spinner>Ładowanie faktur…</S.Spinner>
       ) : (
         <S.TableWrap>
-          <OrderTable orders={filtered} onView={setViewing} />
+          <InvoiceTable invoices={filtered} onView={setViewing} />
         </S.TableWrap>
       )}
       <Toast message={toast?.msg} error={toast?.error} />

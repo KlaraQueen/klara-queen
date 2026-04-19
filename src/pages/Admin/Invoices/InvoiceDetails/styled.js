@@ -95,21 +95,15 @@ export const StatusSelect = styled.select`
   }
 `;
 
-export const InvoiceSection = styled.div`
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid ${c.navBorderGold18};
-`;
-
 export const SectionTitle = styled.h3`
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1rem;
   font-weight: 600;
   color: ${c.goldMain};
-  margin: 0 0 12px 0;
+  margin: 20px 0 12px 0;
 `;
 
-export const GenerateBtn = styled.button`
+export const MarkBtn = styled.button`
   margin-top: 16px;
   padding: 10px 24px;
   border-radius: 10px;
@@ -131,10 +125,4 @@ export const GenerateBtn = styled.button`
     cursor: not-allowed;
     transform: none;
   }
-`;
-
-export const InvoiceInfo = styled.p`
-  margin-top: 12px;
-  font-size: 0.85rem;
-  color: ${c.toastSuccessText || "#22c55e"};
 `;

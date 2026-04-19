@@ -1,20 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styled";
 import { updateOrder } from "../../../../services/orderService";
+import { createInvoice } from "../../../../services/invoiceService";
 
 const STATUSES = [
   "nowe",
+  "nieopłacone",
   "opłacone",
   "w realizacji",
-  "zakończone",
+  "zrealizowane",
+  "czeka na zwrot",
   "anulowane",
 ];
 
 export default function OrderDetails({ order, onBack, onUpdate }) {
+  const [generating, setGenerating] = useState(false);
+
   const handleStatus = async (e) => {
     const newStatus = e.target.value;
     await updateOrder(order.id, { status: newStatus });
     onUpdate();
+  };
+
+  const handleGenerateInvoice = async () => {
+    setGenerating(true);
+    try {
+      const invoiceId = await createInvoice({
+        orderId: order.id,
+        customerName: order.customerName || "",
+        customerEmail: order.customerEmail || "",
+        companyName: order.invoiceCompany || "",
+        nip: order.invoiceNip || "",
+        street: order.invoiceStreet || "",
+        postalCode: order.invoicePostalCode || "",
+        city: order.invoiceCity || "",
+        offerTitle: order.offerTitle || "",
+        totalAmount: order.price || "",
+        status: "do wystawienia",
+      });
+      await updateOrder(order.id, { invoiceId });
+      onUpdate();
+    } catch {
+      setGenerating(false);
+    }
   };
 
   return (
@@ -83,6 +111,21 @@ export default function OrderDetails({ order, onBack, onUpdate }) {
               <S.Value>{order.invoiceAddress || "—"}</S.Value>
             </S.Field>
           </S.Grid>
+
+          {!order.invoiceId && (
+            <S.GenerateBtn
+              onClick={handleGenerateInvoice}
+              disabled={generating}
+            >
+              {generating ? "Generowanie…" : "Wystaw fakturę"}
+            </S.GenerateBtn>
+          )}
+
+          {order.invoiceId && (
+            <S.InvoiceInfo>
+              Faktura utworzona (ID: {order.invoiceId.slice(0, 8)})
+            </S.InvoiceInfo>
+          )}
         </S.InvoiceSection>
       )}
 

@@ -3,6 +3,7 @@ import * as S from "./styled";
 import Sidebar from "./Sidebar";
 import Offers from "./Offers";
 import Orders from "./Orders";
+import Invoices from "./Invoices";
 
 export default function Admin() {
   const [section, setSection] = useState(
@@ -23,6 +24,7 @@ export default function Admin() {
         <Sidebar active={section} onChange={changeSection} />
         {section === "offers" && <Offers />}
         {section === "orders" && <Orders />}
+        {section === "invoices" && <Invoices />}
       </S.Container>
     </S.Page>
   );

@@ -1,10 +1,11 @@
 import React from "react";
-import { FaBoxOpen, FaShoppingCart } from "react-icons/fa";
+import { FaBoxOpen, FaShoppingCart, FaFileInvoice } from "react-icons/fa";
 import * as S from "./styled";
 
 const TABS = [
   { key: "offers", label: "Oferty", icon: <FaBoxOpen /> },
   { key: "orders", label: "Zamówienia", icon: <FaShoppingCart /> },
+  { key: "invoices", label: "Faktury", icon: <FaFileInvoice /> },
 ];
 
 export default function Sidebar({ active, onChange }) {
