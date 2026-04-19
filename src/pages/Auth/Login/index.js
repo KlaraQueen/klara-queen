@@ -8,6 +8,8 @@ import { isFirebaseConfigReady } from "../../../firebase/config";
 import { mapFirebaseAuthError } from "../../../utils/mapFirebaseAuthError";
 import * as S from "../styled";
 
+const ADMIN_EMAIL = process.env.REACT_APP_ADMIN_EMAIL;
+
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -20,7 +22,9 @@ function Login() {
     e.preventDefault();
     setError("");
     if (!isFirebaseConfigReady() || !auth) {
-      setError("Brak konfiguracji Firebase — uzupełnij plik .env.local (patrz .env.example).");
+      setError(
+        "Brak konfiguracji Firebase — uzupełnij plik .env.local (patrz .env.example).",
+      );
       return;
     }
     if (!email.trim() || !password) {
@@ -29,8 +33,14 @@ function Login() {
     }
     setLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, email.trim(), password);
-      navigate("/konto", { replace: true });
+      const cred = await signInWithEmailAndPassword(
+        auth,
+        email.trim(),
+        password,
+      );
+      navigate(cred.user.email === ADMIN_EMAIL ? "/admin" : "/konto", {
+        replace: true,
+      });
     } catch (err) {
       setError(mapFirebaseAuthError(err.code));
     } finally {
@@ -41,13 +51,17 @@ function Login() {
   const handleGoogle = async () => {
     setError("");
     if (!isFirebaseConfigReady() || !auth) {
-      setError("Brak konfiguracji Firebase — uzupełnij plik .env.local (patrz .env.example).");
+      setError(
+        "Brak konfiguracji Firebase — uzupełnij plik .env.local (patrz .env.example).",
+      );
       return;
     }
     setLoading(true);
     try {
-      await signInWithPopup(auth, googleProvider);
-      navigate("/konto", { replace: true });
+      const result = await signInWithPopup(auth, googleProvider);
+      navigate(result.user.email === ADMIN_EMAIL ? "/admin" : "/konto", {
+        replace: true,
+      });
     } catch (err) {
       if (err.code === "auth/popup-closed-by-user") {
         return;
@@ -110,7 +124,9 @@ function Login() {
           </S.Field>
 
           <S.RowBetween>
-            <S.RouterLink to="/forgot-password">Nie pamiętasz hasła?</S.RouterLink>
+            <S.RouterLink to="/forgot-password">
+              Nie pamiętasz hasła?
+            </S.RouterLink>
           </S.RowBetween>
 
           <S.PrimaryButton type="submit" disabled={loading}>
