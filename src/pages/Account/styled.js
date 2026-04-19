@@ -111,6 +111,43 @@ export const TabList = styled.nav`
   }
 `;
 
+export const LogoutBtn = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 11px 12px;
+  margin-top: 8px;
+  border: none;
+  border-top: 1px solid ${c.navBorderGold18};
+  padding-top: 16px;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.86rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+
+  svg {
+    font-size: 0.95rem;
+    opacity: 0.75;
+  }
+
+  &:hover {
+    color: ${c.goldHover};
+    background: rgba(212, 175, 55, 0.08);
+  }
+
+  @media (max-width: ${bp.tablet}px) {
+    display: none;
+  }
+`;
+
 export const Tab = styled.button`
   display: flex;
   align-items: center;

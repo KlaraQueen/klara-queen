@@ -57,7 +57,7 @@ function Navbar() {
       <S.MobileDrawer data-open={isMenuOpen ? "" : undefined}>
         <Labels variant="drawer" onItemClick={closeMenu} />
         <S.MobileLoginContainer>
-          <Login />
+          <Login variant="drawer" />
           <S.MobileSocial>
             <SocialMedia />
           </S.MobileSocial>

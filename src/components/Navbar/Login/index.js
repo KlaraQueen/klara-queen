@@ -4,7 +4,7 @@ import { FaLock, FaUser } from "react-icons/fa";
 import { useAuth } from "../../../context/AuthContext";
 import * as S from "./styled";
 
-function Login() {
+function Login({ variant }) {
   const { user, loading, signOutUser } = useAuth();
 
   if (loading) {
@@ -19,18 +19,28 @@ function Login() {
   }
 
   if (user) {
+    if (variant === "drawer") {
+      return (
+        <S.AccountWrap>
+          <S.AccountLink to="/konto" aria-label="Moje konto">
+            <S.LockIcon>
+              <FaUser />
+            </S.LockIcon>
+            <S.LoginText>Konto</S.LoginText>
+          </S.AccountLink>
+          <S.LogoutBtn type="button" onClick={() => signOutUser()}>
+            Wyloguj
+          </S.LogoutBtn>
+        </S.AccountWrap>
+      );
+    }
     return (
-      <S.AccountWrap>
-        <S.AccountLink to="/konto" aria-label="Moje konto">
-          <S.LockIcon>
-            <FaUser />
-          </S.LockIcon>
-          <S.LoginText>Konto</S.LoginText>
-        </S.AccountLink>
-        <S.LogoutBtn type="button" onClick={() => signOutUser()}>
-          Wyloguj
-        </S.LogoutBtn>
-      </S.AccountWrap>
+      <S.AccountLink to="/konto" aria-label="Moje konto">
+        <S.LockIcon>
+          <FaUser />
+        </S.LockIcon>
+        <S.LoginText>Konto</S.LoginText>
+      </S.AccountLink>
     );
   }
 

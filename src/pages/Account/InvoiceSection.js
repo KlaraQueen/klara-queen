@@ -59,17 +59,19 @@ function InvoiceSection({ user, profile, onSaved }) {
 
   return (
     <>
-      <S.PanelTitle>Dane do faktury</S.PanelTitle>
+      <S.PanelTitle>Dane do faktury bez VAT</S.PanelTitle>
       <S.PanelDesc>
-        Dane nabywcy na fakturze VAT. Możesz uzupełnić je przed pierwszym
-        zakupem — później zmienisz je w każdej chwili.
+        Dane nabywcy na fakturze. Możesz uzupełnić je przed pierwszym zakupem —
+        później zmienisz je w każdej chwili.
       </S.PanelDesc>
       {err ? <S.Alert $variant="error">{err}</S.Alert> : null}
       {msg ? <S.Alert $variant="success">{msg}</S.Alert> : null}
       <form onSubmit={handleSubmit}>
         <S.FormGrid>
           <S.Field>
-            <S.Label htmlFor="inv-company">Nazwa firmy / imię i nazwisko</S.Label>
+            <S.Label htmlFor="inv-company">
+              Nazwa firmy / imię i nazwisko
+            </S.Label>
             <S.Input
               id="inv-company"
               value={companyName}

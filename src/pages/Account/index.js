@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import {
   fetchUserProfile,
   fetchUserOrders,
@@ -29,7 +30,8 @@ const TABS = [
 ];
 
 function Account() {
-  const { user } = useAuth();
+  const { user, signOutUser } = useAuth();
+  const navigate = useNavigate();
   const [active, setActive] = useState("profile");
   const [profile, setProfile] = useState(null);
   const [orders, setOrders] = useState([]);
@@ -95,13 +97,26 @@ function Account() {
                 );
               })}
             </S.TabList>
+            <S.LogoutBtn
+              type="button"
+              onClick={async () => {
+                await signOutUser();
+                navigate("/");
+              }}
+            >
+              <FaLock aria-hidden />
+              Wyloguj się
+            </S.LogoutBtn>
           </S.Sidebar>
           <S.Main>
             {firestoreOff ? (
               <S.Alert $variant="error">
                 Firestore nie jest skonfigurowany lub brak połączenia. Włącz
                 Firestore w Firebase Console i opublikuj reguły z pliku{" "}
-                <code style={{ fontSize: "0.8em" }}>firebase/firestore.rules</code>.
+                <code style={{ fontSize: "0.8em" }}>
+                  firebase/firestore.rules
+                </code>
+                .
               </S.Alert>
             ) : null}
 
