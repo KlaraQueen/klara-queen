@@ -1,4 +1,4 @@
-﻿export const offerPageHeader = {
+export const offerPageHeader = {
   title: "Nasze Projekty",
   subtitle:
     "Odkryj gotowe szablony stron, które mogą transformować Twoją markę",

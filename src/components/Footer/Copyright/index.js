@@ -23,7 +23,6 @@ function Copyright({ data }) {
         setVisitCount(parseInt(storedCount));
       }
     } else {
-      // First visit
       localStorage.setItem("visitCount", 67101);
       localStorage.setItem("lastSessionTime", currentTime);
       setVisitCount(67100);

@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styled";
+import Sidebar from "./Sidebar";
 import Offers from "./Offers";
+import Orders from "./Orders";
 
 export default function Admin() {
+  const [section, setSection] = useState(
+    () => sessionStorage.getItem("admin_section") || "offers",
+  );
+
+  const changeSection = (key) => {
+    setSection(key);
+    sessionStorage.setItem("admin_section", key);
+  };
+
   return (
     <S.Page>
       <S.Container>
         <S.Header>
           <S.Title>Panel administracyjny</S.Title>
         </S.Header>
-        <Offers />
+        <Sidebar active={section} onChange={changeSection} />
+        {section === "offers" && <Offers />}
+        {section === "orders" && <Orders />}
       </S.Container>
     </S.Page>
   );

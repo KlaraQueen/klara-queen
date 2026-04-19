@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Oferty — każdy może czytać, tylko admin może pisać
+    match /offers/{offerId} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.auth.token.email == 'kulpinska.karolinaa@gmail.com';
+    }
+
+    // Zamówienia — admin widzi wszystkie, klient widzi tylko swoje
+    match /orders/{orderId} {
+      allow read: if request.auth != null
+                  && (request.auth.token.email == 'kulpinska.karolinaa@gmail.com'
+                      || request.auth.uid == resource.data.userId);
+      allow create: if request.auth != null;
+      allow update: if request.auth != null
+                    && request.auth.token.email == 'kulpinska.karolinaa@gmail.com';
+    }
+
+    // Profile użytkowników — każdy widzi/edytuje tylko swoje
+    match /users/{userId} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == userId;
+    }
+  }
+}
