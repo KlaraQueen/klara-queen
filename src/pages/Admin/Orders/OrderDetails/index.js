@@ -2,7 +2,13 @@ import React from "react";
 import * as S from "./styled";
 import { updateOrder } from "../../../../services/orderService";
 
-const STATUSES = ["nowe", "opłacone", "w realizacji", "zakończone", "anulowane"];
+const STATUSES = [
+  "nowe",
+  "opłacone",
+  "w realizacji",
+  "zakończone",
+  "anulowane",
+];
 
 export default function OrderDetails({ order, onBack, onUpdate }) {
   const handleStatus = async (e) => {

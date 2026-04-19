@@ -19,7 +19,8 @@ export const Tab = styled.button`
   border: none;
   border-bottom: 2px solid ${(p) => (p.$active ? c.goldMain : "transparent")};
   background: ${(p) => (p.$active ? c.goldSoft08 : "transparent")};
-  color: ${(p) => (p.$active ? c.goldMain : c.textSubtle || "rgba(255,255,255,0.5)")};
+  color: ${(p) =>
+    p.$active ? c.goldMain : c.textSubtle || "rgba(255,255,255,0.5)"};
   cursor: pointer;
   transition: all 0.25s ease;
   border-radius: 8px 8px 0 0;

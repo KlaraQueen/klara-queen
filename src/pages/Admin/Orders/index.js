@@ -42,7 +42,11 @@ export default function Orders() {
   if (viewing) {
     return (
       <S.Section>
-        <OrderDetails order={viewing} onBack={handleBack} onUpdate={handleUpdate} />
+        <OrderDetails
+          order={viewing}
+          onBack={handleBack}
+          onUpdate={handleUpdate}
+        />
         <Toast message={toast?.msg} error={toast?.error} />
       </S.Section>
     );
