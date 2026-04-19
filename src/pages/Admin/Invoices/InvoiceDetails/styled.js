@@ -126,3 +126,48 @@ export const MarkBtn = styled.button`
     transform: none;
   }
 `;
+
+export const PdfRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
+export const PdfLink = styled.a`
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid ${c.goldMain};
+  background: transparent;
+  color: ${c.goldMain};
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${c.goldSoft08};
+    color: ${c.goldHover};
+  }
+`;
+
+export const UploadBtn = styled.button`
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid ${c.goldSoft18};
+  background: ${c.btnNeutralBg};
+  color: ${c.textSubtle || "rgba(255,255,255,0.5)"};
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${c.btnNeutralBgHover};
+    color: ${c.white};
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;

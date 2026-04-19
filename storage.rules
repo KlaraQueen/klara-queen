@@ -1,0 +1,19 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Oferty — każdy czyta, admin pisze
+    match /offers/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.auth.token.email == 'kulpinska.karolinaa@gmail.com';
+    }
+
+    // Faktury PDF — admin pisze, klient czyta (potrzebuje URL)
+    match /invoices/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.auth.token.email == 'kulpinska.karolinaa@gmail.com';
+    }
+  }
+}

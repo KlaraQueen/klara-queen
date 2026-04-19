@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import * as S from "./styled";
 import { updateInvoice } from "../../../../services/invoiceService";
+import { storage } from "../../../../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const STATUSES = ["do wystawienia", "wystawiona"];
 
 export default function InvoiceDetails({ invoice, onBack, onUpdate }) {
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const fileRef = useRef(null);
 
   const handleStatus = async (e) => {
     const newStatus = e.target.value;
@@ -32,6 +36,21 @@ export default function InvoiceDetails({ invoice, onBack, onUpdate }) {
       onUpdate();
     } catch {
       setSaving(false);
+    }
+  };
+
+  const handleUploadPdf = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file || !storage) return;
+    setUploading(true);
+    try {
+      const storageRef = ref(storage, `invoices/${invoice.id}.pdf`);
+      await uploadBytes(storageRef, file);
+      const pdfUrl = await getDownloadURL(storageRef);
+      await updateInvoice(invoice.id, { pdfUrl });
+      onUpdate();
+    } catch {
+      setUploading(false);
     }
   };
 
@@ -118,6 +137,39 @@ export default function InvoiceDetails({ invoice, onBack, onUpdate }) {
           </S.Value>
         </S.Field>
       )}
+
+      <S.SectionTitle>Plik PDF</S.SectionTitle>
+      {invoice.pdfUrl ? (
+        <S.PdfRow>
+          <S.PdfLink
+            href={invoice.pdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pobierz PDF
+          </S.PdfLink>
+          <S.UploadBtn
+            onClick={() => fileRef.current?.click()}
+            disabled={uploading}
+          >
+            {uploading ? "Wysyłanie…" : "Zmień plik"}
+          </S.UploadBtn>
+        </S.PdfRow>
+      ) : (
+        <S.UploadBtn
+          onClick={() => fileRef.current?.click()}
+          disabled={uploading}
+        >
+          {uploading ? "Wysyłanie…" : "Wgraj PDF z Fakturowni"}
+        </S.UploadBtn>
+      )}
+      <input
+        ref={fileRef}
+        type="file"
+        accept=".pdf"
+        style={{ display: "none" }}
+        onChange={handleUploadPdf}
+      />
     </S.Panel>
   );
 }
