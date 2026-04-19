@@ -18,22 +18,20 @@ export const Page = styled.main`
     min-height: calc(100vh - 64px);
     padding-top: clamp(28px, 6vw, 48px);
   }
+
+  @media (max-width: ${bp.phone}px) {
+    padding: 16px 10px 48px;
+  }
 `;
 
 export const Layout = styled.div`
   max-width: 1100px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: clamp(20px, 3vw, 32px);
-  align-items: start;
-
-  @media (max-width: ${bp.tablet}px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 export const Shell = styled.div`
+  display: grid;
+  grid-template-columns: 260px 1fr;
   border-radius: ${theme.navbar.drawerBorderRadius};
   background: linear-gradient(
     165deg,
@@ -47,6 +45,11 @@ export const Shell = styled.div`
     inset 0 1px 0 rgba(255, 247, 220, 0.08);
   backdrop-filter: blur(14px) saturate(115%);
   overflow: hidden;
+
+  @media (max-width: ${bp.tablet}px) {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
 `;
 
 export const Sidebar = styled.aside`
@@ -55,11 +58,16 @@ export const Sidebar = styled.aside`
   padding: clamp(16px, 2.5vw, 22px);
   border-right: 1px solid ${c.navBorderGold18};
   background: rgba(0, 0, 0, 0.18);
+  min-width: 0;
 
   @media (max-width: ${bp.tablet}px) {
     border-right: none;
     border-bottom: 1px solid ${c.navBorderGold18};
     padding-bottom: 12px;
+  }
+
+  @media (max-width: ${bp.phone}px) {
+    padding: 12px 10px;
   }
 `;
 
@@ -97,15 +105,9 @@ export const TabList = styled.nav`
 
   @media (max-width: ${bp.tablet}px) {
     flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
     gap: 6px;
     padding-bottom: 6px;
-    -webkit-overflow-scrolling: touch;
-
-    &::-webkit-scrollbar {
-      height: 4px;
-    }
   }
 `;
 
@@ -133,7 +135,9 @@ export const Tab = styled.button`
   @media (max-width: ${bp.tablet}px) {
     width: auto;
     flex-shrink: 0;
-    white-space: nowrap;
+    font-size: 0.84rem;
+    padding: 9px 11px;
+    gap: 8px;
   }
 
   svg {
@@ -151,6 +155,12 @@ export const Tab = styled.button`
 export const Main = styled.div`
   padding: clamp(22px, 4vw, 36px);
   min-height: 420px;
+  min-width: 0;
+
+  @media (max-width: ${bp.phone}px) {
+    padding: 16px 12px;
+    min-height: 280px;
+  }
 `;
 
 export const PanelTitle = styled.h2`
