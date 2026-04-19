@@ -7,10 +7,6 @@ export const ViewToggleContainer = styled.div`
   margin-bottom: 0;
   justify-content: flex-end;
   padding-right: clamp(10px, 2vw, 30px);
-
-  @media (min-width: 821px) {
-    display: none;
-  }
 `;
 
 export const ViewToggleButton = styled.button`
