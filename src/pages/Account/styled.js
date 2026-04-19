@@ -445,3 +445,83 @@ export const TogglePw = styled.button`
   align-items: center;
   justify-content: center;
 `;
+
+export const DeleteSection = styled.div`
+  margin-top: clamp(40px, 6vw, 56px);
+  padding-top: clamp(24px, 4vw, 32px);
+  border-top: 1px solid ${c.navBorderGold18};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+export const DeleteTitle = styled.h3`
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  font-weight: 700;
+  color: ${c.white};
+  margin: 0 0 10px 0;
+`;
+
+export const DeleteWarning = styled.p`
+  margin: 0 0 20px 0;
+  font-size: 0.88rem;
+  color: #ffc9c9;
+  line-height: 1.55;
+  max-width: 440px;
+  background: rgba(158, 30, 54, 0.2);
+  border: 1px solid rgba(241, 120, 140, 0.35);
+  border-radius: ${r};
+  padding: 14px 18px;
+`;
+
+export const DangerBtn = styled.button`
+  padding: 11px 20px;
+  width: fit-content;
+  border: 1px solid rgba(241, 120, 140, 0.5);
+  border-radius: ${r};
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  color: #ffc9c9;
+  background: rgba(158, 30, 54, 0.35);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: rgba(158, 30, 54, 0.55);
+    border-color: rgba(241, 120, 140, 0.7);
+    color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+export const DeleteConfirmBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+`;
+
+export const DeleteConfirmText = styled.p`
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: ${c.white};
+`;
+
+export const DeleteBtnRow = styled.div`
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
