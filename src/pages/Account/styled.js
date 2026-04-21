@@ -419,6 +419,88 @@ export const Table = styled.table`
   }
 `;
 
+export const StatusBadge = styled.span`
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: ${(p) => {
+    if (p.$tone === "success") return "rgba(34, 197, 94, 0.16)";
+    if (p.$tone === "danger") return "rgba(239, 68, 68, 0.16)";
+    return "rgba(251, 191, 36, 0.16)";
+  }};
+  color: ${(p) => {
+    if (p.$tone === "success") return "#22c55e";
+    if (p.$tone === "danger") return "#ef4444";
+    return "#fbbf24";
+  }};
+`;
+
+export const ProductLink = styled.a`
+  color: ${c.goldMain};
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    color: ${c.goldHover};
+    border-color: ${c.goldHover};
+  }
+`;
+
+export const RowActionBtn = styled.button`
+  border: 1px solid ${c.navBorderGold26};
+  border-radius: 8px;
+  background: transparent;
+  color: ${c.goldMain};
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: rgba(212, 175, 55, 0.14);
+    color: ${c.goldHover};
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+`;
+
+export const RowSelect = styled.select`
+  width: 190px;
+  max-width: 100%;
+  border: 1px solid ${c.navBorderGold26};
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  color: ${c.goldMain};
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 7px 10px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: ${c.goldMain};
+  }
+
+  option {
+    background: #130914;
+    color: #f7ead0;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+`;
+
 export const PasswordWrap = styled.div`
   position: relative;
   display: flex;

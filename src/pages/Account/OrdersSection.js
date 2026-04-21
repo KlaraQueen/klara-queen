@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styled";
+import { updateOrder } from "../../services/orderService";
 
 function formatDate(v) {
   if (!v) {
@@ -16,7 +17,62 @@ function formatDate(v) {
   }
 }
 
+function getPaymentTypeLabel(order) {
+  if (order.paymentType === "subscription") {
+    return "Subskrypcja";
+  }
+  if (order.paymentType === "one_time") {
+    return "Jednorazowy";
+  }
+  return "Jednorazowy";
+}
+
+function getPaymentStatus(order) {
+  const status = (order.paymentStatus || "").toLowerCase();
+  if (status === "paid") {
+    return { label: "Opłacone", tone: "success" };
+  }
+  if (status === "pending") {
+    return { label: "Oczekuje", tone: "warning" };
+  }
+  if (status === "failed" || status === "canceled" || status === "refunded") {
+    return { label: "Nieopłacone", tone: "danger" };
+  }
+
+  const orderStatus = (order.status || "").toLowerCase();
+  if (orderStatus === "opłacone" || orderStatus === "zrealizowane") {
+    return { label: "Opłacone", tone: "success" };
+  }
+  if (orderStatus === "nieopłacone" || orderStatus === "anulowane") {
+    return { label: "Nieopłacone", tone: "danger" };
+  }
+  return { label: "Oczekuje", tone: "warning" };
+}
+
 function OrdersSection({ orders, loading }) {
+  const [busyId, setBusyId] = useState("");
+  const hasAnySubscription = orders.some(
+    (o) => o.paymentType === "subscription",
+  );
+
+  const handleCancelSubscription = async (order) => {
+    if (!order?.id || busyId) {
+      return;
+    }
+    setBusyId(order.id);
+    try {
+      await updateOrder(order.id, {
+        cancellationRequested: true,
+        cancellationRequestedAt: new Date().toISOString(),
+        subscriptionStatus: "cancel_requested",
+      });
+    } catch {
+      alert("Nie udało się wysłać prośby o anulowanie subskrypcji.");
+    } finally {
+      setBusyId("");
+    }
+  };
+
   if (loading) {
     return (
       <>
@@ -56,20 +112,70 @@ function OrdersSection({ orders, loading }) {
               <th>Numer</th>
               <th>Data</th>
               <th>Produkt</th>
+              <th>Typ</th>
               <th>Kwota</th>
-              <th>Status</th>
+              <th>Płatność</th>
+              {hasAnySubscription ? <th>Opcje</th> : null}
             </tr>
           </thead>
           <tbody>
-            {orders.map((o) => (
-              <tr key={o.id}>
-                <td>{o.orderNumber || o.id}</td>
-                <td>{formatDate(o.createdAt)}</td>
-                <td>{o.title || o.productName || "—"}</td>
-                <td>{o.amount != null ? `${o.amount} ${o.currency || "PLN"}` : "—"}</td>
-                <td>{o.status || "—"}</td>
-              </tr>
-            ))}
+            {orders.map((o) => {
+              const payment = getPaymentStatus(o);
+              const isSubscription = o.paymentType === "subscription";
+              const subscriptionCanceled =
+                (o.subscriptionStatus || "").toLowerCase() === "canceled";
+              const cancellationRequested = Boolean(o.cancellationRequested);
+              const canCancel =
+                isSubscription &&
+                !cancellationRequested &&
+                !subscriptionCanceled;
+
+              return (
+                <tr key={o.id}>
+                  <td>{o.orderNumber || o.id}</td>
+                  <td>{formatDate(o.createdAt)}</td>
+                  <td>
+                    {o.offerId ? (
+                      <S.ProductLink href={`/offer/${o.offerId}`}>
+                        {o.title || o.productName || "—"}
+                      </S.ProductLink>
+                    ) : (
+                      o.title || o.productName || "—"
+                    )}
+                  </td>
+                  <td>{getPaymentTypeLabel(o)}</td>
+                  <td>
+                    {o.amount != null
+                      ? `${o.amount} ${o.currency || "PLN"}`
+                      : "—"}
+                  </td>
+                  <td>
+                    <S.StatusBadge $tone={payment.tone}>
+                      {payment.label}
+                    </S.StatusBadge>
+                  </td>
+                  {hasAnySubscription ? (
+                    <td>
+                      {isSubscription ? (
+                        <S.RowActionBtn
+                          type="button"
+                          disabled={busyId === o.id || !canCancel}
+                          onClick={() => handleCancelSubscription(o)}
+                        >
+                          {busyId === o.id
+                            ? "Wysyłanie…"
+                            : subscriptionCanceled
+                              ? "Subskrypcja anulowana"
+                              : cancellationRequested
+                                ? "Anulowanie w toku"
+                                : "Anuluj subskrypcję"}
+                        </S.RowActionBtn>
+                      ) : null}
+                    </td>
+                  ) : null}
+                </tr>
+              );
+            })}
           </tbody>
         </S.Table>
       </S.TableWrap>

@@ -2,6 +2,21 @@ import { useState, useEffect } from "react";
 import { uploadOfferImage } from "../../../../services/offerService";
 import { EMPTY } from "./constants";
 
+function getInitialPaymentMode(offer) {
+  if (offer?.paymentMode) {
+    return offer.paymentMode;
+  }
+  const hasOneTime = Boolean(offer?.stripePaymentUrl);
+  const hasSubscription = Boolean(offer?.stripeSubscriptionUrl);
+  if (hasOneTime && hasSubscription) {
+    return "both";
+  }
+  if (hasSubscription) {
+    return "subscription";
+  }
+  return "one_time";
+}
+
 export default function useOfferForm(offer, onSave) {
   const [form, setForm] = useState(EMPTY);
   const [saving, setSaving] = useState(false);
@@ -26,6 +41,10 @@ export default function useOfferForm(offer, onSave) {
         images: offer.images || [],
         stripePaymentUrl: offer.stripePaymentUrl || "",
         stripeSubscriptionUrl: offer.stripeSubscriptionUrl || "",
+        paymentMode: getInitialPaymentMode(offer),
+        customerActionType: offer.customerActionType || "none",
+        customerActionUrl: offer.customerActionUrl || "",
+        customerActionLabel: offer.customerActionLabel || "",
       });
     } else {
       setForm(EMPTY);

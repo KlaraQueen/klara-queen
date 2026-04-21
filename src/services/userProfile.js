@@ -5,6 +5,8 @@ import {
   serverTimestamp,
   collection,
   getDocs,
+  query,
+  where,
 } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -48,7 +50,8 @@ export async function fetchUserOrders(uid) {
     return [];
   }
   try {
-    const snap = await getDocs(collection(db, "users", uid, "orders"));
+    const q = query(collection(db, "orders"), where("userId", "==", uid));
+    const snap = await getDocs(q);
     const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
     return sortByTimeDesc(list, "createdAt");
   } catch {

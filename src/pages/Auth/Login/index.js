@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -12,6 +12,9 @@ const ADMIN_EMAIL = process.env.REACT_APP_ADMIN_EMAIL;
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from;
+  const redirectAfterLogin = from && from !== "/login" ? from : null;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -38,9 +41,14 @@ function Login() {
         email.trim(),
         password,
       );
-      navigate(cred.user.email === ADMIN_EMAIL ? "/admin" : "/konto", {
-        replace: true,
-      });
+      navigate(
+        cred.user.email === ADMIN_EMAIL
+          ? "/admin"
+          : redirectAfterLogin || "/konto",
+        {
+          replace: true,
+        },
+      );
     } catch (err) {
       setError(mapFirebaseAuthError(err.code));
     } finally {
@@ -59,9 +67,14 @@ function Login() {
     setLoading(true);
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      navigate(result.user.email === ADMIN_EMAIL ? "/admin" : "/konto", {
-        replace: true,
-      });
+      navigate(
+        result.user.email === ADMIN_EMAIL
+          ? "/admin"
+          : redirectAfterLogin || "/konto",
+        {
+          replace: true,
+        },
+      );
     } catch (err) {
       if (err.code === "auth/popup-closed-by-user") {
         return;

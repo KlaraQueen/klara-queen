@@ -15,6 +15,19 @@ export const STYLES = [
   "kreatywny",
 ];
 
+export const PAYMENT_MODES = [
+  { value: "one_time", label: "Kup teraz (jednorazowo)" },
+  { value: "subscription", label: "Tylko subskrypcja" },
+  { value: "both", label: "Kup teraz + subskrypcja" },
+];
+
+export const CUSTOMER_ACTIONS = [
+  { value: "none", label: "Brak dodatkowej akcji" },
+  { value: "view_ready", label: "Zobacz gotowy produkt" },
+  { value: "edit_product", label: "Edytuj swój produkt" },
+  { value: "custom", label: "Własna etykieta" },
+];
+
 export const EMPTY = {
   title: "",
   shortDescription: "",
@@ -29,4 +42,8 @@ export const EMPTY = {
   images: [],
   stripePaymentUrl: "",
   stripeSubscriptionUrl: "",
+  paymentMode: "one_time",
+  customerActionType: "none",
+  customerActionUrl: "",
+  customerActionLabel: "",
 };

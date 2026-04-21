@@ -13,6 +13,17 @@ import {
 
 const COL = "orders";
 
+function buildOrderNumber(docId) {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const suffix = docId
+    ? String(docId).slice(-4).toUpperCase()
+    : String(Math.floor(1000 + Math.random() * 9000));
+  return `KQ/${yyyy}/${mm}${dd}/${suffix}`;
+}
+
 export async function fetchOrders() {
   if (!db) return [];
   const q = query(collection(db, COL), orderBy("createdAt", "desc"));
@@ -28,12 +39,15 @@ export async function fetchOrder(id) {
 
 export async function createOrder(data) {
   if (!db) throw new Error("Firestore niedostępny");
-  const docRef = await addDoc(collection(db, COL), {
+  const payload = {
     ...data,
-    status: "nowe",
+    orderNumber: buildOrderNumber(),
+    status: data?.status || "nowe",
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
-  });
+  };
+  const docRef = await addDoc(collection(db, COL), payload);
+
   return docRef.id;
 }
 

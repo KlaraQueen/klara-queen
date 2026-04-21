@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./styled";
-import { CATEGORIES, STYLES } from "../constants";
+import { CATEGORIES, STYLES, PAYMENT_MODES } from "../constants";
 import ColorChips from "../ColorChips";
 
 export default function BasicFields({ form, set, onToggleColor }) {
@@ -67,22 +67,42 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Full>
 
       <S.Full>
-        <S.Label>Stripe - płatność jednorazowa (link checkout)</S.Label>
-        <S.Input
-          value={form.stripePaymentUrl || ""}
-          onChange={(e) => set("stripePaymentUrl", e.target.value)}
-          placeholder="https://buy.stripe.com/..."
-        />
+        <S.Label>Model płatności</S.Label>
+        <S.Select
+          value={form.paymentMode || "one_time"}
+          onChange={(e) => set("paymentMode", e.target.value)}
+        >
+          {PAYMENT_MODES.map((m) => (
+            <option key={m.value} value={m.value}>
+              {m.label}
+            </option>
+          ))}
+        </S.Select>
       </S.Full>
 
-      <S.Full>
-        <S.Label>Stripe - subskrypcja (link checkout)</S.Label>
-        <S.Input
-          value={form.stripeSubscriptionUrl || ""}
-          onChange={(e) => set("stripeSubscriptionUrl", e.target.value)}
-          placeholder="https://buy.stripe.com/..."
-        />
-      </S.Full>
+      {(form.paymentMode === "one_time" || form.paymentMode === "both") && (
+        <S.Full>
+          <S.Label>Stripe - płatność jednorazowa (link checkout)</S.Label>
+          <S.Input
+            value={form.stripePaymentUrl || ""}
+            onChange={(e) => set("stripePaymentUrl", e.target.value)}
+            placeholder="https://buy.stripe.com/..."
+          />
+        </S.Full>
+      )}
+
+      {(form.paymentMode === "subscription" || form.paymentMode === "both") && (
+        <S.Full>
+          <S.Label>Stripe - subskrypcja (link checkout)</S.Label>
+          <S.Input
+            value={form.stripeSubscriptionUrl || ""}
+            onChange={(e) => set("stripeSubscriptionUrl", e.target.value)}
+            placeholder="https://buy.stripe.com/..."
+          />
+        </S.Full>
+      )}
+
+      {/* Usunięto opcje powiązane z "Opcja po zakupie (konto klienta)" na życzenie użytkownika */}
     </S.Grid>
   );
 }
