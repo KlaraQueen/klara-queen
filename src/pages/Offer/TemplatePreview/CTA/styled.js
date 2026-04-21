@@ -130,6 +130,18 @@ export const SecondaryButton = styled(PrimaryButton)`
   }
 `;
 
+export const TertiaryButton = styled(PrimaryButton)`
+  background: rgba(10, 8, 14, 0.55);
+  color: ${theme.colors.white};
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: rgba(20, 15, 28, 0.75);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+`;
+
 export const ErrorMessage = styled.div`
   text-align: center;
   padding: clamp(40px, 8vw, 80px);

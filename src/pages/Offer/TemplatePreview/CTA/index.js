@@ -1,27 +1,45 @@
 import React from "react";
 import * as S from "./styled";
-import { contactData } from "../../../../data/contactData";
 import { socialMediaData } from "../../../../data/socialMediaData";
 
-const CTAComponent = ({ title }) => {
+const CTAComponent = ({ offer }) => {
+  const stripePaymentUrl = (offer?.stripePaymentUrl || "").trim();
+  const stripeSubscriptionUrl = (offer?.stripeSubscriptionUrl || "").trim();
   const allegro = socialMediaData.find((item) => item.label === "Allegro")?.url;
 
   return (
     <S.CTASection>
       <S.CTATitle>Interesuje Cię ten szablon?</S.CTATitle>
       <S.CTAButtons>
-        <S.PrimaryButton
-          href={`mailto:${contactData.email}?subject=Zainteresowanie szablonką: ${title}`}
-        >
-          Napisz email
-        </S.PrimaryButton>
-        <S.SecondaryButton
-          href={allegro}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Zakup Allegro
-        </S.SecondaryButton>
+        {stripePaymentUrl ? (
+          <S.PrimaryButton
+            href={stripePaymentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Kup teraz
+          </S.PrimaryButton>
+        ) : null}
+
+        {stripeSubscriptionUrl ? (
+          <S.SecondaryButton
+            href={stripeSubscriptionUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Subskrybuj
+          </S.SecondaryButton>
+        ) : null}
+
+        {allegro ? (
+          <S.SecondaryButton
+            href={allegro}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zakup Allegro
+          </S.SecondaryButton>
+        ) : null}
       </S.CTAButtons>
     </S.CTASection>
   );

@@ -66,7 +66,7 @@ const TemplatePreview = ({ offerId }) => {
           features={offer.features}
         />
 
-        <CTAComponent title={offer.title} />
+        <CTAComponent offer={offer} />
       </S.Content>
     </S.Container>
   );

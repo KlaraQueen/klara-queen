@@ -27,4 +27,6 @@ export const EMPTY = {
   features: [""],
   image: "",
   images: [],
+  stripePaymentUrl: "",
+  stripeSubscriptionUrl: "",
 };

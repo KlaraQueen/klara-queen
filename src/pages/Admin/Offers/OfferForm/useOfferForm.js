@@ -24,6 +24,8 @@ export default function useOfferForm(offer, onSave) {
             : [""],
         image: offer.image || "",
         images: offer.images || [],
+        stripePaymentUrl: offer.stripePaymentUrl || "",
+        stripeSubscriptionUrl: offer.stripeSubscriptionUrl || "",
       });
     } else {
       setForm(EMPTY);

@@ -65,6 +65,24 @@ export default function BasicFields({ form, set, onToggleColor }) {
         <S.Label>Kolory</S.Label>
         <ColorChips colors={form.colors} onToggle={onToggleColor} />
       </S.Full>
+
+      <S.Full>
+        <S.Label>Stripe - płatność jednorazowa (link checkout)</S.Label>
+        <S.Input
+          value={form.stripePaymentUrl || ""}
+          onChange={(e) => set("stripePaymentUrl", e.target.value)}
+          placeholder="https://buy.stripe.com/..."
+        />
+      </S.Full>
+
+      <S.Full>
+        <S.Label>Stripe - subskrypcja (link checkout)</S.Label>
+        <S.Input
+          value={form.stripeSubscriptionUrl || ""}
+          onChange={(e) => set("stripeSubscriptionUrl", e.target.value)}
+          placeholder="https://buy.stripe.com/..."
+        />
+      </S.Full>
     </S.Grid>
   );
 }
