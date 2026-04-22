@@ -1,23 +1,45 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+             && request.auth.token.email == 'kulpinska.karolinaa@gmail.com';
+    }
+
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
 
     // Oferty — każdy może czytać, tylko admin może pisać
     match /offers/{offerId} {
       allow read: if true;
-      allow write: if request.auth != null
-                   && request.auth.token.email == 'kulpinska.karolinaa@gmail.com';
+      allow write: if isAdmin();
     }
 
     // Zamówienia — admin widzi wszystkie, klient widzi tylko swoje
     match /orders/{orderId} {
       allow read: if request.auth != null
-                  && (request.auth.token.email == 'kulpinska.karolinaa@gmail.com'
-                      || request.auth.uid == resource.data.userId);
-      allow create: if request.auth != null;
+                  && (isAdmin() || request.auth.uid == resource.data.userId);
+      allow create: if (
+                      // Zakup zalogowanego użytkownika
+                      (request.auth != null && request.resource.data.userId == request.auth.uid)
+                      // Zakup jako gość (bez logowania)
+                      || (
+                        request.auth == null
+                        && request.resource.data.userId == 'guest'
+                        && request.resource.data.customerEmail is string
+                        && request.resource.data.customerName is string
+                        && request.resource.data.offerId is string
+                        && request.resource.data.offerTitle is string
+                        && request.resource.data.price is string
+                        && request.resource.data.paymentProvider is string
+                        && request.resource.data.paymentType is string
+                        && request.resource.data.status is string
+                      )
+                    );
       allow update: if request.auth != null
                     && (
-                      request.auth.token.email == 'kulpinska.karolinaa@gmail.com'
+                      isAdmin()
                       || (
                         request.auth.uid == resource.data.userId
                         && request.resource.data.diff(resource.data).affectedKeys()
@@ -28,14 +50,12 @@ service cloud.firestore {
 
     // Profile użytkowników — każdy widzi/edytuje tylko swoje
     match /users/{userId} {
-      allow read, write: if request.auth != null
-                         && request.auth.uid == userId;
+      allow read, write: if isOwner(userId);
     }
 
     // Faktury — tylko admin
     match /invoices/{invoiceId} {
-      allow read, write: if request.auth != null
-                         && request.auth.token.email == 'kulpinska.karolinaa@gmail.com';
+      allow read, write: if isAdmin();
     }
   }
 }

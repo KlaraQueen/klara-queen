@@ -12,6 +12,7 @@ const CTAComponent = ({ offer }) => {
   const { user } = useAuth();
   const [authPromptType, setAuthPromptType] = React.useState(null);
   const [showBlikInfo, setShowBlikInfo] = React.useState(false);
+  const [showStripeInfo, setShowStripeInfo] = React.useState(false);
   const [blikOrderPrice, setBlikOrderPrice] = React.useState("");
   const stripePaymentUrl = (offer?.stripePaymentUrl || "").trim();
   const allegro = socialMediaData.find((item) => item.label === "Allegro")?.url;
@@ -119,6 +120,7 @@ const CTAComponent = ({ offer }) => {
       }),
     );
     window.open(stripePaymentUrl, "_blank", "noopener,noreferrer");
+    setShowStripeInfo(true);
   };
 
   const handleBlikCheckout = async () => {
@@ -248,6 +250,12 @@ const CTAComponent = ({ offer }) => {
             <S.ModalText>{blikInstruction}</S.ModalText>
             <S.BlikNumber>{blikPhone || "Uzupełnij numer telefonu BLIK"}</S.BlikNumber>
             {blikOrderPrice ? <S.ModalText>Kwota: {blikOrderPrice}</S.ModalText> : null}
+            <S.ModalText>
+              Po zaksięgowaniu płatności na podany adres e-mail wyślemy
+              potwierdzenie zakupu oraz informacje pozakupowe. Wiadomość powinna
+              dotrzeć w ciągu kilku godzin. Jeśli jej nie będzie, sprawdź folder
+              SPAM.
+            </S.ModalText>
             <S.ModalActions>
               <S.ModalButton
                 type="button"
@@ -263,6 +271,30 @@ const CTAComponent = ({ offer }) => {
                 Skopiuj numer
               </S.ModalButton>
             </S.ModalActions>
+          </S.ModalCard>
+        </S.ModalOverlay>
+      ) : null}
+
+      {showStripeInfo ? (
+        <S.ModalOverlay>
+          <S.ModalCard>
+            <S.ModalCloseButton
+              type="button"
+              aria-label="Zamknij"
+              onClick={() => setShowStripeInfo(false)}
+            >
+              ×
+            </S.ModalCloseButton>
+            <S.ModalTitle>Dziękujemy za zakup</S.ModalTitle>
+            <S.ModalText>
+              Otworzyliśmy płatność Stripe w nowej karcie. Po jej opłaceniu na
+              podany adres e-mail wyślemy potwierdzenie zakupu oraz informacje
+              pozakupowe.
+            </S.ModalText>
+            <S.ModalText>
+              Wiadomość powinna dotrzeć w ciągu kilku godzin. Jeśli jej nie
+              będzie, sprawdź folder SPAM.
+            </S.ModalText>
           </S.ModalCard>
         </S.ModalOverlay>
       ) : null}

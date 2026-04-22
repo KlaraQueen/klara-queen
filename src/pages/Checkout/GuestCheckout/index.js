@@ -21,6 +21,7 @@ export default function GuestCheckout() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showBlikInfo, setShowBlikInfo] = useState(false);
+  const [showStripeInfo, setShowStripeInfo] = useState(false);
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -124,7 +125,7 @@ export default function GuestCheckout() {
         setShowBlikInfo(true);
       } else if (offer.stripePaymentUrl) {
         window.open(offer.stripePaymentUrl, "_blank", "noopener,noreferrer");
-        navigate(`/offer/${offer.id}`);
+        setShowStripeInfo(true);
       }
     } catch (err) {
       setError(err?.message || "Nie udało się zapisać zamówienia.");
@@ -232,6 +233,26 @@ export default function GuestCheckout() {
               <strong>{blikData.phoneNumber}</strong>
             </S.ProductInfo>
             <S.ProductInfo>{offer.blikPaymentInfo || blikData.instruction}</S.ProductInfo>
+            <S.ProductInfo>
+              Po zaksięgowaniu płatności na podany adres e-mail wyślemy
+              potwierdzenie zakupu oraz informacje pozakupowe. Wiadomość powinna
+              dotrzeć w ciągu kilku godzin. Jeśli jej nie będzie, sprawdź folder
+              SPAM.
+            </S.ProductInfo>
+          </S.SuccessBox>
+        ) : null}
+
+        {showStripeInfo ? (
+          <S.SuccessBox>
+            <S.ProductInfo>
+              Otworzyliśmy płatność Stripe w nowej karcie. Po opłaceniu na
+              podany adres e-mail wyślemy potwierdzenie zakupu oraz informacje
+              pozakupowe.
+            </S.ProductInfo>
+            <S.ProductInfo>
+              Wiadomość powinna dotrzeć w ciągu kilku godzin. Jeśli jej nie
+              będzie, sprawdź folder SPAM.
+            </S.ProductInfo>
           </S.SuccessBox>
         ) : null}
       </S.Card>
