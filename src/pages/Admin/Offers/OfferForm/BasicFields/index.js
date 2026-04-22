@@ -15,6 +15,7 @@ export default function BasicFields({ form, set, onToggleColor }) {
           required
         />
       </S.Group>
+
       <S.Group>
         <S.Label>Cena *</S.Label>
         <S.Input
@@ -22,6 +23,15 @@ export default function BasicFields({ form, set, onToggleColor }) {
           onChange={(e) => set("price", e.target.value)}
           placeholder="np. 1490 zł"
           required
+        />
+      </S.Group>
+
+      <S.Group>
+        <S.Label>Inna cena (opcjonalnie)</S.Label>
+        <S.Input
+          value={form.altPrice || ""}
+          onChange={(e) => set("altPrice", e.target.value)}
+          placeholder="np. 990 zł"
         />
       </S.Group>
 
@@ -81,14 +91,24 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Full>
 
       {(form.paymentMode === "one_time" || form.paymentMode === "both") && (
-        <S.Full>
-          <S.Label>Stripe - płatność jednorazowa (link checkout)</S.Label>
-          <S.Input
-            value={form.stripePaymentUrl || ""}
-            onChange={(e) => set("stripePaymentUrl", e.target.value)}
-            placeholder="https://buy.stripe.com/..."
-          />
-        </S.Full>
+        <>
+          <S.Full>
+            <S.Label>Stripe - płatność jednorazowa (link checkout)</S.Label>
+            <S.Input
+              value={form.stripePaymentUrl || ""}
+              onChange={(e) => set("stripePaymentUrl", e.target.value)}
+              placeholder="https://buy.stripe.com/..."
+            />
+          </S.Full>
+          <S.Full>
+            <S.Label>BLIK - płatność na telefon (link lub instrukcja)</S.Label>
+            <S.Input
+              value={form.blikPaymentInfo || ""}
+              onChange={(e) => set("blikPaymentInfo", e.target.value)}
+              placeholder="np. instrukcja lub link do płatności BLIK"
+            />
+          </S.Full>
+        </>
       )}
     </S.Grid>
   );

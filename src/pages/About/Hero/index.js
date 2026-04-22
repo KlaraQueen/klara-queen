@@ -1,6 +1,11 @@
 import React from "react";
 import * as S from "./styled";
-import { aboutHero } from "../../../data/aboutData";
+
+const aboutHero = {
+  title: "Wymiar Luksusowej Doskonałości",
+  subtitle:
+    "Gdzie wizja spotyka precyzję. Tworzymy cyfrowe eksperyencje, które wyznaczają standardy branży.",
+};
 
 const Hero = () => (
   <S.HeroSection>
