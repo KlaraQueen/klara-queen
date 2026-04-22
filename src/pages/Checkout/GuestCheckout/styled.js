@@ -132,3 +132,48 @@ export const SuccessBox = styled.div`
   background: rgba(0, 0, 0, 0.22);
   padding: 14px;
 `;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(7, 6, 10, 0.72);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+`;
+
+export const ModalCard = styled.div`
+  width: min(100%, 540px);
+  border-radius: 18px;
+  border: 1px solid ${c.navBorderGold48 || "rgba(212, 175, 55, 0.45)"};
+  background: linear-gradient(
+    165deg,
+    rgba(120, 40, 64, 0.82) 0%,
+    rgba(46, 14, 22, 0.92) 45%,
+    rgba(30, 8, 16, 0.97) 100%
+  );
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  padding: 24px;
+`;
+
+export const ModalTitle = styled.h3`
+  margin: 0 0 10px;
+  text-align: center;
+  color: ${c.goldMain};
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.7rem;
+`;
+
+export const ModalText = styled.p`
+  margin: 0 0 10px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.55;
+`;
+
+export const ModalActions = styled.div`
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+`;

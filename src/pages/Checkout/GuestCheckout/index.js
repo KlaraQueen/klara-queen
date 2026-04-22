@@ -22,6 +22,7 @@ export default function GuestCheckout() {
   const [error, setError] = useState("");
   const [showBlikInfo, setShowBlikInfo] = useState(false);
   const [showStripeInfo, setShowStripeInfo] = useState(false);
+  const [createdOrderNumber, setCreatedOrderNumber] = useState("");
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -72,6 +73,20 @@ export default function GuestCheckout() {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
+  const openBlikWindow = ({ orderNumber, amount }) => {
+    const params = new URLSearchParams({
+      orderNumber: orderNumber || "",
+      amount: amount || "",
+      phone: blikData.phoneNumber || "",
+      note: offer.blikPaymentInfo || blikData.instruction || "",
+    });
+    window.open(
+      `${window.location.origin}/payment/blik?${params.toString()}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -96,7 +111,7 @@ export default function GuestCheckout() {
 
     setLoading(true);
     try {
-      await createOrder({
+      const created = await createOrder({
         userId: "guest",
         customerEmail: form.email.trim(),
         customerName: form.fullName.trim(),
@@ -120,8 +135,13 @@ export default function GuestCheckout() {
         status: "nieopłacone",
         orderKind: paymentType,
       });
+      setCreatedOrderNumber(created?.orderNumber || "");
 
       if (paymentType === "blik") {
+        openBlikWindow({
+          orderNumber: created?.orderNumber || "",
+          amount: price,
+        });
         setShowBlikInfo(true);
       } else if (offer.stripePaymentUrl) {
         window.open(offer.stripePaymentUrl, "_blank", "noopener,noreferrer");
@@ -227,33 +247,50 @@ export default function GuestCheckout() {
         </S.Form>
 
         {showBlikInfo ? (
-          <S.SuccessBox>
-            <S.ProductInfo>
-              Zamówienie zapisane. Wykonaj przelew BLIK na numer:{" "}
-              <strong>{blikData.phoneNumber}</strong>
-            </S.ProductInfo>
-            <S.ProductInfo>{offer.blikPaymentInfo || blikData.instruction}</S.ProductInfo>
-            <S.ProductInfo>
-              Po zaksięgowaniu płatności na podany adres e-mail wyślemy
-              potwierdzenie zakupu oraz informacje pozakupowe. Wiadomość powinna
-              dotrzeć w ciągu kilku godzin. Jeśli jej nie będzie, sprawdź folder
-              SPAM.
-            </S.ProductInfo>
-          </S.SuccessBox>
+          <S.ModalOverlay>
+            <S.ModalCard>
+              <S.ModalTitle>Dane BLIK otwarte w nowej karcie</S.ModalTitle>
+              <S.ModalText>
+                Tytuł płatności:{" "}
+                <strong>
+                  Płatność za zamówienie {createdOrderNumber || "(numer w nowym oknie)"}
+                </strong>
+              </S.ModalText>
+              <S.ModalText>
+                Po zaksięgowaniu płatności na podany adres e-mail wyślemy
+                potwierdzenie zakupu oraz informacje pozakupowe. Wiadomość
+                powinna dotrzeć w ciągu kilku godzin. Jeśli jej nie będzie,
+                sprawdź folder SPAM.
+              </S.ModalText>
+              <S.ModalActions>
+                <S.PrimaryButton type="button" onClick={() => navigate("/offer")}>
+                  OK
+                </S.PrimaryButton>
+              </S.ModalActions>
+            </S.ModalCard>
+          </S.ModalOverlay>
         ) : null}
 
         {showStripeInfo ? (
-          <S.SuccessBox>
-            <S.ProductInfo>
-              Otworzyliśmy płatność Stripe w nowej karcie. Po opłaceniu na
-              podany adres e-mail wyślemy potwierdzenie zakupu oraz informacje
-              pozakupowe.
-            </S.ProductInfo>
-            <S.ProductInfo>
-              Wiadomość powinna dotrzeć w ciągu kilku godzin. Jeśli jej nie
-              będzie, sprawdź folder SPAM.
-            </S.ProductInfo>
-          </S.SuccessBox>
+          <S.ModalOverlay>
+            <S.ModalCard>
+              <S.ModalTitle>Dziękujemy za zakup</S.ModalTitle>
+              <S.ModalText>
+                Otworzyliśmy płatność Stripe w nowej karcie. Po opłaceniu na
+                podany adres e-mail wyślemy potwierdzenie zakupu oraz informacje
+                pozakupowe.
+              </S.ModalText>
+              <S.ModalText>
+                Wiadomość powinna dotrzeć w ciągu kilku godzin. Jeśli jej nie
+                będzie, sprawdź folder SPAM.
+              </S.ModalText>
+              <S.ModalActions>
+                <S.PrimaryButton type="button" onClick={() => navigate("/offer")}>
+                  OK
+                </S.PrimaryButton>
+              </S.ModalActions>
+            </S.ModalCard>
+          </S.ModalOverlay>
         ) : null}
       </S.Card>
     </S.Page>

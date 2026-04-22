@@ -18,7 +18,15 @@ export default function OrderDetails({ order, onBack, onUpdate }) {
 
   const handleStatus = async (e) => {
     const newStatus = e.target.value;
-    await updateOrder(order.id, { status: newStatus });
+    const patch = { status: newStatus };
+    if (newStatus === "opłacone" || newStatus === "zrealizowane") {
+      patch.paymentStatus = "paid";
+    } else if (newStatus === "nieopłacone" || newStatus === "anulowane") {
+      patch.paymentStatus = "failed";
+    } else if (newStatus === "nowe") {
+      patch.paymentStatus = "pending";
+    }
+    await updateOrder(order.id, patch);
     onUpdate();
   };
 

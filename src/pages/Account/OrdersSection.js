@@ -29,6 +29,14 @@ function getPaymentTypeLabel(order) {
 }
 
 function getPaymentStatus(order) {
+  const orderStatus = (order.status || "").toLowerCase();
+  if (orderStatus === "opłacone" || orderStatus === "zrealizowane") {
+    return { label: "Opłacone", tone: "success" };
+  }
+  if (orderStatus === "nieopłacone" || orderStatus === "anulowane") {
+    return { label: "Nieopłacone", tone: "danger" };
+  }
+
   const status = (order.paymentStatus || "").toLowerCase();
   if (status === "paid") {
     return { label: "Opłacone", tone: "success" };
@@ -40,13 +48,6 @@ function getPaymentStatus(order) {
     return { label: "Nieopłacone", tone: "danger" };
   }
 
-  const orderStatus = (order.status || "").toLowerCase();
-  if (orderStatus === "opłacone" || orderStatus === "zrealizowane") {
-    return { label: "Opłacone", tone: "success" };
-  }
-  if (orderStatus === "nieopłacone" || orderStatus === "anulowane") {
-    return { label: "Nieopłacone", tone: "danger" };
-  }
   return { label: "Oczekuje", tone: "warning" };
 }
 

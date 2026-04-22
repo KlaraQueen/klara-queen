@@ -11,9 +11,7 @@ const CTAComponent = ({ offer }) => {
   const location = useLocation();
   const { user } = useAuth();
   const [authPromptType, setAuthPromptType] = React.useState(null);
-  const [showBlikInfo, setShowBlikInfo] = React.useState(false);
   const [showStripeInfo, setShowStripeInfo] = React.useState(false);
-  const [blikOrderPrice, setBlikOrderPrice] = React.useState("");
   const stripePaymentUrl = (offer?.stripePaymentUrl || "").trim();
   const allegro = socialMediaData.find((item) => item.label === "Allegro")?.url;
   const blikPhone = (blikData?.phoneNumber || "").trim();
@@ -89,10 +87,25 @@ const CTAComponent = ({ offer }) => {
 
   const createOrderSafe = async (payload) => {
     try {
-      await createOrder(payload);
+      return await createOrder(payload);
     } catch {
       // Do not block checkout if Firestore write fails.
+      return null;
     }
+  };
+
+  const openBlikWindow = ({ orderNumber, amount }) => {
+    const params = new URLSearchParams({
+      orderNumber: orderNumber || "",
+      amount: amount || "",
+      phone: blikPhone || "",
+      note: blikInstruction || "",
+    });
+    window.open(
+      `${window.location.origin}/payment/blik?${params.toString()}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
   const openAuthPrompt = (paymentType) => {
@@ -119,13 +132,14 @@ const CTAComponent = ({ offer }) => {
         },
       }),
     );
+    setAuthPromptType(null);
     window.open(stripePaymentUrl, "_blank", "noopener,noreferrer");
     setShowStripeInfo(true);
   };
 
   const handleBlikCheckout = async () => {
     const price = normalizePrice("blik");
-    await createOrderSafe(
+    const created = await createOrderSafe(
       buildOrderPayload({
         paymentType: "blik",
         paymentProvider: "blik",
@@ -138,8 +152,11 @@ const CTAComponent = ({ offer }) => {
         },
       }),
     );
-    setBlikOrderPrice(price);
-    setShowBlikInfo(true);
+    setAuthPromptType(null);
+    openBlikWindow({
+      orderNumber: created?.orderNumber || "",
+      amount: price,
+    });
   };
 
   const handleProtectedCheckout = async (paymentType) => {
@@ -200,15 +217,17 @@ const CTAComponent = ({ offer }) => {
             <S.ModalActions>
               <S.ModalButton
                 type="button"
-                onClick={() =>
-                  navigate("/login", { state: { from: location.pathname } })
-                }
+                onClick={() => {
+                  closeModals();
+                  navigate("/login", { state: { from: location.pathname } });
+                }}
               >
                 Zaloguj się
               </S.ModalButton>
               <S.ModalButton
                 type="button"
                 onClick={() => {
+                  closeModals();
                   const checkoutState = {
                     paymentType: authPromptType,
                     offer: {
@@ -236,45 +255,6 @@ const CTAComponent = ({ offer }) => {
         </S.ModalOverlay>
       ) : null}
 
-      {showBlikInfo ? (
-        <S.ModalOverlay>
-          <S.ModalCard>
-            <S.ModalCloseButton
-              type="button"
-              aria-label="Zamknij"
-              onClick={() => setShowBlikInfo(false)}
-            >
-              ×
-            </S.ModalCloseButton>
-            <S.ModalTitle>{blikData?.title || "Płatność BLIK"}</S.ModalTitle>
-            <S.ModalText>{blikInstruction}</S.ModalText>
-            <S.BlikNumber>{blikPhone || "Uzupełnij numer telefonu BLIK"}</S.BlikNumber>
-            {blikOrderPrice ? <S.ModalText>Kwota: {blikOrderPrice}</S.ModalText> : null}
-            <S.ModalText>
-              Po zaksięgowaniu płatności na podany adres e-mail wyślemy
-              potwierdzenie zakupu oraz informacje pozakupowe. Wiadomość powinna
-              dotrzeć w ciągu kilku godzin. Jeśli jej nie będzie, sprawdź folder
-              SPAM.
-            </S.ModalText>
-            <S.ModalActions>
-              <S.ModalButton
-                type="button"
-                onClick={async () => {
-                  if (!blikPhone) return;
-                  try {
-                    await navigator.clipboard.writeText(blikPhone);
-                  } catch {
-                    // Clipboard may be unavailable in some browsers.
-                  }
-                }}
-              >
-                Skopiuj numer
-              </S.ModalButton>
-            </S.ModalActions>
-          </S.ModalCard>
-        </S.ModalOverlay>
-      ) : null}
-
       {showStripeInfo ? (
         <S.ModalOverlay>
           <S.ModalCard>
@@ -295,6 +275,17 @@ const CTAComponent = ({ offer }) => {
               Wiadomość powinna dotrzeć w ciągu kilku godzin. Jeśli jej nie
               będzie, sprawdź folder SPAM.
             </S.ModalText>
+            <S.ModalActions>
+              <S.ModalButton
+                type="button"
+                onClick={() => {
+                  setShowStripeInfo(false);
+                  navigate("/offer");
+                }}
+              >
+                OK
+              </S.ModalButton>
+            </S.ModalActions>
           </S.ModalCard>
         </S.ModalOverlay>
       ) : null}

@@ -17,6 +17,7 @@ import Login from "./pages/Auth/Login/index";
 import Register from "./pages/Auth/Register/index";
 import ForgotPassword from "./pages/Auth/ForgotPassword/index";
 import GuestCheckout from "./pages/Checkout/GuestCheckout/index";
+import BlikPayment from "./pages/Checkout/BlikPayment/index";
 import Account from "./pages/Account/index";
 import Admin from "./pages/Admin/index";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/checkout/guest" element={<GuestCheckout />} />
+          <Route path="/payment/blik" element={<BlikPayment />} />
           <Route
             path="/konto"
             element={

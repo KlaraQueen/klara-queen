@@ -41,14 +41,18 @@ export async function createOrder(data) {
   if (!db) throw new Error("Firestore niedostępny");
   const payload = {
     ...data,
-    orderNumber: buildOrderNumber(),
     status: data?.status || "nowe",
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
   };
   const docRef = await addDoc(collection(db, COL), payload);
+  const orderNumber = buildOrderNumber(docRef.id);
+  await updateDoc(doc(db, COL, docRef.id), {
+    orderNumber,
+    updatedAt: serverTimestamp(),
+  });
 
-  return docRef.id;
+  return { id: docRef.id, orderNumber };
 }
 
 export async function updateOrder(id, data) {
