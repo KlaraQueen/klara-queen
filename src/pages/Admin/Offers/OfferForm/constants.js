@@ -17,8 +17,6 @@ export const STYLES = [
 
 export const PAYMENT_MODES = [
   { value: "one_time", label: "Kup teraz (jednorazowo)" },
-  { value: "subscription", label: "Tylko subskrypcja" },
-  { value: "both", label: "Kup teraz + subskrypcja" },
 ];
 
 export const CUSTOMER_ACTIONS = [
@@ -41,7 +39,6 @@ export const EMPTY = {
   image: "",
   images: [],
   stripePaymentUrl: "",
-  stripeSubscriptionUrl: "",
   paymentMode: "one_time",
   customerActionType: "none",
   customerActionUrl: "",

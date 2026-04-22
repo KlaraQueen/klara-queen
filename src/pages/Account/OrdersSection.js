@@ -18,12 +18,6 @@ function formatDate(v) {
 }
 
 function getPaymentTypeLabel(order) {
-  if (order.paymentType === "subscription") {
-    return "Subskrypcja";
-  }
-  if (order.paymentType === "one_time") {
-    return "Jednorazowy";
-  }
   return "Jednorazowy";
 }
 
@@ -50,29 +44,6 @@ function getPaymentStatus(order) {
 }
 
 function OrdersSection({ orders, loading }) {
-  const [busyId, setBusyId] = useState("");
-  const hasAnySubscription = orders.some(
-    (o) => o.paymentType === "subscription",
-  );
-
-  const handleCancelSubscription = async (order) => {
-    if (!order?.id || busyId) {
-      return;
-    }
-    setBusyId(order.id);
-    try {
-      await updateOrder(order.id, {
-        cancellationRequested: true,
-        cancellationRequestedAt: new Date().toISOString(),
-        subscriptionStatus: "cancel_requested",
-      });
-    } catch {
-      alert("Nie udało się wysłać prośby o anulowanie subskrypcji.");
-    } finally {
-      setBusyId("");
-    }
-  };
-
   if (loading) {
     return (
       <>
@@ -115,21 +86,11 @@ function OrdersSection({ orders, loading }) {
               <th>Typ</th>
               <th>Kwota</th>
               <th>Płatność</th>
-              {hasAnySubscription ? <th>Opcje</th> : null}
             </tr>
           </thead>
           <tbody>
             {orders.map((o) => {
               const payment = getPaymentStatus(o);
-              const isSubscription = o.paymentType === "subscription";
-              const subscriptionCanceled =
-                (o.subscriptionStatus || "").toLowerCase() === "canceled";
-              const cancellationRequested = Boolean(o.cancellationRequested);
-              const canCancel =
-                isSubscription &&
-                !cancellationRequested &&
-                !subscriptionCanceled;
-
               return (
                 <tr key={o.id}>
                   <td>{o.orderNumber || o.id}</td>
@@ -154,25 +115,6 @@ function OrdersSection({ orders, loading }) {
                       {payment.label}
                     </S.StatusBadge>
                   </td>
-                  {hasAnySubscription ? (
-                    <td>
-                      {isSubscription ? (
-                        <S.RowActionBtn
-                          type="button"
-                          disabled={busyId === o.id || !canCancel}
-                          onClick={() => handleCancelSubscription(o)}
-                        >
-                          {busyId === o.id
-                            ? "Wysyłanie…"
-                            : subscriptionCanceled
-                              ? "Subskrypcja anulowana"
-                              : cancellationRequested
-                                ? "Anulowanie w toku"
-                                : "Anuluj subskrypcję"}
-                        </S.RowActionBtn>
-                      ) : null}
-                    </td>
-                  ) : null}
                 </tr>
               );
             })}

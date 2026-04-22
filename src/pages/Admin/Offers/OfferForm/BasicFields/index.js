@@ -90,19 +90,6 @@ export default function BasicFields({ form, set, onToggleColor }) {
           />
         </S.Full>
       )}
-
-      {(form.paymentMode === "subscription" || form.paymentMode === "both") && (
-        <S.Full>
-          <S.Label>Stripe - subskrypcja (link checkout)</S.Label>
-          <S.Input
-            value={form.stripeSubscriptionUrl || ""}
-            onChange={(e) => set("stripeSubscriptionUrl", e.target.value)}
-            placeholder="https://buy.stripe.com/..."
-          />
-        </S.Full>
-      )}
-
-      {/* Usunięto opcje powiązane z "Opcja po zakupie (konto klienta)" na życzenie użytkownika */}
     </S.Grid>
   );
 }
