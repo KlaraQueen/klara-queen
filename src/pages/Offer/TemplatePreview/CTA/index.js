@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./styled";
 import { socialMediaData } from "../../../../data/socialMediaData";
+import { blikData } from "../../../../data/blikData";
 import { createOrder } from "../../../../services/orderService";
 import { useAuth } from "../../../../context/AuthContext";
 
@@ -9,19 +10,21 @@ const CTAComponent = ({ offer }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
+  const [authPromptType, setAuthPromptType] = React.useState(null);
+  const [showBlikInfo, setShowBlikInfo] = React.useState(false);
+  const [blikOrderPrice, setBlikOrderPrice] = React.useState("");
   const stripePaymentUrl = (offer?.stripePaymentUrl || "").trim();
-  const stripeSubscriptionUrl = (offer?.stripeSubscriptionUrl || "").trim();
   const allegro = socialMediaData.find((item) => item.label === "Allegro")?.url;
+  const blikPhone = (blikData?.phoneNumber || "").trim();
+  const blikInstruction =
+    (offer?.blikPaymentInfo || "").trim() || blikData?.instruction || "";
 
   const hasOneTime = Boolean(stripePaymentUrl);
-  const hasSubscription = Boolean(stripeSubscriptionUrl);
   const paymentMode = offer?.paymentMode || "one_time";
 
   const canBuyNow =
     (paymentMode === "one_time" || paymentMode === "both") && hasOneTime;
-  const canSubscribe =
-    (paymentMode === "subscription" || paymentMode === "both") &&
-    hasSubscription;
+  const canUseBlik = paymentMode === "one_time" || paymentMode === "both";
 
   const parseAmount = (priceText) => {
     const raw = String(priceText || "").replace(/,/g, ".");
@@ -43,43 +46,110 @@ const CTAComponent = ({ offer }) => {
     return "";
   };
 
-  const handleStripeCheckout = async (url, paymentType) => {
-    if (!url) return;
-
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } });
-      return;
+  const normalizePrice = (paymentType) => {
+    if (paymentType === "blik") {
+      return offer?.altPrice || offer?.price || "";
     }
+    return offer?.price || "";
+  };
 
+  const buildOrderPayload = ({ paymentType, paymentProvider, customer, userId }) => {
+    const price = normalizePrice(paymentType);
+    return {
+      userId: userId || "",
+      customerEmail: customer.email || "",
+      customerName: customer.name || "",
+      customerPhone: customer.phone || "",
+      wantInvoice: Boolean(customer.wantInvoice),
+      invoiceCompany: customer.invoiceCompany || "",
+      invoiceNip: customer.invoiceNip || "",
+      invoiceStreet: customer.invoiceStreet || "",
+      invoicePostalCode: customer.invoicePostalCode || "",
+      invoiceCity: customer.invoiceCity || "",
+      offerId: offer?.id || "",
+      offerTitle: offer?.title || "",
+      title: offer?.title || "",
+      productName: offer?.title || "",
+      price,
+      amount: parseAmount(price),
+      currency: "PLN",
+      paymentProvider,
+      paymentType,
+      paymentStatus: "pending",
+      status: "nieopłacone",
+      orderKind: paymentType,
+      customerActionType: offer?.customerActionType || "none",
+      customerActionLabel: getCustomerActionLabel(),
+      customerActionUrl:
+        (offer?.customerActionUrl || "").trim() ||
+        (offer?.id ? `/offer/${offer.id}` : ""),
+    };
+  };
+
+  const createOrderSafe = async (payload) => {
     try {
-      const amount = parseAmount(offer?.price);
-      await createOrder({
-        userId: user.uid,
-        customerEmail: user.email || "",
-        customerName: user.displayName || "",
-        offerId: offer?.id || "",
-        offerTitle: offer?.title || "",
-        title: offer?.title || "",
-        productName: offer?.title || "",
-        price: offer?.price || "",
-        amount,
-        currency: "PLN",
-        paymentProvider: "stripe",
-        paymentType,
-        paymentStatus: "pending",
-        status: "nieopłacone",
-        orderKind: paymentType,
-        customerActionType: offer?.customerActionType || "none",
-        customerActionLabel: getCustomerActionLabel(),
-        customerActionUrl:
-          (offer?.customerActionUrl || "").trim() ||
-          (offer?.id ? `/offer/${offer.id}` : ""),
-      });
+      await createOrder(payload);
     } catch {
       // Do not block checkout if Firestore write fails.
     }
+  };
 
-    window.open(url, "_blank", "noopener,noreferrer");
+  const openAuthPrompt = (paymentType) => {
+    setAuthPromptType(paymentType);
+  };
+
+  const closeModals = () => {
+    setAuthPromptType(null);
+  };
+
+  const handleStripeCheckout = async () => {
+    if (!stripePaymentUrl) return;
+
+    await createOrderSafe(
+      buildOrderPayload({
+        paymentType: "one_time",
+        paymentProvider: "stripe",
+        userId: user?.uid || "guest",
+        customer: {
+          name: user?.displayName || "",
+          email: user?.email || "",
+          phone: "",
+          wantInvoice: false,
+        },
+      }),
+    );
+    window.open(stripePaymentUrl, "_blank", "noopener,noreferrer");
+  };
+
+  const handleBlikCheckout = async () => {
+    const price = normalizePrice("blik");
+    await createOrderSafe(
+      buildOrderPayload({
+        paymentType: "blik",
+        paymentProvider: "blik",
+        userId: user?.uid || "guest",
+        customer: {
+          name: user?.displayName || "",
+          email: user?.email || "",
+          phone: "",
+          wantInvoice: false,
+        },
+      }),
+    );
+    setBlikOrderPrice(price);
+    setShowBlikInfo(true);
+  };
+
+  const handleProtectedCheckout = async (paymentType) => {
+    if (!user) {
+      openAuthPrompt(paymentType);
+      return;
+    }
+    if (paymentType === "blik") {
+      await handleBlikCheckout();
+      return;
+    }
+    await handleStripeCheckout();
   };
 
   return (
@@ -90,21 +160,19 @@ const CTAComponent = ({ offer }) => {
           <S.PrimaryButton
             as="button"
             type="button"
-            onClick={() => handleStripeCheckout(stripePaymentUrl, "one_time")}
+            onClick={() => handleProtectedCheckout("one_time")}
           >
-            Kup teraz
+            Kup teraz ({offer?.price || "cena w opisie"})
           </S.PrimaryButton>
         ) : null}
 
-        {canSubscribe ? (
+        {canUseBlik ? (
           <S.SecondaryButton
             as="button"
             type="button"
-            onClick={() =>
-              handleStripeCheckout(stripeSubscriptionUrl, "subscription")
-            }
+            onClick={() => handleProtectedCheckout("blik")}
           >
-            Subskrybuj
+            BLIK na telefon ({offer?.altPrice || offer?.price || "cena w opisie"})
           </S.SecondaryButton>
         ) : null}
 
@@ -118,6 +186,86 @@ const CTAComponent = ({ offer }) => {
           </S.SecondaryButton>
         ) : null}
       </S.CTAButtons>
+
+      {authPromptType ? (
+        <S.ModalOverlay>
+          <S.ModalCard>
+            <S.ModalCloseButton type="button" aria-label="Zamknij" onClick={closeModals}>
+              ×
+            </S.ModalCloseButton>
+            <S.ModalTitle>Wybierz sposób zakupu</S.ModalTitle>
+            <S.ModalText>Możesz się zalogować albo kupić jako gość.</S.ModalText>
+            <S.ModalActions>
+              <S.ModalButton
+                type="button"
+                onClick={() =>
+                  navigate("/login", { state: { from: location.pathname } })
+                }
+              >
+                Zaloguj się
+              </S.ModalButton>
+              <S.ModalButton
+                type="button"
+                onClick={() => {
+                  const checkoutState = {
+                    paymentType: authPromptType,
+                    offer: {
+                      id: offer?.id || "",
+                      title: offer?.title || "",
+                      price: offer?.price || "",
+                      altPrice: offer?.altPrice || "",
+                      stripePaymentUrl,
+                      blikPaymentInfo: offer?.blikPaymentInfo || "",
+                    },
+                  };
+                  sessionStorage.setItem(
+                    "guestCheckoutDraft",
+                    JSON.stringify(checkoutState),
+                  );
+                  navigate("/checkout/guest", {
+                    state: checkoutState,
+                  });
+                }}
+              >
+                Zakup jako gość
+              </S.ModalButton>
+            </S.ModalActions>
+          </S.ModalCard>
+        </S.ModalOverlay>
+      ) : null}
+
+      {showBlikInfo ? (
+        <S.ModalOverlay>
+          <S.ModalCard>
+            <S.ModalCloseButton
+              type="button"
+              aria-label="Zamknij"
+              onClick={() => setShowBlikInfo(false)}
+            >
+              ×
+            </S.ModalCloseButton>
+            <S.ModalTitle>{blikData?.title || "Płatność BLIK"}</S.ModalTitle>
+            <S.ModalText>{blikInstruction}</S.ModalText>
+            <S.BlikNumber>{blikPhone || "Uzupełnij numer telefonu BLIK"}</S.BlikNumber>
+            {blikOrderPrice ? <S.ModalText>Kwota: {blikOrderPrice}</S.ModalText> : null}
+            <S.ModalActions>
+              <S.ModalButton
+                type="button"
+                onClick={async () => {
+                  if (!blikPhone) return;
+                  try {
+                    await navigator.clipboard.writeText(blikPhone);
+                  } catch {
+                    // Clipboard may be unavailable in some browsers.
+                  }
+                }}
+              >
+                Skopiuj numer
+              </S.ModalButton>
+            </S.ModalActions>
+          </S.ModalCard>
+        </S.ModalOverlay>
+      ) : null}
     </S.CTASection>
   );
 };

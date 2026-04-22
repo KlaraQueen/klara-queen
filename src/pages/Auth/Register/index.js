@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -10,6 +10,9 @@ import * as S from "../styled";
 
 function Register() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from;
+  const redirectAfterRegister = from && from !== "/register" ? from : "/konto";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -39,7 +42,7 @@ function Register() {
     setLoading(true);
     try {
       await createUserWithEmailAndPassword(auth, email.trim(), password);
-      navigate("/konto", { replace: true });
+      navigate(redirectAfterRegister, { replace: true });
     } catch (err) {
       setError(mapFirebaseAuthError(err.code));
     } finally {
@@ -56,7 +59,7 @@ function Register() {
     setLoading(true);
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate("/konto", { replace: true });
+      navigate(redirectAfterRegister, { replace: true });
     } catch (err) {
       if (err.code === "auth/popup-closed-by-user") {
         return;

@@ -17,7 +17,7 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Group>
 
       <S.Group>
-        <S.Label>Cena *</S.Label>
+        <S.Label>Cena Kup teraz (Stripe) *</S.Label>
         <S.Input
           value={form.price}
           onChange={(e) => set("price", e.target.value)}
@@ -27,11 +27,11 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Group>
 
       <S.Group>
-        <S.Label>Inna cena (opcjonalnie)</S.Label>
+        <S.Label>Cena BLIK (na telefon)</S.Label>
         <S.Input
           value={form.altPrice || ""}
           onChange={(e) => set("altPrice", e.target.value)}
-          placeholder="np. 990 zł"
+          placeholder="np. 1290 zł"
         />
       </S.Group>
 
@@ -101,11 +101,11 @@ export default function BasicFields({ form, set, onToggleColor }) {
             />
           </S.Full>
           <S.Full>
-            <S.Label>BLIK - płatność na telefon (link lub instrukcja)</S.Label>
+            <S.Label>BLIK - dodatkowa instrukcja (opcjonalnie)</S.Label>
             <S.Input
               value={form.blikPaymentInfo || ""}
               onChange={(e) => set("blikPaymentInfo", e.target.value)}
-              placeholder="np. instrukcja lub link do płatności BLIK"
+              placeholder="np. Wyślij potwierdzenie na WhatsApp po płatności"
             />
           </S.Full>
         </>

@@ -13,6 +13,7 @@ export default function OrderTable({ orders, onView }) {
           <S.HeadCell>Data</S.HeadCell>
           <S.HeadCell>Klient</S.HeadCell>
           <S.HeadCell>Oferta</S.HeadCell>
+          <S.HeadCell>Płatność</S.HeadCell>
           <S.HeadCell>Kwota</S.HeadCell>
           <S.HeadCell>Status</S.HeadCell>
           <S.HeadCell>Faktura</S.HeadCell>
@@ -29,6 +30,11 @@ export default function OrderTable({ orders, onView }) {
             </S.Cell>
             <S.Cell>{o.customerName || o.customerEmail || "—"}</S.Cell>
             <S.Cell>{o.offerTitle || "—"}</S.Cell>
+            <S.Cell>
+              {o.paymentProvider === "blik" || o.paymentType === "blik"
+                ? "BLIK na telefon"
+                : "Kup teraz (Stripe)"}
+            </S.Cell>
             <S.Cell>{o.price || "—"}</S.Cell>
             <S.Cell>
               <S.Status $status={o.status}>{o.status || "nowe"}</S.Status>

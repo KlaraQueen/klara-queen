@@ -1,7 +1,16 @@
 import React from "react";
 import * as S from "./styled";
-import { aboutSocial } from "../../../data/aboutData";
 import { socialMediaData } from "../../../data/socialMediaData";
+
+const aboutSocial = {
+  title: "Znajdź nas w social media",
+  description: "Bądź na bieżąco z naszymi realizacjami i poradami.",
+  platforms: [
+    { id: 1, name: "Instagram", description: "Portfolio i inspiracje" },
+    { id: 2, name: "Facebook", description: "Nowości i kontakt" },
+    { id: 3, name: "LinkedIn", description: "Współpraca B2B" },
+  ],
+};
 
 const Social = () => {
   return (

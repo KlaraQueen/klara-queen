@@ -148,3 +148,133 @@ export const ErrorMessage = styled.div`
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: ${theme.colors.goldMain};
 `;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 6, 10, 0.72);
+  display: grid;
+  place-items: center;
+  z-index: 1200;
+  padding: 20px;
+`;
+
+export const ModalCard = styled.div`
+  position: relative;
+  width: min(100%, 540px);
+  background: linear-gradient(
+    165deg,
+    rgba(28, 18, 34, 0.96) 0%,
+    rgba(16, 12, 24, 0.98) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 18px;
+  padding: clamp(22px, 4vw, 30px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+`;
+
+export const ModalCloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(0, 0, 0, 0.3);
+  color: ${theme.colors.white};
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+
+  &:hover {
+    background: rgba(212, 175, 55, 0.2);
+  }
+`;
+
+export const ModalTitle = styled.h4`
+  margin: 0 0 10px;
+  padding-right: 26px;
+  font-size: 1.35rem;
+  color: ${theme.colors.goldMain};
+  font-family: "Cormorant Garamond", serif;
+  text-align: center;
+`;
+
+export const ModalText = styled.p`
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  text-align: center;
+`;
+
+export const ModalActions = styled.div`
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  justify-content: center;
+`;
+
+export const ModalButton = styled.button`
+  min-width: 170px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  background: rgba(212, 175, 55, 0.16);
+  color: ${theme.colors.white};
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+
+  &:hover {
+    background: rgba(212, 175, 55, 0.28);
+  }
+`;
+
+export const GuestForm = styled.form`
+  display: grid;
+  gap: 8px;
+  text-align: left;
+`;
+
+export const FieldLabel = styled.label`
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.84);
+`;
+
+export const FieldInput = styled.input`
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  color: ${theme.colors.white};
+`;
+
+export const CheckboxRow = styled.div`
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.88);
+`;
+
+export const FormError = styled.div`
+  color: #ffb4b4;
+  font-size: 0.86rem;
+  margin-top: 4px;
+`;
+
+export const BlikNumber = styled.div`
+  margin: 10px 0 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(212, 175, 55, 0.12);
+  color: ${theme.colors.white};
+  font-weight: 700;
+  letter-spacing: 0.8px;
+`;

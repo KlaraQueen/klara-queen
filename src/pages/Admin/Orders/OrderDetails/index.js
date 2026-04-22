@@ -66,6 +66,14 @@ export default function OrderDetails({ order, onBack, onUpdate }) {
           <S.Value>{order.customerPhone || "—"}</S.Value>
         </S.Field>
         <S.Field>
+          <S.Label>Płatność</S.Label>
+          <S.Value>
+            {order.paymentProvider === "blik" || order.paymentType === "blik"
+              ? "BLIK na telefon"
+              : "Kup teraz (Stripe)"}
+          </S.Value>
+        </S.Field>
+        <S.Field>
           <S.Label>Oferta</S.Label>
           <S.Value>{order.offerTitle || "—"}</S.Value>
         </S.Field>

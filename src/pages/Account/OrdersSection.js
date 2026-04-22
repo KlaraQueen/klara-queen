@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./styled";
-import { updateOrder } from "../../services/orderService";
 
 function formatDate(v) {
   if (!v) {
@@ -18,6 +17,14 @@ function formatDate(v) {
 }
 
 function getPaymentTypeLabel(order) {
+  const provider = (order.paymentProvider || "").toLowerCase();
+  const type = (order.paymentType || "").toLowerCase();
+  if (provider === "blik" || type === "blik") {
+    return "BLIK na telefon";
+  }
+  if (provider === "stripe" || type === "one_time") {
+    return "Kup teraz (Stripe)";
+  }
   return "Jednorazowy";
 }
 

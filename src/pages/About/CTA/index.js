@@ -1,10 +1,11 @@
 import React from "react";
 import * as S from "./styled";
-import { aboutSectionTitles } from "../../../data/aboutData";
+
+
 
 const CTA = () => (
   <S.CTASection>
-    <S.CTAText>{aboutSectionTitles.cta}</S.CTAText>
+    <S.CTAText>Gotowy na nowy poziom?</S.CTAText>
   </S.CTASection>
 );
 
