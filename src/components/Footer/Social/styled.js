@@ -73,7 +73,7 @@ export const SocialItem = styled.a`
   svg {
     font-size: 1.6rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.15));
+    filter: drop-shadow(0 0 6px ${theme.colors.goldSoft15});
     color: ${theme.colors.goldMain};
   }
 
@@ -87,7 +87,7 @@ export const SocialItem = styled.a`
     height: 45px;
     background: radial-gradient(
       circle,
-      rgba(212, 175, 55, 0.08) 0%,
+      ${theme.colors.goldSoft08} 0%,
       transparent 70%
     );
     border-radius: 50%;
@@ -104,7 +104,7 @@ export const SocialItem = styled.a`
     svg {
       transform: scale(1.12);
       color: ${theme.colors.goldHover};
-      filter: drop-shadow(0 6px 12px rgba(212, 175, 55, 0.3));
+      filter: drop-shadow(0 6px 12px ${theme.colors.goldSoft30});
     }
 
     &::before {
@@ -138,7 +138,7 @@ export const SocialLabel = styled.span`
   font-weight: 500;
   transition: all 0.3s ease;
   font-family: "Cormorant Garamond", serif;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px ${theme.colors.shadowLight};
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     font-size: 0.58rem;

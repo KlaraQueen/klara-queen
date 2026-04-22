@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../../../theme";
 
 export const DeviceWrapper = styled.div`
   width: 100%;
@@ -9,7 +10,7 @@ export const DeviceWrapper = styled.div`
   margin-bottom: 0;
   padding: 0;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.25);
+  background: ${theme.colors.overlayBg};
   border-radius: 0;
   border: none;
   box-shadow: none;
@@ -22,7 +23,7 @@ export const ProjectImage = styled.img`
   object-fit: cover;
   object-position: center;
   border-radius: 0;
-  filter: brightness(0.88) saturate(0.9);
+  filter: brightness(0.95) saturate(1);
   transition:
     filter 0.45s ease,
     transform 0.45s ease;

@@ -39,13 +39,13 @@ export const HeroWrapper = styled.div`
 
 export const HeroOverline = styled.div`
   font-family: "Manrope", "Segoe UI", sans-serif;
-  color: rgba(255, 242, 214, 0.92);
+  color: ${theme.colors.goldHover};
   text-transform: uppercase;
   letter-spacing: clamp(1.2px, 0.2vw, 2.2px);
   font-size: clamp(0.62rem, 0.9vw, 0.82rem);
   font-weight: 500;
   margin-bottom: 18px;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 0 12px ${theme.colors.shadowLight};
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     text-align: center;
@@ -70,9 +70,9 @@ export const HeroTitle = styled.h1`
   font-size: clamp(1.05rem, 3.1vw, 2.7rem);
   line-height: 1.3;
   text-shadow:
-    0 0 2px rgba(255, 246, 220, 0.35),
-    0 0 14px rgba(212, 175, 55, 0.22),
-    0 10px 24px rgba(0, 0, 0, 0.24);
+    0 0 2px ${theme.colors.goldSoft20},
+    0 0 14px ${theme.colors.goldSoft20},
+    0 10px 24px ${theme.colors.shadowLight};
 
   @media (max-width: 1050px) {
     font-size: clamp(1rem, 2.7vw, 2.2rem);
@@ -98,13 +98,13 @@ export const HeroTitle = styled.h1`
 export const HeroDescription = styled.p`
   margin: 0;
   max-width: 640px;
-  color: rgba(255, 255, 255, 0.9);
+  color: ${theme.colors.textMuted};
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-size: clamp(0.78rem, 1vw, 0.92rem);
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 1.5;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
+  text-shadow: 0 3px 12px ${theme.colors.shadowLight};
 
   @media (max-width: 1050px) {
     font-size: clamp(0.75rem, 0.95vw, 0.86rem);
@@ -182,37 +182,41 @@ const buttonBase = `
 
 export const PrimaryButton = styled.a`
   ${buttonBase}
-  color: #2a1303;
-  background: linear-gradient(180deg, #f4d98b 0%, #d6ab3f 100%);
+  color: ${theme.colors.deepBlack};
+  background: linear-gradient(
+    180deg,
+    ${theme.colors.goldHover} 0%,
+    ${theme.colors.goldMain} 100%
+  );
   box-shadow:
-    0 10px 24px rgba(109, 64, 5, 0.28),
-    inset 0 1px 0 rgba(255, 248, 219, 0.7);
+    0 10px 24px ${theme.colors.goldSoft30},
+    inset 0 1px 0 ${theme.colors.goldSoft25};
 
   &:hover {
     transform: translateY(-1px);
     box-shadow:
-      0 14px 30px rgba(109, 64, 5, 0.34),
-      0 0 18px rgba(212, 175, 55, 0.28),
-      inset 0 1px 0 rgba(255, 248, 219, 0.8);
+      0 14px 30px ${theme.colors.goldSoft40},
+      0 0 18px ${theme.colors.goldSoft30},
+      inset 0 1px 0 ${theme.colors.goldSoft30};
   }
 `;
 
 export const SecondaryButton = styled.a`
   ${buttonBase}
-  color: rgba(255, 246, 220, 0.92);
-  background: rgba(53, 13, 19, 0.22);
-  border: 1px solid rgba(241, 213, 146, 0.58);
+  color: ${theme.colors.textMuted};
+  background: ${theme.colors.surfaceSoft};
+  border: 1px solid ${theme.colors.navBorderGold48};
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 10px 24px rgba(0, 0, 0, 0.14);
+    inset 0 0 0 1px ${theme.colors.goldSoft04},
+    0 10px 24px ${theme.colors.shadowLight};
 
   &:hover {
     transform: translateY(-1px);
     color: ${theme.colors.white};
-    border-color: rgba(241, 213, 146, 0.78);
+    border-color: ${theme.colors.goldHover};
     box-shadow:
-      0 14px 30px rgba(0, 0, 0, 0.2),
-      0 0 18px rgba(212, 175, 55, 0.2),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      0 14px 30px ${theme.colors.shadowMedium},
+      0 0 18px ${theme.colors.goldSoft20},
+      inset 0 0 0 1px ${theme.colors.goldSoft06};
   }
 `;

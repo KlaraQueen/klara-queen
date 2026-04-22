@@ -12,15 +12,19 @@ export const FAQSection = styled.section`
   background:
     radial-gradient(
       ellipse at 80% 0%,
-      rgba(122, 20, 40, 0.38) 0%,
+      ${theme.colors.bordoSoft35} 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse at 20% 80%,
-      rgba(74, 13, 26, 0.32) 0%,
+      ${theme.colors.bordoSoft25} 0%,
       transparent 55%
     ),
-    linear-gradient(180deg, rgba(46, 8, 16, 0.9) 0%, #0d0003 30%);
+    linear-gradient(
+      180deg,
+      ${theme.colors.panelTableMid} 0%,
+      ${theme.colors.panelTableEnd} 30%
+    );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,14 +48,14 @@ export const SectionTitle = styled.h2`
   font-weight: 600;
   line-height: 1.3;
   text-shadow:
-    0 0 2px rgba(255, 246, 220, 0.32),
-    0 0 14px rgba(212, 175, 55, 0.18),
-    0 12px 28px rgba(0, 0, 0, 0.22);
+    0 0 2px ${theme.colors.goldSoft20},
+    0 0 14px ${theme.colors.goldSoft18},
+    0 12px 28px ${theme.colors.shadowLight};
   margin: 0;
 `;
 
 export const SectionSubtitle = styled.p`
-  color: rgba(241, 213, 146, 0.72);
+  color: ${theme.colors.textMuted};
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 500;
   margin-top: 0;
@@ -75,7 +79,7 @@ export const SectionSubtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.7) 100%
+      ${theme.colors.goldSoft40} 100%
     );
   }
 
@@ -84,7 +88,7 @@ export const SectionSubtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.7) 100%
+      ${theme.colors.goldSoft40} 100%
     );
   }
 
@@ -92,7 +96,7 @@ export const SectionSubtitle = styled.p`
     left: calc(100% - 14px);
     background: linear-gradient(
       90deg,
-      rgba(212, 175, 55, 0.7) 0%,
+      ${theme.colors.goldSoft40} 0%,
       transparent 100%
     );
   }
@@ -130,19 +134,15 @@ export const FAQCard = styled.div`
   overflow: hidden;
   background: linear-gradient(
     135deg,
-    rgba(46, 8, 16, 0.8) 0%,
-    rgba(75, 16, 32, 0.6) 100%
+    ${theme.colors.surfaceStrong} 0%,
+    ${theme.colors.surfaceMid} 100%
   );
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 175, 55, 0.08);
+  border: 1px solid ${theme.colors.goldSoft12};
   box-shadow:
-    inset 0 1px 0 rgba(255, 245, 220, 0.09),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 4px rgba(0, 0, 0, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.2),
-    0 20px 40px rgba(0, 0, 0, 0.22),
-    0 0 0 1px rgba(212, 175, 55, 0.06),
-    0 0 28px rgba(122, 20, 40, 0.1);
+    inset 0 1px 0 ${theme.colors.goldSoft08},
+    inset 0 -1px 0 ${theme.colors.shadowLight},
+    0 0 0 1px ${theme.colors.goldSoft06};
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   padding: clamp(14px, 2vw, 20px);
@@ -159,7 +159,7 @@ export const FAQCard = styled.div`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(241, 213, 146, 0.55) 50%,
+      ${theme.colors.navDividerGold50} 50%,
       transparent 100%
     );
     pointer-events: none;
@@ -167,22 +167,17 @@ export const FAQCard = styled.div`
   }
 
   &:hover {
-    border-color: rgba(212, 175, 55, 0.16);
+    border-color: ${theme.colors.goldSoft20};
     transform: translateY(-8px);
     background: linear-gradient(
       135deg,
-      rgba(46, 8, 16, 0.95) 0%,
-      rgba(75, 16, 32, 0.8) 100%
+      ${theme.colors.panelFormMid} 0%,
+      ${theme.colors.panelFormEnd} 100%
     );
     backdrop-filter: blur(10px);
     box-shadow:
-      0 4px 8px rgba(0, 0, 0, 0.18),
-      0 12px 28px rgba(0, 0, 0, 0.28),
-      0 28px 56px rgba(0, 0, 0, 0.32),
-      0 0 32px rgba(212, 175, 55, 0.16),
-      0 0 60px rgba(122, 20, 40, 0.12),
-      inset 0 1px 0 rgba(255, 245, 220, 0.12),
-      0 0 0 1px rgba(212, 175, 55, 0.1);
+      inset 0 1px 0 ${theme.colors.goldSoft12},
+      0 0 0 1px ${theme.colors.goldSoft12};
   }
 `;
 
@@ -215,15 +210,15 @@ export const QuestionText = styled.h3`
     justify-content: center;
     width: clamp(24px, 3vw, 32px);
     height: clamp(24px, 3vw, 32px);
-    background: rgba(212, 175, 55, 0.15);
+    background: ${theme.colors.goldSoft15};
     border-radius: 50%;
     font-size: clamp(0.9rem, 1.1vw, 1rem);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid ${theme.colors.goldSoft30};
   }
 `;
 
 export const AnswerText = styled.p`
-  color: rgba(241, 213, 146, 0.8);
+  color: ${theme.colors.textMuted};
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-size: clamp(0.8rem, 0.95vw, 0.9rem);
   line-height: 1.5;

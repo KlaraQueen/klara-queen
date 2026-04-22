@@ -61,7 +61,7 @@ export const SlideCard = styled.img`
   border-radius: 10px;
   border: 1px solid
     ${(props) =>
-      props.$active ? "rgba(241, 213, 146, 0.8)" : "rgba(255, 255, 255, 0.08)"};
+      props.$active ? theme.colors.navBorderGold48 : theme.colors.goldSoft08};
   object-fit: cover;
   opacity: ${(props) => {
     const abs = Math.abs(props.$offset);
@@ -84,8 +84,8 @@ export const SlideCard = styled.img`
   }};
   box-shadow: ${(props) =>
     props.$active
-      ? `0 28px 50px rgba(0, 0, 0, 0.45), 0 0 20px ${theme.colors.goldSoft18}`
-      : "0 16px 26px rgba(0, 0, 0, 0.3)"};
+      ? `0 28px 50px ${theme.colors.shadowHeavy}`
+      : `0 16px 26px ${theme.colors.shadowMedium}`};
   transition:
     transform 0.75s ease,
     opacity 0.75s ease,

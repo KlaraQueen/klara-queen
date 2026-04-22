@@ -11,21 +11,20 @@ export const CardContainer = styled.div`
   height: 100%;
   padding: 0 0 clamp(14px, 3vw, 30px);
   border-radius: 28px;
-  border: 1px solid rgba(212, 175, 55, 0.08);
+  border: 1px solid ${theme.colors.goldSoft12};
   background: linear-gradient(
     135deg,
-    rgba(46, 8, 16, 0.8) 0%,
-    rgba(75, 16, 32, 0.6) 100%
+    ${theme.colors.surfaceStrong} 0%,
+    ${theme.colors.surfaceMid} 100%
   );
   backdrop-filter: blur(10px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 245, 220, 0.09),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 4px rgba(0, 0, 0, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.2),
-    0 20px 40px rgba(0, 0, 0, 0.22),
-    0 0 0 1px rgba(212, 175, 55, 0.06),
-    0 0 28px rgba(122, 20, 40, 0.1);
+    inset 0 1px 0 ${theme.colors.goldSoft08},
+    inset 0 -1px 0 ${theme.colors.shadowLight},
+    0 2px 4px ${theme.colors.shadowLight},
+    0 8px 16px ${theme.colors.shadowLight},
+    0 20px 40px ${theme.colors.shadowMedium},
+    0 0 0 1px ${theme.colors.goldSoft06};
   overflow: hidden;
   text-decoration: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,29 +40,28 @@ export const CardContainer = styled.div`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(241, 213, 146, 0.55) 50%,
+      ${theme.colors.navDividerGold50} 50%,
       transparent 100%
     );
     pointer-events: none;
   }
 
   &:hover {
-    border-color: rgba(212, 175, 55, 0.16);
+    border-color: ${theme.colors.goldSoft20};
     transform: translateY(-8px);
     background: linear-gradient(
       135deg,
-      rgba(46, 8, 16, 0.95) 0%,
-      rgba(75, 16, 32, 0.8) 100%
+      ${theme.colors.panelFormMid} 0%,
+      ${theme.colors.panelFormEnd} 100%
     );
     backdrop-filter: blur(10px);
     box-shadow:
-      0 4px 8px rgba(0, 0, 0, 0.18),
-      0 12px 28px rgba(0, 0, 0, 0.28),
-      0 28px 56px rgba(0, 0, 0, 0.32),
-      0 0 32px rgba(212, 175, 55, 0.16),
-      0 0 60px rgba(122, 20, 40, 0.12),
-      inset 0 1px 0 rgba(255, 245, 220, 0.12),
-      0 0 0 1px rgba(212, 175, 55, 0.1);
+      0 4px 8px ${theme.colors.shadowLight},
+      0 12px 28px ${theme.colors.shadowMedium},
+      0 28px 56px ${theme.colors.shadowHeavy},
+      0 0 20px ${theme.colors.goldSoft15},
+      inset 0 1px 0 ${theme.colors.goldSoft12},
+      0 0 0 1px ${theme.colors.goldSoft12};
   }
 `;
 
@@ -104,19 +102,23 @@ export const IconCircle = styled.div`
   width: clamp(32px, 5.5vw, 42px);
   height: clamp(32px, 5.5vw, 42px);
   border-radius: 50%;
-  background: linear-gradient(180deg, #f4d98b 0%, #c8960e 100%);
+  background: linear-gradient(
+    180deg,
+    ${theme.colors.goldHover} 0%,
+    ${theme.colors.goldMain} 100%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #1a0005;
+  color: ${theme.colors.deepBlack};
   font-size: clamp(0.75rem, 1.2vw, 1.1rem);
   margin-top: clamp(-16px, -2.5vw, -21px);
   z-index: 2;
   flex-shrink: 0;
   box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.38),
-    0 0 12px rgba(212, 175, 55, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    0 8px 16px ${theme.colors.shadowMedium},
+    0 0 12px ${theme.colors.goldSoft25},
+    inset 0 1px 0 ${theme.colors.goldSoft20};
 `;
 
 export const ProjectTitle = styled.h3`
@@ -130,13 +132,13 @@ export const ProjectTitle = styled.h3`
   margin: clamp(8px, 1.5vw, 12px) clamp(8px, 2vw, 20px) clamp(4px, 1vw, 8px);
   text-align: center;
   text-shadow:
-    0 0 12px rgba(212, 175, 55, 0.22),
-    0 2px 8px rgba(0, 0, 0, 0.3);
+    0 0 12px ${theme.colors.goldSoft20},
+    0 2px 8px ${theme.colors.shadowLight};
   flex-shrink: 0;
 `;
 
 export const ProjectDescription = styled.p`
-  color: rgba(255, 245, 220, 0.78);
+  color: ${theme.colors.textMuted};
   font-size: clamp(0.68rem, 2.2vw, 0.82rem);
   text-align: center;
   line-height: 1.5;

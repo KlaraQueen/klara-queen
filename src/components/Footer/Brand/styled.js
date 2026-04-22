@@ -34,15 +34,15 @@ export const LogoImage = styled.img`
   width: auto;
   cursor: pointer;
   filter: brightness(2.8) contrast(1.1) saturate(1)
-    drop-shadow(0 0 1px rgba(255, 255, 255, 0.3))
+    drop-shadow(0 0 1px ${theme.colors.goldSoft15})
     drop-shadow(0 0 6px ${theme.colors.goldMain})
-    drop-shadow(0 1px 4px rgba(0, 0, 0, 0.15));
+    drop-shadow(0 1px 4px ${theme.colors.shadowLight});
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: scale(1.05);
     filter: brightness(2.8) contrast(1.1) saturate(1)
-      drop-shadow(0 0 2px rgba(255, 255, 255, 0.4))
+      drop-shadow(0 0 2px ${theme.colors.goldSoft20})
       drop-shadow(0 0 8px ${theme.colors.goldMain})
       drop-shadow(0 0 12px ${theme.colors.goldHover});
   }
@@ -61,7 +61,7 @@ export const LogoImage = styled.img`
 `;
 
 export const BrandDescription = styled.p`
-  color: rgba(255, 245, 220, 0.78);
+  color: ${theme.colors.footerText};
   opacity: 1;
   font-size: 0.92rem;
   line-height: 1.7;
@@ -71,8 +71,8 @@ export const BrandDescription = styled.p`
   letter-spacing: 0.6px;
   font-family: "Cormorant Garamond", serif;
   text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.25),
-    0 0 10px rgba(212, 175, 55, 0.2);
+    0 1px 3px ${theme.colors.shadowLight},
+    0 0 10px ${theme.colors.goldSoft20};
 
   @media (max-width: ${theme.breakpoints.tablet}px) {
     font-size: 0.78rem;

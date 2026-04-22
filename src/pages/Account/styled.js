@@ -35,14 +35,14 @@ export const Shell = styled.div`
   border-radius: ${theme.navbar.drawerBorderRadius};
   background: linear-gradient(
     165deg,
-    rgba(120, 40, 64, 0.45) 0%,
-    rgba(46, 14, 22, 0.72) 50%,
-    rgba(30, 8, 16, 0.9) 100%
+    ${c.panelFormStart} 0%,
+    ${c.panelFormMid} 50%,
+    ${c.panelFormEnd} 100%
   );
   border: 1px solid ${c.navBorderGold18};
   box-shadow:
-    0 20px 48px rgba(0, 0, 0, 0.32),
-    inset 0 1px 0 rgba(255, 247, 220, 0.08);
+    0 20px 48px ${c.shadowMedium},
+    inset 0 1px 0 ${c.goldSoft08};
   backdrop-filter: blur(14px) saturate(115%);
   overflow: hidden;
 
@@ -57,7 +57,7 @@ export const Sidebar = styled.aside`
   flex-direction: column;
   padding: clamp(16px, 2.5vw, 22px);
   border-right: 1px solid ${c.navBorderGold18};
-  background: rgba(0, 0, 0, 0.18);
+  background: ${c.overlayBg};
   min-width: 0;
 
   @media (max-width: ${bp.tablet}px) {
@@ -94,7 +94,7 @@ export const BrandTitle = styled.h1`
 export const BrandEmail = styled.p`
   margin: 0;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: ${c.textSubtle};
   word-break: break-all;
 `;
 
@@ -124,7 +124,7 @@ export const LogoutBtn = styled.button`
   padding-top: 16px;
   border-radius: 0;
   background: transparent;
-  color: rgba(255, 255, 255, 0.6);
+  color: ${c.textSubtle};
   font-size: 0.86rem;
   font-weight: 500;
   font-family: inherit;
@@ -140,7 +140,7 @@ export const LogoutBtn = styled.button`
 
   &:hover {
     color: ${c.goldHover};
-    background: rgba(212, 175, 55, 0.08);
+    background: ${c.goldSoft08};
   }
 
   @media (max-width: ${bp.tablet}px) {
@@ -157,9 +157,8 @@ export const Tab = styled.button`
   padding: 11px 12px;
   border: 1px solid transparent;
   border-radius: ${r};
-  background: ${(p) =>
-    p.$active ? "rgba(212, 175, 55, 0.14)" : "transparent"};
-  color: ${(p) => (p.$active ? c.goldHover : "rgba(255, 255, 255, 0.78)")};
+  background: ${(p) => (p.$active ? c.goldSoft15 : "transparent")};
+  color: ${(p) => (p.$active ? c.goldHover : c.textMuted)};
   font-size: 0.88rem;
   font-weight: ${(p) => (p.$active ? 600 : 500)};
   font-family: inherit;
@@ -183,9 +182,9 @@ export const Tab = styled.button`
   }
 
   &:hover {
-    background: rgba(212, 175, 55, 0.1);
+    background: ${c.goldSoft10};
     color: ${c.goldHover};
-    border-color: rgba(241, 213, 146, 0.15);
+    border-color: ${c.navBorderGold18};
   }
 `;
 
@@ -212,7 +211,7 @@ export const PanelTitle = styled.h2`
 export const PanelDesc = styled.p`
   margin: 0 0 clamp(22px, 3vw, 28px) 0;
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.62);
+  color: ${c.textSubtle};
   line-height: 1.55;
   max-width: 560px;
 `;
@@ -254,7 +253,7 @@ export const Input = styled.input`
   font-size: 0.95rem;
   font-family: inherit;
   color: ${c.white};
-  background: rgba(0, 0, 0, 0.28);
+  background: ${c.inputBg};
   border: 1px solid ${c.navBorderGold26};
   border-radius: ${r};
   outline: none;
@@ -264,7 +263,7 @@ export const Input = styled.input`
 
   &:focus {
     border-color: ${c.goldMain};
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 0 3px ${c.goldSoft15};
   }
 `;
 
@@ -308,13 +307,13 @@ export const GhostBtn = styled.button`
   font-family: inherit;
   cursor: pointer;
   color: ${c.goldHover};
-  background: rgba(255, 255, 255, 0.04);
+  background: ${c.btnNeutralBg};
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
 
   &:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.08);
+    background: ${c.btnNeutralBgHover};
     border-color: ${c.navBorderGold48};
   }
 
@@ -333,21 +332,21 @@ export const Alert = styled.div`
   ${(p) =>
     p.$variant === "error"
       ? `
-    color: #ffc9c9;
-    background: rgba(158, 30, 54, 0.3);
-    border: 1px solid rgba(241, 120, 140, 0.5);
+    color: ${c.statusDanger};
+    background: ${c.statusDangerBg};
+    border: 1px solid ${c.statusDanger};
   `
       : `
-    color: rgba(220, 255, 220, 0.95);
-    background: rgba(46, 125, 50, 0.22);
-    border: 1px solid rgba(102, 187, 106, 0.45);
+    color: ${c.statusSuccess};
+    background: ${c.statusSuccessBg};
+    border: 1px solid ${c.statusSuccess};
   `}
 `;
 
 export const Hint = styled.p`
   margin: 0 0 16px 0;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: ${c.textSubtle};
   line-height: 1.5;
 `;
 
@@ -356,7 +355,7 @@ export const EmptyState = styled.div`
   padding: clamp(36px, 6vw, 56px) 20px;
   border: 1px dashed ${c.navBorderGold26};
   border-radius: ${r};
-  background: rgba(0, 0, 0, 0.15);
+  background: ${c.overlayBg};
 `;
 
 export const EmptyIcon = styled.div`
@@ -375,7 +374,7 @@ export const EmptyTitle = styled.p`
 export const EmptyText = styled.p`
   margin: 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: ${c.textSubtle};
   line-height: 1.5;
   max-width: 360px;
   margin-left: auto;
@@ -386,7 +385,7 @@ export const TableWrap = styled.div`
   overflow-x: auto;
   border-radius: ${r};
   border: 1px solid ${c.navBorderGold18};
-  background: rgba(0, 0, 0, 0.2);
+  background: ${c.overlayBg};
 `;
 
 export const Table = styled.table`
@@ -407,7 +406,7 @@ export const Table = styled.table`
     letter-spacing: 0.6px;
     color: ${c.goldHover};
     font-weight: 600;
-    background: rgba(0, 0, 0, 0.25);
+    background: ${c.headBg};
   }
 
   tr:last-child td {
@@ -415,7 +414,7 @@ export const Table = styled.table`
   }
 
   td {
-    color: rgba(255, 255, 255, 0.85);
+    color: ${c.textMuted};
   }
 `;
 
@@ -426,14 +425,14 @@ export const StatusBadge = styled.span`
   font-size: 0.74rem;
   font-weight: 600;
   background: ${(p) => {
-    if (p.$tone === "success") return "rgba(34, 197, 94, 0.16)";
-    if (p.$tone === "danger") return "rgba(239, 68, 68, 0.16)";
-    return "rgba(251, 191, 36, 0.16)";
+    if (p.$tone === "success") return c.statusSuccessBg;
+    if (p.$tone === "danger") return c.statusDangerBg;
+    return c.statusWarningBg;
   }};
   color: ${(p) => {
-    if (p.$tone === "success") return "#22c55e";
-    if (p.$tone === "danger") return "#ef4444";
-    return "#fbbf24";
+    if (p.$tone === "success") return c.statusSuccess;
+    if (p.$tone === "danger") return c.statusDanger;
+    return c.statusWarning;
   }};
 `;
 
@@ -463,7 +462,7 @@ export const RowActionBtn = styled.button`
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background: rgba(212, 175, 55, 0.14);
+    background: ${c.goldSoft15};
     color: ${c.goldHover};
   }
 
@@ -478,7 +477,7 @@ export const RowSelect = styled.select`
   max-width: 100%;
   border: 1px solid ${c.navBorderGold26};
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.3);
+  background: ${c.inputBg};
   color: ${c.goldMain};
   font-size: 0.78rem;
   font-weight: 600;
@@ -491,8 +490,8 @@ export const RowSelect = styled.select`
   }
 
   option {
-    background: #130914;
-    color: #f7ead0;
+    background: ${c.deepBlack};
+    color: ${c.goldHover};
   }
 
   &:disabled {
@@ -549,11 +548,11 @@ export const DeleteTitle = styled.h3`
 export const DeleteWarning = styled.p`
   margin: 0 0 20px 0;
   font-size: 0.88rem;
-  color: #ffc9c9;
+  color: ${c.statusDanger};
   line-height: 1.55;
   max-width: 440px;
-  background: rgba(158, 30, 54, 0.2);
-  border: 1px solid rgba(241, 120, 140, 0.35);
+  background: ${c.statusDangerBg};
+  border: 1px solid ${c.statusDanger};
   border-radius: ${r};
   padding: 14px 18px;
 `;
@@ -561,24 +560,24 @@ export const DeleteWarning = styled.p`
 export const DangerBtn = styled.button`
   padding: 11px 20px;
   width: fit-content;
-  border: 1px solid rgba(241, 120, 140, 0.5);
+  border: 1px solid ${c.statusDanger};
   border-radius: ${r};
   font-size: 0.85rem;
   font-weight: 600;
   font-family: inherit;
   letter-spacing: 0.3px;
   cursor: pointer;
-  color: #ffc9c9;
-  background: rgba(158, 30, 54, 0.35);
+  color: ${c.statusDanger};
+  background: ${c.statusDangerBg};
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease;
 
   &:hover:not(:disabled) {
-    background: rgba(158, 30, 54, 0.55);
-    border-color: rgba(241, 120, 140, 0.7);
-    color: #fff;
+    background: ${c.statusDangerBg};
+    border-color: ${c.statusDanger};
+    color: ${c.white};
   }
 
   &:disabled {

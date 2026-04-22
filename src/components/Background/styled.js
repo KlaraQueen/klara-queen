@@ -10,13 +10,18 @@ export const BackgroundWrapper = styled.div`
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at 80% 10%,
+      ellipse at 82% 8%,
       ${theme.colors.bordoAccent} 0%,
-      transparent 50%
+      transparent 60%
     ),
     radial-gradient(
-      ellipse at 20% 80%,
+      ellipse at 14% 78%,
       ${theme.colors.bordoAccentDark} 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse at 50% -10%,
+      ${theme.colors.goldSoft20} 0%,
       transparent 55%
     ),
     radial-gradient(
@@ -31,20 +36,21 @@ export const BackgroundWrapper = styled.div`
     inset: 0;
     background:
       radial-gradient(
-        ellipse at 70% 0%,
-        ${theme.colors.goldSoft18} 0%,
-        transparent 45%
+        ellipse at 74% 0%,
+        ${theme.colors.goldSoft30} 0%,
+        transparent 52%
       ),
       radial-gradient(
-        ellipse at 100% 50%,
-        ${theme.colors.goldSoft10} 0%,
-        transparent 40%
+        ellipse at 100% 45%,
+        ${theme.colors.goldSoft20} 0%,
+        transparent 48%
       ),
       radial-gradient(
-        ellipse at 30% 100%,
-        ${theme.colors.goldSoft08} 0%,
-        transparent 45%
+        ellipse at 28% 100%,
+        ${theme.colors.goldSoft15} 0%,
+        transparent 52%
       );
+    opacity: 0.95;
     pointer-events: none;
   }
 
@@ -52,13 +58,21 @@ export const BackgroundWrapper = styled.div`
     content: "";
     position: absolute;
     inset: 0;
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 80px,
-      ${theme.colors.goldSoft025} 80px,
-      ${theme.colors.goldSoft025} 81px
-    );
+    background:
+      linear-gradient(
+        120deg,
+        transparent 0%,
+        ${theme.colors.goldSoft05} 36%,
+        transparent 62%
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 80px,
+        ${theme.colors.goldSoft025} 80px,
+        ${theme.colors.goldSoft025} 81px
+      );
+    opacity: 0.8;
     pointer-events: none;
   }
 `;

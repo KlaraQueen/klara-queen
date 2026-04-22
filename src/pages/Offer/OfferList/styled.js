@@ -49,10 +49,10 @@ export const OfferCardLink = styled.a`
 export const OfferCard = styled.div`
   background: linear-gradient(
     135deg,
-    rgba(46, 8, 16, 0.8) 0%,
-    rgba(75, 16, 32, 0.6) 100%
+    ${theme.colors.surfaceStrong} 0%,
+    ${theme.colors.surfaceMid} 100%
   );
-  border: 2px solid rgba(212, 175, 55, 0.15);
+  border: 2px solid ${theme.colors.navBorderGold26};
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -66,8 +66,8 @@ export const OfferCard = styled.div`
   user-select: none;
   position: relative;
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(212, 175, 55, 0.1);
+    0 10px 40px ${theme.colors.shadowMedium},
+    inset 0 1px 0 ${theme.colors.goldSoft10};
 
   @keyframes fadeInUp {
     from {
@@ -120,13 +120,13 @@ export const OfferCard = styled.div`
     border-color: ${theme.colors.goldMain};
     background: linear-gradient(
       135deg,
-      rgba(46, 8, 16, 0.95) 0%,
-      rgba(75, 16, 32, 0.8) 100%
+      ${theme.colors.panelFormMid} 0%,
+      ${theme.colors.panelFormEnd} 100%
     );
     transform: translateY(-12px);
     box-shadow:
-      0 30px 60px rgba(212, 175, 55, 0.3),
-      inset 0 1px 0 rgba(212, 175, 55, 0.2);
+      0 30px 60px ${theme.colors.goldSoft30},
+      inset 0 1px 0 ${theme.colors.goldSoft20};
 
     &::before {
       opacity: 1;
@@ -143,7 +143,7 @@ export const OfferImage = styled.img`
   height: 160px;
   object-fit: cover;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  filter: brightness(0.9) contrast(1.1);
+  filter: brightness(0.95) contrast(1.05);
 
   ${OfferCard}:hover & {
     transform: scale(1.08);
@@ -157,7 +157,11 @@ export const OfferCardContent = styled.div`
   flex-direction: column;
   flex: 1;
   box-sizing: border-box;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    ${theme.colors.overlayBg} 100%
+  );
 `;
 
 export const OfferCardTitle = styled.h3`
@@ -172,7 +176,7 @@ export const OfferCardTitle = styled.h3`
 `;
 
 export const OfferCardDescription = styled.p`
-  color: rgba(255, 255, 255, 0.75);
+  color: ${theme.colors.textMuted};
   font-size: clamp(0.75rem, 1.2vw, 0.85rem);
   line-height: 1.5;
   margin: 0 0 auto 0;
@@ -186,7 +190,7 @@ export const OfferCardFooter = styled.div`
   align-items: center;
   margin-top: clamp(10px, 1.5vw, 15px);
   padding-top: clamp(10px, 1.5vw, 15px);
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-top: 1px solid ${theme.colors.goldSoft25};
   gap: clamp(10px, 1.5vw, 15px);
 
   @media (max-width: 480px) {
@@ -200,7 +204,7 @@ export const OfferPrice = styled.span`
   font-weight: 700;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 1px;
-  text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+  text-shadow: 0 2px 10px ${theme.colors.goldSoft20};
 `;
 
 export const OfferButton = styled.button`
@@ -208,7 +212,7 @@ export const OfferButton = styled.button`
   background: linear-gradient(
     135deg,
     ${theme.colors.goldMain} 0%,
-    #f1d592 100%
+    ${theme.colors.goldHover} 100%
   );
   color: ${theme.colors.deepBlack};
   border: none;
@@ -222,7 +226,7 @@ export const OfferButton = styled.button`
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 20px ${theme.colors.goldSoft30};
   display: inline-block;
   white-space: nowrap;
 
@@ -233,13 +237,13 @@ export const OfferButton = styled.button`
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3);
+    background: ${theme.colors.goldSoft25};
     transition: left 0.4s ease;
   }
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 12px 30px ${theme.colors.goldSoft40};
 
     &::before {
       left: 100%;
@@ -283,10 +287,10 @@ export const OfferListItem = styled.a`
   padding: clamp(12px, 2.5vw, 18px);
   background: linear-gradient(
     135deg,
-    rgba(46, 8, 16, 0.8) 0%,
-    rgba(75, 16, 32, 0.6) 100%
+    ${theme.colors.surfaceStrong} 0%,
+    ${theme.colors.surfaceMid} 100%
   );
-  border: 2px solid rgba(212, 175, 55, 0.15);
+  border: 2px solid ${theme.colors.navBorderGold26};
   border-radius: 15px;
   text-decoration: none;
   color: inherit;
@@ -295,8 +299,8 @@ export const OfferListItem = styled.a`
   user-select: none;
   position: relative;
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(212, 175, 55, 0.1);
+    0 10px 40px ${theme.colors.shadowMedium},
+    inset 0 1px 0 ${theme.colors.goldSoft10};
   animation: fadeInUp 0.8s ease-out both;
 
   &:nth-child(1) {
@@ -322,13 +326,13 @@ export const OfferListItem = styled.a`
     border-color: ${theme.colors.goldMain};
     background: linear-gradient(
       135deg,
-      rgba(46, 8, 16, 0.95) 0%,
-      rgba(75, 16, 32, 0.8) 100%
+      ${theme.colors.panelFormMid} 0%,
+      ${theme.colors.panelFormEnd} 100%
     );
     transform: translateY(-6px);
     box-shadow:
-      0 30px 60px rgba(212, 175, 55, 0.3),
-      inset 0 1px 0 rgba(212, 175, 55, 0.2);
+      0 30px 60px ${theme.colors.goldSoft30},
+      inset 0 1px 0 ${theme.colors.goldSoft20};
   }
 
   &:active {
@@ -343,7 +347,7 @@ export const OfferListImage = styled.img`
   border-radius: 10px;
   flex-shrink: 0;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  filter: brightness(0.9) contrast(1.1);
+  filter: brightness(0.95) contrast(1.05);
 
   ${OfferListItem}:hover & {
     transform: scale(1.08);
@@ -371,7 +375,7 @@ export const OfferListTitle = styled.h3`
 `;
 
 export const OfferListDescription = styled.p`
-  color: rgba(255, 255, 255, 0.75);
+  color: ${theme.colors.textMuted};
   font-size: clamp(0.75rem, 1.2vw, 0.85rem);
   line-height: 1.5;
   margin: 0;
@@ -388,7 +392,7 @@ export const OfferListFooter = styled.div`
   align-items: center;
   gap: clamp(10px, 2vw, 15px);
   padding-top: clamp(8px, 1.5vw, 12px);
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-top: 1px solid ${theme.colors.goldSoft25};
 `;
 
 export const OfferListPrice = styled.span`
@@ -397,7 +401,7 @@ export const OfferListPrice = styled.span`
   font-weight: 700;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 1px;
-  text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+  text-shadow: 0 2px 10px ${theme.colors.goldSoft20};
 `;
 
 export const OfferListButton = styled.button`
@@ -405,7 +409,7 @@ export const OfferListButton = styled.button`
   background: linear-gradient(
     135deg,
     ${theme.colors.goldMain} 0%,
-    #f1d592 100%
+    ${theme.colors.goldHover} 100%
   );
   color: ${theme.colors.deepBlack};
   border: none;
@@ -419,7 +423,7 @@ export const OfferListButton = styled.button`
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 20px ${theme.colors.goldSoft30};
   display: inline-block;
   white-space: nowrap;
 
@@ -430,13 +434,13 @@ export const OfferListButton = styled.button`
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3);
+    background: ${theme.colors.goldSoft25};
     transition: left 0.4s ease;
   }
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 12px 30px ${theme.colors.goldSoft40};
 
     &::before {
       left: 100%;

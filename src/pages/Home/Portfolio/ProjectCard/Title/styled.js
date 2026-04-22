@@ -12,13 +12,13 @@ export const ProjectTitle = styled.h3`
   margin: clamp(8px, 1.5vw, 12px) clamp(8px, 2vw, 20px) clamp(4px, 1vw, 8px);
   text-align: center;
   text-shadow:
-    0 0 12px rgba(212, 175, 55, 0.22),
-    0 2px 8px rgba(0, 0, 0, 0.3);
+    0 0 12px ${theme.colors.goldSoft20},
+    0 2px 8px ${theme.colors.shadowLight};
   flex-shrink: 0;
 `;
 
 export const ProjectDescription = styled.p`
-  color: rgba(255, 245, 220, 0.78);
+  color: ${theme.colors.textMuted};
   font-size: clamp(0.68rem, 2.2vw, 0.82rem);
   text-align: center;
   line-height: 1.5;

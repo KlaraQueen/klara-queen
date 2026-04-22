@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { theme } from "../../../theme";
 
 const footerNavLinkStyles = css`
-  color: rgba(255, 245, 220, 0.78);
+  color: ${theme.colors.footerText};
   text-decoration: none;
   font-size: 0.9rem;
   opacity: 1;
@@ -14,8 +14,8 @@ const footerNavLinkStyles = css`
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 0.8px;
   text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.3),
-    0 0 12px rgba(212, 175, 55, 0.25);
+    0 2px 4px ${theme.colors.shadowLight},
+    0 0 12px ${theme.colors.goldSoft20};
   display: inline-block;
   max-width: 100%;
   width: fit-content;
@@ -35,8 +35,8 @@ const footerNavLinkStyles = css`
     color: ${theme.colors.white};
     opacity: 1;
     text-shadow:
-      0 2px 4px rgba(0, 0, 0, 0.3),
-      0 0 16px rgba(212, 175, 55, 0.45);
+      0 2px 4px ${theme.colors.shadowLight},
+      0 0 16px ${theme.colors.goldSoft40};
 
     &::before {
       width: 100%;

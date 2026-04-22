@@ -5,10 +5,10 @@ export const FooterContainer = styled.footer`
   width: 100%;
   background: linear-gradient(
     135deg,
-    rgba(13, 0, 3, 0.9) 0%,
-    rgba(26, 0, 5, 0.85) 100%
+    ${theme.colors.footerStart} 0%,
+    ${theme.colors.footerEnd} 100%
   );
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-top: 1px solid ${theme.colors.navBorderGold38};
   padding: 60px 50px 25px;
   position: relative;
   z-index: 10;

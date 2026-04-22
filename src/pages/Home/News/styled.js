@@ -12,15 +12,19 @@ export const NewsSection = styled.section`
   background:
     radial-gradient(
       ellipse at 80% 0%,
-      rgba(122, 20, 40, 0.38) 0%,
+      ${theme.colors.bordoSoft35} 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse at 20% 80%,
-      rgba(74, 13, 26, 0.32) 0%,
+      ${theme.colors.bordoSoft25} 0%,
       transparent 55%
     ),
-    linear-gradient(180deg, rgba(46, 8, 16, 0.9) 0%, #0d0003 30%);
+    linear-gradient(
+      180deg,
+      ${theme.colors.panelTableMid} 0%,
+      ${theme.colors.panelTableEnd} 30%
+    );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,14 +48,14 @@ export const SectionTitle = styled.h2`
   font-weight: 600;
   line-height: 1.3;
   text-shadow:
-    0 0 2px rgba(255, 246, 220, 0.32),
-    0 0 14px rgba(212, 175, 55, 0.18),
-    0 12px 28px rgba(0, 0, 0, 0.22);
+    0 0 2px ${theme.colors.goldSoft20},
+    0 0 14px ${theme.colors.goldSoft18},
+    0 12px 28px ${theme.colors.shadowLight};
   margin: 0;
 `;
 
 export const SectionSubtitle = styled.p`
-  color: rgba(241, 213, 146, 0.72);
+  color: ${theme.colors.textMuted};
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 500;
   margin-top: 0;
@@ -75,7 +79,7 @@ export const SectionSubtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.7) 100%
+      ${theme.colors.goldSoft40} 100%
     );
   }
 
@@ -84,7 +88,7 @@ export const SectionSubtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.7) 100%
+      ${theme.colors.goldSoft40} 100%
     );
   }
 
@@ -92,7 +96,7 @@ export const SectionSubtitle = styled.p`
     left: calc(100% - 14px);
     background: linear-gradient(
       90deg,
-      rgba(212, 175, 55, 0.7) 0%,
+      ${theme.colors.goldSoft40} 0%,
       transparent 100%
     );
   }
@@ -143,19 +147,15 @@ export const ArticleCard = styled.a`
   overflow: hidden;
   background: linear-gradient(
     135deg,
-    rgba(46, 8, 16, 0.8) 0%,
-    rgba(75, 16, 32, 0.6) 100%
+    ${theme.colors.surfaceStrong} 0%,
+    ${theme.colors.surfaceMid} 100%
   );
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 175, 55, 0.08);
+  border: 1px solid ${theme.colors.goldSoft12};
   box-shadow:
-    inset 0 1px 0 rgba(255, 245, 220, 0.09),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 4px rgba(0, 0, 0, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.2),
-    0 20px 40px rgba(0, 0, 0, 0.22),
-    0 0 0 1px rgba(212, 175, 55, 0.06),
-    0 0 28px rgba(122, 20, 40, 0.1);
+    inset 0 1px 0 ${theme.colors.goldSoft08},
+    inset 0 -1px 0 ${theme.colors.shadowLight},
+    0 0 0 1px ${theme.colors.goldSoft06};
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   padding: 0;
@@ -186,7 +186,7 @@ export const ArticleCard = styled.a`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(241, 213, 146, 0.55) 50%,
+      ${theme.colors.navDividerGold50} 50%,
       transparent 100%
     );
     pointer-events: none;
@@ -194,22 +194,17 @@ export const ArticleCard = styled.a`
   }
 
   &:hover {
-    border-color: rgba(212, 175, 55, 0.16);
+    border-color: ${theme.colors.goldSoft20};
     transform: translateY(-8px);
     background: linear-gradient(
       135deg,
-      rgba(46, 8, 16, 0.95) 0%,
-      rgba(75, 16, 32, 0.8) 100%
+      ${theme.colors.panelFormMid} 0%,
+      ${theme.colors.panelFormEnd} 100%
     );
     backdrop-filter: blur(10px);
     box-shadow:
-      0 4px 8px rgba(0, 0, 0, 0.18),
-      0 12px 28px rgba(0, 0, 0, 0.28),
-      0 28px 56px rgba(0, 0, 0, 0.32),
-      0 0 32px rgba(212, 175, 55, 0.16),
-      0 0 60px rgba(122, 20, 40, 0.12),
-      inset 0 1px 0 rgba(255, 245, 220, 0.12),
-      0 0 0 1px rgba(212, 175, 55, 0.1);
+      inset 0 1px 0 ${theme.colors.goldSoft12},
+      0 0 0 1px ${theme.colors.goldSoft12};
   }
 `;
 
@@ -218,7 +213,7 @@ export const ArticleImage = styled.img`
   height: clamp(140px, 20vw, 200px);
   object-fit: cover;
   display: block;
-  background: rgba(0, 0, 0, 0.25);
+  background: ${theme.colors.overlayBg};
   border-radius: 0;
 `;
 
@@ -252,7 +247,7 @@ export const ArticleTitle = styled.h3`
 `;
 
 export const ArticleExcerpt = styled.p`
-  color: rgba(241, 213, 146, 0.8);
+  color: ${theme.colors.textMuted};
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-size: clamp(0.8rem, 0.95vw, 0.9rem);
   line-height: 1.5;
@@ -268,12 +263,12 @@ export const ArticleExcerpt = styled.p`
 `;
 
 export const ArticleDate = styled.span`
-  color: rgba(212, 175, 55, 0.7);
+  color: ${theme.colors.textSubtle};
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-size: clamp(0.75rem, 0.85vw, 0.8rem);
   margin-top: clamp(8px, 1vw, 12px);
   padding-top: clamp(8px, 1vw, 12px);
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-top: 1px solid ${theme.colors.goldSoft15};
   white-space: normal;
   word-break: break-word;
   overflow: visible;
@@ -297,8 +292,8 @@ export const ArrowButton = styled.button`
   width: clamp(40px, 4vw, 52px);
   height: clamp(40px, 4vw, 52px);
   border-radius: 50%;
-  background: rgba(20, 0, 4, 0.88);
-  border: 1px solid rgba(212, 175, 55, 0.42);
+  background: ${theme.colors.surfaceStrong};
+  border: 1px solid ${theme.colors.navBorderGold38};
   color: ${theme.colors.goldMain};
   font-size: clamp(0.85rem, 1.1vw, 1rem);
   display: flex;
@@ -306,17 +301,17 @@ export const ArrowButton = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 245, 220, 0.07);
+  box-shadow: none;
 
   &:hover {
-    background: linear-gradient(180deg, #f4d98b 0%, #c8960e 100%);
-    border-color: #f4d98b;
-    color: #1a0005;
-    box-shadow:
-      0 10px 26px rgba(0, 0, 0, 0.46),
-      0 0 18px rgba(212, 175, 55, 0.32);
+    background: linear-gradient(
+      180deg,
+      ${theme.colors.goldHover} 0%,
+      ${theme.colors.goldMain} 100%
+    );
+    border-color: ${theme.colors.goldHover};
+    color: ${theme.colors.deepBlack};
+    box-shadow: none;
     transform: scale(1.08);
   }
 `;

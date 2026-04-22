@@ -30,14 +30,14 @@ export const AuthCard = styled.div`
   border-radius: ${theme.navbar.drawerBorderRadius};
   background: linear-gradient(
     165deg,
-    rgba(120, 40, 64, 0.55) 0%,
-    rgba(46, 14, 22, 0.75) 45%,
-    rgba(30, 8, 16, 0.88) 100%
+    ${c.panelFormStart} 0%,
+    ${c.panelFormMid} 45%,
+    ${c.panelFormEnd} 100%
   );
   border: 1px solid ${c.navBorderGold18};
   box-shadow:
-    0 20px 48px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 247, 220, 0.1);
+    0 20px 48px ${c.shadowMedium},
+    inset 0 1px 0 ${c.goldSoft08};
   backdrop-filter: blur(14px) saturate(115%);
   animation: authCardIn 0.55s ease-out;
 
@@ -71,7 +71,7 @@ export const AuthTitle = styled.h1`
 export const AuthSubtitle = styled.p`
   margin: 0;
   font-size: clamp(0.9rem, 2.2vw, 0.98rem);
-  color: rgba(255, 255, 255, 0.68);
+  color: ${c.textSubtle};
   font-weight: 400;
   line-height: 1.5;
 `;
@@ -103,7 +103,7 @@ export const Input = styled.input`
   font-size: 1rem;
   font-family: inherit;
   color: ${c.white};
-  background: rgba(0, 0, 0, 0.28);
+  background: ${c.inputBg};
   border: 1px solid ${c.navBorderGold26};
   border-radius: ${r};
   outline: none;
@@ -113,17 +113,17 @@ export const Input = styled.input`
     background 0.2s ease;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.35);
+    color: ${c.textPlaceholder};
   }
 
   &:hover {
-    border-color: rgba(241, 213, 146, 0.35);
+    border-color: ${c.navBorderGold38};
   }
 
   &:focus {
     border-color: ${c.goldMain};
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
-    background: rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 0 3px ${c.goldSoft18};
+    background: ${c.inputBgLight};
   }
 `;
 
@@ -159,7 +159,7 @@ export const TogglePassword = styled.button`
 
   &:hover {
     color: ${c.white};
-    background: rgba(255, 255, 255, 0.06);
+    background: ${c.btnNeutralBgHover};
   }
 `;
 
@@ -218,8 +218,8 @@ export const PrimaryButton = styled.button`
     ${c.goldMain} 100%
   );
   box-shadow:
-    0 4px 16px rgba(212, 175, 55, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    0 4px 16px ${c.goldSoft25},
+    inset 0 1px 0 ${c.goldSoft20};
   transition:
     transform 0.2s ease,
     filter 0.2s ease,
@@ -229,8 +229,8 @@ export const PrimaryButton = styled.button`
     filter: brightness(1.06);
     transform: translateY(-1px);
     box-shadow:
-      0 8px 24px rgba(212, 175, 55, 0.32),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      0 8px 24px ${c.goldSoft30},
+      inset 0 1px 0 ${c.goldSoft25};
   }
 
   &:active {
@@ -249,7 +249,7 @@ export const Divider = styled.div`
   align-items: center;
   gap: 14px;
   margin: clamp(6px, 2vw, 10px) 0;
-  color: rgba(255, 255, 255, 0.45);
+  color: ${c.textFaded};
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -277,7 +277,7 @@ export const GoogleButton = styled.button`
   padding: 12px 18px;
   border-radius: ${r};
   border: 1px solid ${c.navBorderGold26};
-  background: rgba(255, 255, 255, 0.06);
+  background: ${c.btnNeutralBg};
   color: ${c.white};
   font-size: 0.92rem;
   font-weight: 600;
@@ -289,7 +289,7 @@ export const GoogleButton = styled.button`
     transform 0.2s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: ${c.btnNeutralBgHover};
     border-color: ${c.navBorderGold48};
     transform: translateY(-1px);
   }
@@ -308,7 +308,7 @@ export const AuthFooter = styled.p`
   margin: clamp(18px, 4vw, 24px) 0 0 0;
   text-align: center;
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: ${c.textMuted};
   line-height: 1.5;
 
   ${RouterLink} {
@@ -322,10 +322,10 @@ export const AuthError = styled.div`
   padding: 12px 14px;
   font-size: 0.85rem;
   line-height: 1.45;
-  color: #ffc9c9;
-  background: rgba(158, 30, 54, 0.3);
+  color: ${c.statusDanger};
+  background: ${c.statusDangerBg};
   border-radius: ${r};
-  border: 1px solid rgba(241, 120, 140, 0.5);
+  border: 1px solid ${c.statusDanger};
 `;
 
 export const AuthNote = styled.p`
@@ -333,16 +333,16 @@ export const AuthNote = styled.p`
   padding: 12px 14px;
   font-size: 0.85rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.72);
-  background: rgba(0, 0, 0, 0.2);
+  color: ${c.textMuted};
+  background: ${c.overlayBg};
   border-radius: ${r};
   border: 1px solid ${c.navBorderGold18};
 `;
 
 export const AuthSuccess = styled(AuthNote)`
-  color: rgba(220, 255, 220, 0.95);
-  border-color: rgba(102, 187, 106, 0.45);
-  background: rgba(46, 125, 50, 0.2);
+  color: ${c.statusSuccess};
+  border-color: ${c.statusSuccess};
+  background: ${c.statusSuccessBg};
 `;
 
 export const BackRow = styled.div`

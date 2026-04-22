@@ -2,8 +2,12 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 
 export const MaterialsSection = styled.section`
-  background: rgba(212, 175, 55, 0.06);
-  border: 2px solid rgba(212, 175, 55, 0.25);
+  background: linear-gradient(
+    160deg,
+    ${theme.colors.panelFormMid} 0%,
+    ${theme.colors.panelFormEnd} 100%
+  );
+  border: 2px solid ${theme.colors.navBorderGold38};
   border-radius: 15px;
   padding: clamp(50px, 8vw, 80px) clamp(30px, 6vw, 60px);
   margin-bottom: clamp(80px, 12vw, 120px);
@@ -33,7 +37,7 @@ export const MaterialsTitle = styled.h2`
 
 export const MaterialsSubtitle = styled.p`
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  color: rgba(255, 255, 255, 0.6);
+  color: ${theme.colors.textSubtle};
   text-align: center;
   margin: 0 0 clamp(15px, 2vw, 25px) 0;
   font-weight: 600;
@@ -41,7 +45,7 @@ export const MaterialsSubtitle = styled.p`
 `;
 
 export const MaterialsIntro = styled.p`
-  color: rgba(255, 255, 255, 0.75);
+  color: ${theme.colors.textMuted};
   text-align: center;
   margin: 0 0 clamp(40px, 6vw, 60px) 0;
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
@@ -59,31 +63,20 @@ export const MaterialsSectionsGrid = styled.div`
 
 export const MaterialCategory = styled.div`
   padding: clamp(30px, 4vw, 40px);
-  background: rgba(
-    255,
-    255,
-    255,
-    ${(props) => (props.highlight ? "0.06" : "0.02")}
-  );
+  background: ${(props) =>
+    props.highlight ? theme.colors.overlayDense : theme.colors.overlayBg};
   border: 1px solid
-    rgba(212, 175, 55, ${(props) => (props.highlight ? "0.3" : "0.15")});
+    ${(props) =>
+      props.highlight ? theme.colors.navBorderGold48 : theme.colors.navBorderGold26};
   border-left: 4px solid ${theme.colors.goldMain};
   border-radius: 12px;
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(
-      255,
-      255,
-      255,
-      ${(props) => (props.highlight ? "0.08" : "0.04")}
-    );
-    border-color: rgba(
-      212,
-      175,
-      55,
-      ${(props) => (props.highlight ? "0.4" : "0.25")}
-    );
+    background: ${(props) =>
+      props.highlight ? theme.colors.panelFormEnd : theme.colors.panelTableEnd};
+    border-color: ${(props) =>
+      props.highlight ? theme.colors.navBorderGold48 : theme.colors.navBorderGold38};
   }
 `;
 
@@ -119,13 +112,15 @@ export const MaterialItemsList = styled.div`
 
 export const MaterialItem = styled.div`
   padding: clamp(15px, 2.5vw, 20px);
-  background: rgba(212, 175, 55, 0.04);
+  background: ${theme.colors.overlayBg};
   border-radius: 8px;
-  border-left: 2px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid ${theme.colors.navBorderGold26};
+  border-left: 2px solid ${theme.colors.goldSoft30};
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(212, 175, 55, 0.08);
+    background: ${theme.colors.overlayDense};
+    border-color: ${theme.colors.navBorderGold38};
     border-left-color: ${theme.colors.goldMain};
   }
 `;
@@ -144,7 +139,7 @@ export const MaterialPointsList = styled.ul`
   margin: 0;
 
   li {
-    color: rgba(255, 255, 255, 0.8);
+    color: ${theme.colors.white};
     margin-bottom: clamp(8px, 1vw, 12px);
     padding-left: 25px;
     position: relative;

@@ -12,15 +12,19 @@ export const TestimonialsSection = styled.section`
   background:
     radial-gradient(
       ellipse at 80% 0%,
-      rgba(30, 58, 92, 0.28) 0%,
+      ${theme.colors.bordoSoft30} 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse at 20% 80%,
-      rgba(20, 35, 55, 0.24) 0%,
+      ${theme.colors.bordoSoft20} 0%,
       transparent 55%
     ),
-    linear-gradient(180deg, rgba(15, 22, 32, 0.95) 0%, #0a0e14 30%);
+    linear-gradient(
+      180deg,
+      ${theme.colors.panelTableMid} 0%,
+      ${theme.colors.panelTableEnd} 30%
+    );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,14 +48,14 @@ export const SectionTitle = styled.h2`
   font-weight: 600;
   line-height: 1.3;
   text-shadow:
-    0 0 2px rgba(255, 246, 220, 0.32),
-    0 0 14px rgba(212, 175, 55, 0.18),
-    0 12px 28px rgba(0, 0, 0, 0.22);
+    0 0 2px ${theme.colors.goldSoft20},
+    0 0 14px ${theme.colors.goldSoft18},
+    0 12px 28px ${theme.colors.shadowLight};
   margin: 0;
 `;
 
 export const SectionSubtitle = styled.p`
-  color: rgba(200, 210, 220, 0.65);
+  color: ${theme.colors.textMuted};
   font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 500;
   margin-top: 0;
@@ -75,7 +79,7 @@ export const SectionSubtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(180, 190, 210, 0.4) 100%
+      ${theme.colors.goldSoft30} 100%
     );
   }
 
@@ -84,7 +88,7 @@ export const SectionSubtitle = styled.p`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(180, 190, 210, 0.4) 100%
+      ${theme.colors.goldSoft30} 100%
     );
   }
 
@@ -92,7 +96,7 @@ export const SectionSubtitle = styled.p`
     left: calc(100% - 14px);
     background: linear-gradient(
       90deg,
-      rgba(180, 190, 210, 0.4) 0%,
+      ${theme.colors.goldSoft30} 0%,
       transparent 100%
     );
   }
@@ -153,10 +157,10 @@ export const TestimonialsGrid = styled.div`
 export const TestimonialCard = styled.div`
   background: linear-gradient(
     135deg,
-    rgba(46, 8, 16, 0.8) 0%,
-    rgba(75, 16, 32, 0.6) 100%
+    ${theme.colors.surfaceStrong} 0%,
+    ${theme.colors.surfaceMid} 100%
   );
-  border: 1px solid rgba(212, 175, 55, 0.08);
+  border: 1px solid ${theme.colors.goldSoft12};
   border-radius: 12px;
   padding: clamp(14px, 2vw, 20px);
   backdrop-filter: blur(10px);
@@ -167,10 +171,8 @@ export const TestimonialCard = styled.div`
   height: 100%;
   overflow: hidden;
   box-shadow:
-    inset 0 2px 4px rgba(255, 245, 220, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
-    0 6px 20px rgba(0, 0, 0, 0.2),
-    0 0 16px rgba(212, 175, 55, 0.16);
+    inset 0 2px 4px ${theme.colors.goldSoft15},
+    inset 0 -1px 0 ${theme.colors.shadowLight};
   position: relative;
 
   &::before {
@@ -183,7 +185,7 @@ export const TestimonialCard = styled.div`
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.32) 50%,
+      ${theme.colors.goldSoft30} 50%,
       transparent 100%
     );
     pointer-events: none;
@@ -192,15 +194,13 @@ export const TestimonialCard = styled.div`
   &:hover {
     background: linear-gradient(
       135deg,
-      rgba(46, 8, 16, 0.95) 0%,
-      rgba(75, 16, 32, 0.8) 100%
+      ${theme.colors.panelFormMid} 0%,
+      ${theme.colors.panelFormEnd} 100%
     );
-    border-color: rgba(212, 175, 55, 0.16);
+    border-color: ${theme.colors.goldSoft20};
     box-shadow:
-      inset 0 2px 6px rgba(255, 245, 220, 0.24),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.35),
-      0 9px 28px rgba(0, 0, 0, 0.24),
-      0 0 24px rgba(212, 175, 55, 0.3);
+      inset 0 2px 6px ${theme.colors.goldSoft20},
+      inset 0 -1px 0 ${theme.colors.shadowMedium};
     transform: translateY(-3px);
   }
 `;
@@ -213,7 +213,7 @@ export const Stars = styled.div`
 `;
 
 export const Star = styled.span`
-  color: #ffd700;
+  color: ${theme.colors.goldMain};
 `;
 
 export const TestimonialText = styled.p`
@@ -272,8 +272,8 @@ export const ArrowButton = styled.button`
   width: clamp(40px, 4vw, 52px);
   height: clamp(40px, 4vw, 52px);
   border-radius: 50%;
-  background: rgba(20, 0, 4, 0.88);
-  border: 1px solid rgba(212, 175, 55, 0.42);
+  background: ${theme.colors.surfaceStrong};
+  border: 1px solid ${theme.colors.navBorderGold38};
   color: ${theme.colors.goldMain};
   font-size: clamp(0.85rem, 1.1vw, 1rem);
   display: flex;
@@ -281,17 +281,17 @@ export const ArrowButton = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 245, 220, 0.07);
+  box-shadow: none;
 
   &:hover {
-    background: linear-gradient(180deg, #f4d98b 0%, #c8960e 100%);
-    border-color: #f4d98b;
-    color: #1a0005;
-    box-shadow:
-      0 10px 26px rgba(0, 0, 0, 0.46),
-      0 0 18px rgba(212, 175, 55, 0.32);
+    background: linear-gradient(
+      180deg,
+      ${theme.colors.goldHover} 0%,
+      ${theme.colors.goldMain} 100%
+    );
+    border-color: ${theme.colors.goldHover};
+    color: ${theme.colors.deepBlack};
+    box-shadow: none;
     transform: scale(1.08);
   }
 `;
