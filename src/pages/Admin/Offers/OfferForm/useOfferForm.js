@@ -2,10 +2,6 @@ import { useState, useEffect } from "react";
 import { uploadOfferImage } from "../../../../services/offerService";
 import { EMPTY } from "./constants";
 
-function getInitialPaymentMode(offer) {
-  return "one_time";
-}
-
 export default function useOfferForm(offer, onSave) {
   const [form, setForm] = useState(EMPTY);
   const [saving, setSaving] = useState(false);
@@ -29,9 +25,7 @@ export default function useOfferForm(offer, onSave) {
             : [""],
         image: offer.image || "",
         images: offer.images || [],
-        stripePaymentUrl: offer.stripePaymentUrl || "",
-        blikPaymentInfo: offer.blikPaymentInfo || "",
-        paymentMode: getInitialPaymentMode(offer),
+        allegroUrl: offer.allegroUrl || "",
         customerActionType: offer.customerActionType || "none",
         customerActionUrl: offer.customerActionUrl || "",
         customerActionLabel: offer.customerActionLabel || "",

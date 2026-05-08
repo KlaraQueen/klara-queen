@@ -1,9 +1,8 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { isAdminUser } from "../../constants/admin";
 import * as S from "./styled";
-
-const ADMIN_EMAIL = process.env.REACT_APP_ADMIN_EMAIL;
 
 function AdminRoute({ children }) {
   const { user, loading } = useAuth();
@@ -12,7 +11,7 @@ function AdminRoute({ children }) {
     return <S.LoadingWrapper>Ładowanie…</S.LoadingWrapper>;
   }
 
-  if (!user || user.email !== ADMIN_EMAIL) {
+  if (!user || !isAdminUser(user)) {
     return <Navigate to="/" replace />;
   }
 

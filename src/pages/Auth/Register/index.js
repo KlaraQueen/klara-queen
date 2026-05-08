@@ -149,7 +149,7 @@ function Register() {
 
         <S.AuthFooter>
           Masz już konto?
-          <S.RouterLink to="/login">Zaloguj się</S.RouterLink>
+          <S.RouterLink to="/panel-wejscie">Zaloguj się</S.RouterLink>
         </S.AuthFooter>
       </S.AuthCard>
     </S.AuthPage>

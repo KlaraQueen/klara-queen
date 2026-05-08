@@ -68,6 +68,16 @@ export const CTAButtons = styled.div`
   }
 `;
 
+export const CTAMutedText = styled.p`
+  margin: 0;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  color: ${theme.colors.textSubtle};
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.55;
+`;
+
 export const PrimaryButton = styled.a`
   display: inline-flex;
   align-items: center;

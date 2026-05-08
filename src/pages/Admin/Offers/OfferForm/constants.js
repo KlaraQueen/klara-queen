@@ -5,8 +5,6 @@ import {
 
 export const CATEGORIES = OFFER_CATEGORY_OPTIONS;
 export const STYLES = OFFER_STYLE_OPTIONS;
-export const PAYMENT_MODES = [{ value: "one_time", label: "Kup teraz" }];
-
 export const CUSTOMER_ACTIONS = [
   { value: "none", label: "Brak dodatkowej akcji" },
   { value: "view_ready", label: "Zobacz gotowy produkt" },
@@ -27,9 +25,7 @@ export const EMPTY = {
   features: [""],
   image: "",
   images: [],
-  stripePaymentUrl: "",
-  blikPaymentInfo: "",
-  paymentMode: "one_time",
+  allegroUrl: "",
   customerActionType: "none",
   customerActionUrl: "",
   customerActionLabel: "",

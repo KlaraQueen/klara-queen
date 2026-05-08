@@ -1,10 +1,10 @@
 import React from "react";
-import { Navigate, useLocation } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import { isAdminUser } from "../../constants/admin";
 
-function ProtectedRoute({ children }) {
+function KontoRoute({ children }) {
   const { user, loading } = useAuth();
-  const location = useLocation();
 
   if (loading) {
     return (
@@ -24,10 +24,14 @@ function ProtectedRoute({ children }) {
   }
 
   if (!user) {
-    return <Navigate to="/login" replace state={{ from: location.pathname }} />;
+    return <Navigate to="/" replace />;
+  }
+
+  if (!isAdminUser(user)) {
+    return <Navigate to="/" replace />;
   }
 
   return children;
 }
 
-export default ProtectedRoute;
+export default KontoRoute;

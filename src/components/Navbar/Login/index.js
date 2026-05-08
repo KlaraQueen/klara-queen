@@ -1,32 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FaLock, FaUser } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 import { useAuth } from "../../../context/AuthContext";
+import { isAdminUser } from "../../../constants/admin";
 import * as S from "./styled";
 
 function Login({ variant }) {
   const { user, loading, signOutUser } = useAuth();
 
   if (loading) {
-    return (
-      <S.LoginButton as={Link} to="/login" aria-label="Logowanie">
-        <S.LockIcon>
-          <FaLock />
-        </S.LockIcon>
-        <S.LoginText>Logowanie</S.LoginText>
-      </S.LoginButton>
-    );
+    return null;
   }
 
-  if (user) {
+  if (!user) {
+    return null;
+  }
+
+  if (isAdminUser(user)) {
     if (variant === "drawer") {
       return (
         <S.AccountWrap>
-          <S.AccountLink to="/konto" aria-label="Moje konto">
+          <S.AccountLink to="/admin" aria-label="Panel administracyjny">
             <S.LockIcon>
-              <FaUser />
+              <FaLock />
             </S.LockIcon>
-            <S.LoginText>Konto</S.LoginText>
+            <S.LoginText>Panel</S.LoginText>
           </S.AccountLink>
           <S.LogoutBtn type="button" onClick={() => signOutUser()}>
             Wyloguj
@@ -35,22 +32,19 @@ function Login({ variant }) {
       );
     }
     return (
-      <S.AccountLink to="/konto" aria-label="Moje konto">
+      <S.AccountLink to="/admin" aria-label="Panel administracyjny">
         <S.LockIcon>
-          <FaUser />
+          <FaLock />
         </S.LockIcon>
-        <S.LoginText>Konto</S.LoginText>
+        <S.LoginText>Panel</S.LoginText>
       </S.AccountLink>
     );
   }
 
   return (
-    <S.LoginButton as={Link} to="/login" aria-label="Zaloguj się">
-      <S.LockIcon>
-        <FaLock />
-      </S.LockIcon>
-      <S.LoginText>Logowanie</S.LoginText>
-    </S.LoginButton>
+    <S.LogoutBtn type="button" onClick={() => signOutUser()}>
+      Wyloguj
+    </S.LogoutBtn>
   );
 }
 

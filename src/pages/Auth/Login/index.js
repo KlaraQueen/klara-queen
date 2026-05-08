@@ -1,25 +1,33 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { auth, googleProvider } from "../../../firebase";
 import { isFirebaseConfigReady } from "../../../firebase/config";
+import { isAdminUser } from "../../../constants/admin";
 import { mapFirebaseAuthError } from "../../../utils/mapFirebaseAuthError";
 import * as S from "../styled";
 
-const ADMIN_EMAIL = process.env.REACT_APP_ADMIN_EMAIL;
-
 function Login() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from;
-  const redirectAfterLogin = from && from !== "/login" ? from : null;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigateAfterAuth = (firebaseUser) => {
+    if (!firebaseUser) {
+      navigate("/", { replace: true });
+      return;
+    }
+    if (isAdminUser(firebaseUser)) {
+      navigate("/admin", { replace: true });
+      return;
+    }
+    navigate("/", { replace: true });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,14 +49,7 @@ function Login() {
         email.trim(),
         password,
       );
-      navigate(
-        cred.user.email === ADMIN_EMAIL
-          ? "/admin"
-          : redirectAfterLogin || "/konto",
-        {
-          replace: true,
-        },
-      );
+      navigateAfterAuth(cred.user);
     } catch (err) {
       setError(mapFirebaseAuthError(err.code));
     } finally {
@@ -67,14 +68,7 @@ function Login() {
     setLoading(true);
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      navigate(
-        result.user.email === ADMIN_EMAIL
-          ? "/admin"
-          : redirectAfterLogin || "/konto",
-        {
-          replace: true,
-        },
-      );
+      navigateAfterAuth(result.user);
     } catch (err) {
       if (err.code === "auth/popup-closed-by-user") {
         return;
@@ -91,7 +85,9 @@ function Login() {
         <S.AuthHeader>
           <S.AuthTitle>Zaloguj się</S.AuthTitle>
           <S.AuthSubtitle>
-            Zaloguj się e-mailem i hasłem albo kontem Google.
+            Adres panelu wejściowego: /panel-wejscie — zapisz go w zakładkach (stary
+            adres /login przekierowuje tu). Logowanie nie jest prowadzone z menu
+            strony głównej.
           </S.AuthSubtitle>
         </S.AuthHeader>
 
@@ -136,12 +132,6 @@ function Login() {
             </S.PasswordWrap>
           </S.Field>
 
-          <S.RowBetween>
-            <S.RouterLink to="/forgot-password">
-              Nie pamiętasz hasła?
-            </S.RouterLink>
-          </S.RowBetween>
-
           <S.PrimaryButton type="submit" disabled={loading}>
             {loading ? "Logowanie…" : "Zaloguj się"}
           </S.PrimaryButton>
@@ -153,11 +143,6 @@ function Login() {
           <FcGoogle aria-hidden />
           Kontynuuj z Google
         </S.GoogleButton>
-
-        <S.AuthFooter>
-          Nie masz konta?
-          <S.RouterLink to="/register">Załóż konto</S.RouterLink>
-        </S.AuthFooter>
       </S.AuthCard>
     </S.AuthPage>
   );

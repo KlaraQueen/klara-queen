@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Background from "./components/Background";
 import Navbar from "./components/Navbar/index";
 import Footer from "./components/Footer";
@@ -14,14 +14,10 @@ import Blog from "./pages/Blog/index";
 import Article from "./pages/Blog/Article/index";
 import Testimonials from "./pages/Testimonials/index";
 import Login from "./pages/Auth/Login/index";
-import Register from "./pages/Auth/Register/index";
-import ForgotPassword from "./pages/Auth/ForgotPassword/index";
-import GuestCheckout from "./pages/Checkout/GuestCheckout/index";
-import BlikPayment from "./pages/Checkout/BlikPayment/index";
 import Account from "./pages/Account/index";
 import Admin from "./pages/Admin/index";
-import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
+import KontoRoute from "./components/KontoRoute";
 
 function App() {
   return (
@@ -41,17 +37,19 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />{" "}
           <Route path="/questions" element={<Questions />} />
           <Route path="/cooperation" element={<Cooperation />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/checkout/guest" element={<GuestCheckout />} />
-          <Route path="/payment/blik" element={<BlikPayment />} />
+          <Route path="/panel-wejscie" element={<Login />} />
+          <Route
+            path="/login"
+            element={<Navigate to="/panel-wejscie" replace />}
+          />
+          <Route path="/register" element={<Navigate to="/" replace />} />
+          <Route path="/forgot-password" element={<Navigate to="/" replace />} />
           <Route
             path="/konto"
             element={
-              <ProtectedRoute>
+              <KontoRoute>
                 <Account />
-              </ProtectedRoute>
+              </KontoRoute>
             }
           />
           <Route

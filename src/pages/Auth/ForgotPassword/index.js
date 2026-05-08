@@ -76,7 +76,7 @@ function ForgotPassword() {
         ) : null}
 
         <S.BackRow>
-          <S.RouterLink to="/login">Wróć do logowania</S.RouterLink>
+          <S.RouterLink to="/panel-wejscie">Wróć do logowania</S.RouterLink>
         </S.BackRow>
       </S.AuthCard>
     </S.AuthPage>

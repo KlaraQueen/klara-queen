@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./styled";
-import { CATEGORIES, STYLES, PAYMENT_MODES } from "../constants";
+import { CATEGORIES, STYLES } from "../constants";
 import ColorChips from "../ColorChips";
 
 export default function BasicFields({ form, set, onToggleColor }) {
@@ -17,7 +17,7 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Group>
 
       <S.Group>
-        <S.Label>Cena Kup teraz *</S.Label>
+        <S.Label>Cena (informacyjnie) *</S.Label>
         <S.Input
           value={form.price}
           onChange={(e) => set("price", e.target.value)}
@@ -27,11 +27,11 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Group>
 
       <S.Group>
-        <S.Label>Cena BLIK</S.Label>
+        <S.Label>Dodatkowa cena / wariant</S.Label>
         <S.Input
           value={form.altPrice || ""}
           onChange={(e) => set("altPrice", e.target.value)}
-          placeholder="np. 1290 zł"
+          placeholder="np. inna wersja pakietu"
         />
       </S.Group>
 
@@ -77,39 +77,14 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Full>
 
       <S.Full>
-        <S.Label>Model płatności</S.Label>
-        <S.Select
-          value={form.paymentMode || "one_time"}
-          onChange={(e) => set("paymentMode", e.target.value)}
-        >
-          {PAYMENT_MODES.map((m) => (
-            <option key={m.value} value={m.value}>
-              {m.label}
-            </option>
-          ))}
-        </S.Select>
+        <S.Label>Link Allegro (opcjonalnie)</S.Label>
+        <S.Input
+          value={form.allegroUrl || ""}
+          onChange={(e) => set("allegroUrl", e.target.value)}
+          placeholder="Np. link do aukcji — puste = użyty adres Allegro z ustawień mediów społecznościowych"
+          type="url"
+        />
       </S.Full>
-
-      {(form.paymentMode === "one_time" || form.paymentMode === "both") && (
-        <>
-          <S.Full>
-            <S.Label>Kup teraz — link checkout (np. Stripe)</S.Label>
-            <S.Input
-              value={form.stripePaymentUrl || ""}
-              onChange={(e) => set("stripePaymentUrl", e.target.value)}
-              placeholder="https://buy.stripe.com/..."
-            />
-          </S.Full>
-          <S.Full>
-            <S.Label>BLIK — dodatkowa instrukcja (opcjonalnie)</S.Label>
-            <S.Input
-              value={form.blikPaymentInfo || ""}
-              onChange={(e) => set("blikPaymentInfo", e.target.value)}
-              placeholder="np. Wyślij potwierdzenie na WhatsApp po płatności"
-            />
-          </S.Full>
-        </>
-      )}
     </S.Grid>
   );
 }
