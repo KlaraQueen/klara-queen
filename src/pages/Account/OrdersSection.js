@@ -20,10 +20,10 @@ function getPaymentTypeLabel(order) {
   const provider = (order.paymentProvider || "").toLowerCase();
   const type = (order.paymentType || "").toLowerCase();
   if (provider === "blik" || type === "blik") {
-    return "BLIK na telefon";
+    return "BLIK";
   }
   if (provider === "stripe" || type === "one_time") {
-    return "Kup teraz (Stripe)";
+    return "Kup teraz";
   }
   return "Jednorazowy";
 }

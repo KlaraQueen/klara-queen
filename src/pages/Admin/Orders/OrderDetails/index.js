@@ -81,8 +81,8 @@ export default function OrderDetails({ order, onBack, onUpdate }) {
           <S.Label>Płatność</S.Label>
           <S.Value>
             {order.paymentProvider === "blik" || order.paymentType === "blik"
-              ? "BLIK na telefon"
-              : "Kup teraz (Stripe)"}
+              ? "BLIK"
+              : "Kup teraz"}
           </S.Value>
         </S.Field>
         <S.Field>

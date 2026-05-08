@@ -17,7 +17,7 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Group>
 
       <S.Group>
-        <S.Label>Cena Kup teraz (Stripe) *</S.Label>
+        <S.Label>Cena Kup teraz *</S.Label>
         <S.Input
           value={form.price}
           onChange={(e) => set("price", e.target.value)}
@@ -27,7 +27,7 @@ export default function BasicFields({ form, set, onToggleColor }) {
       </S.Group>
 
       <S.Group>
-        <S.Label>Cena BLIK (na telefon)</S.Label>
+        <S.Label>Cena BLIK</S.Label>
         <S.Input
           value={form.altPrice || ""}
           onChange={(e) => set("altPrice", e.target.value)}
@@ -93,7 +93,7 @@ export default function BasicFields({ form, set, onToggleColor }) {
       {(form.paymentMode === "one_time" || form.paymentMode === "both") && (
         <>
           <S.Full>
-            <S.Label>Stripe - płatność jednorazowa (link checkout)</S.Label>
+            <S.Label>Kup teraz — link checkout (np. Stripe)</S.Label>
             <S.Input
               value={form.stripePaymentUrl || ""}
               onChange={(e) => set("stripePaymentUrl", e.target.value)}
@@ -101,7 +101,7 @@ export default function BasicFields({ form, set, onToggleColor }) {
             />
           </S.Full>
           <S.Full>
-            <S.Label>BLIK - dodatkowa instrukcja (opcjonalnie)</S.Label>
+            <S.Label>BLIK — dodatkowa instrukcja (opcjonalnie)</S.Label>
             <S.Input
               value={form.blikPaymentInfo || ""}
               onChange={(e) => set("blikPaymentInfo", e.target.value)}

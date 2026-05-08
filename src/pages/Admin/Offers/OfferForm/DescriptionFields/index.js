@@ -21,11 +21,11 @@ export default function DescriptionFields({
       </S.Group>
 
       <S.Group>
-        <S.Label>YouTube URL</S.Label>
+        <S.Label>Link do filmu YouTube</S.Label>
         <S.Input
           value={form.youtubeUrl}
           onChange={(e) => set("youtubeUrl", e.target.value)}
-          placeholder="https://www.youtube.com/embed/..."
+          placeholder="https://www.youtube.com/watch?v=… lub youtu.be/…"
         />
       </S.Group>
 

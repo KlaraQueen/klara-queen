@@ -191,7 +191,7 @@ const CTAComponent = ({ offer }) => {
             type="button"
             onClick={() => handleProtectedCheckout("blik")}
           >
-            BLIK na telefon ({offer?.altPrice || offer?.price || "cena w opisie"})
+            BLIK ({offer?.altPrice || offer?.price || "cena w opisie"})
           </S.SecondaryButton>
         ) : null}
 
@@ -267,8 +267,8 @@ const CTAComponent = ({ offer }) => {
             </S.ModalCloseButton>
             <S.ModalTitle>Dziękujemy za zakup</S.ModalTitle>
             <S.ModalText>
-              Otworzyliśmy płatność Stripe w nowej karcie. Po jej opłaceniu na
-              podany adres e-mail wyślemy potwierdzenie zakupu oraz informacje
+              Otworzyliśmy płatność „Kup teraz” w nowej karcie. Po jej opłaceniu
+              na podany adres e-mail wyślemy potwierdzenie zakupu oraz informacje
               pozakupowe.
             </S.ModalText>
             <S.ModalText>

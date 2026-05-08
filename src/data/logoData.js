@@ -1,4 +1,4 @@
-import logoImg from "../image/znak-wodny.png";
+import logoImg from "../image/klara-queen-logo.png";
 
 export const logoData = {
   src: logoImg,

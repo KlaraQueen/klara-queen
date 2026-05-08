@@ -15,9 +15,7 @@ export const STYLES = [
   "kreatywny",
 ];
 
-export const PAYMENT_MODES = [
-  { value: "one_time", label: "Kup teraz (jednorazowo)" },
-];
+export const PAYMENT_MODES = [{ value: "one_time", label: "Kup teraz" }];
 
 export const CUSTOMER_ACTIONS = [
   { value: "none", label: "Brak dodatkowej akcji" },

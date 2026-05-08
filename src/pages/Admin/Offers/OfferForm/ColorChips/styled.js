@@ -8,6 +8,9 @@ export const Wrap = styled.div`
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 4px;
+  max-height: min(42vh, 320px);
+  overflow-y: auto;
+  padding: 4px 8px 4px 0;
 `;
 
 export const Chip = styled.button`

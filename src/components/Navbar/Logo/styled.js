@@ -17,20 +17,22 @@ export const LogoImage = styled.img.attrs({
   height: clamp(50px, 8vw, 85px);
   width: auto;
   cursor: pointer;
-  filter: brightness(3) contrast(1.2) saturate(1.1)
-    drop-shadow(0 0 1px rgba(255, 255, 255, 0.34))
-    drop-shadow(0 0 8px ${theme.colors.goldMain})
-    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
+  filter: brightness(1.05)
+    contrast(1.05)
+    saturate(1.03)
+    drop-shadow(0 0 6px ${theme.colors.goldSoft12})
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28));
   transition:
     transform 0.3s ease,
     filter 0.3s ease;
   flex-shrink: 0;
 
   &:hover {
-    transform: scale(1.05);
-    filter: brightness(3) contrast(1.2) saturate(1.1)
-      drop-shadow(0 0 2px rgba(255, 255, 255, 0.45))
-      drop-shadow(0 0 10px ${theme.colors.goldMain})
-      drop-shadow(0 0 16px ${theme.colors.goldHover});
+    transform: scale(1.03);
+    filter: brightness(1.08)
+      contrast(1.06)
+      saturate(1.05)
+      drop-shadow(0 0 10px ${theme.colors.goldSoft18})
+      drop-shadow(0 2px 8px rgba(0, 0, 0, 0.32));
   }
 `;

@@ -1,16 +1,28 @@
 import React from "react";
 import * as S from "./styled";
 
+/** Podstawowa paleta nazw kolorów — bez odcieni typu łososiowy, koralowy itp. */
 const COLORS = [
-  "złoty",
-  "bordowy",
-  "srebrny",
-  "biały",
   "czarny",
-  "pastelowy",
-  "granatowy",
+  "biały",
+  "szary",
+  "srebrny",
+  "złoty",
+  "miedziany",
+  "beżowy",
+  "kremowy",
+  "brązowy",
+  "czerwony",
+  "bordowy",
   "różowy",
+  "pomarańczowy",
+  "żółty",
   "zielony",
+  "niebieski",
+  "błękitny",
+  "granatowy",
+  "fioletowy",
+  "purpurowy",
   "wielokolorowy",
 ];
 

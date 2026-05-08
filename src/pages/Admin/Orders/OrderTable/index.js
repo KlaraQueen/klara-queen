@@ -32,8 +32,8 @@ export default function OrderTable({ orders, onView }) {
             <S.Cell>{o.offerTitle || "—"}</S.Cell>
             <S.Cell>
               {o.paymentProvider === "blik" || o.paymentType === "blik"
-                ? "BLIK na telefon"
-                : "Kup teraz (Stripe)"}
+                ? "BLIK"
+                : "Kup teraz"}
             </S.Cell>
             <S.Cell>{o.price || "—"}</S.Cell>
             <S.Cell>

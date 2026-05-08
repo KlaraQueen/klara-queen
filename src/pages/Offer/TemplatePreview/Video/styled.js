@@ -36,6 +36,8 @@ export const VideoContainer = styled.div`
 `;
 
 export const StyledIframe = styled.iframe`
+  position: absolute;
+  inset: 0;
   display: block;
   border-radius: 13px;
   width: 100%;

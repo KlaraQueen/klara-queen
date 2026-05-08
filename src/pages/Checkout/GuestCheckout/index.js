@@ -13,7 +13,7 @@ function parseAmount(priceText) {
 }
 
 function paymentLabel(paymentType) {
-  return paymentType === "blik" ? "BLIK na telefon" : "Kup teraz (Stripe)";
+  return paymentType === "blik" ? "BLIK" : "Kup teraz";
 }
 
 export default function GuestCheckout() {
@@ -278,9 +278,9 @@ export default function GuestCheckout() {
             <S.ModalCard>
               <S.ModalTitle>Dziękujemy za zakup</S.ModalTitle>
               <S.ModalText>
-                Otworzyliśmy płatność Stripe w nowej karcie. Po opłaceniu na
-                podany adres e-mail wyślemy potwierdzenie zakupu oraz informacje
-                pozakupowe.
+                Otworzyliśmy płatność „Kup teraz” w nowej karcie. Po jej
+                opłaceniu na podany adres e-mail wyślemy potwierdzenie zakupu
+                oraz informacje pozakupowe.
               </S.ModalText>
               <S.ModalText>
                 Wiadomość powinna dotrzeć w ciągu kilku godzin. Jeśli jej nie
