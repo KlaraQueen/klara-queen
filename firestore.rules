@@ -53,9 +53,15 @@ service cloud.firestore {
       allow read, write: if isOwner(userId);
     }
 
-    // Faktury — tylko admin
+    // Faktury — admin zarządza; klient czyta tylko swoje (userId lub ten sam email co w Firebase Auth)
     match /invoices/{invoiceId} {
-      allow read, write: if isAdmin();
+      allow read: if isAdmin()
+                  || resource.data.userId == request.auth.uid
+                  || (
+                    request.auth.token.email != null
+                    && resource.data.customerEmail == request.auth.token.email
+                  );
+      allow write: if isAdmin();
     }
   }
 }

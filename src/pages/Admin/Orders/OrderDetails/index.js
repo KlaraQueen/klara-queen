@@ -33,10 +33,14 @@ export default function OrderDetails({ order, onBack, onUpdate }) {
   const handleGenerateInvoice = async () => {
     setGenerating(true);
     try {
+      const emailNorm = (order.customerEmail || "").trim().toLowerCase();
       const invoiceId = await createInvoice({
         orderId: order.id,
+        ...(order.userId && order.userId !== "guest"
+          ? { userId: order.userId }
+          : {}),
         customerName: order.customerName || "",
-        customerEmail: order.customerEmail || "",
+        customerEmail: emailNorm,
         companyName: order.invoiceCompany || "",
         nip: order.invoiceNip || "",
         street: order.invoiceStreet || "",

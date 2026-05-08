@@ -59,13 +59,40 @@ export async function fetchUserOrders(uid) {
   }
 }
 
-export async function fetchUserInvoices(uid) {
+function emailQueryVariants(email) {
+  if (!email || typeof email !== "string") {
+    return [];
+  }
+  const t = email.trim();
+  if (!t) {
+    return [];
+  }
+  const lower = t.toLowerCase();
+  return lower === t ? [t] : [t, lower];
+}
+
+/** Faktury z kolekcji `invoices` (ta sama co w panelu admina), dopasowanie po userId lub customerEmail. */
+export async function fetchUserInvoices(uid, authEmail) {
   if (!db) {
     return [];
   }
   try {
-    const snap = await getDocs(collection(db, "users", uid, "invoices"));
-    const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    const col = collection(db, "invoices");
+    const merged = new Map();
+
+    const byUid = await getDocs(query(col, where("userId", "==", uid)));
+    byUid.docs.forEach((d) =>
+      merged.set(d.id, { id: d.id, ...d.data() }),
+    );
+
+    for (const em of emailQueryVariants(authEmail)) {
+      const byEmail = await getDocs(query(col, where("customerEmail", "==", em)));
+      byEmail.docs.forEach((d) =>
+        merged.set(d.id, { id: d.id, ...d.data() }),
+      );
+    }
+
+    const list = [...merged.values()];
     return sortByTimeDesc(list, "issuedAt");
   } catch {
     return [];

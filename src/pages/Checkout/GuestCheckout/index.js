@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { createOrder } from "../../../services/orderService";
 import { blikData } from "../../../data/blikData";
+import { useAuth } from "../../../context/AuthContext";
 import * as S from "./styled";
 
 function parseAmount(priceText) {
@@ -16,6 +17,7 @@ function paymentLabel(paymentType) {
 }
 
 export default function GuestCheckout() {
+  const { user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -112,8 +114,8 @@ export default function GuestCheckout() {
     setLoading(true);
     try {
       const created = await createOrder({
-        userId: "guest",
-        customerEmail: form.email.trim(),
+        userId: user?.uid ?? "guest",
+        customerEmail: form.email.trim().toLowerCase(),
         customerName: form.fullName.trim(),
         customerPhone: form.phone.trim(),
         wantInvoice: Boolean(form.wantInvoice),

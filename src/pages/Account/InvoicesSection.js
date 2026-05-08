@@ -60,31 +60,34 @@ function InvoicesSection({ invoices, loading }) {
             </tr>
           </thead>
           <tbody>
-            {invoices.map((inv) => (
-              <tr key={inv.id}>
-                <td>{inv.number || inv.id}</td>
-                <td>{formatDate(inv.issuedAt)}</td>
-                <td>
-                  {inv.amount != null
-                    ? `${inv.amount} ${inv.currency || "PLN"}`
-                    : "—"}
-                </td>
-                <td>
-                  {inv.pdfUrl ? (
-                    <a
-                      href={inv.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "var(--gold, #f1d592)" }}
-                    >
-                      Pobierz
-                    </a>
-                  ) : (
-                    "—"
-                  )}
-                </td>
-              </tr>
-            ))}
+            {invoices.map((inv) => {
+              const amt = inv.amount ?? inv.totalAmount;
+              return (
+                <tr key={inv.id}>
+                  <td>{inv.number || inv.id}</td>
+                  <td>{formatDate(inv.issuedAt)}</td>
+                  <td>
+                    {amt != null && amt !== ""
+                      ? `${amt} ${inv.currency || "PLN"}`
+                      : "—"}
+                  </td>
+                  <td>
+                    {inv.pdfUrl ? (
+                      <a
+                        href={inv.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "var(--gold, #f1d592)" }}
+                      >
+                        Pobierz
+                      </a>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </S.Table>
       </S.TableWrap>

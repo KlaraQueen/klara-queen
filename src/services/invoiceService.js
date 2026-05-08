@@ -43,3 +43,26 @@ export async function updateInvoice(id, data) {
     updatedAt: serverTimestamp(),
   });
 }
+
+/** Ujednolica `customerEmail` (trim + małe litery) na wszystkich fakturach, gdzie pole się zmieni. */
+export async function normalizeAllInvoiceCustomerEmails() {
+  if (!db) throw new Error("Firestore niedostępny");
+  const list = await fetchInvoices();
+  let updated = 0;
+  let skipped = 0;
+  for (const inv of list) {
+    const raw = inv.customerEmail;
+    if (typeof raw !== "string") {
+      skipped++;
+      continue;
+    }
+    const norm = raw.trim().toLowerCase();
+    if (!norm || norm === raw) {
+      skipped++;
+      continue;
+    }
+    await updateInvoice(inv.id, { customerEmail: norm });
+    updated++;
+  }
+  return { updated, skipped };
+}

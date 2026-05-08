@@ -3,7 +3,7 @@ import * as S from "./styled";
 import InvoiceTable from "./InvoiceTable";
 import InvoiceDetails from "./InvoiceDetails";
 import Toast from "../Toast";
-import { fetchInvoices } from "../../../services/invoiceService";
+import { fetchInvoices, normalizeAllInvoiceCustomerEmails } from "../../../services/invoiceService";
 
 const STATUS_FILTERS = ["wszystkie", "do wystawienia", "wystawiona"];
 
@@ -13,6 +13,7 @@ export default function Invoices() {
   const [viewing, setViewing] = useState(null);
   const [filter, setFilter] = useState("wszystkie");
   const [toast, setToast] = useState(null);
+  const [normalizing, setNormalizing] = useState(false);
 
   const showToast = (msg, error = false) => {
     setToast({ msg, error });
@@ -42,6 +43,27 @@ export default function Invoices() {
     setViewing(null);
   };
 
+  const handleNormalizeEmails = async () => {
+    if (
+      !window.confirm(
+        "Ujednolicić pole customerEmail we wszystkich fakturach (trim + małe litery), tam gdzie obecna wartość się różni? Operacja jest możliwa do cofnięcia tylko ręcznie w Firestore.",
+      )
+    ) {
+      return;
+    }
+    setNormalizing(true);
+    try {
+      const { updated, skipped } = await normalizeAllInvoiceCustomerEmails();
+      showToast(
+        `Zaktualizowano ${updated} faktur. Bez zmian: ${skipped} (brak e-maila lub już ujednolicone).`,
+      );
+      await load();
+    } catch (err) {
+      showToast("Błąd migracji: " + err.message, true);
+    }
+    setNormalizing(false);
+  };
+
   const filtered =
     filter === "wszystkie"
       ? invoices
@@ -62,6 +84,19 @@ export default function Invoices() {
 
   return (
     <S.Section>
+      <S.MaintenanceRow>
+        <span>
+          Dane historyczne: złą wielkość liter w e-mailu może blokować widok
+          faktur u klienta.
+        </span>
+        <S.MigrateBtn
+          type="button"
+          onClick={handleNormalizeEmails}
+          disabled={loading || normalizing}
+        >
+          {normalizing ? "Aktualizacja…" : "Ujednolicaj e-maile w fakturach"}
+        </S.MigrateBtn>
+      </S.MaintenanceRow>
       <S.Filters>
         {STATUS_FILTERS.map((s) => (
           <S.FilterBtn

@@ -37,6 +37,40 @@ export const Spinner = styled.p`
   padding: 40px 0;
 `;
 
+export const MaintenanceRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid ${c.goldSoft18};
+  background: ${c.goldSoft04};
+  font-size: 0.8rem;
+  color: ${c.textSubtle || "rgba(255,255,255,0.55)"};
+`;
+
+export const MigrateBtn = styled.button`
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  border: 1px solid ${c.goldSoft18};
+  background: transparent;
+  color: ${c.goldMain};
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: ${c.goldSoft08};
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
 export const TableWrap = styled.div`
   border-radius: 16px;
   background: linear-gradient(

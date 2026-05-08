@@ -65,7 +65,7 @@ function Account() {
       return;
     }
     setLoadingLists(true);
-    fetchUserInvoices(user.uid)
+    fetchUserInvoices(user.uid, user.email)
       .then(setInvoices)
       .finally(() => setLoadingLists(false));
   }, [user, active]);
