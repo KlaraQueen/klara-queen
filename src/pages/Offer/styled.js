@@ -61,6 +61,44 @@ export const OfferSubtitle = styled.p`
   }
 `;
 
+/** Tymczasowe powiadomienie (do usunięcia po uzupełnieniu ofert). */
+export const TempNotice = styled.aside`
+  max-width: 720px;
+  margin: 0 auto clamp(28px, 4vw, 40px);
+  padding: clamp(16px, 2.5vw, 22px) clamp(18px, 3vw, 26px);
+  box-sizing: border-box;
+  border-radius: 14px;
+  border: 1px solid ${theme.colors.testimonialBorder};
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.cardBg1} 0%,
+    ${theme.colors.cardBg3} 100%
+  );
+  box-shadow: 0 8px 28px ${theme.colors.shadowLight};
+`;
+
+export const TempNoticeTitle = styled.p`
+  margin: 0 0 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: ${theme.colors.goldHover};
+`;
+
+export const TempNoticeText = styled.p`
+  margin: 0;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  line-height: 1.65;
+  color: ${theme.colors.textSubtle};
+  font-weight: 400;
+
+  strong {
+    color: ${theme.colors.textMuted};
+    font-weight: 600;
+  }
+`;
+
 export const OfferDetailPageContainer = styled.section`
   position: relative;
   z-index: 5;

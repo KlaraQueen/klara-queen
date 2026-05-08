@@ -11,7 +11,7 @@ export const socialMediaData = [
   {
     id: 2,
     icon: FaFacebookF,
-    url: "https://facebook.com",
+    url: "https://www.facebook.com/profile.php?id=61589683220859",
     label: "Facebook",
   },
   {

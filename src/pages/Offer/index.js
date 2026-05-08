@@ -20,6 +20,15 @@ const Offer = () => {
           <S.OfferSubtitle>{offerPageHeader.subtitle}</S.OfferSubtitle>
         </S.OfferHeader>
 
+        <S.TempNotice role="status" aria-live="polite">
+          <S.TempNoticeTitle>Pracujemy nad ofertą</S.TempNoticeTitle>
+          <S.TempNoticeText>
+            Tworzymy nowe projekty i odświeżamy tę zakładkę. Niedługo znów tu
+            znajdziecie aktualne szablony — tymczasem <strong>śmiało piszcie</strong>{" "}
+            do nas, chętnie odpowiemy na wiadomości.
+          </S.TempNoticeText>
+        </S.TempNotice>
+
         <OfferList />
       </S.OfferContent>
     </S.OfferContainer>
