@@ -3,7 +3,11 @@ import * as S from "./styled";
 import InvoiceTable from "./InvoiceTable";
 import InvoiceDetails from "./InvoiceDetails";
 import Toast from "../Toast";
-import { fetchInvoices, normalizeAllInvoiceCustomerEmails } from "../../../services/invoiceService";
+import {
+  fetchInvoices,
+  normalizeAllInvoiceCustomerEmails,
+  fetchInvoice,
+} from "../../../services/invoiceService";
 
 const STATUS_FILTERS = ["wszystkie", "do wystawienia", "wystawiona"];
 
@@ -43,6 +47,14 @@ export default function Invoices() {
     setViewing(null);
   };
 
+  const handleSilentInvoiceRefresh = async (invoiceId) => {
+    await load();
+    const fresh = await fetchInvoice(invoiceId);
+    setViewing((prev) =>
+      prev && fresh && prev.id === invoiceId ? fresh : prev,
+    );
+  };
+
   const handleNormalizeEmails = async () => {
     if (
       !window.confirm(
@@ -76,6 +88,7 @@ export default function Invoices() {
           invoice={viewing}
           onBack={handleBack}
           onUpdate={handleUpdate}
+          onSilentRefresh={handleSilentInvoiceRefresh}
         />
         <Toast message={toast?.msg} error={toast?.error} />
       </S.Section>

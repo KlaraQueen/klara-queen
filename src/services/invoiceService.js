@@ -9,7 +9,38 @@ import {
   query,
   orderBy,
   serverTimestamp,
+  runTransaction,
 } from "firebase/firestore";
+
+const META_INVOICE_NUMBERS = ["meta", "invoiceNumbers"];
+
+/**
+ * Nadaje kolejny numer w stylu FV/2026/05/0001 (bez resetu przy każdej fakturze — licznik per miesiąc).
+ */
+export async function getNextInvoiceNumber() {
+  if (!db) throw new Error("Firestore niedostępny");
+  const metaRef = doc(db, ...META_INVOICE_NUMBERS);
+  return runTransaction(db, async (transaction) => {
+    const snap = await transaction.get(metaRef);
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const period = `${year}-${month}`;
+    let seq = 1;
+    if (snap.exists()) {
+      const d = snap.data();
+      if (d.period === period) {
+        seq = Number(d.lastSeq || 0) + 1;
+      }
+    }
+    transaction.set(
+      metaRef,
+      { period, lastSeq: seq, updatedAt: serverTimestamp() },
+      { merge: true },
+    );
+    return `FV/${year}/${month}/${String(seq).padStart(4, "0")}`;
+  });
+}
 
 const COL = "invoices";
 

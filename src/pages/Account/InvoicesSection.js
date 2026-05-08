@@ -1,19 +1,15 @@
 import React from "react";
+import { coerceFirestoreDate } from "../../utils/firestoreDates";
 import * as S from "./styled";
 
-function formatDate(v) {
-  if (!v) {
+function formatInvoiceDate(inv) {
+  const d =
+    coerceFirestoreDate(inv.issuedAt) ??
+    coerceFirestoreDate(inv.createdAt);
+  if (!d) {
     return "—";
   }
-  const sec = v.seconds ?? v;
-  if (typeof sec === "number") {
-    return new Date(sec * 1000).toLocaleDateString("pl-PL");
-  }
-  try {
-    return new Date(v).toLocaleDateString("pl-PL");
-  } catch {
-    return "—";
-  }
+  return d.toLocaleDateString("pl-PL");
 }
 
 function InvoicesSection({ invoices, loading }) {
@@ -64,8 +60,8 @@ function InvoicesSection({ invoices, loading }) {
               const amt = inv.amount ?? inv.totalAmount;
               return (
                 <tr key={inv.id}>
-                  <td>{inv.number || inv.id}</td>
-                  <td>{formatDate(inv.issuedAt)}</td>
+                  <td>{inv.number || "—"}</td>
+                  <td>{formatInvoiceDate(inv)}</td>
                   <td>
                     {amt != null && amt !== ""
                       ? `${amt} ${inv.currency || "PLN"}`

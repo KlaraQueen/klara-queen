@@ -133,6 +133,77 @@ export const PdfRow = styled.div`
   gap: 12px;
 `;
 
+export const NumRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+`;
+
+export const NumInput = styled.input`
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid ${c.goldSoft18};
+  background: ${c.inputBg};
+  color: ${c.white};
+  font-size: 0.9rem;
+  font-family: inherit;
+
+  &::placeholder {
+    color: ${c.textPlaceholder};
+  }
+`;
+
+export const DatePick = styled.input`
+  flex: 0;
+  width: auto;
+  min-width: 10.5rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid ${c.goldSoft18};
+  background: ${c.inputBg};
+  color: ${c.white};
+  font-size: 0.88rem;
+  font-family: inherit;
+  color-scheme: dark;
+`;
+
+export const NumHint = styled.span`
+  font-size: 0.74rem;
+  color: ${c.textFaded || "rgba(255,255,255,0.5)"};
+  flex-basis: 100%;
+  margin-top: -4px;
+`;
+
+export const SaveNumBtn = styled.button`
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid ${c.goldMain};
+  background: transparent;
+  color: ${c.goldMain};
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    background: ${c.goldSoft08};
+  }
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+`;
+
 export const PdfLink = styled.a`
   display: inline-block;
   padding: 8px 20px;
