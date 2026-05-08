@@ -33,18 +33,20 @@ export const LogoImage = styled.img`
   height: 180px;
   width: auto;
   cursor: pointer;
-  filter: brightness(2.8) contrast(1.1) saturate(1)
-    drop-shadow(0 0 1px ${theme.colors.goldSoft15})
-    drop-shadow(0 0 6px ${theme.colors.goldMain})
-    drop-shadow(0 1px 4px ${theme.colors.shadowLight});
+  filter: brightness(1.04)
+    contrast(1.04)
+    saturate(1.02)
+    drop-shadow(0 0 6px ${theme.colors.goldSoft12})
+    drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: scale(1.05);
-    filter: brightness(2.8) contrast(1.1) saturate(1)
-      drop-shadow(0 0 2px ${theme.colors.goldSoft20})
-      drop-shadow(0 0 8px ${theme.colors.goldMain})
-      drop-shadow(0 0 12px ${theme.colors.goldHover});
+    filter: brightness(1.08)
+      contrast(1.05)
+      saturate(1.03)
+      drop-shadow(0 0 10px ${theme.colors.goldSoft18})
+      drop-shadow(0 2px 12px rgba(0, 0, 0, 0.4));
   }
 
   @media (max-width: ${theme.breakpoints.desktopHd}px) {

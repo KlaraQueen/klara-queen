@@ -10,6 +10,7 @@ const ROOT = path.join(__dirname, "..");
 const FILES = [
   path.join(ROOT, "src", "image", "klara-queen-logo.png"),
   path.join(ROOT, "public", "images", "klara-queen-logo.png"),
+  path.join(ROOT, "public", "images", "favicon-master.png"),
 ];
 
 /** Im wyższy próg, tym więcej jasnych odcieni szarości staje się przezroczych (ostrożnie z jasnym złotem). */
