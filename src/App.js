@@ -9,6 +9,7 @@ import Home from "./pages/Home/index";
 import About from "./pages/About/index";
 import Questions from "./pages/Questions/index";
 import Cooperation from "./pages/Cooperation/index";
+import Privacy from "./pages/Privacy/index";
 import Offer from "./pages/Offer/index";
 import Blog from "./pages/Blog/index";
 import Article from "./pages/Blog/Article/index";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />{" "}
           <Route path="/questions" element={<Questions />} />
           <Route path="/cooperation" element={<Cooperation />} />
+          <Route path="/polityka-prywatnosci" element={<Privacy />} />
           <Route path="/panel-wejscie" element={<Login />} />
           <Route
             path="/login"

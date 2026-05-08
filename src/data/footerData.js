@@ -16,6 +16,7 @@ export const footerData = {
     { name: "Opinie", to: "/testimonials" },
     { name: "O Nas", to: "/about" },
     { name: "Najczęstsze pytania", to: "/questions" },
+    { name: "Polityka prywatności", to: "/polityka-prywatnosci" },
   ],
   socials: socialMediaData,
   contact: {
