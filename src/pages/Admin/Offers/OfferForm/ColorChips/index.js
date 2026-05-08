@@ -1,35 +1,11 @@
 import React from "react";
 import * as S from "./styled";
-
-/** Podstawowa paleta nazw kolorów — bez odcieni typu łososiowy, koralowy itp. */
-const COLORS = [
-  "czarny",
-  "biały",
-  "szary",
-  "srebrny",
-  "złoty",
-  "miedziany",
-  "beżowy",
-  "kremowy",
-  "brązowy",
-  "czerwony",
-  "bordowy",
-  "różowy",
-  "pomarańczowy",
-  "żółty",
-  "zielony",
-  "niebieski",
-  "błękitny",
-  "granatowy",
-  "fioletowy",
-  "purpurowy",
-  "wielokolorowy",
-];
+import { OFFER_COLOR_OPTIONS } from "../../../../../data/offerTaxonomy";
 
 export default function ColorChips({ colors, onToggle }) {
   return (
     <S.Wrap>
-      {COLORS.map((color) => (
+      {OFFER_COLOR_OPTIONS.map((color) => (
         <S.Chip
           key={color}
           type="button"

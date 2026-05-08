@@ -1,20 +1,10 @@
-export const CATEGORIES = [
-  { value: "portfolio", label: "Portfolio" },
-  { value: "usługi", label: "Usługi" },
-  { value: "sklep", label: "Sklep" },
-  { value: "biznes", label: "Biznes" },
-  { value: "edukacja", label: "Edukacja" },
-  { value: "landing", label: "Landing Page" },
-];
+import {
+  OFFER_CATEGORY_OPTIONS,
+  OFFER_STYLE_OPTIONS,
+} from "../../../../data/offerTaxonomy";
 
-export const STYLES = [
-  "elegancki",
-  "minimalistyczny",
-  "nowoczesny",
-  "klasyczny",
-  "kreatywny",
-];
-
+export const CATEGORIES = OFFER_CATEGORY_OPTIONS;
+export const STYLES = OFFER_STYLE_OPTIONS;
 export const PAYMENT_MODES = [{ value: "one_time", label: "Kup teraz" }];
 
 export const CUSTOMER_ACTIONS = [

@@ -152,11 +152,12 @@ export const MobileDrawer = styled.aside`
   height: auto;
   padding: ${t.drawerPadding};
   background: linear-gradient(
-    180deg,
-    rgba(120, 40, 64, 0.72) 0%,
-    rgba(82, 24, 42, 0.68) 100%
+    185deg,
+    rgba(90, 62, 138, 0.55) 0%,
+    rgba(48, 28, 82, 0.86) 42%,
+    rgba(28, 14, 46, 0.94) 100%
   );
-  backdrop-filter: blur(12px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(118%);
   border: 1px solid ${c.navBorderGold18};
   border-radius: ${t.drawerBorderRadius};
   box-shadow:

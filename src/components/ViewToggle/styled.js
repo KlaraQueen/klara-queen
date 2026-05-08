@@ -3,10 +3,9 @@ import { theme } from "../../theme";
 
 export const ViewToggleContainer = styled.div`
   display: flex;
-  gap: clamp(8px, 1.5vw, 12px);
-  margin-bottom: 0;
-  justify-content: flex-end;
-  padding-right: clamp(10px, 2vw, 30px);
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 10px);
+  flex-shrink: 0;
 `;
 
 export const ViewToggleButton = styled.button`
