@@ -47,7 +47,10 @@ function App() {
             element={<Navigate to="/panel-wejscie" replace />}
           />
           <Route path="/register" element={<Navigate to="/" replace />} />
-          <Route path="/forgot-password" element={<Navigate to="/" replace />} />
+          <Route
+            path="/forgot-password"
+            element={<Navigate to="/" replace />}
+          />
           <Route
             path="/konto"
             element={
