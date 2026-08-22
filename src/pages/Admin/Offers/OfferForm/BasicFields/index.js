@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./styled";
-import { CATEGORIES, STYLES } from "../constants";
+import { STYLES } from "../constants";
 import ColorChips from "../ColorChips";
 
 export default function BasicFields({ form, set, onToggleColor }) {
@@ -44,19 +44,6 @@ export default function BasicFields({ form, set, onToggleColor }) {
         />
       </S.Full>
 
-      <S.Group>
-        <S.Label>Kategoria</S.Label>
-        <S.Select
-          value={form.category}
-          onChange={(e) => set("category", e.target.value)}
-        >
-          {CATEGORIES.map((c) => (
-            <option key={c.value} value={c.value}>
-              {c.label}
-            </option>
-          ))}
-        </S.Select>
-      </S.Group>
       <S.Group>
         <S.Label>Styl</S.Label>
         <S.Select

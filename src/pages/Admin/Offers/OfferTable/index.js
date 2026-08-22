@@ -18,7 +18,6 @@ export default function OfferTable({ offers, onEdit, onDelete }) {
       <S.Head>
         <S.HeadCell></S.HeadCell>
         <S.HeadCell>Tytuł</S.HeadCell>
-        <S.HeadCell>Kategoria</S.HeadCell>
         <S.HeadCell>Styl</S.HeadCell>
         <S.HeadCell>Cena</S.HeadCell>
         <S.HeadCell>Akcje</S.HeadCell>
@@ -33,7 +32,6 @@ export default function OfferTable({ offers, onEdit, onDelete }) {
             alt=""
           />
           <S.Title>{o.title}</S.Title>
-          <S.Cell>{o.category || "—"}</S.Cell>
           <S.Cell>{o.style || "—"}</S.Cell>
           <S.Cell>{o.price}</S.Cell>
           <S.Actions>

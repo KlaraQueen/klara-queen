@@ -2,15 +2,6 @@
  * Jedno źródło prawdy dla pola oferty — formularz admina i filtry na /offer.
  */
 
-export const OFFER_CATEGORY_OPTIONS = [
-  { value: "portfolio", label: "Portfolio" },
-  { value: "usługi", label: "Usługi" },
-  { value: "sklep", label: "Sklep" },
-  { value: "biznes", label: "Biznes" },
-  { value: "edukacja", label: "Edukacja" },
-  { value: "landing", label: "Landing Page" },
-];
-
 export const OFFER_STYLE_OPTIONS = [
   "elegancki",
   "minimalistyczny",
@@ -51,10 +42,6 @@ function styleLabel(slug) {
 
 export function buildOfferPublicFilters() {
   return {
-    categories: [
-      { value: "", label: "Wszystkie kategorie" },
-      ...OFFER_CATEGORY_OPTIONS.map((x) => ({ ...x })),
-    ],
     styles: [
       { value: "", label: "Wszystkie style" },
       ...OFFER_STYLE_OPTIONS.map((slug) => ({

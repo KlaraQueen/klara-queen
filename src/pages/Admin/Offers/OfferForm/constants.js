@@ -1,9 +1,5 @@
-import {
-  OFFER_CATEGORY_OPTIONS,
-  OFFER_STYLE_OPTIONS,
-} from "../../../../data/offerTaxonomy";
+import { OFFER_STYLE_OPTIONS } from "../../../../data/offerTaxonomy";
 
-export const CATEGORIES = OFFER_CATEGORY_OPTIONS;
 export const STYLES = OFFER_STYLE_OPTIONS;
 export const CUSTOMER_ACTIONS = [
   { value: "none", label: "Brak dodatkowej akcji" },
@@ -17,7 +13,6 @@ export const EMPTY = {
   shortDescription: "",
   price: "",
   altPrice: "",
-  category: "portfolio",
   style: "elegancki",
   colors: [],
   fullDescription: "",

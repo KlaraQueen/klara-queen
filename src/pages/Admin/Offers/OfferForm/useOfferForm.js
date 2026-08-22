@@ -15,7 +15,6 @@ export default function useOfferForm(offer, onSave) {
         shortDescription: offer.shortDescription || "",
         price: offer.price || "",
         altPrice: offer.altPrice || "",
-        category: offer.category || "portfolio",
         style: offer.style || "elegancki",
         colors: offer.colors || [],
         fullDescription: offer.fullDescription || "",

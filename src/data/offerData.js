@@ -20,6 +20,5 @@ export const offerDetailsStrings = {
 };
 
 const publicFilters = buildOfferPublicFilters();
-export const offerFilterCategories = publicFilters.categories;
 export const offerFilterStyles = publicFilters.styles;
 export const offerFilterColors = publicFilters.colors;
