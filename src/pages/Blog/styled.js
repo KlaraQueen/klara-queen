@@ -219,12 +219,8 @@ export const ArticleListItem = styled.a`
   display: flex;
   gap: clamp(12px, 3vw, 20px);
   padding: clamp(12px, 2.5vw, 18px);
-  background: linear-gradient(
-    135deg,
-    rgba(46, 8, 16, 0.8) 0%,
-    rgba(75, 16, 32, 0.6) 100%
-  );
-  border: 2px solid rgba(212, 175, 55, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   text-decoration: none;
   color: inherit;
@@ -232,9 +228,7 @@ export const ArticleListItem = styled.a`
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   user-select: none;
   position: relative;
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(212, 175, 55, 0.1);
+  box-shadow: none;
   animation: fadeInUp 0.8s ease-out both;
 
   &:nth-child(1) {
@@ -248,16 +242,10 @@ export const ArticleListItem = styled.a`
   }
 
   &:hover {
-    border-color: rgba(212, 175, 55, 0.5);
-    background: linear-gradient(
-      135deg,
-      rgba(46, 8, 16, 0.95) 0%,
-      rgba(75, 16, 32, 0.8) 100%
-    );
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
     transform: translateY(-6px);
-    box-shadow:
-      0 30px 60px rgba(212, 175, 55, 0.3),
-      inset 0 1px 0 rgba(212, 175, 55, 0.2);
+    box-shadow: none;
   }
 
   &:active {
