@@ -1,14 +1,22 @@
-import React from "react";
-import { FaUpload } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaLink } from "react-icons/fa";
 import * as S from "./styled";
 
 export default function ImageUpload({
   images,
-  uploading,
-  onUpload,
+  onAddUrl,
   onRemove,
   multiple,
 }) {
+  const [url, setUrl] = useState("");
+
+  const handleAdd = () => {
+    const trimmedUrl = url.trim();
+    if (!trimmedUrl) return;
+    onAddUrl(trimmedUrl);
+    setUrl("");
+  };
+
   return (
     <>
       {images.length > 0 && (
@@ -23,17 +31,30 @@ export default function ImageUpload({
           ))}
         </S.Grid>
       )}
-      <S.Zone>
-        <FaUpload />
-        {uploading ? "Trwa upload…" : "Kliknij, aby wgrać"}
-        <input
-          type="file"
-          accept="image/*"
-          multiple={multiple}
-          onChange={onUpload}
-          disabled={uploading}
+      <S.UrlRow>
+        <S.UrlInput
+          type="url"
+          value={url}
+          onChange={(event) => setUrl(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              handleAdd();
+            }
+          }}
+          placeholder="Wklej publiczny adres zdjęcia z GitHuba"
+          aria-label="Adres zdjęcia"
         />
-      </S.Zone>
+        <S.AddButton type="button" onClick={handleAdd}>
+          <FaLink aria-hidden />
+          Dodaj
+        </S.AddButton>
+      </S.UrlRow>
+      <S.HelpText>
+        {multiple
+          ? "Dodaj osobny adres dla każdego zdjęcia galerii."
+          : "Wklej adres zdjęcia z publicznego repozytorium GitHub."}
+      </S.HelpText>
     </>
   );
 }

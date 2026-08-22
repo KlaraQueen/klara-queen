@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { uploadOfferImage } from "../../../../services/offerService";
 import { normalizeOfferImageFields } from "../../../../utils/offerImages";
 import { EMPTY } from "./constants";
 
 export default function useOfferForm(offer, onSave) {
   const [form, setForm] = useState(EMPTY);
   const [saving, setSaving] = useState(false);
-  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (offer) {
@@ -50,36 +48,6 @@ export default function useOfferForm(offer, onSave) {
       form.features.filter((_, idx) => idx !== i),
     );
 
-  const handleMainImage = async (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploading(true);
-    try {
-      const url = await uploadOfferImage(file, "main");
-      set("image", url);
-    } catch (err) {
-      alert("Błąd uploadu: " + err.message);
-    }
-    setUploading(false);
-  };
-
-  const handleGalleryImages = async (e) => {
-    const files = Array.from(e.target.files || []);
-    if (!files.length) return;
-    setUploading(true);
-    try {
-      const urls = [];
-      for (const file of files) {
-        const url = await uploadOfferImage(file, "gallery");
-        urls.push(url);
-      }
-      set("images", [...form.images, ...urls]);
-    } catch (err) {
-      alert("Błąd uploadu: " + err.message);
-    }
-    setUploading(false);
-  };
-
   const removeGalleryImage = (idx) => {
     set(
       "images",
@@ -102,13 +70,10 @@ export default function useOfferForm(offer, onSave) {
   return {
     form,
     saving,
-    uploading,
     set,
     setFeature,
     addFeature,
     removeFeature,
-    handleMainImage,
-    handleGalleryImages,
     removeGalleryImage,
     handleSubmit,
   };

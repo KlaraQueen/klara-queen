@@ -10,13 +10,10 @@ export default function OfferForm({ offer, onSave, onCancel }) {
   const {
     form,
     saving,
-    uploading,
     set,
     setFeature,
     addFeature,
     removeFeature,
-    handleMainImage,
-    handleGalleryImages,
     removeGalleryImage,
     handleSubmit,
   } = useOfferForm(offer, onSave);
@@ -40,8 +37,7 @@ export default function OfferForm({ offer, onSave, onCancel }) {
           <S.ImageLabel>Zdjęcie główne</S.ImageLabel>
           <ImageUpload
             images={form.image ? [form.image] : []}
-            uploading={uploading}
-            onUpload={handleMainImage}
+            onAddUrl={(url) => set("image", url)}
             onRemove={() => set("image", "")}
           />
         </S.ImageCol>
@@ -50,8 +46,7 @@ export default function OfferForm({ offer, onSave, onCancel }) {
           <S.ImageLabel>Galeria zdjęć</S.ImageLabel>
           <ImageUpload
             images={form.images}
-            uploading={uploading}
-            onUpload={handleGalleryImages}
+            onAddUrl={(url) => set("images", [...form.images, url])}
             onRemove={removeGalleryImage}
             multiple
           />
@@ -61,7 +56,6 @@ export default function OfferForm({ offer, onSave, onCancel }) {
       <FormActions
         offer={offer}
         saving={saving}
-        uploading={uploading}
         onCancel={onCancel}
       />
     </S.FormPanel>
