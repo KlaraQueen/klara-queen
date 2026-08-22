@@ -3,16 +3,20 @@
  * Obsługuje: image, images[], obiekty { url }, pojedynczy string, zagnieżdżenia.
  */
 
-const URL_PATTERN =
-  /^https?:\/\//i;
+const URL_PATTERN = /^https?:\/\//i;
+const LOCAL_IMAGE_PATTERN =
+  /^(\/|\.\/|\.\.\/).+\.(png|jpe?g|webp|gif|avif|svg)(\?|#|$)/i;
 
 function isImageUrl(value) {
   if (typeof value !== "string") {
     return false;
   }
   const s = value.trim();
-  if (!URL_PATTERN.test(s)) {
+  if (!URL_PATTERN.test(s) && !LOCAL_IMAGE_PATTERN.test(s)) {
     return false;
+  }
+  if (LOCAL_IMAGE_PATTERN.test(s)) {
+    return true;
   }
   return (
     /firebasestorage\.googleapis\.com/i.test(s) ||
@@ -43,13 +47,22 @@ function collectFromValue(value, urls, seen, depth = 0) {
 
   if (typeof value === "object") {
     // Typowe klucze z Firebase / starych formularzy
-    const preferKeys = ["url", "downloadURL", "downloadUrl", "src", "href", "path"];
+    const preferKeys = [
+      "url",
+      "downloadURL",
+      "downloadUrl",
+      "src",
+      "href",
+      "path",
+    ];
     for (const key of preferKeys) {
       if (key in value) {
         collectFromValue(value[key], urls, seen, depth + 1);
       }
     }
-    Object.values(value).forEach((v) => collectFromValue(v, urls, seen, depth + 1));
+    Object.values(value).forEach((v) =>
+      collectFromValue(v, urls, seen, depth + 1),
+    );
   }
 }
 

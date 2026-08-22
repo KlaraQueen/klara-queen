@@ -41,7 +41,7 @@ const TemplatePreview = ({ offerId }) => {
 
   return (
     <S.Container>
-      <S.BackButton onClick={() => navigate(-1)}>
+      <S.BackButton onClick={() => navigate("/offer")}>
         {templatePreviewStrings.backLabel}
       </S.BackButton>
 
