@@ -25,7 +25,7 @@ export default function BasicFields({ form, set }) {
       </S.Group>
 
       <S.Group>
-        <S.Label>Dodatkowa cena / wariant</S.Label>
+        <S.Label>Kod produktu</S.Label>
         <S.Input
           value={form.altPrice || ""}
           onChange={(e) => set("altPrice", e.target.value)}
