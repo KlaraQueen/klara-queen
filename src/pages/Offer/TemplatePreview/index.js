@@ -5,7 +5,6 @@ import { templatePreviewStrings } from "../../../data/offerData";
 import { useOffer } from "../../../hooks/useOffers";
 import { getOfferCoverUrls } from "../../../utils/offerImages";
 import HeroSection from "./Hero";
-import VideoSectionComponent from "./Video";
 import FeaturesComponent from "./Features";
 import CTAComponent from "./CTA";
 import { Section, SectionTitle, Description } from "./shared/styled";
@@ -50,15 +49,11 @@ const TemplatePreview = ({ offerId }) => {
         title={offer.title}
         subtitle={offer.shortDescription}
         price={offer.price}
+        liveUrl={offer.liveUrl}
         images={heroImages}
       />
 
       <S.Content>
-        <VideoSectionComponent
-          title={templatePreviewStrings.videoTitle}
-          youtubeUrl={offer.youtubeUrl}
-        />
-
         <Section>
           <SectionTitle>{templatePreviewStrings.aboutTitle}</SectionTitle>
           <Description>{offer.fullDescription}</Description>

@@ -127,6 +127,33 @@ export const DetailsDescription = styled.p`
   margin: 0 0 clamp(25px, 4vw, 40px) 0;
 `;
 
+export const LiveButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(12px, 2.5vw, 16px) 20px;
+  margin: 0 0 clamp(20px, 3vw, 28px);
+  border: 1px solid ${theme.colors.goldMain};
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  color: ${theme.colors.goldMain};
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    background: rgba(212, 175, 55, 0.22);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+  }
+`;
+
 export const ButtonGroup = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -180,6 +180,41 @@ export const PriceTagValue = styled.span`
   }
 `;
 
+export const LiveLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 290px);
+  box-sizing: border-box;
+  padding: 13px 20px;
+  border: 1px solid ${theme.colors.goldMain};
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.2),
+    rgba(212, 175, 55, 0.06)
+  );
+  color: ${theme.colors.goldMain};
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+
+  &:hover {
+    background: rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 26px rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 821px) {
+    width: 100%;
+    max-width: 290px;
+  }
+`;
+
 export const NoPhotos = styled.p`
   margin: 0;
   padding: clamp(24px, 4vw, 40px);

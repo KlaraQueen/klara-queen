@@ -19,7 +19,7 @@ export default function useOfferForm(offer, onSave) {
         style: offer.style || "elegancki",
         colors: offer.colors || [],
         fullDescription: offer.fullDescription || "",
-        youtubeUrl: offer.youtubeUrl || "",
+        liveUrl: offer.liveUrl || "",
         features:
           offer.features && offer.features.length > 0
             ? [...offer.features]

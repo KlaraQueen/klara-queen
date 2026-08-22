@@ -140,6 +140,11 @@ export const SecondaryButton = styled(PrimaryButton)`
   }
 `;
 
+export const LiveButton = styled(SecondaryButton)`
+  min-width: min(100%, 240px);
+  box-sizing: border-box;
+`;
+
 export const TertiaryButton = styled(PrimaryButton)`
   background: rgba(10, 8, 14, 0.55);
   color: ${theme.colors.white};

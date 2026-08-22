@@ -151,11 +151,6 @@ function Privacy() {
             logowania) — zgodnie z dokumentacją Google.
           </p>
           <p>
-            Na stronach ofert mogą pojawiać się <strong>filmy YouTube</strong>{" "}
-            osadzone w ramce (iframe). Odtwarzanie może wiązać się z
-            przetwarzaniem danych przez Google zgodnie z ich zasadami — możesz
-            ograniczyć pliki cookies w ustawieniach przeglądarki lub nie
-            odtwarzać materiału.
           </p>
           <p>
             Linki do serwisów zewnętrznych (np. media społecznościowe, sklep

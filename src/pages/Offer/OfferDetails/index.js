@@ -2,7 +2,6 @@ import React from "react";
 import * as S from "./styled";
 import { useOffer } from "../../../hooks/useOffers";
 import { contactData } from "../../../data/contactData";
-import VideoSection from "./VideoSection";
 import PriceSection from "./PriceSection";
 import FeaturesSection from "./FeaturesSection";
 
@@ -15,8 +14,6 @@ const OfferDetails = ({ offerId, onClose, isFullPage = false }) => {
   const contentJSX = (
     <>
       <S.DetailsGrid isFullPage={isFullPage}>
-        <VideoSection youtubeUrl={offer.youtubeUrl} title={offer.title} />
-
         <S.DetailsContent>
           <S.DetailsTitle>{offer.title}</S.DetailsTitle>
           <S.DetailsDescription>{offer.fullDescription}</S.DetailsDescription>
@@ -24,6 +21,16 @@ const OfferDetails = ({ offerId, onClose, isFullPage = false }) => {
           <PriceSection price={offer.price} />
 
           <FeaturesSection features={offer.features} />
+
+          {offer.liveUrl ? (
+            <S.LiveButton
+              href={offer.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Zobacz stronę na żywo
+            </S.LiveButton>
+          ) : null}
 
           <S.ButtonGroup>
             <S.PrimaryButton

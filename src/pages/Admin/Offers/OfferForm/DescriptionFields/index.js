@@ -21,12 +21,18 @@ export default function DescriptionFields({
       </S.Group>
 
       <S.Group>
-        <S.Label>Link do filmu YouTube</S.Label>
+        <S.Label>Link do strony na żywo</S.Label>
         <S.Input
-          value={form.youtubeUrl}
-          onChange={(e) => set("youtubeUrl", e.target.value)}
-          placeholder="https://www.youtube.com/watch?v=… lub youtu.be/…"
+          type="url"
+          value={form.liveUrl}
+          onChange={(e) => set("liveUrl", e.target.value)}
+          placeholder="https://twoja-strona.github.io/projekt"
+          inputMode="url"
         />
+        <S.Hint>
+          Dodaj publiczny adres projektu, który klient może otworzyć w nowej
+          karcie.
+        </S.Hint>
       </S.Group>
 
       <S.Group>

@@ -8,7 +8,6 @@ export const offerPageHeader = {
 
 export const templatePreviewStrings = {
   backLabel: "← Wróć do ofert",
-  videoTitle: "Preview szablonu",
   aboutTitle: "O szablonie",
   featuresTitle: "Szablon zawiera:",
 };

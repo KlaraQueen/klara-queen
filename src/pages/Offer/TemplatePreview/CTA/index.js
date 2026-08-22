@@ -13,6 +13,15 @@ const CTAComponent = ({ offer }) => {
     <S.CTASection>
       <S.CTATitle>Interesuje Cię ten szablon?</S.CTATitle>
       <S.CTAButtons>
+        {offer?.liveUrl ? (
+          <S.LiveButton
+            href={offer.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zobacz stronę na żywo
+          </S.LiveButton>
+        ) : null}
         {allegroHref ? (
           <S.PrimaryButton
             href={allegroHref}

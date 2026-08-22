@@ -72,3 +72,11 @@ export const TextArea = styled.textarea`
     color: ${c.textPlaceholder};
   }
 `;
+
+export const Hint = styled.span`
+  display: block;
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+  line-height: 1.45;
+`;

@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styled";
 import GallerySection from "../GallerySection";
 
-const HeroSection = ({ title, subtitle, price, images }) => {
+const HeroSection = ({ title, subtitle, price, liveUrl, images }) => {
   const hasImages = Array.isArray(images) && images.length > 0;
 
   return (
@@ -15,6 +15,15 @@ const HeroSection = ({ title, subtitle, price, images }) => {
             <S.PriceTagValue>{price}</S.PriceTagValue>
           </S.PriceTag>
         )}
+        {liveUrl ? (
+          <S.LiveLink
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zobacz stronę na żywo
+          </S.LiveLink>
+        ) : null}
       </S.HeroContent>
       {hasImages ? (
         <GallerySection images={images} title={title} />

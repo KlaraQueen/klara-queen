@@ -21,7 +21,7 @@ export const EMPTY = {
   style: "elegancki",
   colors: [],
   fullDescription: "",
-  youtubeUrl: "",
+  liveUrl: "",
   features: [""],
   image: "",
   images: [],
