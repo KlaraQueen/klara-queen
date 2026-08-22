@@ -180,6 +180,18 @@ export const PriceTagValue = styled.span`
   }
 `;
 
+export const NoPhotos = styled.p`
+  margin: 0;
+  padding: clamp(24px, 4vw, 40px);
+  text-align: center;
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.2);
+`;
+
 export const HeroImage = styled.img`
   width: 100%;
   height: auto;

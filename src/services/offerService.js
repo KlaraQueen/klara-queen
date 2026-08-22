@@ -22,9 +22,20 @@ const COL = "offers";
 
 export async function fetchOffers() {
   if (!db) return [];
-  const q = query(collection(db, COL), orderBy("createdAt", "desc"));
-  const snap = await getDocs(q);
-  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  try {
+    const q = query(collection(db, COL), orderBy("createdAt", "desc"));
+    const snap = await getDocs(q);
+    return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  } catch {
+    const snap = await getDocs(collection(db, COL));
+    const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    list.sort((a, b) => {
+      const ta = a.createdAt?.seconds ?? a.createdAt ?? 0;
+      const tb = b.createdAt?.seconds ?? b.createdAt ?? 0;
+      return tb - ta;
+    });
+    return list;
+  }
 }
 
 export async function fetchOffer(id) {

@@ -1,8 +1,8 @@
 export const portfolioPageData = {
   header: {
-    title: "Przykładowe Prace",
+    title: "Najnowsze oferty",
     subtitle:
       "Ekskluzywne projekty cyfrowe, które\ndefiniują nową jakość branży",
   },
-  viewAllText: "Zobacz Pełne Portfolio",
+  viewAllText: "Zobacz wszystkie oferty",
 };

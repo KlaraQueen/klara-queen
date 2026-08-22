@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { uploadOfferImage } from "../../../../services/offerService";
+import { normalizeOfferImageFields } from "../../../../utils/offerImages";
 import { EMPTY } from "./constants";
 
 export default function useOfferForm(offer, onSave) {
@@ -101,10 +102,10 @@ export default function useOfferForm(offer, onSave) {
     e.preventDefault();
     if (!form.title.trim() || !form.price.trim()) return;
     setSaving(true);
-    const data = {
+    const data = normalizeOfferImageFields({
       ...form,
       features: form.features.filter((f) => f.trim()),
-    };
+    });
     await onSave(data);
     setSaving(false);
   };

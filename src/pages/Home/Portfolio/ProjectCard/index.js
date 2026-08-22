@@ -6,10 +6,15 @@ import Title from "./Title";
 import Divider from "./Divider";
 
 function ProjectCard({ project }) {
-  const { type, url, title, description, image, icon } = project;
+  const { internalTo, url, title, description, image, icon, type } = project;
+
+  const externalHref =
+    !internalTo && type === "link" && typeof url === "string"
+      ? url.trim()
+      : undefined;
 
   return (
-    <Container type={type} url={url} isLink={type === "link"}>
+    <Container internalTo={internalTo} href={externalHref}>
       <Image image={image} title={title} />
       <Icon icon={icon} />
       <Title title={title} description={description} />

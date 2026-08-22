@@ -9,9 +9,11 @@ import {
   offerFilterStyles,
   offerFilterColors,
 } from "../../../data/offerData";
+import { getOfferCoverUrl } from "../../../utils/offerImages";
 
 const OfferList = () => {
   const baseUrl = process.env.PUBLIC_URL || "";
+  const thumbFallback = `${baseUrl}/logo192.png`;
   const { offers, loading } = useOffers();
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
@@ -125,7 +127,10 @@ const OfferList = () => {
             rel={isMobile ? undefined : "noopener noreferrer"}
           >
             <S.OfferCard>
-              <S.OfferImage src={offer.image} alt={offer.title} />
+              <S.OfferImage
+                src={getOfferCoverUrl(offer) || thumbFallback}
+                alt={offer.title}
+              />
               <S.OfferCardContent>
                 <S.OfferCardTitle>{offer.title}</S.OfferCardTitle>
                 <S.OfferCardDescription>
@@ -149,7 +154,10 @@ const OfferList = () => {
             target={isMobile ? undefined : "_blank"}
             rel={isMobile ? undefined : "noopener noreferrer"}
           >
-            <S.OfferListImage src={offer.image} alt={offer.title} />
+            <S.OfferListImage
+                src={getOfferCoverUrl(offer) || thumbFallback}
+                alt={offer.title}
+              />
             <S.OfferListContent>
               <S.OfferListTitle>{offer.title}</S.OfferListTitle>
               <S.OfferListDescription>

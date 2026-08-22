@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as S from "./styled";
 import { templatePreviewStrings } from "../../../data/offerData";
 import { useOffer } from "../../../hooks/useOffers";
+import { getOfferCoverUrls } from "../../../utils/offerImages";
 import HeroSection from "./Hero";
 import VideoSectionComponent from "./Video";
 import FeaturesComponent from "./Features";
@@ -37,6 +38,8 @@ const TemplatePreview = ({ offerId }) => {
     );
   }
 
+  const heroImages = getOfferCoverUrls(offer);
+
   return (
     <S.Container>
       <S.BackButton onClick={() => navigate(-1)}>
@@ -47,7 +50,7 @@ const TemplatePreview = ({ offerId }) => {
         title={offer.title}
         subtitle={offer.shortDescription}
         price={offer.price}
-        images={offer.images}
+        images={heroImages}
       />
 
       <S.Content>

@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./styled";
+import { getOfferCoverUrl } from "../../../../utils/offerImages";
 
 export default function OfferTable({ offers, onEdit, onDelete }) {
   if (offers.length === 0) {
@@ -25,7 +26,10 @@ export default function OfferTable({ offers, onEdit, onDelete }) {
       {offers.map((o) => (
         <S.Row key={o.id}>
           <S.Thumb
-            src={o.image || "https://via.placeholder.com/48x48?text=?"}
+            src={
+              getOfferCoverUrl(o) ||
+              "https://via.placeholder.com/48x48?text=%3F"
+            }
             alt=""
           />
           <S.Title>{o.title}</S.Title>

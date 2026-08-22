@@ -1,13 +1,40 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
+import { Link } from "react-router-dom";
 import * as S from "./styled";
 import ProjectCard from "./ProjectCard/index";
-import { portfolioData } from "../../../data/portfolioData";
 import { portfolioPageData } from "../../../data/portfolioPageData";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaGem } from "react-icons/fa";
+import { useOffers } from "../../../hooks/useOffers";
+import { getOfferCoverUrl } from "../../../utils/offerImages";
+import fallbackImage from "../../../assets/projects/pexels-dimkidama-15115560.jpg";
+
+const HOME_OFFERS_LIMIT = 10;
+
+/** Oferty są już z API posortowane po `createdAt` malejąco (najnowsze pierwsze). */
+function mapOfferToProject(offer) {
+  const thumb = getOfferCoverUrl(offer) || fallbackImage;
+
+  return {
+    id: offer.id,
+    internalTo: `/offer/${offer.id}`,
+    title: (offer.title && String(offer.title).trim()) || "Oferta",
+    description: offer.shortDescription
+      ? String(offer.shortDescription).trim()
+      : "",
+    image: thumb,
+    icon: FaGem,
+  };
+}
 
 function Portfolio() {
   const trackRef = useRef(null);
   const busy = useRef(false);
+  const { offers, loading } = useOffers();
+
+  const projects = useMemo(
+    () => offers.slice(0, HOME_OFFERS_LIMIT).map(mapOfferToProject),
+    [offers],
+  );
 
   const scroll = (dir) => {
     const el = trackRef.current;
@@ -38,28 +65,37 @@ function Portfolio() {
         <S.Subtitle>{portfolioPageData.header.subtitle}</S.Subtitle>
       </S.TitleWrapper>
 
-      <S.SliderOuter>
-        <S.ArrowButton
-          onClick={() => scroll(-1)}
-          aria-label="Poprzedni projekt"
-        >
-          <FaChevronLeft />
-        </S.ArrowButton>
+      {loading ? (
+        <S.StatusLine>Ładowanie najnowszych ofert…</S.StatusLine>
+      ) : projects.length === 0 ? (
+        <S.StatusLine>Wkrótce pojawią się tu opublikowane oferty.</S.StatusLine>
+      ) : (
+        <S.SliderOuter>
+          <S.ArrowButton
+            onClick={() => scroll(-1)}
+            aria-label="Poprzednia oferta"
+          >
+            <FaChevronLeft />
+          </S.ArrowButton>
 
-        <S.Track ref={trackRef}>
-          {portfolioData.map((project) => (
-            <S.CardSlot key={project.id}>
-              <ProjectCard project={project} />
-            </S.CardSlot>
-          ))}
-        </S.Track>
+          <S.Track ref={trackRef}>
+            {projects.map((project) => (
+              <S.CardSlot key={project.id}>
+                <ProjectCard project={project} />
+              </S.CardSlot>
+            ))}
+          </S.Track>
 
-        <S.ArrowButton onClick={() => scroll(1)} aria-label="Następny projekt">
-          <FaChevronRight />
-        </S.ArrowButton>
-      </S.SliderOuter>
+          <S.ArrowButton
+            onClick={() => scroll(1)}
+            aria-label="Następna oferta"
+          >
+            <FaChevronRight />
+          </S.ArrowButton>
+        </S.SliderOuter>
+      )}
 
-      <S.ViewAllContainer>
+      <S.ViewAllContainer as={Link} to="/offer">
         <S.ViewAllText>{portfolioPageData.viewAllText}</S.ViewAllText>
         <S.ViewAllLine />
       </S.ViewAllContainer>

@@ -3,6 +3,8 @@ import * as S from "./styled";
 import GallerySection from "../GallerySection";
 
 const HeroSection = ({ title, subtitle, price, images }) => {
+  const hasImages = Array.isArray(images) && images.length > 0;
+
   return (
     <S.Hero>
       <S.HeroContent>
@@ -14,7 +16,14 @@ const HeroSection = ({ title, subtitle, price, images }) => {
           </S.PriceTag>
         )}
       </S.HeroContent>
-      <GallerySection images={images} title={title} />
+      {hasImages ? (
+        <GallerySection images={images} title={title} />
+      ) : (
+        <S.NoPhotos>
+          Brak zdjęć w tej ofercie — dodaj je w panelu admina (zdjęcie główne lub
+          galeria), potem zapisz ofertę ponownie.
+        </S.NoPhotos>
+      )}
     </S.Hero>
   );
 };

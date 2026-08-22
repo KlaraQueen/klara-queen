@@ -191,12 +191,22 @@ export const ArrowButton = styled.button`
   }
 `;
 
+export const StatusLine = styled.p`
+  margin: 0 0 clamp(12px, 2vw, 20px);
+  text-align: center;
+  font-size: clamp(0.88rem, 1.5vw, 0.98rem);
+  color: ${theme.colors.textFaded};
+  font-family: "Manrope", "Segoe UI", sans-serif;
+`;
+
 export const ViewAllContainer = styled.div`
   margin: 8px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 
   &:hover div {
     width: 100px;
