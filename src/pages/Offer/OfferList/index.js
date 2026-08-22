@@ -50,10 +50,7 @@ const OfferList = () => {
   );
 
   useEffect(() => {
-    const tp = Math.max(
-      1,
-      Math.ceil((offers?.length || 0) / itemsPerPage),
-    );
+    const tp = Math.max(1, Math.ceil((offers?.length || 0) / itemsPerPage));
     setCurrentPage((p) => Math.min(Math.max(1, p), tp));
   }, [offers?.length, itemsPerPage]);
 
@@ -65,66 +62,71 @@ const OfferList = () => {
     setCurrentPage(pageNumber);
   };
 
-  const listContent =
-    loading ? null : !offers || offers.length === 0 ? (
-      <div style={{ textAlign: "center", padding: "48px 0", color: "rgba(255,255,255,0.5)" }}>
-        Brak opublikowanych szablonów.
-      </div>
-    ) : viewMode === "grid" ? (
-      <S.OffersGrid>
-        {currentOffers.map((offer) => (
-          <S.OfferCardLink
-            key={offer.id}
-            href={`${baseUrl}/offer/${offer.id}`}
-            target={isMobile ? undefined : "_blank"}
-            rel={isMobile ? undefined : "noopener noreferrer"}
-          >
-            <S.OfferCard>
-              <S.OfferImage
-                src={getOfferCoverUrl(offer) || thumbFallback}
-                alt={offer.title}
-              />
-              <S.OfferCardContent>
-                <S.OfferCardTitle>{offer.title}</S.OfferCardTitle>
-                <S.OfferCardDescription>
-                  {offer.shortDescription}
-                </S.OfferCardDescription>
-                <S.OfferCardFooter>
-                  <S.OfferPrice>{offer.price}</S.OfferPrice>
-                  <S.OfferButton>Szczegóły</S.OfferButton>
-                </S.OfferCardFooter>
-              </S.OfferCardContent>
-            </S.OfferCard>
-          </S.OfferCardLink>
-        ))}
-      </S.OffersGrid>
-    ) : (
-      <S.OffersList>
-        {currentOffers.map((offer) => (
-          <S.OfferListItem
-            key={offer.id}
-            href={`${baseUrl}/offer/${offer.id}`}
-            target={isMobile ? undefined : "_blank"}
-            rel={isMobile ? undefined : "noopener noreferrer"}
-          >
-            <S.OfferListImage
-                src={getOfferCoverUrl(offer) || thumbFallback}
-                alt={offer.title}
-              />
-            <S.OfferListContent>
-              <S.OfferListTitle>{offer.title}</S.OfferListTitle>
-              <S.OfferListDescription>
+  const listContent = loading ? null : !offers || offers.length === 0 ? (
+    <div
+      style={{
+        textAlign: "center",
+        padding: "48px 0",
+        color: "rgba(255,255,255,0.5)",
+      }}
+    >
+      Brak opublikowanych szablonów.
+    </div>
+  ) : viewMode === "grid" ? (
+    <S.OffersGrid>
+      {currentOffers.map((offer) => (
+        <S.OfferCardLink
+          key={offer.id}
+          href={`${baseUrl}/offer/${offer.id}`}
+          target={isMobile ? undefined : "_blank"}
+          rel={isMobile ? undefined : "noopener noreferrer"}
+        >
+          <S.OfferCard>
+            <S.OfferImage
+              src={getOfferCoverUrl(offer) || thumbFallback}
+              alt={offer.title}
+            />
+            <S.OfferCardContent>
+              <S.OfferCardTitle>{offer.title}</S.OfferCardTitle>
+              <S.OfferCardDescription>
                 {offer.shortDescription}
-              </S.OfferListDescription>
-              <S.OfferListFooter>
-                <S.OfferListPrice>{offer.price}</S.OfferListPrice>
-                <S.OfferListButton>Szczegóły</S.OfferListButton>
-              </S.OfferListFooter>
-            </S.OfferListContent>
-          </S.OfferListItem>
-        ))}
-      </S.OffersList>
-    );
+              </S.OfferCardDescription>
+              <S.OfferCardFooter>
+                <S.OfferPrice>{offer.price}</S.OfferPrice>
+                <S.OfferButton>Szczegóły</S.OfferButton>
+              </S.OfferCardFooter>
+            </S.OfferCardContent>
+          </S.OfferCard>
+        </S.OfferCardLink>
+      ))}
+    </S.OffersGrid>
+  ) : (
+    <S.OffersList>
+      {currentOffers.map((offer) => (
+        <S.OfferListItem
+          key={offer.id}
+          href={`${baseUrl}/offer/${offer.id}`}
+          target={isMobile ? undefined : "_blank"}
+          rel={isMobile ? undefined : "noopener noreferrer"}
+        >
+          <S.OfferListImage
+            src={getOfferCoverUrl(offer) || thumbFallback}
+            alt={offer.title}
+          />
+          <S.OfferListContent>
+            <S.OfferListTitle>{offer.title}</S.OfferListTitle>
+            <S.OfferListDescription>
+              {offer.shortDescription}
+            </S.OfferListDescription>
+            <S.OfferListFooter>
+              <S.OfferListPrice>{offer.price}</S.OfferListPrice>
+              <S.OfferListButton>Szczegóły</S.OfferListButton>
+            </S.OfferListFooter>
+          </S.OfferListContent>
+        </S.OfferListItem>
+      ))}
+    </S.OffersList>
+  );
 
   return (
     <S.OfferListWrapper>
