@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import * as S from "./styled";
 
-const BROKEN_SRC = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+const BROKEN_SRC =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 const GallerySection = ({ images, title }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -129,7 +130,7 @@ const GallerySection = ({ images, title }) => {
                 onCut={(e) => e.preventDefault()}
                 onError={() => markBroken(safeImages[safeActiveIndex])}
               />
-              <S.Watermark style={{ opacity: 0.35 }}>
+              <S.Watermark style={{ opacity: 0.12 }}>
                 <S.WatermarkText>www.studioklara.pl</S.WatermarkText>
               </S.Watermark>
             </S.ImageContainer>

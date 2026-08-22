@@ -31,7 +31,7 @@ export const Hero = styled.section`
 export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: clamp(20px, 3vw, 30px);
+  gap: clamp(14px, 2vw, 20px);
   padding: clamp(30px, 5vw, 50px);
   border: 2px solid rgba(212, 175, 55, 0.3);
   border-radius: 20px;
@@ -100,7 +100,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.p`
   font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   color: rgba(255, 255, 255, 0.65);
-  margin: 0 0 clamp(20px, 3vw, 35px) 0;
+  margin: 0 0 clamp(10px, 2vw, 18px) 0;
   line-height: 1.65;
   font-weight: 300;
   letter-spacing: 0.3px;
@@ -137,7 +137,7 @@ export const PriceTag = styled.div`
   align-items: center;
   gap: clamp(14px, 2.5vw, 22px);
   width: fit-content;
-  margin-top: clamp(8px, 1.5vw, 12px);
+  margin-top: clamp(2px, 0.6vw, 6px);
   padding: clamp(12px, 1.5vw, 18px) clamp(18px, 2.5vw, 28px);
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid rgba(212, 175, 55, 0.25);
@@ -214,7 +214,10 @@ export const LiveLink = styled.a`
   letter-spacing: 0.6px;
   text-align: center;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 
   &:hover {
     background: rgba(212, 175, 55, 0.28);

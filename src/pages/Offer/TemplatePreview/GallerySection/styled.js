@@ -44,7 +44,7 @@ export const Watermark = styled.div`
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.14;
   z-index: 100;
   border-radius: 12px;
   user-select: none;
