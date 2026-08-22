@@ -1,9 +1,7 @@
 import React from "react";
 import * as S from "./styled";
-import { STYLES } from "../constants";
-import ColorChips from "../ColorChips";
 
-export default function BasicFields({ form, set, onToggleColor }) {
+export default function BasicFields({ form, set }) {
   return (
     <S.Grid>
       <S.Group>
@@ -42,25 +40,6 @@ export default function BasicFields({ form, set, onToggleColor }) {
           onChange={(e) => set("shortDescription", e.target.value)}
           placeholder="Prezentuj swoje prace i osiągnięcia"
         />
-      </S.Full>
-
-      <S.Group>
-        <S.Label>Styl</S.Label>
-        <S.Select
-          value={form.style}
-          onChange={(e) => set("style", e.target.value)}
-        >
-          {STYLES.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </S.Select>
-      </S.Group>
-
-      <S.Full>
-        <S.Label>Kolory</S.Label>
-        <ColorChips colors={form.colors} onToggle={onToggleColor} />
       </S.Full>
 
       <S.Full>

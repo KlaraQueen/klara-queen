@@ -1,5 +1,3 @@
-import { buildOfferPublicFilters } from "./offerTaxonomy";
-
 export const offerPageHeader = {
   title: "Nasze Projekty",
   subtitle:
@@ -19,6 +17,3 @@ export const offerDetailsStrings = {
   priceLabel: "Cena za projekt:",
 };
 
-const publicFilters = buildOfferPublicFilters();
-export const offerFilterStyles = publicFilters.styles;
-export const offerFilterColors = publicFilters.colors;

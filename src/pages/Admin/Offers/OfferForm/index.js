@@ -12,7 +12,6 @@ export default function OfferForm({ offer, onSave, onCancel }) {
     saving,
     uploading,
     set,
-    toggleColor,
     setFeature,
     addFeature,
     removeFeature,
@@ -26,7 +25,7 @@ export default function OfferForm({ offer, onSave, onCancel }) {
     <S.FormPanel as="form" onSubmit={handleSubmit}>
       <S.FormTitle>{offer ? "Edytuj ofertę" : "Nowa oferta"}</S.FormTitle>
 
-      <BasicFields form={form} set={set} onToggleColor={toggleColor} />
+      <BasicFields form={form} set={set} />
 
       <DescriptionFields
         form={form}

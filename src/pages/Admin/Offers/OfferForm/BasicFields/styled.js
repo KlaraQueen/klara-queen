@@ -55,26 +55,3 @@ export const Input = styled.input`
   }
 `;
 
-export const Select = styled.select`
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid ${c.goldSoft18};
-  background: ${c.inputBg};
-  color: ${c.white};
-  font-size: 0.88rem;
-  font-family: inherit;
-  cursor: pointer;
-  transition: border-color 0.3s ease;
-  box-sizing: border-box;
-
-  &:focus {
-    outline: none;
-    border-color: ${c.goldMain};
-  }
-
-  option {
-    background: ${c.deepBlack};
-    color: ${c.white};
-  }
-`;

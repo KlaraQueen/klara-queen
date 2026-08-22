@@ -1,6 +1,3 @@
-import { OFFER_STYLE_OPTIONS } from "../../../../data/offerTaxonomy";
-
-export const STYLES = OFFER_STYLE_OPTIONS;
 export const CUSTOMER_ACTIONS = [
   { value: "none", label: "Brak dodatkowej akcji" },
   { value: "view_ready", label: "Zobacz gotowy produkt" },
@@ -13,8 +10,6 @@ export const EMPTY = {
   shortDescription: "",
   price: "",
   altPrice: "",
-  style: "elegancki",
-  colors: [],
   fullDescription: "",
   liveUrl: "",
   features: [""],

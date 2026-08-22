@@ -15,8 +15,6 @@ export default function useOfferForm(offer, onSave) {
         shortDescription: offer.shortDescription || "",
         price: offer.price || "",
         altPrice: offer.altPrice || "",
-        style: offer.style || "elegancki",
-        colors: offer.colors || [],
         fullDescription: offer.fullDescription || "",
         liveUrl: offer.liveUrl || "",
         features:
@@ -36,15 +34,6 @@ export default function useOfferForm(offer, onSave) {
   }, [offer]);
 
   const set = (key, val) => setForm((p) => ({ ...p, [key]: val }));
-
-  const toggleColor = (color) => {
-    setForm((p) => ({
-      ...p,
-      colors: p.colors.includes(color)
-        ? p.colors.filter((c) => c !== color)
-        : [...p.colors, color],
-    }));
-  };
 
   const setFeature = (i, val) => {
     const copy = [...form.features];
@@ -114,7 +103,6 @@ export default function useOfferForm(offer, onSave) {
     saving,
     uploading,
     set,
-    toggleColor,
     setFeature,
     addFeature,
     removeFeature,
