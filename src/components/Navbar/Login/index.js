@@ -32,12 +32,17 @@ function Login({ variant }) {
       );
     }
     return (
-      <S.AccountLink to="/admin" aria-label="Panel administracyjny">
-        <S.LockIcon>
-          <FaLock />
-        </S.LockIcon>
-        <S.LoginText>Panel</S.LoginText>
-      </S.AccountLink>
+      <S.AccountWrap>
+        <S.AccountLink to="/admin" aria-label="Panel administracyjny">
+          <S.LockIcon>
+            <FaLock />
+          </S.LockIcon>
+          <S.LoginText>Panel</S.LoginText>
+        </S.AccountLink>
+        <S.LogoutBtn type="button" onClick={() => signOutUser()}>
+          Wyloguj
+        </S.LogoutBtn>
+      </S.AccountWrap>
     );
   }
 
