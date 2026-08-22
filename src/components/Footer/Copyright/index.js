@@ -8,22 +8,23 @@ function Copyright({ data }) {
   useEffect(() => {
     if (isInitialized) return; // Prevent double increment
 
-    const storedCount = localStorage.getItem("visitCount");
+    const storedCount = localStorage.getItem("visitCount67100");
     const lastSession = localStorage.getItem("lastSessionTime");
     const currentTime = new Date().getTime();
+    const parsedCount = Number.parseInt(storedCount, 10);
 
-    if (storedCount && lastSession) {
+    if (storedCount && lastSession && parsedCount >= 67100) {
       const timeDiff = currentTime - parseInt(lastSession);
       if (timeDiff > 60000) {
-        const newCount = parseInt(storedCount) + 1;
-        localStorage.setItem("visitCount", newCount);
+        const newCount = parsedCount + 1;
+        localStorage.setItem("visitCount67100", newCount);
         localStorage.setItem("lastSessionTime", currentTime);
         setVisitCount(newCount);
       } else {
-        setVisitCount(parseInt(storedCount));
+        setVisitCount(parsedCount);
       }
     } else {
-      localStorage.setItem("visitCount", 67101);
+      localStorage.setItem("visitCount67100", 67101);
       localStorage.setItem("lastSessionTime", currentTime);
       setVisitCount(67100);
     }
