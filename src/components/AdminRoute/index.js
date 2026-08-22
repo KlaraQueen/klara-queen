@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { isAdminUser } from "../../constants/admin";
+import Login from "../../pages/Auth/Login";
 import * as S from "./styled";
 
 function AdminRoute({ children }) {
@@ -12,7 +13,7 @@ function AdminRoute({ children }) {
   }
 
   if (!user) {
-    return <Navigate to="/panel-wejscie" replace />;
+    return <Login />;
   }
 
   if (!isAdminUser(user)) {

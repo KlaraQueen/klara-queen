@@ -14,7 +14,6 @@ import Offer from "./pages/Offer/index";
 import Blog from "./pages/Blog/index";
 import Article from "./pages/Blog/Article/index";
 import Testimonials from "./pages/Testimonials/index";
-import Login from "./pages/Auth/Login/index";
 import Account from "./pages/Account/index";
 import Admin from "./pages/Admin/index";
 import AdminRoute from "./components/AdminRoute";
@@ -39,7 +38,10 @@ function App() {
           <Route path="/questions" element={<Questions />} />
           <Route path="/cooperation" element={<Cooperation />} />
           <Route path="/polityka-prywatnosci" element={<Privacy />} />
-          <Route path="/panel-wejscie" element={<Login />} />
+          <Route
+            path="/panel-wejscie"
+            element={<Navigate to="/admin" replace />}
+          />
           <Route
             path="/login"
             element={<Navigate to="/panel-wejscie" replace />}
