@@ -18,7 +18,10 @@ const OfferDetails = ({ offerId, onClose, isFullPage = false }) => {
           <S.DetailsTitle>{offer.title}</S.DetailsTitle>
           <S.DetailsDescription>{offer.fullDescription}</S.DetailsDescription>
 
-          <PriceSection price={offer.price} />
+          <PriceSection
+            price={offer.price}
+            lowestPrice30Days={offer.lowestPrice30Days}
+          />
 
           <FeaturesSection features={offer.features} />
 

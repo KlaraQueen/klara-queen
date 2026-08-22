@@ -180,6 +180,19 @@ export const PriceTagValue = styled.span`
   }
 `;
 
+export const PriceTagContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+`;
+
+export const LowestPrice = styled.span`
+  color: rgba(255, 255, 255, 0.58);
+  font-size: clamp(0.68rem, 1.2vw, 0.78rem);
+  line-height: 1.35;
+  letter-spacing: 0.15px;
+`;
+
 export const LiveLink = styled.a`
   display: inline-flex;
   align-items: center;

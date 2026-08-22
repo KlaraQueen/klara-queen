@@ -10,6 +10,7 @@ export const EMPTY = {
   shortDescription: "",
   price: "",
   altPrice: "",
+  lowestPrice30Days: "",
   fullDescription: "",
   liveUrl: "",
   features: [""],

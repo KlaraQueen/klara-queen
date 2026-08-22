@@ -34,6 +34,15 @@ export default function BasicFields({ form, set }) {
       </S.Group>
 
       <S.Full>
+        <S.Label>Najniższa cena z 30 dni</S.Label>
+        <S.Input
+          value={form.lowestPrice30Days || ""}
+          onChange={(e) => set("lowestPrice30Days", e.target.value)}
+          placeholder="np. 1290 zł"
+        />
+      </S.Full>
+
+      <S.Full>
         <S.Label>Krótki opis</S.Label>
         <S.Input
           value={form.shortDescription}

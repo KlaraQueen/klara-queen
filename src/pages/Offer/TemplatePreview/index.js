@@ -49,6 +49,7 @@ const TemplatePreview = ({ offerId }) => {
         title={offer.title}
         subtitle={offer.shortDescription}
         price={offer.price}
+        lowestPrice30Days={offer.lowestPrice30Days}
         liveUrl={offer.liveUrl}
         images={heroImages}
       />

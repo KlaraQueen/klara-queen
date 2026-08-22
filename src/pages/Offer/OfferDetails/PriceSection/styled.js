@@ -26,3 +26,12 @@ export const Price = styled.span`
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 1px;
 `;
+
+export const LowestPrice = styled.span`
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+`;

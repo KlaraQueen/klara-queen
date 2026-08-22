@@ -2,7 +2,14 @@ import React from "react";
 import * as S from "./styled";
 import GallerySection from "../GallerySection";
 
-const HeroSection = ({ title, subtitle, price, liveUrl, images }) => {
+const HeroSection = ({
+  title,
+  subtitle,
+  price,
+  lowestPrice30Days,
+  liveUrl,
+  images,
+}) => {
   const hasImages = Array.isArray(images) && images.length > 0;
 
   return (
@@ -12,7 +19,14 @@ const HeroSection = ({ title, subtitle, price, liveUrl, images }) => {
         <S.Subtitle>{subtitle}</S.Subtitle>
         {price && (
           <S.PriceTag>
-            <S.PriceTagValue>{price}</S.PriceTagValue>
+            <S.PriceTagContent>
+              <S.PriceTagValue>{price}</S.PriceTagValue>
+              {lowestPrice30Days ? (
+                <S.LowestPrice>
+                  Najniższa cena z 30 dni: {lowestPrice30Days}
+                </S.LowestPrice>
+              ) : null}
+            </S.PriceTagContent>
           </S.PriceTag>
         )}
         {liveUrl ? (
