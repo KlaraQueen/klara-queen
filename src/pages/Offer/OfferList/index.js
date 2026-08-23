@@ -92,7 +92,14 @@ const OfferList = () => {
                 {offer.shortDescription}
               </S.OfferCardDescription>
               <S.OfferCardFooter>
-                <S.OfferPrice>{offer.price}</S.OfferPrice>
+                <S.OfferPriceWrap>
+                  <S.OfferPrice>{offer.price}</S.OfferPrice>
+                  {offer.lowestPrice30Days ? (
+                    <S.OfferLowestPrice>
+                      Najniższa cena z 30 dni: {offer.lowestPrice30Days}
+                    </S.OfferLowestPrice>
+                  ) : null}
+                </S.OfferPriceWrap>
                 <S.OfferButton>Szczegóły</S.OfferButton>
               </S.OfferCardFooter>
             </S.OfferCardContent>
@@ -119,7 +126,14 @@ const OfferList = () => {
               {offer.shortDescription}
             </S.OfferListDescription>
             <S.OfferListFooter>
-              <S.OfferListPrice>{offer.price}</S.OfferListPrice>
+              <S.OfferListPriceWrap>
+                <S.OfferListPrice>{offer.price}</S.OfferListPrice>
+                {offer.lowestPrice30Days ? (
+                  <S.OfferListLowestPrice>
+                    Najniższa cena z 30 dni: {offer.lowestPrice30Days}
+                  </S.OfferListLowestPrice>
+                ) : null}
+              </S.OfferListPriceWrap>
               <S.OfferListButton>Szczegóły</S.OfferListButton>
             </S.OfferListFooter>
           </S.OfferListContent>

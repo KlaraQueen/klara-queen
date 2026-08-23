@@ -207,6 +207,21 @@ export const OfferPrice = styled.span`
   text-shadow: 0 2px 10px ${theme.colors.goldSoft20};
 `;
 
+export const OfferPriceWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+`;
+
+export const OfferLowestPrice = styled.span`
+  color: ${theme.colors.textSubtle};
+  font-size: clamp(0.62rem, 1vw, 0.72rem);
+  line-height: 1.3;
+  letter-spacing: 0.1px;
+  overflow-wrap: anywhere;
+`;
+
 export const OfferButton = styled.button`
   padding: clamp(6px, 1.2vw, 10px) clamp(15px, 2.5vw, 25px);
   background: linear-gradient(
@@ -402,6 +417,21 @@ export const OfferListPrice = styled.span`
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 1px;
   text-shadow: 0 2px 10px ${theme.colors.goldSoft20};
+`;
+
+export const OfferListPriceWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+`;
+
+export const OfferListLowestPrice = styled.span`
+  color: ${theme.colors.textSubtle};
+  font-size: clamp(0.62rem, 1vw, 0.72rem);
+  line-height: 1.3;
+  letter-spacing: 0.1px;
+  overflow-wrap: anywhere;
 `;
 
 export const OfferListButton = styled.button`
