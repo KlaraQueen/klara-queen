@@ -111,7 +111,9 @@ export default function Offers() {
 
       {deleting && (
         <ConfirmDialog
-          message={`Czy na pewno chcesz usunąć ofertę „${deleting.title}"?`}
+          message={`Czy na pewno chcesz usunąć ofertę „${deleting.title}”?`}
+          confirmLabel="Tak, usuń"
+          cancelLabel="Nie"
           onConfirm={handleDelete}
           onCancel={() => setDeleting(null)}
         />

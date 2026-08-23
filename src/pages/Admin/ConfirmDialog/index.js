@@ -5,8 +5,8 @@ export default function ConfirmDialog({
   message,
   onConfirm,
   onCancel,
-  confirmLabel = "Usuń",
-  cancelLabel = "Anuluj",
+  confirmLabel = "Tak, usuń",
+  cancelLabel = "Nie",
 }) {
   return (
     <S.Overlay>
