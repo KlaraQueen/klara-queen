@@ -50,8 +50,7 @@ export const LoginButton = styled.a`
     border-color: rgba(255, 239, 194, 0.5);
     transform: translateY(-2px) scale(1.03);
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.45))
-      drop-shadow(0 0 10px ${c.goldMain})
-      drop-shadow(0 0 16px ${c.goldHover});
+      drop-shadow(0 0 10px ${c.goldMain}) drop-shadow(0 0 16px ${c.goldHover});
     box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
   }
 

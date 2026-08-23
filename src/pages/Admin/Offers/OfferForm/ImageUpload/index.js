@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { FaLink } from "react-icons/fa";
 import * as S from "./styled";
 
-export default function ImageUpload({
-  images,
-  onAddUrl,
-  onRemove,
-  multiple,
-}) {
+export default function ImageUpload({ images, onAddUrl, onRemove, multiple }) {
   const [url, setUrl] = useState("");
 
   const handleAdd = () => {

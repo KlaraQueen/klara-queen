@@ -14,6 +14,12 @@ const OfferList = () => {
   const [viewMode, setViewMode] = useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("offerViewMode");
+      const isMobileViewport = window.innerWidth < 820;
+
+      if (isMobileViewport) {
+        return saved === "grid" ? "grid" : "list";
+      }
+
       return saved || "grid";
     }
     return "grid";

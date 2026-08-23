@@ -145,7 +145,10 @@ export const LiveButton = styled.a`
   letter-spacing: 0.8px;
   text-align: center;
   text-decoration: none;
-  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 
   &:hover {
     background: rgba(212, 175, 55, 0.22);

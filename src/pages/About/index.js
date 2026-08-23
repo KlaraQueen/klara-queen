@@ -7,7 +7,6 @@ import Stats from "./Stats";
 import CTA from "./CTA";
 import Social from "./Social";
 
-
 const About = () => {
   return (
     <S.PageContainer>

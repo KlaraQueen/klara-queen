@@ -86,10 +86,7 @@ function Portfolio() {
             ))}
           </S.Track>
 
-          <S.ArrowButton
-            onClick={() => scroll(1)}
-            aria-label="Następna oferta"
-          >
+          <S.ArrowButton onClick={() => scroll(1)} aria-label="Następna oferta">
             <FaChevronRight />
           </S.ArrowButton>
         </S.SliderOuter>

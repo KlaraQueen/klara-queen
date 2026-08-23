@@ -16,4 +16,3 @@ export const offerDetailsStrings = {
   featuresTitle: "Co zawiera:",
   priceLabel: "Cena za projekt:",
 };
-

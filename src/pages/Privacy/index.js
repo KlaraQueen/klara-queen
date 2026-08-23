@@ -20,19 +20,18 @@ function Privacy() {
         <S.Body>
           <h2>1. Administrator</h2>
           <p>
-            Administratorem Twoich danych osobowych w rozumieniu RODO jest
-            osoba prowadząca działalność pod marką{" "}
-            <strong>Studio Klara Queen</strong> (zwana dalej „Administratorem”
-            lub „my”). W sprawach dotyczących danych osobowych możesz
-            skontaktować się z nami mailowo:{" "}
+            Administratorem Twoich danych osobowych w rozumieniu RODO jest osoba
+            prowadząca działalność pod marką <strong>Studio Klara Queen</strong>{" "}
+            (zwana dalej „Administratorem” lub „my”). W sprawach dotyczących
+            danych osobowych możesz skontaktować się z nami mailowo:{" "}
             <a href={`mailto:${mail}`}>{mail}</a>.
           </p>
 
           <h2>2. Dane, które zbieramy i skąd</h2>
           <p>
-            <strong>Serwis wizytówkowy:</strong> przeglądanie strony
-            (adres IP, identyfikatory urządzenia i przeglądarki, czas żądania,
-            typ przeglądarki) mogą być rejestrowane także przez infrastrukturę
+            <strong>Serwis wizytówkowy:</strong> przeglądanie strony (adres IP,
+            identyfikatory urządzenia i przeglądarki, czas żądania, typ
+            przeglądarki) mogą być rejestrowane także przez infrastrukturę
             hostingu i certyfikatu HTTPS — w zakresie niezbędnym do działania i
             zabezpieczenia witryny.
           </p>
@@ -75,15 +74,15 @@ function Privacy() {
               odwiedzającymi stronę);
             </li>
             <li>
-              <strong>bezpieczeństwa</strong> oraz ewentualnej ochrony
-              roszczeń — logi techniczne (art. 6 ust. 1 lit. f RODO —
-              uzasadniony interes);
+              <strong>bezpieczeństwa</strong> oraz ewentualnej ochrony roszczeń
+              — logi techniczne (art. 6 ust. 1 lit. f RODO — uzasadniony
+              interes);
             </li>
             <li>
-              spełnienia{' '}
+              spełnienia{" "}
               <strong>
                 obowiązków prawnych, jeżeli na nas ciąży taki obowiązek
-              </strong>{' '}
+              </strong>{" "}
               (art. 6 ust. 1 lit. c RODO).
             </li>
           </ul>
@@ -115,10 +114,10 @@ function Privacy() {
           <p>
             Dane konta i treści w bazie przechowujemy przez czas posiadania
             konta i realizacji usługi, a następnie przez okres przedawnienia
-            roszczeń lub wymagany przepisami, jeśli dotyczy. Wiadomości e-mail
-            z korespondencji przetwarzamy przez czas potrzebny do obsługi
-            sprawy, a w uzasadnionych przypadkach dłużej (np. archiwum
-            korespondencji biznesowej).
+            roszczeń lub wymagany przepisami, jeśli dotyczy. Wiadomości e-mail z
+            korespondencji przetwarzamy przez czas potrzebny do obsługi sprawy,
+            a w uzasadnionych przypadkach dłużej (np. archiwum korespondencji
+            biznesowej).
           </p>
 
           <h2>6. Twoje prawa</h2>
@@ -126,16 +125,32 @@ function Privacy() {
           <ul>
             <li>dostępu do danych i kopii danych;</li>
             <li>sprostowania danych;</li>
-            <li>usunięcia danych („prawo do bycia zapomnianym”) — w granicach prawa;</li>
+            <li>
+              usunięcia danych („prawo do bycia zapomnianym”) — w granicach
+              prawa;
+            </li>
             <li>ograniczenia przetwarzania;</li>
-            <li>przenoszenia danych — gdy przetwarzanie jest zautomatyzowane i opiera się na zgodzie lub umowie;</li>
-            <li>wniesienia sprzeciwu wobec przetwarzania opartego na uzasadnionym interesie;</li>
-            <li>cofnięcia zgody — gdy przetwarzanie na niej opieramy (wówczas nie wpływa to na zgodność z prawem przetwarzania przed cofnięciem).</li>
+            <li>
+              przenoszenia danych — gdy przetwarzanie jest zautomatyzowane i
+              opiera się na zgodzie lub umowie;
+            </li>
+            <li>
+              wniesienia sprzeciwu wobec przetwarzania opartego na uzasadnionym
+              interesie;
+            </li>
+            <li>
+              cofnięcia zgody — gdy przetwarzanie na niej opieramy (wówczas nie
+              wpływa to na zgodność z prawem przetwarzania przed cofnięciem).
+            </li>
           </ul>
           <p>
             Skargę możesz złożyć do organu nadzorczego (w Polsce: Prezes Urzędu
             Ochrony Danych Osobowych,{" "}
-            <a href="https://uodo.gov.pl" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://uodo.gov.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               uodo.gov.pl
             </a>
             ).
@@ -145,13 +160,11 @@ function Privacy() {
           <p>
             Nie stosujemy w kodzie strony narzędzi typu Google Analytics ani
             piksela reklamowego w rozumieniu klasycznych skryptów śledzących
-            marketingowych.{" "}
-            <strong>Firebase</strong> może wykorzystywać mechanizmy
-            przechowywania danych w przeglądarze (np. do utrzymania sesji
-            logowania) — zgodnie z dokumentacją Google.
+            marketingowych. <strong>Firebase</strong> może wykorzystywać
+            mechanizmy przechowywania danych w przeglądarze (np. do utrzymania
+            sesji logowania) — zgodnie z dokumentacją Google.
           </p>
-          <p>
-          </p>
+          <p></p>
           <p>
             Linki do serwisów zewnętrznych (np. media społecznościowe, sklep
             Allegro) prowadzą poza naszą witrynę — obowiązują tam odrębne

@@ -53,7 +53,7 @@ export const OfferCard = styled.div`
     ${theme.colors.surfaceMid} 100%
   );
   border: 2px solid ${theme.colors.navBorderGold26};
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -66,7 +66,7 @@ export const OfferCard = styled.div`
   user-select: none;
   position: relative;
   box-shadow:
-    0 10px 40px ${theme.colors.shadowMedium},
+    0 14px 32px ${theme.colors.shadowMedium},
     inset 0 1px 0 ${theme.colors.goldSoft10};
 
   @keyframes fadeInUp {
@@ -123,9 +123,10 @@ export const OfferCard = styled.div`
       ${theme.colors.panelFormMid} 0%,
       ${theme.colors.panelFormEnd} 100%
     );
-    transform: translateY(-12px);
+    transform: translateY(-12px) scale(1.01);
     box-shadow:
-      0 30px 60px ${theme.colors.goldSoft30},
+      0 26px 50px ${theme.colors.goldSoft30},
+      0 12px 24px ${theme.colors.shadowMedium},
       inset 0 1px 0 ${theme.colors.goldSoft20};
 
     &::before {
@@ -139,15 +140,25 @@ export const OfferCard = styled.div`
 `;
 
 export const OfferImage = styled.img`
+  display: block;
   width: 100%;
-  height: 160px;
+  height: clamp(220px, 27vw, 320px);
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  filter: brightness(0.95) contrast(1.05);
+  transform-origin: center center;
+  transition:
+    transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.6s ease;
+  filter: brightness(0.9) contrast(1.12) saturate(0.92);
 
-  ${OfferCard}:hover & {
-    transform: scale(1.08);
-    filter: brightness(1) contrast(1.2);
+  @media (max-width: 560px) {
+    height: 190px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    ${OfferCard}:hover & {
+      transform: scale(1.24);
+      filter: brightness(1.04) contrast(1.26) saturate(1.08);
+    }
   }
 `;
 
@@ -306,7 +317,7 @@ export const OfferListItem = styled.a`
     ${theme.colors.surfaceMid} 100%
   );
   border: 2px solid ${theme.colors.navBorderGold26};
-  border-radius: 15px;
+  border-radius: 18px;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -314,9 +325,15 @@ export const OfferListItem = styled.a`
   user-select: none;
   position: relative;
   box-shadow:
-    0 10px 40px ${theme.colors.shadowMedium},
+    0 14px 32px ${theme.colors.shadowMedium},
     inset 0 1px 0 ${theme.colors.goldSoft10};
   animation: fadeInUp 0.8s ease-out both;
+
+  @media (max-width: 560px) {
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+  }
 
   &:nth-child(1) {
     animation-delay: 0.1s;
@@ -344,9 +361,10 @@ export const OfferListItem = styled.a`
       ${theme.colors.panelFormMid} 0%,
       ${theme.colors.panelFormEnd} 100%
     );
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.01);
     box-shadow:
-      0 30px 60px ${theme.colors.goldSoft30},
+      0 26px 50px ${theme.colors.goldSoft30},
+      0 10px 22px ${theme.colors.shadowMedium},
       inset 0 1px 0 ${theme.colors.goldSoft20};
   }
 
@@ -356,17 +374,28 @@ export const OfferListItem = styled.a`
 `;
 
 export const OfferListImage = styled.img`
-  width: clamp(80px, 20vw, 120px);
-  height: clamp(80px, 20vw, 120px);
+  display: block;
+  width: clamp(150px, 24vw, 220px);
+  height: clamp(150px, 24vw, 220px);
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   flex-shrink: 0;
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  filter: brightness(0.95) contrast(1.05);
+  transform-origin: center center;
+  transition:
+    transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.6s ease;
+  filter: brightness(0.9) contrast(1.12) saturate(0.92);
 
-  ${OfferListItem}:hover & {
-    transform: scale(1.08);
-    filter: brightness(1) contrast(1.2);
+  @media (max-width: 560px) {
+    width: 140px;
+    height: 140px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    ${OfferListItem}:hover & {
+      transform: scale(1.24);
+      filter: brightness(1.04) contrast(1.26) saturate(1.08);
+    }
   }
 `;
 
@@ -376,6 +405,10 @@ export const OfferListContent = styled.div`
   flex: 1;
   gap: clamp(8px, 1.5vw, 12px);
   min-width: 0;
+
+  @media (max-width: 560px) {
+    gap: 6px;
+  }
 `;
 
 export const OfferListTitle = styled.h3`
@@ -408,6 +441,11 @@ export const OfferListFooter = styled.div`
   gap: clamp(10px, 2vw, 15px);
   padding-top: clamp(8px, 1.5vw, 12px);
   border-top: 1px solid ${theme.colors.goldSoft25};
+
+  @media (max-width: 560px) {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
 `;
 
 export const OfferListPrice = styled.span`
@@ -435,7 +473,7 @@ export const OfferListLowestPrice = styled.span`
 `;
 
 export const OfferListButton = styled.button`
-  padding: clamp(6px, 1.2vw, 10px) clamp(15px, 2.5vw, 25px);
+  padding: clamp(8px, 1.5vw, 10px) clamp(16px, 2.5vw, 25px);
   background: linear-gradient(
     135deg,
     ${theme.colors.goldMain} 0%,
@@ -454,8 +492,17 @@ export const OfferListButton = styled.button`
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 20px ${theme.colors.goldSoft30};
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
+  min-width: 110px;
+
+  @media (max-width: 560px) {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 16px;
+  }
 
   &::before {
     content: "";

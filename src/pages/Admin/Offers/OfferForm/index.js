@@ -53,11 +53,7 @@ export default function OfferForm({ offer, onSave, onCancel }) {
         </S.ImageCol>
       </S.ImageRow>
 
-      <FormActions
-        offer={offer}
-        saving={saving}
-        onCancel={onCancel}
-      />
+      <FormActions offer={offer} saving={saving} onCancel={onCancel} />
     </S.FormPanel>
   );
 }

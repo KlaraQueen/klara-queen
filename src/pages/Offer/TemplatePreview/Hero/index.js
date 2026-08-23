@@ -30,11 +30,7 @@ const HeroSection = ({
           </S.PriceTag>
         )}
         {liveUrl ? (
-          <S.LiveLink
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <S.LiveLink href={liveUrl} target="_blank" rel="noopener noreferrer">
             Zobacz stronę na żywo
           </S.LiveLink>
         ) : null}
@@ -43,8 +39,8 @@ const HeroSection = ({
         <GallerySection images={images} title={title} />
       ) : (
         <S.NoPhotos>
-          Brak zdjęć w tej ofercie — dodaj je w panelu admina (zdjęcie główne lub
-          galeria), potem zapisz ofertę ponownie.
+          Brak zdjęć w tej ofercie — dodaj je w panelu admina (zdjęcie główne
+          lub galeria), potem zapisz ofertę ponownie.
         </S.NoPhotos>
       )}
     </S.Hero>
