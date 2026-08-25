@@ -12,7 +12,7 @@ const aboutStats = [
     id: 2,
     label: "Szybkość",
     value: "2",
-    description: "Twoja obecność online w 2-4 dni robocze.",
+    description: "Twoja obecność online w 4 dni robocze.",
   },
   {
     id: 3,

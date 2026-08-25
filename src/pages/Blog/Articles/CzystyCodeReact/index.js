@@ -12,7 +12,7 @@ function CzystyCodeReact() {
       </h1>
 
       <p>
-        <strong>20 marca 2026</strong>
+        <strong>20 czerwca 2026</strong>
       </p>
 
       <p>

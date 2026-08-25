@@ -7,10 +7,10 @@ function Proces48h() {
 
   return (
     <ArticleLayout article={article}>
-      <h1>Jak oddajemy gotowy projekt w 48h roboczych? Poznaj nasz proces.</h1>
+      <h1>Jak oddajemy gotowy projekt w 96h roboczych? Poznaj nasz proces.</h1>
 
       <p>
-        <strong>30 marca 2026</strong>
+        <strong>15 sierpnia 2026</strong>
       </p>
 
       <p>
@@ -22,21 +22,21 @@ function Proces48h() {
 
       <p>
         W Studio Klara Queen proces zamyka się w{" "}
-        <strong>48 godzinach roboczych</strong>. Jak to możliwe bez kompromisów
+        <strong>96 godzinach roboczych</strong>. Jak to możliwe bez kompromisów
         w kwestii jakości? Zapraszamy za kulisy naszego warsztatu.
       </p>
 
-      <h2>Czym są nasze „48 godzin”?</h2>
+      <h2>Czym są nasze „96 godzin”?</h2>
 
       <p>
-        Zasada jest prosta: Twój projekt jest gotowy do publikacji w ciągu 48
+        Zasada jest prosta: Twój projekt jest gotowy do publikacji w ciągu 96
         godzin roboczych od momentu zaksięgowania wpłaty i dostarczenia przez
         Ciebie kompletu informacji.
       </p>
 
       <p>
         <strong>
-          48 godzin roboczych = pełne skupienie na Twoim sukcesie.
+          96 godzin roboczych = pełne skupienie na Twoim sukcesie.
         </strong>
       </p>
 
@@ -46,7 +46,8 @@ function Proces48h() {
         <li>Otrzymujemy detale projektu (wytyczne, kolorystyka, treści).</li>
         <li>Rozpoczynamy intensywne prace projektowe i programistyczne.</li>
         <li>
-          Po 48 godzinach roboczych Twoja strona jest gotowa i opublikowana.
+          Po 96 godzinach roboczych Twoja strona jest gotowa i gotowa do
+          publikacji.
         </li>
       </ul>
 
@@ -152,7 +153,7 @@ function Proces48h() {
       <p>
         <strong>Pełna koncentracja:</strong> Pracujemy tylko nad JEDNYM
         projektem jednocześnie. Twoja marka ma naszą całkowitą uwagę przez całe
-        48 godzin.
+        96 godzin.
       </p>
 
       <p>
@@ -202,7 +203,7 @@ function Proces48h() {
               <strong>Czas realizacji</strong>
             </td>
             <td>
-              <strong>48h roboczych</strong>
+              <strong>96h roboczych</strong>
             </td>
             <td>
               <strong>Od 4 do 8 tygodni</strong>

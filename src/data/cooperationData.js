@@ -23,14 +23,14 @@ export const cooperationData = {
             "Kupujesz na aukcji, korzystasz z bezpiecznych płatności platformy i automatycznie trafiasz do kolejki realizacji.",
         },
       ],
-      note: "Ważne: Przystępujemy do pracy natychmiast po zaksięgowaniu wpłaty lub otrzymaniu potwierdzenia z Allegro.",
+      note: "Ważne: Przystępujemy do pracy natychmiast po otrzymaniu wszystkich informacji i od tego czasu liczy się nasze 96 godzin roboczych.",
     },
     {
       id: 2,
       number: "2",
       title: "Strategia i Materiały",
       content:
-        "Nie musisz być techniczna. Przesyłamy Ci interaktywną ankietę, która poprowadzi Cię za rękę.",
+        'Nie musisz być techniczna. Przesyłamy Ci email z pytaniami, które poprowadzą Cię "za rękę".',
       sections: [
         {
           label: "Twoje Zadanie:",
@@ -52,13 +52,13 @@ export const cooperationData = {
     {
       id: 3,
       number: "3",
-      title: "Realizacja: 48h Roboczych",
+      title: "Realizacja: 96h Roboczych",
       content:
         "Tutaj dzieje się magia. Kodujemy Twoją stronę w czystym React.js.",
       details: [
         {
           label: "Czas:",
-          description: "Standardowy czas realizacji to 48 godzin roboczych.",
+          description: "Standardowy czas realizacji to 96 godzin roboczych.",
         },
         {
           label: "Zasada Wypoczętego Eksperta:",
@@ -78,8 +78,8 @@ export const cooperationData = {
       title: 'Przekazanie "Kluczy do Biznesu"',
       content: "Twoja strona ożywa. Ale na tym nie kończymy:",
       deliverables: [
-        "Otrzymujesz od nas komplet haseł i dostępów do konta serwera i domeny.",
-        "Dostajesz prostą instrukcję, co zrobić za rok, żeby przedłużyć domenę (koszt ok. 80 zł – bez naszych marż).",
+        "Otrzymujesz od nas swój kod, który możesz wykorzystać do dalszego rozwoju strony i współpracy z innymi programistami.",
+        "Dostajesz prostą instrukcję, co zrobić za rok, żeby przedłużyć domenę (koszt ok. 150 zł- może zmienić się w zależności od ceny aktualnej domeny).",
         "Strona jest Twoją własnością na zawsze. Możesz ją rozwijać, przenosić i modyfikować bez żadnych ograniczeń.",
       ],
     },
@@ -92,9 +92,9 @@ export const cooperationData = {
     benefits: [
       {
         icon: "3x",
-        title: "3 Lata Opieki",
+        title: "Rok Opieki",
         description:
-          "Masz u nas 3 darmowe pakiety poprawek do wykorzystania przez 36 miesięcy.",
+          "Masz u nas 3 darmowe pakiety poprawek do wykorzystania przez 12 miesięcy.",
       },
       {
         icon: "⚡",
@@ -138,7 +138,7 @@ export const cooperationData = {
             label: "Twoje Sukcesy (Statystyki & Portfolio)",
             points: [
               "Pochwal się liczbami (lata pracy, zadowoleni klienci) lub kluczowymi zaletami.",
-              "Wybierz do 12 najlepszych zdjęć do galerii. Dzielimy je na kategorie (np. Biznes, Sesje, Projekty).",
+              "Wybierz do 12 najlepszych zdjęć do galerii. W zależności od szablonu, dzielimy je na kategorie (np. Biznes, Sesje, Projekty).",
             ],
           },
           {
@@ -193,7 +193,7 @@ export const cooperationData = {
             ],
           },
           {
-            label: "48h Roboczych",
+            label: "96h Roboczych",
             points: [
               "Nasz zegar rusza, gdy otrzymamy od Ciebie komplet materiałów. Pracujemy w dni robocze, aby dostarczyć Ci kod najwyższej jakości.",
             ],

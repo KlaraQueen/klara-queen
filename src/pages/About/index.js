@@ -15,7 +15,7 @@ const About = () => {
       <S.SectionDivider />
 
       <S.SectionContainer>
-        <S.SectionTitle>Manifest</S.SectionTitle>
+        <S.SectionTitle>O Nas</S.SectionTitle>
         <S.ContentWrapper>
           <Manifesto />
         </S.ContentWrapper>

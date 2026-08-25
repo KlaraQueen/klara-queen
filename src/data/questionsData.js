@@ -3,19 +3,19 @@ export const questionsData = [
     id: 1,
     question: "Czy muszę płacić za serwer (hosting) co roku?",
     answer:
-      'Nie. To nasza największa przewaga. Twoja strona korzysta z profesjonalnej infrastruktury, dzięki której serwer masz za darmo na zawsze. Nie płacisz co miesiąc ani co rok za "utrzymanie systemu". Jedyny koszt to odnowienie domeny (ok. 80 zł rocznie), przy czym pierwszy rok masz już wliczony w cenę strony. Jest to koszt, którego nie unikniesz, niezależnie od tego, z jakim dostawcą współpracujesz. My po prostu oferujemy Ci darmowy hosting, co jest ogromną oszczędnością w porównaniu do innych rozwiązań na rynku.',
+      'Nie. To nasza największa przewaga. Twoja strona korzysta z profesjonalnej infrastruktury, dzięki której serwer masz za darmo na zawsze (lub do kiedy współpracujesz własnie z nami). Nie płacisz co miesiąc ani co rok za "utrzymanie systemu". Jedyny koszt to odnowienie domeny (ok. 150 zł rocznie, może zmieniać się w zależności od ceny aktualnej domeny), przy czym pierwszy rok masz już wliczony w cenę strony. Jest to koszt, którego nie unikniesz, niezależnie od tego, z jakim dostawcą współpracujesz. My po prostu oferujemy Ci darmowy hosting, co jest ogromną oszczędnością w porównaniu do innych rozwiązań na rynku.',
   },
   {
     id: 2,
-    question: "Skąd bierze się tak krótki czas realizacji (48h)?",
+    question: "Skąd bierze się tak krótki czas realizacji (96h)?",
     answer:
-      "To kwestia perfekcyjnej optymalizacji. Pracujemy na naszych autorskich fundamentach, które projektowaliśmy od zera przez wiele miesięcy. Zamiast tracić czas na powtarzalne ustawienia techniczne, od razu przechodzimy do personalizacji Twojej marki. Cały proces zamykamy zazwyczaj w 48 godzinach roboczych.",
+      "To kwestia perfekcyjnej optymalizacji. Pracujemy na naszych autorskich fundamentach, które projektowaliśmy od zera przez wiele miesięcy. Zamiast tracić czas na powtarzalne ustawienia techniczne, od razu przechodzimy do personalizacji Twojej marki. Cały proces zamykamy zazwyczaj w 96 godzinach roboczych.",
   },
   {
     id: 3,
     question: "Co w przypadku, gdy będę potrzebować zmian w przyszłości?",
     answer:
-      "Gwarantujemy Ci pełne bezpieczeństwo. W cenie otrzymujesz trzy bezpłatne pakiety poprawek, z których możesz skorzystać w ciągu aż 3 lat od startu strony (np. przy zmianie numeru telefonu czy cennika). Każda kolejna modyfikacja to symboliczny koszt rzędu 10-50 zł – najtaniej na rynku. To rozwiązanie, które daje Ci spokój i pewność, że Twoja strona będzie zawsze aktualna i dostosowana do potrzeb Twojego biznesu, bez obaw o wysokie koszty zmian w przyszłości.",
+      "Gwarantujemy Ci pełne bezpieczeństwo. W cenie otrzymujesz trzy bezpłatne pakiety poprawek, z których możesz skorzystać w ciągu roku od startu strony (np. przy zmianie numeru telefonu czy cennika). Każda kolejna modyfikacja to symboliczny koszt rzędu 10-50 zł – najtaniej na rynku. To rozwiązanie, które daje Ci spokój i pewność, że Twoja strona będzie zawsze aktualna i dostosowana do potrzeb Twojego biznesu, bez obaw o wysokie koszty zmian w przyszłości.",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const questionsData = [
     id: 8,
     question: "Czy będę mieć pełną kontrolę i dostęp do strony?",
     answer:
-      "Jak najbardziej. Przekazujemy Ci komplet haseł i dostępów do Twoich własnych kont. Nasz kod jest czysty i uporządkowany – jeśli kiedykolwiek zdecydujesz się przekazać stronę innemu informatykowi, odnajdzie się on w strukturze bez problemu. Jesteś w 100% niezależna.",
+      "Jak najbardziej. Przekazujemy Ci napisany kod do Twojej strony. Nasz kod jest czysty i uporządkowany – jeśli kiedykolwiek zdecydujesz się przekazać stronę innemu informatykowi, odnajdzie się on w strukturze bez problemu. Jesteś w 100% niezależna.",
   },
   {
     id: 9,
@@ -70,7 +70,7 @@ export const questionsData = [
     id: 12,
     question: "Co jeśli nie mam gotowych treści i nie wiem, co napisać?",
     answer:
-      "To najczęstsza obawa, dlatego maksymalnie uprościliśmy ten proces. Nie musisz być pisarzem ani fotografem. Po zakupie otrzymasz od nas prostą, interaktywną ankietę, która 'wyciągnie' od Ciebie najważniejsze informacje o Twoim biznesie. Na ich podstawie przygotujemy profesjonalne teksty, a jeśli brakuje Ci zdjęć – wygenerujemy dla Twojej marki unikalne grafiki AI. Nasza strona jest elastyczna: jeśli nie masz jeszcze cennika czy zespołu, po prostu ukryjemy te sekcje, a całość nadal będzie wyglądać luksusowo i spójnie. Więcej informacji znajdziesz w sekcji",
+      "To najczęstsza obawa, dlatego maksymalnie uprościliśmy ten proces. Nie musisz być pisarzem ani fotografem. Po zakupie otrzymasz od nas prostą ankietę, która 'wyciągnie' od Ciebie najważniejsze informacje o Twoim biznesie. Na ich podstawie przygotujemy profesjonalne teksty, a jeśli brakuje Ci zdjęć – wygenerujemy dla Twojej marki unikalne grafiki AI. Nasza strona jest elastyczna: jeśli nie masz jeszcze cennika czy zespołu, po prostu ukryjemy te sekcje, a całość nadal będzie wyglądać luksusowo i spójnie. Więcej informacji znajdziesz w sekcji",
     cooperationLink: true,
   },
 ];

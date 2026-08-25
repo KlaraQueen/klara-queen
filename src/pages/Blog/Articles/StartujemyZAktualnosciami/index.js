@@ -10,7 +10,7 @@ function StartujemyZAktualnosciami() {
       <h1>Startujemy z Aktualnościami – Sekcja tworzona z myślą o Was</h1>
 
       <p>
-        <strong>30 stycznia 2026</strong>
+        <strong>30 maja 2026</strong>
       </p>
 
       <p>
@@ -42,7 +42,7 @@ function StartujemyZAktualnosciami() {
         <li>„Ile czasu realnie trwa stworzenie profesjonalnej strony?”</li>
         <li>„Dlaczego stawiacie na React, a nie na inne rozwiązania?”</li>
         <li>„Jak w praktyce dbacie o bezpieczeństwo moich danych?”</li>
-        <li>„Czy rzeczywiście można stworzyć stronę premium w 48 godzin?”</li>
+        <li>„Czy rzeczywiście można stworzyć stronę premium w 96 godzin?”</li>
       </ul>
 
       <p>

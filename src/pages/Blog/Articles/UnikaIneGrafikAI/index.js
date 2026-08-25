@@ -10,7 +10,7 @@ function UnikalneGrafikiAI() {
       <h1>Nowość: Unikalne grafiki AI w cenie każdej strony</h1>
 
       <p>
-        <strong>25 marca 2026</strong>
+        <strong>25 lipca 2026</strong>
       </p>
 
       <p>
@@ -85,10 +85,6 @@ function UnikalneGrafikiAI() {
         <li>
           <strong>Spójność wizualna:</strong> zestawienie grafik, które idealnie
           współgra z Twoją wizją artystyczną.
-        </li>
-        <li>
-          <strong>Bezpieczeństwo prawne:</strong> otrzymujesz pełne prawa
-          komercyjne do wykorzystanych obrazów.
         </li>
       </ul>
 
